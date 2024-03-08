@@ -1,7 +1,7 @@
 // Standard object definitions:
-scope = 2;                                                     // Editor visibility; 2 will show it in the menu, 1 will hide it.
-displayName      = "Virtualization-Zone";                     // Name displayed in the menu
-icon             = "\a3\Modules_F\Data\iconSavegame_ca.paa"; // Map icon. Delete this entry to use the default icon.
+scope = 2;                                                                // Editor visibility; 2 will show it in the menu, 1 will hide it.
+displayName      = "Squad Objective";                                     // Name displayed in the menu
+icon             = "\A3\ui_f\data\map\markers\military\objective_CA.paa"; // Map icon. Delete this entry to use the default icon.
 category         = "SQFSM_modules";
 canSetArea       = 1;
 canSetAreaHeight = 1;
