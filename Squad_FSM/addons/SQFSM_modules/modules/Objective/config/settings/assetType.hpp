@@ -17,19 +17,19 @@ class assetType : Combo
 
         class cars
         {
-            name  = "Light Vehicles";
+            name  = "Light Vehicles (Cars and MRAPs)";
             value = "cars";
         };
 
         class armor_l
         {
-            name  = "Light Armor";
+            name  = "Light Armor (APCs, AA)";
             value = "armor_l";
         };
 
 		class armor_h
         {
-            name  = "Heavy Armor";
+            name  = "Heavy Armor (Tanks)";
             value = "armor_h";
         };
     };

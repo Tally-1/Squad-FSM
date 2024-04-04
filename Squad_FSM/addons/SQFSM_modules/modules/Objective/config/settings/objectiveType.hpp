@@ -2,7 +2,7 @@ class objectiveType : Combo
 {
     property     = "SQFSM_Objective_objectiveType";      // Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
     displayName  = "Objective Type";
-    tooltip      = "Select how the module will be activated.";
+    tooltip      = "Select Objective type.\n\n This may affect AI behaviour.";
     typeName     = "STRING";
     defaultValue = """fob""";
     

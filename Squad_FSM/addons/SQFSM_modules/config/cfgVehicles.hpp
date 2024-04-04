@@ -31,4 +31,5 @@ class CfgVehicles
     };
 
     #include "..\modules\Objective\config\main.hpp"
+    #include "..\modules\TransportSpawner\main.hpp"
 };

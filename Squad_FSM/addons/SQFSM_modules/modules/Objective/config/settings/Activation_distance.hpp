@@ -4,7 +4,7 @@ class activationDistance : Combo
     displayName  = "Activation Distance";
     tooltip      = "If within this distance a squad will move towards the objective (when needed)";
     typeName     = "NUMBER";
-    defaultValue = "500";
+    defaultValue = "750";
     
     // Listbox items:
     class Values
