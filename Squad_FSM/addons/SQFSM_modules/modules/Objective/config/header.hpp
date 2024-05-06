@@ -15,3 +15,9 @@ isDisposable       = 1;            // 1 if modules is to be disabled once it is 
 is3DEN             = 1;           // 1 to run init function in Eden Editor as well
 // curatorInfoType = "RscDisplayAttributeModuleNuke"; // Menu displayed when the module is placed or double-clicked on by Zeus
 
+// Default Area size and shape
+class AttributeValues
+{
+    size3[]={50,50,50};
+    isRectangle=1;
+};

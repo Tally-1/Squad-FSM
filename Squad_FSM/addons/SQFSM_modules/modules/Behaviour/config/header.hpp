@@ -1,7 +1,7 @@
 // Standard object definitions:
 scope = 2;                                                                // Editor visibility; 2 will show it in the menu, 1 will hide it.
 displayName      = "Squad Behaviour";                                     // Name displayed in the menu
-icon             = "\A3\ui_f\data\map\markers\military\objective_CA.paa"; // Map icon. Delete this entry to use the default icon.
+icon             = "\a3\ui_f\data\igui\cfg\simpletasks\types\Use_ca.paa"; // Map icon. Delete this entry to use the default icon.
 category         = "SQFSM_modules";
 canSetArea       = 0;
 canSetAreaHeight = 0;
