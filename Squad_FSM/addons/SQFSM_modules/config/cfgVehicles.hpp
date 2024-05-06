@@ -21,8 +21,6 @@ class CfgVehicles
             
         };
         
-        
-
         // Description base classes (for more information see below):
         class ModuleDescription
         {
@@ -30,6 +28,5 @@ class CfgVehicles
         };
     };
 
-    #include "..\modules\Objective\config\main.hpp"
-    #include "..\modules\TransportSpawner\main.hpp"
+    #include "..\modules\modules.hpp"
 };
