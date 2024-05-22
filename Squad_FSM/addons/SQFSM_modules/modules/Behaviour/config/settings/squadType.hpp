@@ -10,7 +10,7 @@ class squadType : Combo
     // Listbox items:
     class Values
     {
-        class HQ
+        class standard
         {
             name  = "Standard";
             value = "standard";

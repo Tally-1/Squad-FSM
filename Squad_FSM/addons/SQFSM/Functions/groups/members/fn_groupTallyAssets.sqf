@@ -1,4 +1,5 @@
-private _men        = count (_self call ["nonCrewMen"]);
+private _infantry   = _self call ["nonCrewMen"] select {[_x] call SQFM_fnc_functionalMan};
+private _men        = count _infantry;
 private _vehicles   = (_self call ["getVehiclesInUse"]) select {[_x] call SQFM_fnc_validVehicle};
 private _armedCars  = 0;
 private _lightArmor = 0;

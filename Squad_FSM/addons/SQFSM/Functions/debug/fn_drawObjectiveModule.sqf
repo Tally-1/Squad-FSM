@@ -1,7 +1,7 @@
 private _desc  = _self get "description";
 private _asset = _self get "asset";
-private _count = _self get "count";
-private _text  = [_desc," (",_count," ",_asset,")"]joinString"";
+private _count = _self get "assetStrength";
+private _text  = [_desc," (",_count,")"]joinString"";
 private _icon  = _self get "defaultIcon";
 private _color = _self get "3dColor";
 

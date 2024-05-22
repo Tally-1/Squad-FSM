@@ -9,15 +9,18 @@ class CfgFunctions
 			class initBattle                   {};
 			class initBattleMap                {};
 			class initBattleBuildings          {};
+			class updateBattleBuildings        {};
 			class getUrbanZones                {};
 			class postInitBattle               {};
 			class updateBattle                 {};
 			class battlefieldRadius            {};
 			class battlefieldDimensions        {};
+			class battlefieldCenter            {};
 			class getBattleGrid                {};
 
 			class posInBattleZone              {};
 			class nearestBattlePosRad          {};
+			class distanceToNearestBattle      {};
 			class initBattleGroups             {};
 			class endBattleGroups              {};
 			class onBattleFirstShot            {};
@@ -42,6 +45,7 @@ class CfgFunctions
 			class hashifyClusterData      {};
 			class cluster                 {};
 			class setClusterGrid          {};
+			class clustersFromObjArr      {};
 
 		};
 		
@@ -72,12 +76,17 @@ class CfgFunctions
 
 		class misc
 		{
-			file =    "\SQFSM\Functions\misc";
+			file = "\SQFSM\Functions\misc";
 			class copyHashmap            {};
 			class sideToStrSide          {};
 			class removeNull             {};
 			class getData                {};
 			class sidesFromGroupArr      {};
+			class getTextTexture         {};
+			class enemiesInZone          {};
+			class getLocationNamePos     {};
+			class closestLocationName    {};
+			class areaName               {};
 
 		};
 
@@ -102,6 +111,8 @@ class CfgFunctions
 			class clearPos               {};
 			class clearPosSqrArea        {};
 			class clearPosInArea         {};
+			class posHasTerrainCover     {};
+			class posIsHidden            {};
 			class numDiff                {};
 			class decimals               {};
 			class objectShape            {};
@@ -110,28 +121,43 @@ class CfgFunctions
 			class roadsInArea            {};
 			class findParkingSpot        {};
 			class getAreaParkingPos      {};
+			class formatDir              {};
+			class lineBroken             {};
+			class selectSafePositions    {};
+			class semiCirclePosArr       {};
+			class formatDirRanges        {};
+			class inDirRange             {};
+			class dangerZoneSafePositions{};
+			class describeDistance       {};
+			class describeDir            {};
 
 		};
 
 		class objectiveModule
 		{
-			file =    "\SQFSM\Functions\objectiveModule";
-			class initObjective                {};
-			class setObjectiveData             {};
-			class setObjectiveMethods          {};
-			class updateMethodsAllObjectives   {};
-			class objectiveDescription         {};
-			class assetTypesMatch              {};
-			class objectiveAssignGroup         {};
-			class objectiveUnAssignGroup       {};
-			class objectiveGetAssignedAssets   {};
-			class objectiveNeedsTroops         {};
-			class objectiveGetContested        {};
-			class objectiveGetSidesInZone      {};
-			class objectiveUpdate              {};
-			class updateAllObjectives          {};
-			class objectiveCountAssignedAssets {};
-			class objectivesSorted             {};
+			file =       "\SQFSM\Functions\objectiveModule";
+			class initObjective                   {};
+			class setObjectiveData                {};
+			class setObjectiveMethods             {};
+			class updateMethodsAllObjectives      {};
+			class objectiveDescription            {};
+			class assetTypesMatch                 {};
+			class objectiveAssignGroup            {};
+			class objectiveUnAssignGroup          {};
+			class objectiveGetAssignedAssets      {};
+			class objectiveNeedsTroops            {};
+			class objectiveGetContested           {};
+			class objectiveGetSidesInZone         {};
+			class objectiveUpdate                 {};
+			class updateAllObjectives             {};
+			class objectiveCountAssignedAssets    {};
+			class objectivesSorted                {};
+			class nearestObjective                {};
+			class objectiveStoreSafePosSearch     {};
+			class objectiveGetStoredSafePositions {};
+			class objectiveSafeposMatch           {};
+			class objectiveRemoveSafePosSearches  {};
+			class objectiveOnCapture              {};
 
 		};
 
@@ -219,7 +245,17 @@ class CfgFunctions
 			class groupsInZone             {};
 			class updateMethodsAllGroups   {};
 			class isPlayerGroup            {};
+			class groupBehaviourSettings   {};
+			class groupGetBehaviorModule   {};
 		};
+
+		class groups_abilities
+		{
+			file = "\SQFSM\Functions\groups\abilities";
+			class getGroupAbilities          {};
+			class groupAttackOnly            {};
+			class groupDefendOnly            {};
+		}
 
 		class groups_combat
 		{
@@ -230,7 +266,6 @@ class CfgFunctions
 			class groupBattleInit          {};
 			class groupBattleEnd           {};
 			class timeSinceLastGroupBattle {};
-
 		};
 		
 		class groups_suppress
@@ -305,6 +340,9 @@ class CfgFunctions
 			class groupIsInfantrySquad     {};
 			class groupType                {};
 			class groupGetStrSide          {};
+			class groupSetStrengthIcon     {};
+			class getGroupStrength         {};
+
 		};
 
 		class groups_tasks
@@ -318,31 +356,47 @@ class CfgFunctions
 		class groups_debug
 		{
 			file = "\SQFSM\Functions\groups\debug";
-			class groups3D             {};
-			class group3D              {};
-			class group3DNoData        {};
-			class group3DIcon          {};
-			class group3DColor         {};
-			class group3DText          {};
-			class units3D              {};
+			class groups3D                {};
+			class group3D                 {};
+			class group3DNoData           {};
+			class group3DIcon             {};
+			class group3DColor            {};
+			class group3DText             {};
+			class units3D                 {};
+			class groupDebugText          {};
+			class groupDebugTextAbilities {};
 		};
 
 		class groups_objectives
 		{
 			file = "\SQFSM\Functions\groups\objectives";
-			class group_validObjective        {};
-			class groupObjectiveInRange       {};
-			class groupGetNearObjectives      {};
-			class groupAssignObjective        {};
-			class groupOnObjectiveArrival     {};
-			class groupInitObjectiveTask      {};
-			class groupTakeObjective          {};
-			class groupGuardObjective         {};
-			class groupObjectiveData          {};
-			class groupAutoAssignObjective    {};
-			class assignGroupListToObectives  {};
-			class assignAllGroupsToObjective  {};
-			
+			class group_validObjective            {};
+			class groupObjectiveInRange           {};
+			class groupGetNearObjectives          {};
+			class groupIsInsideObjective          {};
+			class groupAssignObjective            {};
+			class groupUnAssignObjective          {};
+			class groupOnObjectiveArrival         {};
+			class groupInitObjectiveTask          {};
+			class groupTakeObjective              {};
+			class groupGuardObjective             {};
+			class groupObjectiveData              {};
+			class groupAutoAssignObjective        {};
+			class groupTypeMatchObjective         {};
+			class groupObjectiveHostile           {};
+			class groupObjectiveInsertPosStandard {};
+			class groupObjectiveInsertPosDanger   {};
+			class groupObjectiveInsertPos         {};
+
+			/*Attack*/
+			class assignGroupsAndObjectives       {};
+			class groupAssignAttackObjective      {};
+			class groupObjectiveAttackLoop        {};
+			class groupEndObjectiveAttack         {};
+			class groupAttackObjective            {};
+			class groupAssignDefenseObjective     {};
+
+
 		};
 
 		class groups_tactics
@@ -356,11 +410,13 @@ class CfgFunctions
 		{
 			file = "\SQFSM\Functions\groups\misc";
 			class groupIsIdle           {};
+			class groupUpdate           {};
 			class activeWp              {};
 			class getIdleGroups         {};
+			class getCategorizedGroups  {};
+			class assignAllGroupTasks   {};
 
 		};
-
 
 		class init
 		{
@@ -375,10 +431,15 @@ class CfgFunctions
 		class globalEvents
 		{
 			file = "\SQFSM\Functions\globalEvents";
-			class groupSpawnedEh      {};
-			class projectileCreated   {};
-			class onProjectileCreated {};
-
+			class groupSpawnedEh             {};
+			class projectileCreated          {};
+			class onProjectileCreated        {};
+			class entityKilledEh             {};
+			class ACE_MedicalEvents          {};
+			class ACE_Medical_OnStatusChange {};
+			class curatorEvents              {};
+			class onCuratorGroupSelection    {};
+			class buildingChangedEh          {};
 		};
 
 		class taskManager

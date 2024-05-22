@@ -25,15 +25,16 @@ private _dataArr = [
 	["urbanZones",                []],
 
 /***************Methods*************************/
-    ["initGroups",    SQFM_fnc_initBattleGroups],
-    ["postInit",      {_self spawn SQFM_fnc_postInitBattle}],
-	["update",        SQFM_fnc_updateBattle],
-    ["endGroups",     SQFM_fnc_endBattleGroups],
-    ["endBattle",     SQFM_fnc_endBattle],
-    ["drawBattle",    SQFM_fnc_drawBattle],
-    ["onFirstShot",   SQFM_fnc_onBattleFirstShot],
-	["timeSinceShot", SQFM_fnc_timeSinceLastBattleShot],
-	["initBuildings", {_self spawn SQFM_fnc_initBattleBuildings}]
+    ["initGroups",      SQFM_fnc_initBattleGroups],
+    ["postInit",        {_self spawn SQFM_fnc_postInitBattle}],
+	["update",          SQFM_fnc_updateBattle],
+    ["updateBuildings", SQFM_fnc_updateBattleBuildings],
+    ["endGroups",       SQFM_fnc_endBattleGroups],
+    ["endBattle",       SQFM_fnc_endBattle],
+    ["drawBattle",      SQFM_fnc_drawBattle],
+    ["onFirstShot",     SQFM_fnc_onBattleFirstShot],
+	["timeSinceShot",   SQFM_fnc_timeSinceLastBattleShot],
+	["initBuildings",   {_self spawn SQFM_fnc_initBattleBuildings}]
 ];
 
 private _battleMap = createHashmapObject [_dataArr];

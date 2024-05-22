@@ -14,6 +14,22 @@ class allowObjectiveDefense : Checkbox
     defaultValue = "true";
 };
 
+class isReinforcement : Checkbox
+{
+    property     = "SQFSM_isReinforcement";
+    displayName  = "Can reinforce";
+    tooltip      = "When available, the squad will respond to reinforcement calls.";
+    defaultValue = "true";
+};
+
+class canHunt : Checkbox
+{
+    property     = "SQFSM_canHuntt";
+    displayName  = "Can Hunt";
+    tooltip      = "When available, the squad will seek and destroy known enemies within 1000m.";
+    defaultValue = "true";
+};
+
 class allowArtySupportCall : Checkbox
 {
     property     = "SQFSM_allowArtySupportCall";
@@ -35,13 +51,5 @@ class allowReinforcementCall : Checkbox
     property     = "SQFSM_allowReinforcementCall";
     displayName  = "Can call reinforcements";
     tooltip      = "If checked this squad will be able to call for reinforcements.";
-    defaultValue = "true";
-};
-
-class isReinforcement : Checkbox
-{
-    property     = "SQFSM_isReinforcement";
-    displayName  = "Can reinforce";
-    tooltip      = "When available, the squad will respond to reinforcement calls.";
     defaultValue = "true";
 };

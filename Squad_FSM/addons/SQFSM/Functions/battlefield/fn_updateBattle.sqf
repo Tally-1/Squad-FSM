@@ -26,7 +26,8 @@ private _invalidGroups = _allGroups select {(!isNull _x)&& {!([_x] call SQFM_fnc
 	
 } forEach _invalidGroups;
 
-_self set ["sides",   _sides];
-_self set ["groups", _groups];
+_self set  ["sides",   _sides];
+_self set  ["groups", _groups];
+_self call ["updateBuildings"];
 
 true;

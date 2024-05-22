@@ -23,8 +23,11 @@ waitUntil {
 	private _timedOut = time > _timer;
 	private _stateTxt = ["Unloading (",_percent,"%)"]joinString"";
 	_taskData set ["state", _stateTxt];
-
-	(_onFoot || _timedOut);
+	
+	if((!isNil "_onFoot")&&{_onFoot})     exitWith{true;};
+	if((!isNil "_timedOut")&&{_timedOut}) exitWith{true;};
+	
+	false;
 };
 
 private _onFoot = _psngrData call ["boardingStatus"] isEqualTo "on foot";

@@ -12,10 +12,14 @@ private _methods =
     ["setContested",{_self set ["contested",_self call["getContested"]]}],
     ["inBattle",          {_self get"zone"call SQFM_fnc_posInBattleZone}],
     ["update",                                  SQFM_fnc_objectiveUpdate],
+    ["onCapture",                            SQFM_fnc_objectiveOnCapture],
     ["troopsNeeded",                       SQFM_fnc_objectiveNeedsTroops],
     ["assignGroup",                        SQFM_fnc_objectiveAssignGroup],
     ["unAssignGroup",                    SQFM_fnc_objectiveUnAssignGroup],
 	["draw3D",                              SQFM_fnc_drawObjectiveModule],
+    ["storeSafePosSearch",          SQFM_fnc_objectiveStoreSafePosSearch],
+    ["removeSafePosSearches",    SQFM_fnc_objectiveRemoveSafePosSearches],
+    ["getStoredSafePositions",  SQFM_fnc_objectiveGetStoredSafePositions],
     ["setMethods",           {[_self] call SQFM_fnc_setObjectiveMethods}]
 ];
 

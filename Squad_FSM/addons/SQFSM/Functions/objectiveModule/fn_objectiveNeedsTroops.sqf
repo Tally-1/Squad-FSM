@@ -1,5 +1,6 @@
 params[
-    ["_side",nil,[""]] // ["west","east","independent"]
+    ["_side",   nil,     [""]], // ["west","east","independent"]
+    ["_attack", false,[false]]
 ];
 
 if(isNil "_side")exitWith{
@@ -7,13 +8,11 @@ if(isNil "_side")exitWith{
     false;
 };
 
-private _wantedAsset    = _self get "asset";
-private _wantedCount    = _self get "count";
-private _assignedAssets = _self call ["getAssignedAssets",[_side]];
-private _assignedCount  = _assignedAssets get _wantedAsset;
+private _strengthNeeded   = _self get "assetStrength";
+private _assignedStrength = (_self call ["getAssignedAssets", [_side]])get"sum";
 
-if(isNil "_assignedCount")then{_assignedCount = 0;};
+if(_attack)then{_strengthNeeded=_strengthNeeded*2};
 
-private _moreNeeded     = _assignedCount < _wantedCount;
+private _moreNeeded = _assignedStrength < _strengthNeeded;
 
 _moreNeeded;

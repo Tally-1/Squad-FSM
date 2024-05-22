@@ -1,1 +1,1 @@
-call SQFM_fnc_assignAllGroupsToObjective;
+// call SQFM_fnc_assignAllGroupsToObjective;

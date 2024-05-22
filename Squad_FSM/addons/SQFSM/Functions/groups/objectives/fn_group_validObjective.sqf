@@ -1,16 +1,16 @@
 params[
-	["_objectiveModule",nil,[objNull]]
+	["_objModul",nil,[objNull]]
 ];
-private _objctvData   = _objectiveModule getVariable "SQFM_objectiveData";
-private _assetWanted  = _objctvData get "asset";
-private _allowedSides = _objctvData get "allowedSides";
-private _groupType    = _self       get "groupType";
-private _side         = side (_self get "grp");
-private _matches      = [_assetWanted, _groupType] call SQFM_fnc_assetTypesMatch;
-private _inRange      = _self call ["objectiveInRange",[_objectiveModule]];
+private _objData       = _objModul call getData;
+private _allowedSides  = _objData get "allowedSides";
+private _groupType     = _self    get "groupType";
+private _side          = _self    get "side";
+private _strSide       = _self call ["getStrSide"];
+private _inRange       = _self call ["objectiveInRange",[_objModul]];
 
-if!(_side in _allowedSides) exitWith{false;};
-if!(_matches)               exitWith{false;};
-if!(_inRange)               exitWith{false;};
+if!(_inRange)                                      exitWith{false};//{"Out of range" call dbgm;false;};//
+if!(_side in _allowedSides)                        exitWith{false};//{"Wong side" call dbgm;false;};//
+if!(_objData call ["troopsNeeded",[_strSide]])     exitWith{false};//{"Has troops" call dbgm;false;};//
+if!(_self call ["typeMatchObjective",[_objModul]]) exitWith{false};//{"No match" call dbgm;false;};//
 
 true;

@@ -1,7 +1,9 @@
+private _targetPos = (_this#0)#0;
 params[
-  ["_area",           nil,    [[]]],
-  ["_minPosCount",    1,       [0]],
-  ["_allowExpansion", true, [true]]
+  ["_area",           nil,                [[]]],
+  ["_minPosCount",    1,                   [0]],
+  ["_allowExpansion", true,             [true]],
+  ["_proxyPos",       _targetPos, [[],objNull]]
 ];
 
 private _areaSize = selectMax[_area#1, _area#2];
@@ -19,6 +21,6 @@ while{_posCount<_minPosCount
     _posCount = count _posgrid;
 };
 
-_posgrid = [_posgrid, [], {_center distance _x}, "ASCEND"] call BIS_fnc_sortBy;
+_posgrid = [_posgrid, [], {_center distance _proxyPos}, "ASCEND"] call BIS_fnc_sortBy;
 
 _posgrid;

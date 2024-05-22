@@ -9,20 +9,20 @@ do {
         if(time > _tenSecondTimer)
         then{
                 _tenSecondTimer = time + 10;
-                [] call SQFM_fnc_tenSecondTasks;
+                call SQFM_fnc_tenSecondTasks;
             };
         
         if(time > _minuteTimer)
         then{
                 _minuteTimer    = time + 60;
-                [] call SQFM_fnc_minuteTasks;
+                call SQFM_fnc_minuteTasks;
             };
         
         
         if(time > _fiveMinTimer)
         then{
                 _fiveMinTimer   = time + 300;
-                [] call SQFM_fnc_fiveMinTasks;
+                call SQFM_fnc_fiveMinTasks;
             };
         
         private _timeSpent = time - _startTime;

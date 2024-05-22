@@ -1,12 +1,13 @@
 params[
-    ["_movePos",  nil,    [[]]],
-    ["_taskName", "move", [""]]
+    ["_movePos",     nil,      [[]]],
+    ["_taskName",    "move",   [""]],
+    ["_findParking", false, [false]]
 ];
 private _grpPos         = _self call ["getAvgPos"];
 private _distance       = _movePos distance2D _grpPos;
 private _boardingStatus = _self call ["boardingStatus"];
 private _travelNow      = _distance < 500 || {_boardingStatus isEqualTo "boarded"};
-private _params         = [_movePos, _taskName];
+private _params         = [_movePos, _taskName, _findParking];
 
 // The group moves to its destination as is.
 if(_travelNow)
@@ -30,6 +31,9 @@ exitWith{
 // Transport is called, if denied the move is aborted.
 private _transport = _self call ["callTransport", [_movePos]];
 if(isNull _transport)
-exitWith{false;};
+exitWith{
+    "Transport denied" call dbgm;
+    false;
+};
 
 true;

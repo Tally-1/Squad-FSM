@@ -10,7 +10,6 @@ private _radius = selectMax[_area#1, _area#2];
 private _center    = _area#0;
 private _roads     = _center nearRoads _radius;
 private _roadCount = count _roads;
-private _attempts  = 0;
 
 if(_allowExpansion)then{
     for "_i"from 1 to 10 do 
@@ -18,7 +17,6 @@ if(_allowExpansion)then{
         if(_roadCount >= _minRoadCount)exitWith{};
         
         _radius    = _radius+50;
-        _attempts  = _attempts+1;
         _roads     = _center nearRoads _radius;
         _roadCount = count _roads;
     };

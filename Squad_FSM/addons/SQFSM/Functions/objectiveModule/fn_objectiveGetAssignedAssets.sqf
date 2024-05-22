@@ -22,7 +22,13 @@ private _heavyArmor = 0;
     
 }} forEach _groups;
 
-private _total    = _men+(_armedCars*2)+(_lightArmor*3)+(_heavyArmor*4);
+private _total = 
+(_men        * SQFM_manValue)+
+(_armedCars  * SQFM_carValue)+
+(_lightArmor * SQFM_ApcValue)+
+(_heavyArmor * SQFM_MbtValue);
+
+
 private _assetMap = createHashmapObject 
 [[
     ["infantry",  _men],

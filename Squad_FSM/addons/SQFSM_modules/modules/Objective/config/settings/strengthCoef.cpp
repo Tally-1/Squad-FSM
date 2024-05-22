@@ -8,7 +8,7 @@
 
 #define tip "Define the strength assigned to this objective.\nStrength Values:\nMAN = 1\nMRAP = 3\nAPC = 5\nTANK = 9\nA more Detailed description is found in the description at the bottom."
 
-class assetCount: Edit
+class capStrength: Edit
 {
     
     property     = "SQFSM_Objective_assetCount";

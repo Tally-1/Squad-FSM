@@ -3,6 +3,8 @@ params [
 	["_posB",  nil, [[],objNull]],
 	["_round", false, [false]]
 ]; 
+if(typeName _posA isEqualTo "OBJECT")then{_posA = getPosATLVisual _posA};
+if(typeName _posB isEqualTo "OBJECT")then{_posB = getPosATLVisual _posB};
 
 private _dir      = _posA getDir _posB;
 private _distance = (_posA distance2D _posB) / 2;

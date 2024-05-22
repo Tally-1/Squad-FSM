@@ -5,6 +5,7 @@ class SQFSM_Objective : Module_F
     // Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
     class Attributes : AttributesBase
     {
+        #include "settings\defaultOwner.cpp"
         #include "settings\objectiveType.cpp"
         #include "settings\sideCheckboxes.cpp"
         #include "settings\ActivationDistance.cpp"

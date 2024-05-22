@@ -54,12 +54,12 @@ private _onReturnWp       = '[group this] call  SQFM_fnc_onReturnWpTransporter';
 private _pickupWp = _transportTask call ["addWaypoint", [_pickupPos, _onPickupWp,nil,"FULL"]];
 private _droppWp  = _transportTask call ["addWaypoint",             [_dropOffPos, _onDropWp]];
 private _returnWp = _transportTask call ["addWaypoint",             [_startPos, _onReturnWp]];
-
-_waitWp = _callerGroup addWaypoint [_pickupPos, 0];
+private _waitWp   = _callerGroup addWaypoint [_pickupPos, 0];
 
 _pickupWp synchronizeWaypoint [_waitWp];
-_pickupWp setWaypointCompletionRadius 10;
-_droppWp  setWaypointCompletionRadius 20;
+_waitWp   setWaypointCompletionRadius 30;
+_pickupWp setWaypointCompletionRadius 50;
+_droppWp  setWaypointCompletionRadius 100;
 _returnWp setWaypointCompletionRadius 30;
 
 _transportGroup setSpeedMode "FULL";

@@ -49,8 +49,6 @@ class objectiveType : Combo
         {
             name  = "Observation Post";
             value = "op";
-        };
-
-        
+        };        
     };
 };

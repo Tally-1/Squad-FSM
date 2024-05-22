@@ -5,6 +5,8 @@ private _rad       = _zone#1;
 
 _self set ["state", ""];
 _self set ["action", "Clearing area"];
-private _statement = '((group this getVariable "SQFM_grpData")get"taskData")call["endTask"]';
+
+private _statement = '((group this call getData)get"taskData")call["endTask"]';
+
 _taskData call ["addWaypoint", [_pos,nil,"SAD"]];
 _taskData call ["addWaypoint", [_pos,_statement,nil,nil,nil,_rad]];
