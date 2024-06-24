@@ -17,6 +17,7 @@ SQFM_deadGroups         = [];
 SQFM_battleList         = [];
 SQFM_validSides         = [east, west, independent];
 SQFM_battles            = createHashmapObject [[]];
+SQFM_reinforRequests    = createHashmapObject [[]];
 SQFM_maxBattleSize      = 1000;
 SQFM_minBattleSize      = 100;
 SQFM_lastBuildingChange = 0;

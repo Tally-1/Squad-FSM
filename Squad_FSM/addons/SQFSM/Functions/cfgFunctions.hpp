@@ -6,27 +6,33 @@ class CfgFunctions
 		class battlefield
 		{
 			file = "\SQFSM\Functions\battlefield";
-			class initBattle                   {};
-			class initBattleMap                {};
-			class initBattleBuildings          {};
-			class updateBattleBuildings        {};
-			class getUrbanZones                {};
-			class postInitBattle               {};
-			class updateBattle                 {};
-			class battlefieldRadius            {};
-			class battlefieldDimensions        {};
-			class battlefieldCenter            {};
-			class getBattleGrid                {};
+			class initBattle                    {};
+			class initBattleMap                 {};
+			class initBattleBuildings           {};
+			class updateBattleBuildings         {};
+			class getUrbanZones                 {};
+			class postInitBattle                {};
+			class updateBattle                  {};
+			class handleNewBattleGroups         {};
+			class handleInvalidBattleGroups     {};
+			class battlefieldRadius             {};
+			class battlefieldDimensions         {};
+			class battlefieldCenter             {};
+			class getBattleGrid                 {};
 
-			class posInBattleZone              {};
-			class nearestBattlePosRad          {};
-			class distanceToNearestBattle      {};
-			class initBattleGroups             {};
-			class endBattleGroups              {};
-			class onBattleFirstShot            {};
-			class timeSinceLastBattleShot      {};
+			class posInBattleZone               {};
+			class nearestBattlePosRad           {};
+			class distanceToNearestBattle       {};
+			class initBattleGroups              {};
+			class endBattleGroups               {};
+			class onBattleFirstShot             {};
+			class timeSinceLastBattleShot       {};
 			
-			class endBattle                    {};
+			class endBattle                     {};
+			class battleReinforcements          {};
+			class battleReinforceSide           {};
+			class battleSideNeedsReinforcements {};
+			// class battleSideNeedsReinforcements {};
 
 		};
 
@@ -87,6 +93,10 @@ class CfgFunctions
 			class getLocationNamePos     {};
 			class closestLocationName    {};
 			class areaName               {};
+			class validEnum              {};
+			class delayedBaseSideChat    {};
+			class zoneStrengthBySide     {};
+			class posIsHostile           {};
 
 		};
 
@@ -247,6 +257,7 @@ class CfgFunctions
 			class isPlayerGroup            {};
 			class groupBehaviourSettings   {};
 			class groupGetBehaviorModule   {};
+			class getNearestGroup          {};
 		};
 
 		class groups_abilities
@@ -266,6 +277,9 @@ class CfgFunctions
 			class groupBattleInit          {};
 			class groupBattleEnd           {};
 			class timeSinceLastGroupBattle {};
+			class groupNearEnemyGrp        {};
+			class groupAttackGroup         {};
+			class groupCombatZone          {};
 		};
 		
 		class groups_suppress
@@ -301,6 +315,7 @@ class CfgFunctions
 			class groupCanCallTransport     {};
 			class groupCallTransport        {};
 			class groupIsTraveling          {};
+			class groupAddWayPoint          {};
 		};
 
 		class groups_boarding
@@ -342,6 +357,8 @@ class CfgFunctions
 			class groupGetStrSide          {};
 			class groupSetStrengthIcon     {};
 			class getGroupStrength         {};
+			class groupStrengthCoef        {};
+			class groupMergeWithGroup      {};
 
 		};
 
@@ -389,6 +406,7 @@ class CfgFunctions
 			class groupObjectiveInsertPos         {};
 
 			/*Attack*/
+			class assignGroupObjectivesAllSides   {};
 			class assignGroupsAndObjectives       {};
 			class groupAssignAttackObjective      {};
 			class groupObjectiveAttackLoop        {};
@@ -415,7 +433,37 @@ class CfgFunctions
 			class getIdleGroups         {};
 			class getCategorizedGroups  {};
 			class assignAllGroupTasks   {};
+			class groupSetDataDelayed   {};
+		};
 
+		class groups_reinforcement_radio
+		{
+			file = "\SQFSM\Functions\groups\reinforcement\radio";
+			class groupCallReinforcementRadio {};
+			class reinfRequestRadioResponse   {};
+			class sendReinfRadioResponse      {};
+		};
+		
+		class groups_reinforcement
+		{
+			file = "\SQFSM\Functions\groups\reinforcement";
+			class initReinforRequestsMap      {};
+			class groupAddToReinfRequests     {};
+			class groupOnReinforceArrival     {};
+			class groupEndReinforcing         {};
+			class assignReinforcementsBySide  {};
+			class assignAllReinforcements     {};
+			class groupReinforceInsertPos     {};
+			class groupInitReinforceTask      {};
+			class groupCanCallReinforcements  {};
+			class groupRequestReinforcements  {};
+		};
+
+		class reinforcements
+		{
+			file = "\SQFSM\Functions\reinforcements";
+			class initReinforRequestsMap   {};
+			class addReinfReq              {};
 		};
 
 		class init

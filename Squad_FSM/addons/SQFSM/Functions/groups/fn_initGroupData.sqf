@@ -19,6 +19,7 @@ private _dataArr  = [
 
     ["birth",             round time],
     ["lastTransportCall", round time],
+    ["lastReinfReq",           0-300],
     ["grp",                   _group],
     ["side",             side _group],
     ["action",                    ""],
@@ -27,6 +28,7 @@ private _dataArr  = [
     ["squadClass",       _squadClass],
     ["travelData",               nil],
     ["available",               true],
+    ["awaitingReforce",        false],
     ["battlefield",       [-1,-1,-1]],
     ["battleTimes",               []],
     ["shots",                     []],

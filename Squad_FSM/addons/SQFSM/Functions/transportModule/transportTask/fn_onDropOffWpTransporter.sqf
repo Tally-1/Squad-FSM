@@ -13,6 +13,7 @@ private _squadCount = count units _passengerGrp;
 
 
 (driver _vehicle)disableAI "path";
+_vehicle setVelocityModelSpace [0,0,0];
 _taskData set ["state", "Unloading"];
 _psngrData call ["ejectAll"];
 

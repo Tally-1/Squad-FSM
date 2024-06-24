@@ -12,7 +12,9 @@ private _methods = [
     ["isIdle",                             SQFM_fnc_groupIsIdle],
     ["isValid", {[(_self get "grp")] call SQFM_fnc_validGroup;}],
     ["activeWp",                              SQFM_fnc_activeWp],
-    ["update",                            SQFM_fnc_groupUpdate],
+    ["update",                             SQFM_fnc_groupUpdate],
+    ["setDataDelayed",             SQFM_fnc_groupSetDataDelayed],
+    // ["availableForNewTask",      SQFM_fnc_groupAvailableForTask],
     
     /**********************{TRAVEL}*****************************/
     ["initTravel",                     SQFM_fnc_initGroupTravel],
@@ -26,6 +28,7 @@ private _methods = [
     ["leaveInvalidVehicles",      SQFM_fnc_leaveInvalidVehicles],
     ["validVehicle",                 SQFM_fnc_validGroupVehicle],
     ["getPickupPos",                    SQFM_fnc_groupPickupPos],
+    ["addWaypoint",                   SQFM_fnc_groupAddWayPoint],
 
                       /*{transport}*/
     ["canCallTransport",           SQFM_fnc_groupCanCallTransport],
@@ -76,6 +79,17 @@ private _methods = [
     ["objectiveInsertPosDanger",    SQFM_fnc_groupObjectiveInsertPosDanger],
     ["objectiveAttackLoop",              SQFM_fnc_groupObjectiveAttackLoop],
 
+    /**********************{REINFORCEMENTS}**********************/
+    ["canGetReinforcements",   SQFM_fnc_groupCanCallReinforcements],
+    // ["needsReinforcments",         SQFM_fnc_groupNeedsReinforcments],
+    ["callReinforcements",      SQFM_fnc_groupRequestReinforcements],
+    ["callReinforcementRadio", SQFM_fnc_groupCallReinforcementRadio],
+    ["addToReinfRequests",         SQFM_fnc_groupAddToReinfRequests],
+    ["reinforce",                   SQFM_fnc_groupInitReinforceTask],
+    ["onReinforceArrival",         SQFM_fnc_groupOnReinforceArrival],
+    ["endReinforcing",                 SQFM_fnc_groupEndReinforcing],
+    ["reinforceInsertPos",         SQFM_fnc_groupReinforceInsertPos],
+
     /************************{TASKS}****************************/
     ["initTask",                              SQFM_fnc_initTaskData],
     ["initObjectiveTask",           SQFM_fnc_groupInitObjectiveTask],
@@ -85,21 +99,24 @@ private _methods = [
     ["garrison",                         SQFM_fnc_groupGarrison],
 
     /********************{GROUP MEMBERS}************************/
-    ["getUnits",                              SQFM_fnc_getGroupUnits],
-    ["getUnitsOnfoot",                  SQFM_fnc_getGroupUnitsOnFoot],
-    ["getVehiclesInUse",         {(_self call ["getOwnVehicles"])#2}],
-    ["isVehicleGroup", {count(_self call ["nonCrewMen"])isEqualTo 0}],
-    ["getGrpMembers",                         SQFM_fnc_getGrpMembers],
-    ["getStrength",                        SQFM_fnc_getGroupStrength],
-    ["setStrengthIcon",                SQFM_fnc_groupSetStrengthIcon],
-	["crewMen",                                   SQFM_fnc_groupCrew],
-	["nonCrewMen",                             SQFM_fnc_groupNonCrew],
-    ["tallyAssets",                        SQFM_fnc_groupTallyAssets],
-    ["getGroupCluster",                     SQFM_fnc_getGroupCluster],
-    ["setGroupCluster",                     SQFM_fnc_setGroupCluster],
-    ["getAvgPos",                               SQFM_fnc_groupAvgPos],
-    ["getStrSide",                          SQFM_fnc_groupGetStrSide],
-    ["isPlayerGroup", {[_self get"grp"] call SQFM_fnc_isPlayerGroup}],
+    ["getUnits",                                    SQFM_fnc_getGroupUnits],
+    ["getUnitsOnfoot",                        SQFM_fnc_getGroupUnitsOnFoot],
+    ["getVehiclesInUse",               {(_self call ["getOwnVehicles"])#2}],
+    ["isVehicleGroup",       {count(_self call ["nonCrewMen"])isEqualTo 0}],
+    ["getGrpMembers",                               SQFM_fnc_getGrpMembers],
+    ["anyValidMan",{[_self get "grp"] call SQFM_fnc_firstValidGroupMember}],
+    ["getStrength",                              SQFM_fnc_getGroupStrength],
+    ["strengthCoef",                            SQFM_fnc_groupStrengthCoef],
+    ["setStrengthIcon",                      SQFM_fnc_groupSetStrengthIcon],
+	["crewMen",                                         SQFM_fnc_groupCrew],
+	["nonCrewMen",                                   SQFM_fnc_groupNonCrew],
+    ["tallyAssets",                              SQFM_fnc_groupTallyAssets],
+    ["getGroupCluster",                           SQFM_fnc_getGroupCluster],
+    ["setGroupCluster",                           SQFM_fnc_setGroupCluster],
+    ["getAvgPos",                                     SQFM_fnc_groupAvgPos],
+    ["getStrSide",                                SQFM_fnc_groupGetStrSide],
+    ["isPlayerGroup",       {[_self get"grp"] call SQFM_fnc_isPlayerGroup}],
+    ["mergeWithGroup",                        SQFM_fnc_groupMergeWithGroup],
 
 	/**********************{GROUP CLASS}************************/
 	["isUnarmedMotorized",     SQFM_fnc_groupIsUnarmedMotorized],
@@ -117,7 +134,11 @@ private _methods = [
     ["sinceBattle",           SQFM_fnc_timeSinceLastGroupBattle],
     ["isNotSuppressing",           SQFM_fnc_grpIsNotSuppressing],
     ["returnFire",                     SQFM_fnc_groupReturnFire],
-    ["endReturnFire",   {_self spawn SQFM_fnc_endGrpReturnFire}]
+    ["endReturnFire",   {_self spawn SQFM_fnc_endGrpReturnFire}],
+
+    ["nearEnemyGrp",                 SQFM_fnc_groupNearEnemyGrp],
+    ["attackGroup",                   SQFM_fnc_groupAttackGroup],
+    ["combatZone",                     SQFM_fnc_groupCombatZone]
 ];
 
 {
