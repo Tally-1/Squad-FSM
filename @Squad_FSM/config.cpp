@@ -1,11 +1,11 @@
 class CfgPatches
 {
-	class soldierFSM
+	class squadFSM
 	{
 		
-		name 				= "soldier FSM v0.29";
-		author 				= "YipMan, Jihem, Deebs, Tally";
-		requiredVersion 	= 1.60;
+		name 				= "Squad FSM";
+		author 				= "YipMan, Tally";
+		requiredVersion 	= 2;
 		requiredAddons[] 	= { "A3_Functions_F" };
 		units[] 			= {};
 		weapons[] 			= {};

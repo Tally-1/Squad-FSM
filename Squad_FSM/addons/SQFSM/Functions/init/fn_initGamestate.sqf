@@ -4,7 +4,8 @@
 private _objectiveRanges = (entities "SQFSM_Objective")apply{_x getVariable "activationDistance"};
 private _maxObjRange     = selectMax _objectiveRanges;
 
-if((-1) in _objectiveRanges)
+if((-1) in _objectiveRanges
+or{_objectiveRanges isEqualTo []})
 then{_maxObjRange = worldSize;};
 
 SQFM_manValue           = 1;

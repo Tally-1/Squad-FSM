@@ -1,11 +1,18 @@
 if(!isnil "SQFM_markers3D")exitWith{};
+private _objectives = entities "SQFSM_Objective";
+
+if(_objectives isEqualTo [])
+then{SQFM_maxObjRange = 100}
+else{
+	SQFM_maxObjRange = 100 + selectMax 
+	(_objectives apply {
+		private _area = [_x]call SQFM_fnc_module3dData get "area";
+		(selectMax [_area#1, _area#2]);
+	});
+};
+
 SQFM_markers3D         = true;
 SQFM_Custom3Dpositions = [];
-SQFM_maxObjRange       = 100 + selectMax 
-(entities "SQFSM_Objective" apply {
-	private _area = [_x]call SQFM_fnc_module3dData get "area";
-	(selectMax [_area#1, _area#2]);
-});
 
 addMissionEventHandler ["Draw3D", {
 if(SQFM_debugMode)

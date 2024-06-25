@@ -32,7 +32,6 @@ class CfgFunctions
 			class battleReinforcements          {};
 			class battleReinforceSide           {};
 			class battleSideNeedsReinforcements {};
-			// class battleSideNeedsReinforcements {};
 
 		};
 
@@ -447,7 +446,6 @@ class CfgFunctions
 		class groups_reinforcement
 		{
 			file = "\SQFSM\Functions\groups\reinforcement";
-			class initReinforRequestsMap      {};
 			class groupAddToReinfRequests     {};
 			class groupOnReinforceArrival     {};
 			class groupEndReinforcing         {};
@@ -474,6 +472,7 @@ class CfgFunctions
 			class initSettings  {};
 			class clientInit    {};
 			class initgameState {};
+			// class CBAOptions    {preInit = 1; file = "\SQFSM\CBA_Options\main.sqf"};
 		};
 
 		class globalEvents
