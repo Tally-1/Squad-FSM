@@ -18,6 +18,8 @@ _taskData set ["state", "Unloading"];
 _psngrData call ["ejectAll"];
 
 waitUntil { 
+	if(isNil "_passengerGrp") exitWith{true;};
+	
 	private _outCount = count (units _passengerGrp select{vehicle _x isEqualTo _x});
 	private _percent  = round((_outCount/_squadCount)*100);
 	private _onFoot   = _psngrData call ["boardingStatus"] isEqualTo "on foot";

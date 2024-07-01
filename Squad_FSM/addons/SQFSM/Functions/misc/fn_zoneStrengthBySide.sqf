@@ -19,19 +19,8 @@ private _strengthWest = 0;
     
 } forEach _groups;
 
+private _totalStrength = _strengthEast+_strengthGuer+_strengthWest;
 
-private _friendlyStrength = { 
-params[["_ownSide",nil,[west]]];
-private _ownStrength = 0;
-{
-    if(typeName _x isEqualTo "SIDE"
-    &&{!([_ownSide, _x]call SQFM_fnc_hostile)})
-    then{_ownStrength = _ownStrength+_y};
-  
-} forEach _self;
-
-_ownStrength;
-};
 
 private _enemyStrength = { 
 params[["_ownSide",nil,[west]]];
@@ -46,14 +35,38 @@ private _enemyStrength = 0;
 _enemyStrength;
 };
 
+private _friendlyStrength = { 
+params[["_ownSide",nil,[west]]];
+private _ownStrength = 0;
+{
+    if(typeName _x isEqualTo "SIDE"
+    &&{!([_ownSide, _x]call SQFM_fnc_hostile)})
+    then{_ownStrength = _ownStrength+_y};
+  
+} forEach _self;
+
+_ownStrength;
+};
+
 private _strengthCoef = { 
 params[["_ownSide",nil,[west]]];
-private _enemyStrength = _self call ["enemyStrength",    [_ownSide]];
 private _ownStrength   = _self call ["friendlyStrength", [_ownSide]];
-private _totalStrength = _enemyStrength+_ownStrength;
+private _enemyStrength = _self call ["enemyStrength",    [_ownSide]];
+private _totalStrength = _self get "total";
 
 if(_enemyStrength isEqualTo 0) exitWith{1};
 if(_ownStrength isEqualTo 0)   exitWith{-1};
+private _coef = _ownStrength/_totalStrength;
+
+_coef;
+};
+
+private _sideCoef = { 
+params[["_ownSide",nil,[west]]];
+private _ownStrength   = _self get _ownSide;
+private _totalStrength = _self get "total";
+if(_ownStrength isEqualTo 0) exitWith{0};
+
 private _coef = _ownStrength/_totalStrength;
 
 _coef;
@@ -63,11 +76,13 @@ private _dataArr = [
     [east,                   _strengthEast],
     [independent,            _strengthGuer],
     [west,                   _strengthWest],
+    ["total",               _totalStrength],
 
                   /*METHODS*/
     ["friendlyStrength", _friendlyStrength],
     ["enemyStrength",       _enemyStrength],
-    ["strengthCoef",         _strengthCoef]
+    ["strengthCoef",         _strengthCoef],
+    ["sideCoef",                 _sideCoef]
 ];
 
 private _map = createHashmapObject [_dataArr];

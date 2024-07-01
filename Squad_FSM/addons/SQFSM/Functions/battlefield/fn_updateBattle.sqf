@@ -14,14 +14,15 @@ _allGroups insert [0, _groups, true];
 _self call ["handleNewGroups",[_groups]];
 _self call ["handleInvalidGrps",[_allGroups]];
 
-private _strengthData      = [_zone, _allGroups] call SQFM_fnc_zoneStrengthBySide;
-private _reinforcementData = [_zone, _reinforGrps] call SQFM_fnc_zoneStrengthBySide;
-
-_self set  ["strengthData",      _strengthData];
-_self set  ["reinforData", _reinforcementData];
-_self set  ["sides",               _sides];
-_self set  ["groups",             _groups];
+_self set  ["sides",   _sides];
+_self set  ["groups", _groups];
 _self call ["updateBuildings"];
+
+private _strengthData      = _self call ["updateStrengthData"];
+private _reinforcementData = _self call ["updateReforData"];
+
 _self call ["reinforcements"]; 
+_self call ["replenishGroups"]; 
+_self call ["broadcastBattleHud"]; 
 
 true;

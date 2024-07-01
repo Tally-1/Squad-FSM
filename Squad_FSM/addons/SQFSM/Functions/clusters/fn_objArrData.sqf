@@ -6,7 +6,6 @@ private _sides     = [];
 private _groups    = [];
 private _xArr      = [];
 private _yArr      = [];
-private _distances = [];
 
 {
 	private _pos   =  getPosATLVisual _x;

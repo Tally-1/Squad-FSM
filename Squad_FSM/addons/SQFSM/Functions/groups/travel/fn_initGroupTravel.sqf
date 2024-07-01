@@ -12,7 +12,7 @@ private _params         = [_movePos, _taskName, _findParking];
 // The group moves to its destination as is.
 if(_travelNow)
 exitWith{ 
-	_self call ["execTravel", _params]; 
+	_self call ["execTravel", _params];
 	true;
 };
 

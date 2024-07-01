@@ -1,7 +1,6 @@
 private _self         = _this;
 private _timer        = time + 60;
 private _battleActive = true;
-
 waitUntil{sleep 1; count (_self get "groupShots") > 0 || {_timer < time}};
 
 if(count (_self get "groupShots") isEqualTo 0)

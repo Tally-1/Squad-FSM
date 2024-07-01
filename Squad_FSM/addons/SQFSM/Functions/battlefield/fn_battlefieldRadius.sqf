@@ -6,7 +6,7 @@ private _minRad        = SQFM_minBattleSize;
 private _maxRad        = SQFM_maxBattleSize;
 private _nearBattleRad = [_pos] call SQFM_fnc_distanceToNearestBattle;
 private _returnRad     = _baseRad;
-private _checkRad      = _baseRad*3;
+private _checkRad      = selectMax[_baseRad*2, _minRad];
 private _nearObj       = [_midPoint] call SQFM_fnc_nearestObjective;
 
 // If the battle takes place inside an objective then use the objective as a battleGround.
@@ -19,7 +19,7 @@ then{
 
         _minRad      = _objRad;
         _returnRad   = _objRad;
-        _checkRad = selectMax[_objRad*2, _objRad+300, _baseRad*2];
+        _checkRad = selectMax[_objRad*2, _minRad, _baseRad*2];
 };
 
 // Make sure battlefield is within params defined above and in the initGamestate file.
@@ -49,7 +49,7 @@ if  (_returnRad < _minRad)
 then{_returnRad = _minRad};
 
 // Add a little padding
-_returnRad = selectMax[ceil(_returnRad*1.2), ceil(_returnRad+100)];
+_returnRad = selectMin[ceil(_returnRad*1.2), ceil(_returnRad+50)];
 
 // enforce max battlefield size.
 if  (_returnRad > _maxRad)

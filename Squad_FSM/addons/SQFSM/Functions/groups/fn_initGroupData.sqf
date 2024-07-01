@@ -29,6 +29,7 @@ private _dataArr  = [
     ["travelData",               nil],
     ["available",               true],
     ["awaitingReforce",        false],
+    ["awaitingReplenish",      false],
     ["battlefield",       [-1,-1,-1]],
     ["battleTimes",               []],
     ["shots",                     []],

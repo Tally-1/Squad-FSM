@@ -34,7 +34,9 @@ _vehicle setUnloadInCombat [true, false];
 
 (_self get "side") createVehicleCrew _vehicle;
 
-{_x addCuratorEditableObjects [[_vehicle],true];} forEach allCurators;
+{[_x] spawn SQFM_fnc_transportCrewGetOutEh} forEach (crew _vehicle);
+
+{_x addCuratorEditableObjects [[_vehicle],true]} forEach allCurators;
 
 _vehicle spawn{
 	sleep 5; 

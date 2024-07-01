@@ -40,8 +40,8 @@ private _task = _self call ["initTask",
     _endCode       // End-code     ["endCode"]
 ]];
 
-sleep 5;
-private _side             = _self get "side";
+_self call ["waitForTransportSpawn"];
+
 private _travelData       = _self get "travelData";
 private _transportVehicle = _self get "transportVehicle";
 private _validVehicle     = (!isNil "_transportVehicle")&&{alive _transportVehicle};
