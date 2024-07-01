@@ -30,7 +30,7 @@ _vehicle setDir      _spawnDir;
 _vehicle setPosATL   _spawnPos;
 _vehicle setVariable ["SQFM_transport",             true, true];
 _vehicle setVariable ["SQFM_Module",(_self get "module"), true];
-_vehicle setUnloadInCombat [true, false];
+_vehicle setUnloadInCombat [false, false];
 
 (_self get "side") createVehicleCrew _vehicle;
 

@@ -40,7 +40,7 @@ _self set ["state",      "traveling"];
 
 
 _wp setWaypointStatements ["true", _onCompleted];
-_wp setWaypointCompletionRadius 10;
+_wp setWaypointCompletionRadius 30;
 
 if(_vehGrp)then{
 	_wp setWaypointCompletionRadius 30;

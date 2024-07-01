@@ -57,6 +57,7 @@ exitWith{
 if(_validVehicle isEqualTo false)
 exitWith{[_group, (currentWaypoint _group)] setWaypointCompletionRadius 300};
 
+private _side           = side _group;
 private _transportGroup = group driver _transportVehicle;
 private _wpG            = (waypoints _group)#2;
 private _wpT            = (waypoints _transportGroup)#2;
