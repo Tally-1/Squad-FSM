@@ -31,6 +31,7 @@ class CfgFunctions
 			class timeSinceLastBattleShot       {};
 			
 			class endBattle                     {};
+			class globalizeBattles              {};
 			class battleReinforcements          {};
 			class battleReinforceSide           {};
 			class battleSideNeedsReinforcements {};
@@ -179,6 +180,7 @@ class CfgFunctions
 			class objectiveGetAssignedAssets      {};
 			class objectiveNeedsTroops            {};
 			class objectiveGetContested           {};
+			class objectiveSetContested           {};
 			class objectiveGetSidesInZone         {};
 			class objectiveUpdate                 {};
 			class updateAllObjectives             {};
@@ -282,6 +284,7 @@ class CfgFunctions
 			class groupBehaviourSettings   {};
 			class groupGetBehaviorModule   {};
 			class getNearestGroup          {};
+			class setGroupOwner            {};
 		};
 
 		class groups_abilities

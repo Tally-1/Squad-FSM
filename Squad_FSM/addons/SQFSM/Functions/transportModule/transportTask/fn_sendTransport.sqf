@@ -29,6 +29,7 @@ private _transportVehicle = _self call ["spawnTransport", [_capacityNeeded]];
 
 if(isNil "_transportVehicle")
 exitWith{
+	_self call ["globalize"];
 	"Vehicle could not spawn" call dbgm; 
 	objNull;
 };
@@ -71,9 +72,10 @@ _returnWp setWaypointCompletionRadius 30;
 _transportGroup setSpeedMode "FULL";
 _transportGroup setBehaviour "SAFE";
 
-_transportTask set ["state",           "Picking up passengers"];
-_callerData    set ["action",          "Waiting for transport"];
-_callerData    set ["transportVehicle", _transportVehicle];
+_self          call ["globalize"];
+_transportTask set  ["state",           "Picking up passengers"];
+_callerData    set  ["action",          "Waiting for transport"];
+_callerData    set  ["transportVehicle", _transportVehicle];
 
 "Transport vehicle spawned in" call dbgm;
 

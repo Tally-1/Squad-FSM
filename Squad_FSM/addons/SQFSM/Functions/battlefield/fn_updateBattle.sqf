@@ -22,7 +22,10 @@ private _strengthData      = _self call ["updateStrengthData"];
 private _reinforcementData = _self call ["updateReforData"];
 
 _self call ["reinforcements"]; 
-_self call ["replenishGroups"]; 
+_self call ["replenishGroups"];
+
+// The updated data needs to be global before the battleHUD can be broadcasted
+publicVariable "SQFM_battles";
 _self call ["broadcastBattleHud"]; 
 
 true;

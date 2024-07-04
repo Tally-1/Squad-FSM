@@ -7,6 +7,7 @@ call SQFM_fnc_ACE_MedicalEvents;
 call SQFM_fnc_curatorEvents;
 call SQFM_fnc_buildingChangedEh;
 call SQFM_fnc_initReinforRequestsMap;
+// call SQFM_fnc_globalizeBattles;
 
 {[_x] call SQFM_fnc_initGroup;} forEach allGroups;
 {[_x] call SQFM_fnc_initObjective;} forEach entities "SQFSM_Objective";

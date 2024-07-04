@@ -5,6 +5,7 @@ private _vehicles     = [];
 private _capacities   = [];
 private _parkingSpots = [];
 private _side         = call compile (_module getVariable "sqfm_side");
+private _globalizeFnc = {(_self get "module") setVariable ["SQFM_spawnerData", _self, true]};
 
 {
 	deleteVehicleCrew _x;
@@ -33,12 +34,13 @@ private _dataArr = [
 	["sendTransport",                 SQFM_fnc_sendTransport],
 	["transportAvailability", SQFM_fnc_transportAvailability],
 	["getVehicleType",        SQFM_fnc_spawnerGetVehicleType],
-	["selectSpawnPos",            SQFM_fnc_transportSpawnPos]
+	["selectSpawnPos",            SQFM_fnc_transportSpawnPos],
+	["globalize",                              _globalizeFnc]
 ];
 private _maxCapacity = selectMax _capacities;
 private _hashMap     = createHashmapObject [_dataArr];
 
 _hashMap set         ["maxCapacity",  _maxCapacity];
-_module  setVariable ["SQFM_spawnerData", _hashMap];
+_module  setVariable ["SQFM_spawnerData", _hashMap, true];
 
 true;

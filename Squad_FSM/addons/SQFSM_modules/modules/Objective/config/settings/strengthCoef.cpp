@@ -12,7 +12,7 @@ class capStrength: Edit
 {
     
     property     = "SQFSM_Objective_assetCount";
-    displayName  = "Capture Strength";
+    displayName  = "Defensive Strength";
     tooltip      = tip;
     typeName     = "NUMBER";
     defaultValue = "8";

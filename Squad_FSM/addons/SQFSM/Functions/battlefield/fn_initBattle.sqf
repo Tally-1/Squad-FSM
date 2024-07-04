@@ -17,8 +17,13 @@ private _battleMap = [
 
 SQFM_battles set [_pos, _battleMap];
 
-_battleMap call  ["initGroups"];
-_battleMap call  ["postInit"];
+_battleMap call ["initGroups"];
+private _client = 0+ clientOwner;
+
+publicVariable "SQFM_battles";
+publicVariable "SQFM_battleList";
+
+_battleMap call ["postInit"];
 
 [["Battle initializing | ", round time]] call dbgm;
 

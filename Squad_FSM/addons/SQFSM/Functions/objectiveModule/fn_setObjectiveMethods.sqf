@@ -1,6 +1,7 @@
 params[
     ["_data",nil,[createHashmap]]
 ];
+private _globalizeFnc = {(_self get "module") setVariable ["SQFM_objectiveData", _self, true]};
 private _methods =
 [
     ["getGroupsInZone",   {(_self get"zone") call SQFM_fnc_groupsInZone}],
@@ -9,7 +10,7 @@ private _methods =
     ["getAssignedAssets",            SQFM_fnc_objectiveGetAssignedAssets],
     ["countAssignedAssets",        SQFM_fnc_objectiveCountAssignedAssets],
     ["getContested",                      SQFM_fnc_objectiveGetContested],
-    ["setContested",{_self set ["contested",_self call["getContested"]]}],
+    ["setContested",                      SQFM_fnc_objectiveSetContested],
     ["inBattle",          {_self get"zone"call SQFM_fnc_posInBattleZone}],
     ["update",                                  SQFM_fnc_objectiveUpdate],
     ["onCapture",                            SQFM_fnc_objectiveOnCapture],
@@ -20,7 +21,8 @@ private _methods =
     ["storeSafePosSearch",          SQFM_fnc_objectiveStoreSafePosSearch],
     ["removeSafePosSearches",    SQFM_fnc_objectiveRemoveSafePosSearches],
     ["getStoredSafePositions",  SQFM_fnc_objectiveGetStoredSafePositions],
-    ["setMethods",           {[_self] call SQFM_fnc_setObjectiveMethods}]
+    ["setMethods",           {[_self] call SQFM_fnc_setObjectiveMethods}],
+    ["globalize",                                          _globalizeFnc]
 ];
 
 {

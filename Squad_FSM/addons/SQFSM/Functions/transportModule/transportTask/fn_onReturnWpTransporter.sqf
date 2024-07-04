@@ -19,7 +19,8 @@ if(_restoreAssetCount)then{
 }
 else{"Transport vehicle lost" call dbgm};
 
-_taskData call ["endTask"];
+_spawnData call ["globalize"];
+_taskData call  ["endTask"];
 deleteVehicle _vehicle;
 {deleteVehicle _x} forEach units _transportGroup;;
 

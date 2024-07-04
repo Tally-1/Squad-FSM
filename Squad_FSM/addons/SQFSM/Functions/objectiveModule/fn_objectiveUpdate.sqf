@@ -17,10 +17,13 @@ _self set ["sidesPresent",  _currentSides];
 _self set ["groupsPresent", _currentGroups];
 
 if(_self call ["timeSinceCapture"] <= 5)
-exitWith{};
+exitWith{_self call ["globalize"]};
 
 if(_previousOwner isNotEqualTo _currentOwner
 &&{_contested isEqualTo false})
-then{_self call ["onCapture",[_currentOwner]]};
+then{
+	_self call ["onCapture",[_currentOwner]];
+	_self call ["globalize"];
+};
 
 true;

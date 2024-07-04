@@ -73,6 +73,6 @@ private _dataArr = [
 private _data = createhashMapObject [_dataArr];
 [_data] call SQFM_fnc_setObjectiveMethods;
 
-_module setVariable ["SQFM_objectiveData", _data];
+_module setVariable ["SQFM_objectiveData", _data, true];
 
 _data;

@@ -7,3 +7,8 @@ SQFM_battles    deleteAt _pos;
 _self call ["endGroups"];
 
 [["Battle ended | ", round time]] call dbgm;
+
+publicVariable "SQFM_battles";
+publicVariable "SQFM_battleList";
+
+true;

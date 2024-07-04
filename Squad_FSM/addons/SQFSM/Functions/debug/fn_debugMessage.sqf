@@ -1,7 +1,8 @@
 private _print       = SQFM_debugMode;
 private _log         = SQFM_debugMode;
 private _displayType = "systemChat";
-private _signature   = "Squad FSM: ";
+private _v           = SQFSM_Version;
+private _signature   = ["[SQUAD FSM ",_v,"]: "]joinString"";
 
 params[ 
 	"_text",

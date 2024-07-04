@@ -21,6 +21,7 @@ private _dataArr  = [
     ["lastTransportCall", round time],
     ["lastReinfReq",           0-300],
     ["grp",                   _group],
+    ["owner",      groupOwner _group],
     ["side",             side _group],
     ["action",                    ""],
     ["state",                     ""],
