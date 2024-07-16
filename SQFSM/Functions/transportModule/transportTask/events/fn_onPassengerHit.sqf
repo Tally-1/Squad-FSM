@@ -13,7 +13,7 @@ private _vehicle        = _data get "transportVehicle";
 private _transportGroup = group driver _vehicle;
 
 "Passenger got hit during transport" call dbgm;
-private _taskData       = (_transportGroup call getData)get "taskData";
+private _taskData       = (_transportGroup call getData) call ["getTaskData"];
 
 if(!isNil "_taskData")then{ 
     _taskData set  ["enemy", _enemy];

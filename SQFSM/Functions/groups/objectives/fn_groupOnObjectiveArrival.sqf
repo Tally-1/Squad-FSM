@@ -1,4 +1,4 @@
-private _taskData  = _self get "taskData";
+private _taskData  = _self call ["getTaskData"];
 private _zone      = _taskData get "zone";
 private _pos       = _zone#0;
 private _rad       = _zone#1;
@@ -6,7 +6,7 @@ private _rad       = _zone#1;
 _self set ["state", ""];
 _self set ["action", "Clearing area"];
 
-private _statement = '((group this call getData)get"taskData")call["endTask"]';
+private _function = 'SQFM_fnc_endTaskGroup';
 
-_taskData call ["addWaypoint", [_pos,nil,"SAD"]];
-_taskData call ["addWaypoint", [_pos,_statement,nil,nil,nil,_rad]];
+_self call ["addWaypoint", [_pos,5,"SAD"]];
+_self call ["addWaypoint", [_pos,_rad,"MOVE",_function]];

@@ -13,8 +13,11 @@ private _wayPoint  = _group addWaypoint [_pos, 0];
 
 if(!isNil "_radius")    then {_wayPoint setWaypointCompletionRadius _radius};
 if(!isNil "_type")      then {_wayPoint setWaypointType _type;};
-if(!isNil "_statement") then {_wayPoint setWaypointStatements ["true", _statement];};
 if(!isNil "_behaviour") then {_wayPoint setWaypointBehaviour _behaviour;};
 if(!isNil "_speed")     then {_wayPoint setWaypointSpeed _speed;};
+if(!isNil "_statement") then {
+    _statement = ['comment "SQFM"; comment "',_statement,'"']joinString"";
+    _wayPoint setWaypointStatements ["true", _statement];
+};
 
 _wayPoint;

@@ -99,7 +99,8 @@ private _methods = [
     ["initObjectiveTask",           SQFM_fnc_groupInitObjectiveTask],
     ["getAbilities",      {[_self] call SQFM_fnc_getGroupAbilities}],
     ["removeTask",                         SQFM_fnc_groupRemoveTask],
-    ["hasTask",        {str(_self get"taskData") isNotEqualTo "[]"}],
+    ["hasTask", {str(_self call ["getTaskData"]) isNotEqualTo "[]"}],
+    ["getTaskData",  {[_self get "grp"] call SQFM_fnc_getGroupTask}],
 
     /**********************{TACTICS}***************************/
     ["garrison",                         SQFM_fnc_groupGarrison],

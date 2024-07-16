@@ -80,6 +80,7 @@ class CfgFunctions
 			file =    "SQFSM\functions\debug";
 			// class clientLoop             {};
 			class debugMessage              {};
+			class serverDebugMsg            {};
 			class sendDbgMsg                {};
 			class debug3D                   {};
 			class custom3Dmarkers           {};
@@ -229,6 +230,7 @@ class CfgFunctions
 			class emergencyParking        {};
 			class transportAborted        {};
 			class transportEnded          {};
+			class setTransportGrpData     {};
 
 		};
 
@@ -355,6 +357,7 @@ class CfgFunctions
 			class groupRemoveUnitEventHandler {};
 			class handleNoCrashDamage         {};
 			class noCrashDamage               {};
+			class onWaypointComplete          {};
 			
 		};
 
@@ -426,11 +429,16 @@ class CfgFunctions
 		class groups_tasks
 		{
 			file = "SQFSM\functions\groups\tasks";
-			class initTaskData    {};
-			class endTask         {};
-			class abortTask       {};
-			class addTaskWaypoint {};
-			class groupRemoveTask {};
+			class initTaskData       {};
+			class endTask            {};
+			class endTaskGroup       {};
+			class abortTask          {};
+			class reapplyTask        {};
+			class addTaskWaypoint    {};
+			class groupRemoveTask    {};
+			class removeFromTaskList {};
+			class getGroupTask       {};
+			
 		};
 
 		class groups_debug

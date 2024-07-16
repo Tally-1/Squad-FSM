@@ -23,18 +23,21 @@ private _transportTask    = _transportersData call ["initTask",[
     
 ]];
 
+
+
 _transportTask  set ["setEventHandlers", SQFM_fnc_setTransportEvents];
 _transportTask call ["setEventHandlers"];
 
-private _onPickupWp = '[group this] call  SQFM_fnc_onPickupWpTransporter';
-private _pickupWp   = _transportersData call ["addWaypoint", [_pickupPos, 30, "MOVE", _onPickupWp, "SAFE", "FULL"]];// _transportTask call ["addWaypoint", [_pickupPos, _onPickupWp,nil,"FULL"]];
+private _onPickupWp = 'SQFM_fnc_onPickupWpTransporter';
+private _pickupWp   = _transportersData call ["addWaypoint", [_pickupPos, 30, "MOVE", _onPickupWp, "SAFE", "FULL"]];
 private _waitWp     = _callerData call ["addWaypoint", [_pickupPos, 30, "HOLD"]];
 
-_self          call ["globalize"];
 _transportTask set  ["state",           "Picking up passengers"];
 _callerData    set  ["action",          "Waiting for transport"];
 _callerData    set  ["transportVehicle", _transportVehicle];
+_self          call ["globalize"];
 
-"Transport vehicle spawned in" call dbgm;
+[["[",_transportGroup,"]"," is moving to pick up ", "[",_passengerGroup,"]"]] call dbgm;
+
 
 _transportVehicle;

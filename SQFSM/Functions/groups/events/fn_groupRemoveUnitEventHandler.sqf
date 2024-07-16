@@ -6,8 +6,10 @@ params[
 {
     private _man = _x;
     private _eh  = _man getVariable _varName;
-    _man removeEventHandler [_type, _eh];
-    _man setVariable [_varName, nil];
+    if(!isNil "_eh")then{
+        _man removeEventHandler [_type, _eh];
+        _man setVariable [_varName, nil];
+    };
 
 } forEach (_self call ["getUnits"]);
 

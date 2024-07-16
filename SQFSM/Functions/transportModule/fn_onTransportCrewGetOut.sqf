@@ -10,7 +10,7 @@ private _group          = group _man;
 if(isNull _transportGroup)
 then{_transportGroup = _group};
 
-private _taskData = (_transportGroup call getData)get "taskData";
+private _taskData = (_transportGroup call getData)call ["getTaskData"];
 if(!isNil "_taskData")then{_taskData call ["abort",["getOut"]]};
 
 sleep 0.1;

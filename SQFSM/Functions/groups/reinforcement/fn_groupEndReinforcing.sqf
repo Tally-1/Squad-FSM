@@ -2,7 +2,7 @@ params[
     ["_status",      nil,      [""]],
     ["_targetGroup", nil, [grpNull]]  // Can be either a hostile group, or the group that called for reinforcments
 ];
-private _taskData  = _self get"taskData";
+private _taskData  = _self call ["getTaskData"];
 private _callerPos = (_taskData get"params")#0;
 private _callerGrp = (_taskData get"params")#1;
 

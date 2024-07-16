@@ -23,10 +23,6 @@ exitWith{
 	_self call ["boardVehicles", [false]];
 };
 
-if(_boarded)then{
-	
-};
-
 _self set  ["action", ""];
 _self set  ["state",  ""];
 

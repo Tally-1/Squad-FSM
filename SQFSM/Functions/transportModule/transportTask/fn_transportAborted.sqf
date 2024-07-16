@@ -14,7 +14,7 @@ private _driver         = driver _vehicle;
 private _passengerData  = (_self get "params")#2;
 private _module         = (_self get "params")#3;
 private _enemy          = _self get "enemy";
-private _passengerTask  = _passengerData get "taskData";
+private _passengerTask  = _passengerData call ["getTaskData"];
 private _abortFnc       = _passengerTask get "abort";
 private _transportData  = _self call ["ownerData"];
 private _transportGroup   = _transportData get "grp";
@@ -34,9 +34,9 @@ then{_passengerTask call ["abort",["combat during transport"]]};
 
 _transportGroup setVariable ["SQFM_returnPos",_returnPos];
 
-private _passengerWPC = '[group this] spawn SQFM_fnc_onPassengerCombatDrop';
-private _transportWPC = '[group this] spawn SQFM_fnc_onTransportCombatDrop';
-private _getOutWp     = _passengerData call ["addWaypoint",[_dropPos,  5, "GETOUT",    _passengerWPC]];
-private _droppWp      = _transportData call ["addWaypoint",[_dropPos,  5, "MOVE",      _transportWPC]];
+private _passengerWPC = 'SQFM_fnc_onPassengerCombatDrop';
+private _transportWPC = 'SQFM_fnc_onTransportCombatDrop';
+private _getOutWp     = _passengerData call ["addWaypoint",[_dropPos,  5, "GETOUT", _passengerWPC]];
+private _droppWp      = _transportData call ["addWaypoint",[_dropPos,  5, "MOVE",   _transportWPC]];
 
 // _getOutWp synchronizeWaypoint [_droppWp];

@@ -11,7 +11,7 @@ private _zone       = [_startPos, _distance];
 private _enemyType  = _enemyData get "groupType";
 private _taskName   = ["Hunting ", _enemyType]joinString"";
 private _params     = [_startPos, _enemyPos, _enemyGrp];
-private _onSearchWp = '[group this] call SQFM_fnc_onGroupHuntWp';
+private _onSearchWp = 'SQFM_fnc_onGroupHuntWp';
 private _endCode    = SQFM_fnc_onGroupHuntEnd;
 
 _self call ["addWaypoint", [_enemyPos, 20, "MOVE", _onSearchWp]];

@@ -8,8 +8,11 @@ if!(isServer)             exitWith{};
 if (SQFM_headlessPresent) exitWith{};
 
 private _isPlayerGroup = [_group] call SQFM_fnc_isPlayerGroup;
+private _prevOwner     = groupOwner _group;
 if(_isPlayerGroup)exitWith{};
 
+
 _group setGroupOwner 2;
+
 
 2;

@@ -1,4 +1,4 @@
-private _taskData = _self get"taskData";
+private _taskData = _self call ["getTaskData"];
 private _taskCode = _taskData get"arrivalCode";
 
 if((!isNil "_taskCode")

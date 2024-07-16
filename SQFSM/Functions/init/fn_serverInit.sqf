@@ -18,4 +18,7 @@ call SQFM_fnc_initReinforRequestsMap;
 	call SQFM_fnc_assignAllGroupTasks;
 };
 
+
+missionNamespace setVariable ["SQFM_Dedicated", isDedicated, true];
+
 true;

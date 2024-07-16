@@ -1,10 +1,11 @@
-private _v         = SQFSM_Version;
-private _signature = ["[SQUAD FSM ",_v,"]: "]joinString"";
+private _version   = missionNamespace getVariable ["SQFSM_Version", 999];
+private _show      = missionNamespace getVariable ["SQFM_debugMode", true];
+private _signature = ["[SQUAD FSM ",_version,"]: "]joinString"";
 params[ 
 	["_text",        nil,           ["",[]]],
 	["_displayType", "systemChat",     [""]],
-    ["_print",       SQFM_debugMode, [true]],
-    ["_log",         SQFM_debugMode, [true]],
+    ["_print",       _show, [true]],
+    ["_log",         _show, [true]],
     ["_signature",   _signature,       [""]]
 ];
 

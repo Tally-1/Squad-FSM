@@ -1,6 +1,6 @@
 params[
 	["_passengerGroup", nil, [grpNull]],
-	["_dropPos",  nil,         [[]]]
+	["_dropPos",        nil,      [[]]]
 ];
 // Check if the module is already queing vehicles
 if(_self get "waitingToSpawn")then{
@@ -36,10 +36,18 @@ private _transportGroup = group _transportVehicle;
 private _timer          = time + 2;
 
 waitUntil {
-	_transportersData = _transportGroup getVariable "SQFM_grpData";
+	_transportersData = _transportGroup call getData;
 	(_timer < time) or 
 	{!isNil "_transportersData"}; 
 };
+
+if(isNil "_transportersData")exitWith{
+	[["Transport data not found. ", _transportGroup]] call dbgm;
+	objNull;
+};
+
+_transportersData call SQFM_fnc_setTransportGrpData;
+
 
 _self call ["initTransportTask",[
     _passengerGroup,
@@ -48,7 +56,9 @@ _self call ["initTransportTask",[
     _dropPos
 ]];
 
+
 _transportGroup setVariable ["SQFM_transportVehcicle",  _transportVehicle];
 _transportGroup setVariable ["SQFM_transportModule", (_self get "module")];
+
 
 _transportVehicle;

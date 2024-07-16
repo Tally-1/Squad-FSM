@@ -1,5 +1,5 @@
 private _group    = _self get "grp";
-private _taskData = _self get "taskData";
+private _taskData = _self call ["getTaskData"];
 (_taskData get "params")
 params[
     ["_callPos",     nil,           [[]]],

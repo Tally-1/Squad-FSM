@@ -10,7 +10,7 @@ if!(_needed)exitWith{false};
 private _canReplenish = _self call ["canReplenish"];
 if!(_canReplenish)exitWith{false};
 
-private _strTask = str(_self get "taskData");
+private _strTask = str(_self call ["getTaskData"]);
 if(_strTask isNotEqualTo "[]")exitWith{false};
 
 private _battle = _self call ["getBattle"];

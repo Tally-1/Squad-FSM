@@ -1,11 +1,16 @@
 params[
 	["_transportGroup", nil, [grpNull]]
 ];
-private _grpData       = _transportGroup getVariable "SQFM_grpData";
+private _data          = _transportGroup call getData;
 private _spawnerModule = _transportGroup getVariable "SQFM_transportModule";
 private _vehicle       = _transportGroup getVariable "SQFM_transportVehcicle";
 private _spawnData     = _spawnerModule getVariable "SQFM_spawnerData";
 private _restoreCount  = alive _vehicle && {_vehicle distance _spawnerModule < 300};
+private _taskData      = _data call ["getTaskData"];
+private _nullTask      = str _taskData isEqualTo "[]";
+
+if(_nullTask)
+then{_taskData = [_transportGroup] call SQFM_fnc_reapplyTask};
 
 if(_restoreCount)then{
 	private _count = _spawnData get"assetCount";

@@ -1,3 +1,4 @@
+_this spawn {
 params[
     ["_passengerGrp",nil,[grpNull]]
 ];
@@ -34,4 +35,6 @@ if(isNull _enemyGroup)exitWith{};
 _passengerData call ["attackGroup",[_enemyGroup]];
 _passengerData set  ["action", "Attacking enemy"];
 
+true;
+};
 true;

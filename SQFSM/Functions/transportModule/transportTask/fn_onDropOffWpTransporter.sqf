@@ -1,8 +1,17 @@
+_this spawn {
 params[
 	["_transportGroup", nil, [grpNull]]
 ];
 private _grpData  = _transportGroup getVariable "SQFM_grpData";
-private _taskData = _grpData get "taskData";
+private _taskData = _grpData call ["getTaskData"];
+private _nullTask = str _taskData isEqualTo "[]";
+
+if(_nullTask)
+exitWith{"{TaskData not found}" call dbgm};
+
+
+private _onReturnWp = 'SQFM_fnc_onReturnWpTransporter';
+
 (_taskData get "params")params[
 	["_passengerGroup", nil,       [grpNull]],
 	["_vehicle",        nil,       [objNull]],
@@ -11,7 +20,7 @@ private _taskData = _grpData get "taskData";
 ];
 private _timer      = time + round(count units _passengerGroup * 2);
 private _returnPos  = getPosATLVisual _module;
-private _onReturnWp = '[group this] call  SQFM_fnc_onReturnWpTransporter';
+
 
 [
     _passengerGroup,
@@ -28,4 +37,6 @@ _psngrData call ["deleteWaypoints"];
 _psngrData call ["onArrival"];
 _grpData   call ["addWaypoint", [_returnPos, 30, "MOVE", _onReturnWp]];
 
+true
+};
 true;

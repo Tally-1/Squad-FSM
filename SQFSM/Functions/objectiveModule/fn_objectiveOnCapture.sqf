@@ -15,7 +15,7 @@ _self set ["captureTime", round time];
 
 {
     private _grpData  = _x call getData;
-    private _taskData = _grpData get "taskData";
+    private _taskData = _grpData call ["getTaskData"];
     if(!isNil "_taskData")
     then{_taskData call ["endTask"]}
     else{_grpData  call ["autoAssignObjective"]};

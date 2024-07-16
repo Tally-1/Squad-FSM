@@ -1,17 +1,26 @@
 params[
 	["_transportGroup", nil, [grpNull]]
 ];
-private _grpData   = _transportGroup getVariable "SQFM_grpData";
-private _taskData  = _grpData get "taskData";
-private _dropPos   = (_taskData get "positions")#1;
+private _grpData   = _transportGroup call getData;
+private _owner     = _grpData get "owner";
+
+if(_owner isNotEqualTo clientOwner)
+exitWith{"{wrong owner on wp}"call dbgm};
+
+private _taskData = _grpData call ["getTaskData"];
+private _nullTask = str _taskData isEqualTo "[]";
+
+if(_nullTask)exitWith{"No taskdata for transport pickup  WP" call dbgS};
 
 (_taskData get "params")params[
 	["_passengerGroup",nil,[grpNull]],
 	["_vehicle",     nil,[objNull]]
 ];
+
+private _dropPos   = (_taskData get "positions")#1;
 private _psngrData = _passengerGroup getVariable "SQFM_grpData";
 private _men       = _psngrData call ["getUnitsOnfoot"];
-private _psngrTask = _psngrData get "taskData";
+private _psngrTask = _psngrData call ["getTaskData"];
 private _taskName  = _psngrTask getOrDefault ["name", "Being dropped off"];
 private _getInPos  = getPosATLVisual _vehicle;
 private _driver    = driver _vehicle;
@@ -22,7 +31,7 @@ if(_danger)then{_dropRad = 300};
 
 _psngrData call ["deleteWaypoints"];
 
-private _onDropWp = '[group this] spawn SQFM_fnc_onDropOffWpTransporter';
+private _onDropWp = 'SQFM_fnc_onDropOffWpTransporter';
 private _getInWp  = _psngrData call ["addWaypoint",[_getInPos, 10, "GETIN"]];// _passengerGroup addWaypoint [_getInPos, 0];
 private _getOutWp = _psngrData call ["addWaypoint",[_dropPos,  _dropRad, "GETOUT"]];
 private _droppWp  = _grpData   call ["addWaypoint",[_dropPos,  _dropRad, "TR UNLOAD",_onDropWp]];

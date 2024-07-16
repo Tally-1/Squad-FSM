@@ -3,7 +3,7 @@ params [
 ];
 
 private _data      = _group getVariable "SQFM_grpData";
-private _taskData  = _data get "taskData";
+private _taskData  = _data call ["getTaskData"];
 private _taskName  = _taskData get "name";
 private _objective = _data get "objective";
 private _icon      = "\A3\ui_f\data\map\groupicons\selector_selectedFriendly_ca.paa";
