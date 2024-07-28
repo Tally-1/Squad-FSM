@@ -19,5 +19,8 @@ exitWith _allSentMsg;
 
 
 "Some groups are still available for tasks." call dbgm;
+if(time > 60)
+then{[_groupMap, "all"] call SQFM_fnc_assignGroupsMapIdleCover};
+
 
 _groupMap;

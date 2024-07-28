@@ -1,8 +1,8 @@
 params[
-	["_buildings", nil, [[]]]
+	["_buildings", nil, [[]]],
+	["_zoneRadius", 30,  [0]]
 ];
 private _green      = [0,1,0,1];
-private _zoneRadius = 30;
 private _zones      = [];
 private _registered = [];
 private _drawLines  = {{drawLine3D _x}forEach(_self get "lines")};

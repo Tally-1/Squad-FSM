@@ -2,22 +2,24 @@ params[
     ["_objectives",  nil,     [[]]],
     ["_group",       nil,[grpNull]]
 ];
-private _side      = (_group call getData) call ["getStrSide"];
-private _pos       = (_group call getData) call ["getAvgPos"];
-private _allcounts = _objectives apply {(_x call getData) call ["countAssignedAssets",[_side]]};
-private _max       = selectMax _allcounts;
+private _side = (_group call getData) call ["getStrSide"];
+private _pos  = (_group call getData) call ["getAvgPos"];
 
-if(_max isEqualTo 0)then{_max = 0.0001;};
 
 private _algorythm = {
+    private _objData    = _x call getData;
     private _distance   = _pos distance2D _x;
-    private _assetCount = (_x call getData) call ["countAssignedAssets",[_side]];
-    
-    if  (_assetCount ==   0)
-    then{_assetCount =  0.1};
-    
-    private _coef       = _assetCount / _max;
+    private _coef       = 1;
+    private _assetCount = _objData call ["countAssignedAssets",[_side]];
+    private _hostile    = count ((_objData call ["getSidesInZone"])select{[_x,(side _group)]call SQFM_fnc_hostile})>0;
+    private _noAssets   = _assetCount isEqualTo 0;
+
+    if(_noAssets) then{_coef = _coef-0.3};
+    if(_hostile)  then{_coef  = _coef-0.4};
+
     private _sortingVal = _distance*_coef;
+
+    
     _sortingVal;
 };
 

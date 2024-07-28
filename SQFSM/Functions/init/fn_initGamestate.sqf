@@ -26,3 +26,15 @@ SQFM_minBattleSize      = 100;
 SQFM_lastBuildingChange = 0;
 SQFM_safePosLifeTime    = 60;
 SQFM_lastFireCheck      = 0-300;
+SQFM_defaultBehaviour   = [ 
+	"standard", // Squadtype
+	true,       // defend objectives
+	true,       // Attack objectives 
+	true,       // push near enemies 
+	200,        // push distance 
+	0,          // push knowledge 
+	true,       // reinforce 
+	true,       // call reinforcements 
+	true,       // call CAS 
+	true        // call Arty
+];

@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.59, true];
+missionNamespace setVariable ["SQFSM_Version", 0.61, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 [
@@ -46,10 +46,10 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 	["Travel on foot distance", "How far an infantry squad can walk on foot without calling for transport."],
 	_versionName,
 	[
-		200,   	//minimum 
-		worldSize,   //max
-		500,    //default
-		0,	    //decimals
+		200,   	   // minimum 
+		worldSize, // max
+		500,       // default
+		0,	       // decimals
 		false
 	],
 	1

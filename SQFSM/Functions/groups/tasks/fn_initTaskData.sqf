@@ -35,7 +35,8 @@ private _dataArr = [
 ];
 private _taskData = createHashmapObject [_dataArr];
 
-_self set ["taskData", _taskData];
+_self set  ["taskData", _taskData];
+_self call ["unStop"];
 _self call ["globalize"];
 
 SQFM_taskGroups pushBackUnique [_owner,_taskData];

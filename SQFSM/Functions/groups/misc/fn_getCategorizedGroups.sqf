@@ -5,38 +5,28 @@ private _hunters         = [];
 private _reinforceSquads = [];
 private _reconSquads     = [];
 private _supportSquads   = [];
-private _checkReforce    = { 
-params[
-    ["_category", nil,     [""]],
-    ["_group",    nil,[grpNull]]
-];
-if(_category != "reinforcements")exitWith{true}; // Will only evaluate grps when "reinforcements" category is queried.
-private _data = _group call getData;
-if!(_data get "canReinforce")exitWith{false};
 
-private _justRequested = time - (_data get "lastReinfReq")<60;
-if(_justRequested)          exitWith{false};
-if(_data call ["inBattle"]) exitWith{false};
-
-true;
-};
 
 private _getAvailable    = {
     params[
         ["_category",nil,  [""]],
         ["_side",    nil,[west]]
     ];
+    private _reforceCheck = _category isEqualTo "reinforcements";
     _self get _category select { 
-        private _grpDt          = _x call getData;
-        private _notPlayerGrp   = !(_grpDt call["isPlayerGroup"]);
-        private _idle           = _grpDt call["isIdle"];
-        private _correctSide    = isNil "_side" || {side _x isEqualTo _side};
-        private _reinforceCheck = {_self call ["checkReforce", [_category, _x]]};
 
-        _notPlayerGrp
-        &&{_idle
-        &&{_correctSide
-        && _reinforceCheck}};
+        private _data        = _x call getData;
+        private _available   = _data call ["canRecieveTask"];
+        private _correctSide = isNil "_side" || {side _x isEqualTo _side};
+
+        if(_reforceCheck
+        &&{!(_data call ["ableToReinforce"])})
+        then{_available = false};
+
+        if!(_correctSide)
+        then{_available = false};
+
+        _available;
     };
 };
 
@@ -104,8 +94,7 @@ private _allCategories = [
     /*************METHODS**************/
     ["getAvailable",      _getAvailable],
     ["remove",             _removeGroup],
-    ["removeMultiple",  _removeMultiple],
-    ["checkReforce",      _checkReforce]
+    ["removeMultiple",  _removeMultiple]
 ];
 private _categoryMap = createHashmapObject [_allCategories];
 

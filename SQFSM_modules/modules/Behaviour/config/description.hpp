@@ -10,7 +10,7 @@ class ModuleDescription : ModuleDescription
     "    - Will respond to reinforcement calls if allowed and available.",
     "",
     "SUPPORT SQUADS: ",
-    "    - Only implemented for artillery & mortar groups. (May be expanded later)",
+    "    - Only implemented for mortar groups. (May be expanded later)",
     "    - Will respond to calls for indirect fire.",
     "    - If a ''non-arty'' group is set as support it will be changed to standard.",
     "",

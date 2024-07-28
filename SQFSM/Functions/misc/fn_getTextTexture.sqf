@@ -1,9 +1,9 @@
 params [
-	["_text",            nil,                    [""]],
-    ["_fontSize",        0.1,                     [0]],
-    ["_textColor",       "#ffffff",              [""]],
-    ["_backgroundColor", "#00000000",            [""]],
-    ["_font",            "RobotoCondensedLight", [""]]	
+	["_text",            nil,           [""]],
+    ["_fontSize",        0.1,            [0]],
+    ["_textColor",       "#ffffff",     [""]],
+    ["_backgroundColor", "#00000000",   [""]],
+    ["_font",            "PuristaBold", [""]]	
 ];
 
 private _xPos    = 1;

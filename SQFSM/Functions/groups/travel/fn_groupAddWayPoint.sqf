@@ -20,4 +20,5 @@ if(!isNil "_statement") then {
     _wayPoint setWaypointStatements ["true", _statement];
 };
 
+
 _wayPoint;

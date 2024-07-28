@@ -8,6 +8,7 @@ params[
     ["_attack",        nil,  [true]],
     ["_hunt",          nil,  [true]],
     ["_huntDistance",  nil,     [0]],
+    ["_huntKnowledge", nil,     [0]],
     ["_reinforce",     nil,  [true]],
     ["_callReinforce", nil,  [true]],
     ["_callAir",       nil,  [true]],
@@ -51,6 +52,7 @@ private _dataArr  = [
     ["canAttack",                    _attack],
     ["canHunt",                        _hunt],
     ["huntDistance",           _huntDistance],
+    ["huntKnowledge",         _huntKnowledge],
     ["canReinforce",              _reinforce],
     ["canCallReinforcements", _callReinforce],
     ["canCallAir",                  _callAir],
@@ -59,7 +61,7 @@ private _dataArr  = [
 
 private _data = createHashmapObject [_dataArr];
 
-// All methods(functions) related to this hashmap is found at ""
+// All methods(functions) related to this hashmap is found at "functions\groups\fn_setGroupMethods.sqf"
 [_data] call SQFM_fnc_setGroupMethods;
 
 _data call ["setGroupCluster"];
@@ -75,7 +77,7 @@ then{
     _data set ["transportVehicle", _veh1];
 };
 
-_data set ["initialStrength", _strength];
+_data set  ["initialStrength", _strength];
 _data call ["update"];
 
 _group setVariable ["SQFM_grpData", _data, true];

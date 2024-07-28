@@ -19,6 +19,6 @@ if(_count isEqualTo 1)exitWith{_posArr#0;};
 
 private["_nearest"];
 
-isNil{_nearest = ([_posArr, [], {_center distance2D _x }, "ASCEND"] call BIS_fnc_sortBy)#0};
+isNil{_nearest = ([_posArr, [], {_center distance2D _x}, "ASCEND"] call BIS_fnc_sortBy)#0};
 
 _nearest;

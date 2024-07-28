@@ -61,6 +61,12 @@ class CfgFunctions
 			file = "SQFSM\functions\building";
 			class isHouse            {};
 			class nearBuildings      {};
+			class manGetBuilding     {};
+			class menInsideBuilding  {};
+			class buildingPosCount   {};
+			class buildingArrData    {};
+			class getBuildingScore   {};
+			class sortBuildings      {};
 		};
 
 		class clusters
@@ -122,6 +128,7 @@ class CfgFunctions
 			class posIsHostile           {};
 			class formatCtrlPos          {};
 			class newDisplayCtrl         {};
+			class allWaypointPositions   {};
 
 		};
 
@@ -243,6 +250,7 @@ class CfgFunctions
 			class onPassengerHit        {};
 			class onPassengerFired      {};
 			class onTransportCrewFired  {};
+			class onTransportDamaged    {};
 
 		};
 
@@ -257,6 +265,7 @@ class CfgFunctions
 			class firstValidGroupMember       {};
 			class getAssignedVehicles         {};
 			class teleportIntoAssignedVehicle {};
+			class manForceMoveToPos           {};
 		};
 
 		class vehicle
@@ -429,15 +438,17 @@ class CfgFunctions
 		class groups_tasks
 		{
 			file = "SQFSM\functions\groups\tasks";
-			class initTaskData       {};
-			class endTask            {};
-			class endTaskGroup       {};
-			class abortTask          {};
-			class reapplyTask        {};
-			class addTaskWaypoint    {};
-			class groupRemoveTask    {};
-			class removeFromTaskList {};
-			class getGroupTask       {};
+			class initTaskData            {};
+			class endTask                 {};
+			class endTaskGroup            {};
+			class abortTask               {};
+			class reapplyTask             {};
+			class addTaskWaypoint         {};
+			class groupRemoveTask         {};
+			class removeFromTaskList      {};
+			class getGroupTask            {};
+			class groupCanRecieveNewTask  {};
+			class groupActionStatus       {};
 			
 		};
 
@@ -453,6 +464,7 @@ class CfgFunctions
 			class units3D                 {};
 			class groupDebugText          {};
 			class groupDebugTextAbilities {};
+			class groupFlashAction        {};
 		};
 
 		class groups_objectives
@@ -475,6 +487,9 @@ class CfgFunctions
 			class groupObjectiveInsertPosStandard {};
 			class groupObjectiveInsertPosDanger   {};
 			class groupObjectiveInsertPos         {};
+			class groupObjectiveAssignedHostiles  {};
+			class groupCanLeaveObjective          {};
+			class groupCanAssignObjective         {};
 
 			/*Attack*/
 			class assignGroupObjectivesAllSides   {};
@@ -492,19 +507,29 @@ class CfgFunctions
 		{
 			file = "SQFSM\functions\groups\tactics";
 			class groupGarrison            {};
-
+			class groupGetNearUrbanZones   {};
+			class groupCanIdleGarrison     {};
+			class groupInitIdleGarrison    {};
+			class groupGetInBuilding       {};
+			class groupIdleGarrison        {};
+			class waypointIdleGarrison     {};
+			
 		};
 
 		class groups_misc
 		{
 			file = "SQFSM\functions\groups\misc";
-			class groupIsIdle           {};
-			class groupUpdate           {};
-			class activeWp              {};
-			class getIdleGroups         {};
-			class getCategorizedGroups  {};
-			class assignAllGroupTasks   {};
-			class groupSetDataDelayed   {};
+			class groupIsIdle              {};
+			class groupUpdate              {};
+			class activeWp                 {};
+			class getIdleGroups            {};
+			class getCategorizedGroups     {};
+			class assignAllGroupTasks      {};
+			class assignGroupsMapIdleCover {};
+			class assignGroupsIdleCover    {};
+			class groupSetDataDelayed      {};
+			class groupUnstop              {};
+			
 		};
 
 		class groups_reinforcement_radio
@@ -527,6 +552,7 @@ class CfgFunctions
 			class groupInitReinforceTask      {};
 			class groupCanCallReinforcements  {};
 			class groupRequestReinforcements  {};
+			class groupAbleToReinforce        {};
 		};
 
 		class groups_replenish
@@ -545,9 +571,9 @@ class CfgFunctions
 		
 		};
 
-		class groups_hunt
+		class groups_pushNear
 		{
-			file = "SQFSM\functions\groups\hunt";
+			file = "SQFSM\functions\groups\pushNear";
 			class groupAbleToHunt             {};
 			class isHuntGroup                 {};
 			class sendHuntGroups              {};
@@ -588,6 +614,7 @@ class CfgFunctions
 			class curatorEvents              {};
 			class onCuratorGroupSelection    {};
 			class buildingChangedEh          {};
+			class onCuratorWaypoint          {};
 		};
 
 		class taskManager
@@ -606,5 +633,6 @@ class CfgFunctions
 			class handleDeadGroups {};
 			class updateAllGroups  {};
 		};
+		
 	};
 };

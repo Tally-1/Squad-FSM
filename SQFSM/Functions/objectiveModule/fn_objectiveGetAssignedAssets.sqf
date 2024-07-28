@@ -1,6 +1,10 @@
 params[
-    ["_side",nil,[""]]//["west","east","independent"]
+    ["_side",nil,["",east]]
 ];
+
+if(typeName _side isEqualTo "SIDE")
+then{_side = [_side] call SQFM_fnc_sideToStrSide};
+
 private _groups     = _self get"assignedGroups"get(toLower _side);
 private _men        = 0;
 private _armedCars  = 0;

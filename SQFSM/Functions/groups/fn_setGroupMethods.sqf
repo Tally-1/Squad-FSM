@@ -7,6 +7,7 @@ private _methods = [
     ["3DColor",                           SQFM_fnc_group3DColor],
     ["setMethods",      {[_self] call SQFM_fnc_setGroupMethods}],
     ["debugText",                       SQFM_fnc_groupDebugText],
+    ["flashAction",                   SQFM_fnc_groupFlashAction],
 
     /*************************{MISC}***************************/
     ["isIdle",                             SQFM_fnc_groupIsIdle],
@@ -63,6 +64,8 @@ private _methods = [
     ["objectiveInRange",                    SQFM_fnc_groupObjectiveInRange],
     ["getNearObjectives",                  SQFM_fnc_groupGetNearObjectives],
     ["isInsideObjective",                  SQFM_fnc_groupIsInsideObjective],
+    ["canAssignObjective",                SQFM_fnc_groupCanAssignObjective],
+    ["canLeaveObjective",                  SQFM_fnc_groupCanLeaveObjective],
     ["assignObjective",                      SQFM_fnc_groupAssignObjective],
     ["unAssignObjective",                  SQFM_fnc_groupUnAssignObjective],
     ["autoAssignObjective",              SQFM_fnc_groupAutoAssignObjective],
@@ -82,9 +85,11 @@ private _methods = [
     ["objectiveInsertPosStandard",SQFM_fnc_groupObjectiveInsertPosStandard],
     ["objectiveInsertPosDanger",    SQFM_fnc_groupObjectiveInsertPosDanger],
     ["objectiveAttackLoop",              SQFM_fnc_groupObjectiveAttackLoop],
+    ["objectiveAssignedHostiles",  SQFM_fnc_groupObjectiveAssignedHostiles],
 
     /**********************{REINFORCEMENTS}**********************/
-    ["canGetReinforcements",   SQFM_fnc_groupCanCallReinforcements],
+    ["canGetReinforcements",    SQFM_fnc_groupCanCallReinforcements],
+    ["ableToReinforce",               SQFM_fnc_groupAbleToReinforce],
     // ["needsReinforcments",         SQFM_fnc_groupNeedsReinforcments],
     ["callReinforcements",      SQFM_fnc_groupRequestReinforcements],
     ["callReinforcementRadio", SQFM_fnc_groupCallReinforcementRadio],
@@ -96,14 +101,21 @@ private _methods = [
 
     /************************{TASKS}****************************/
     ["initTask",                              SQFM_fnc_initTaskData],
+    ["canRecieveTask",              SQFM_fnc_groupCanRecieveNewTask],
     ["initObjectiveTask",           SQFM_fnc_groupInitObjectiveTask],
     ["getAbilities",      {[_self] call SQFM_fnc_getGroupAbilities}],
     ["removeTask",                         SQFM_fnc_groupRemoveTask],
     ["hasTask", {str(_self call ["getTaskData"]) isNotEqualTo "[]"}],
     ["getTaskData",  {[_self get "grp"] call SQFM_fnc_getGroupTask}],
+    ["actionStatus",                     SQFM_fnc_groupActionStatus],
 
     /**********************{TACTICS}***************************/
     ["garrison",                         SQFM_fnc_groupGarrison],
+    ["getNearUrbanZones",       SQFM_fnc_groupGetNearUrbanZones],
+    ["getInBuilding",               SQFM_fnc_groupGetInBuilding],
+    ["idleGarrison",                 SQFM_fnc_groupIdleGarrison],
+    ["initIdleGarrison",         SQFM_fnc_groupInitIdleGarrison],
+    ["canIdleGarrison",           SQFM_fnc_groupCanIdleGarrison],
 
     /********************{GROUP MEMBERS}************************/
     ["getUnits",                                    SQFM_fnc_getGroupUnits],
@@ -124,6 +136,7 @@ private _methods = [
     ["getStrSide",                                SQFM_fnc_groupGetStrSide],
     ["isPlayerGroup",       {[_self get"grp"] call SQFM_fnc_isPlayerGroup}],
     ["mergeWithGroup",                        SQFM_fnc_groupMergeWithGroup],
+    ["unStop",                                        SQFM_fnc_groupUnstop],
 
 
     /**********************{REPLENISH}************************/

@@ -36,8 +36,10 @@ private _sortingAlgo = {
     _distance;
 };
 
-
+private _objective  = _self get "objective";
 private _targetObjective = ([_objectives, [], _sortingAlgo, "ASCEND"] call BIS_fnc_sortBy)#0;//(_self call ["sortDefenseObjectives",[_objectives]]);//[_pos, _objectives] call SQFM_fnc_getNearest;//([_objectives, _group] call SQFM_fnc_objectivesSorted)#0;
+if(_objective isEqualTo _targetObjective)exitWith{[]};
+
 private _assignmentData  = [_group, _targetObjective];
 
 _self call ["takeObjective", [_targetObjective]];

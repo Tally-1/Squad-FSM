@@ -5,7 +5,7 @@
 private _passengerData        = _passengerGroup call getData;
 private _transportGroup       = group driver _transportVeh;
 private _transportData        = _transportGroup call getData;
-private _transportHitEh       = _transportVeh addEventHandler ["Hit", {/*_this call SQFM_fnc_onTransportCrewHit*/"vehicle hit"call dbgm}];
+private _transportHitEh       = _transportVeh addEventHandler ["HandleDamage", {_this spawn SQFM_fnc_onTransportVehicleHit}];
 private _onPassengerFired     = {(_this#0) removeEventHandler [_thisEvent, _thisEventHandler]; _this spawn SQFM_fnc_onPassengerFired};
 private _onPassengerHit       = {(_this#0) removeEventHandler [_thisEvent, _thisEventHandler]; _this spawn SQFM_fnc_onPassengerHit};
 private _onTransportCrewFired = {(_this#0) removeEventHandler [_thisEvent, _thisEventHandler]; _this spawn SQFM_fnc_onTransportCrewFired};

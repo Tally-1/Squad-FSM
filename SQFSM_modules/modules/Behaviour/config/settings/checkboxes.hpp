@@ -25,8 +25,8 @@ class isReinforcement : Checkbox
 class canHunt : Checkbox
 {
     property     = "SQFSM_canHuntt";
-    displayName  = "Can Hunt";
-    tooltip      = "When available, the squad will seek and destroy known enemies within 1000m.";
+    displayName  = "Push near enemies";
+    tooltip      = "When available, the squad will seek and destroy near enemies.\nYou can set the distance below.";
     defaultValue = "true";
 };
 

@@ -28,6 +28,9 @@ _objectives = _objectives select _selectionAlgo;
 if(_objectives isEqualTo [])exitWith{[]};
 
 private _targetObjective = [_pos, _objectives] call SQFM_fnc_getNearest;//([_objectives, _group] call SQFM_fnc_objectivesSorted)#0;
+private _objective       = _self get "objective";
+if(_objective isEqualTo _targetObjective)exitWith{[]};
+
 private _assignmentData  = [_group, _targetObjective];
 _self call ["attackObjective", [_targetObjective]];
 

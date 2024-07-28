@@ -6,30 +6,37 @@ private _abilityKeys = [
     "canAttack",
     "canHunt",
     "huntDistance",
+    "huntKnowledge",
     "canReinforce",
     "canCallReinforcements",
     "canCallAir",
     "canCallArty"
 ];
 
-{
-    private _name   = (_x select [3, count _x])+"s";//[, _maxLetterCount] call SQFM_fnc_textInsertSpace;
+{ 
+    private _name   = (_x select [3, count _x])+"s";
     private _color  = _green;
     private _value  = _self get _x;
     private _number = typeName _value isEqualTo "SCALAR";
+    private _huntDistance  = _x isEqualTo "huntDistance";
+    private _huntKnowledge = _x isEqualTo "huntKnowledge";
 
+    // Set number / bool color to red in the case of false / 0;
+    // Except for huntKnowledge.
     if(_number)then{_color = _aqua};
-    if(_value isEqualTo false 
+    if((_value isEqualTo false 
     ||{_value isEqualTo 0})
+    &&{_huntKnowledge isEqualTo false})
     then{_color = _red};
-    if(_x isEqualTo "huntDistance")
-    then{_name = "Hunt Distance"};
-    
 
-    if("Call" in _x)then{
+    if(_huntDistance)  then{_name = "Hunt Distance"};
+    if(_huntKnowledge) then{
+        _name  = "Hunt Knowledge";
+        _value = [round(_value*100),"%"]joinString"";
+    };
+    if("Call" in _x)   then{
         _name = ["Can call ", (_x select [7, count _x])]joinstring"";
     };
-
 
     private _title = [_subCategoryTitle, _name, _end]joinString"";
     private _text  = ["<t align='right' t size='1.2'>", _color, _value, _end,_end]joinString"";
@@ -37,7 +44,9 @@ private _abilityKeys = [
 
     _abilities pushBack _line;
 
-    if(_i isEqualTo 3)then{_abilities append [_newLine, _newLine,_largeTxt,"Support calls:",_end]};
+    // Add new title line for the settings of support calls.
+    if(_i isEqualTo 5)
+    then{_abilities append [_newLine, _newLine,_largeTxt,"Support calls:",_end]};
 
     _i=_i+1;
 } forEach _abilityKeys;

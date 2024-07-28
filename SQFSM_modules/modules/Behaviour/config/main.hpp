@@ -8,6 +8,7 @@ class SQFSM_Behaviour : Module_F
         #include "settings\checkboxes.hpp"
         #include "settings\squadType.hpp"
         #include "settings\huntDistance.hpp"
+        #include "settings\huntKnowledge.hpp"
        
         class ModuleDescription : ModuleDescription{};
     };
