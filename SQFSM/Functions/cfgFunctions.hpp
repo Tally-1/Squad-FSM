@@ -1,3 +1,5 @@
+// "SQFSM\functions
+
 class CfgFunctions
 {
 	class SQFM
@@ -266,6 +268,24 @@ class CfgFunctions
 			class getAssignedVehicles         {};
 			class teleportIntoAssignedVehicle {};
 			class manForceMoveToPos           {};
+			class garrisonMan                 {};
+			class onManGarrison               {};
+		};
+
+		class man_fsmMovement
+		{
+			file = "SQFSM\functions\man\fsmMovement";
+			class addMoveManFsmCombatEh    {};
+			class removeMoveManFsmCombatEh {};
+			class moveManFsmCondition      {};
+			class validFsmMoveTarget       {};
+			class fsmMoveHandleTarget      {};
+			class whileManFsmMoving        {};
+			class fsmMoveHandleAutoTarget  {};
+			class initFsmMoveMan           {};
+			class execFsmMoveMan           {};
+			class endFsmMoveMan            {};
+			class fsmMoveManToPos          {};
 		};
 
 		class vehicle

@@ -15,6 +15,8 @@ private _menIndexCount = count _men-1;
 private _scripts       = [];
 private _movingIn      = _building getVariable ["SQFM_movingIn",0];
 
+
+
 _positions = [_positions, [],{_x#2}, "DESCEND"] call BIS_fnc_sortBy;
 _building setVariable ["SQFM_movingIn", _movingIn+_manCount];
 _self call ["flashAction",["Grrs"]];
@@ -23,15 +25,16 @@ _group enableAttack false;
 
 for "_i" from 0 to _menIndexCount do
 {
-    private _man = _men#_i;
-    private _pos = _positions#_p;
-    private _scr = [_man, _pos, true] spawn SQFM_fnc_manForceMoveToPos;
+    private _man  = _men#_i;
+    private _pos  = _positions#_p;
+    private _scr  = [_man, _building, _pos] spawn SQFM_fnc_garrisonMan;
 
     _scripts pushBack _scr;
 
     _p=_p+1;
     if(_p > _posIndexCount)then{_p=0};
 };
+sleep 3;
 
 {waitUntil {scriptDone _x}} forEach _scripts;
 _self set ["action",""];
