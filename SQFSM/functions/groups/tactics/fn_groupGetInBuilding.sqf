@@ -19,7 +19,7 @@ private _movingIn      = _building getVariable ["SQFM_movingIn",0];
 
 _positions = [_positions, [],{_x#2}, "DESCEND"] call BIS_fnc_sortBy;
 _building setVariable ["SQFM_movingIn", _movingIn+_manCount];
-_self call ["flashAction",["Grrs"]];
+_self call ["flashAction",["G"]];
 _self set ["action","getting inside Building"];
 _group enableAttack false;
 

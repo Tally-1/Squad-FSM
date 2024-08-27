@@ -1,12 +1,12 @@
+_self spawn{ 
+private _self      = _this;
 private _taskData  = _self call ["getTaskData"];
-private _zone      = _taskData get "zone";
-private _pos       = _zone#0;
-private _rad       = _zone#1;
+private _objective = (_taskData get "params")#0;
+private _objData   = _objective call getData;
+private _center    = (_objData get "zone")#0;
 
-_self set ["state", ""];
-_self set ["action", "Clearing area"];
-
-private _function = 'SQFM_fnc_endTaskGroup';
-
-_self call ["addWaypoint", [_pos,5,"SAD"]];
-_self call ["addWaypoint", [_pos,_rad,"MOVE",_function]];
+_self set  ["state", ""];
+_self set  ["action", "Clearing Objective"];
+_self call ["leaveUnarmedVehicles"];
+_self call ["clearObjective",[_objective]];
+};

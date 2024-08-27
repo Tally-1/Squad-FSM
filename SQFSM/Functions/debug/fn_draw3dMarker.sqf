@@ -5,8 +5,7 @@ private _size        = 1;
 private _maxDistance = 500;
 params["_position", "_color", "_text", "_icon", "_size", "_maxDistance"];
 
-private _camPos   = (positionCameraToWorld [0,0,0]);
-private _distance = (_camPos distance _position);
+private _distance = (camPos distance _position);
 
 if(_distance < _maxDistance)
 then{

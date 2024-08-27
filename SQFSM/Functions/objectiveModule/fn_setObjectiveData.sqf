@@ -12,9 +12,13 @@ private _description  = [_type] call SQFM_fnc_objectiveDescription;
 private _capStrength  = _module getVariable "capStrength";
 private _distance     = _module getVariable "activationDistance";
 private _defaultOwner = _module getVariable "defaultOwner";
+private _buildings    = [_position, _radius] call SQFM_fnc_nearBuildings;
+private _isUrbanArea  = (_type isEqualTo "town");//||{[_position, _radius, _buildings] call SQFM_fnc_isUrbanArea};
+private _urbanZones   = [_buildings] call SQFM_fnc_getUrbanZones;
 private _owner        = sideUnknown;
 private _sides        = [];
 private _assetTypes   = [];
+private _markers      = if(SQFM_debugMode)then{[_module] call SQFM_fnc_drawObjectiveMarkers}else{[]};
 
 if (_defaultOwner isNotEqualTo "undefined")
 then{_owner = (call compile _defaultOwner)};
@@ -44,9 +48,15 @@ private _assignedGroups = createHashmapObject [[
 
 private _dataArr = [
     ["module",                                               _module],
+    ["markers",                                             _markers],
     ["position",                                           _position],
+    // ["posgrid",                                                   []],
 	["area",                                                   _area],
 	["zone",                                                   _zone],
+	["buildings",                                         _buildings],
+    ["isUrbanArea",                                     _isUrbanArea],
+    ["urbanZones",                                       _urbanZones],
+    ["roadmap",                   _zone call SQFM_fnc_getZoneRoadmap],
     ["range",                                              _distance],
     ["type",                                                   _type],
     ["description",                                     _description],
@@ -61,7 +71,7 @@ private _dataArr = [
     ["captureTime",                                             time],
     ["safePosSearches",                                           []],
 
-    /*************************{DEBUG DATA}**************************/
+    /*************************{DEBUG-DATA}**************************/
     ["defaultIcon",    "\A3\ui_f\data\map\markers\military\objective_CA.paa"],
     ["contestedIcon",    "\A3\ui_f\data\map\markers\military\warning_CA.paa"],
     ["capturedIcon",     "\A3\ui_f\data\map\markers\handdrawn\pickup_CA.paa"],
@@ -72,6 +82,11 @@ private _dataArr = [
 
 private _data = createhashMapObject [_dataArr];
 [_data] call SQFM_fnc_setObjectiveMethods;
+_data   call ["updateMarkers"];
+
+// For some reason the urbanStatus function returns a false negative if called too soon.
+_data spawn{sleep 1; _this call ["setUrbanStatus"]};
+// _data   call ["setPosgrid"];
 
 _module setVariable ["SQFM_objectiveData", _data, true];
 

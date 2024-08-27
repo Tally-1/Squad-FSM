@@ -22,6 +22,8 @@ _self set ["captureTime", round time];
 
 } forEach _attackGroups;
 
+_self call ["updateMarkers"];
+
 if(count _attackGroups > 0)
 then{[["Reassigned ", count _attackGroups, " Attack-Squads"]] call dbgm};
 

@@ -20,7 +20,10 @@ private _dataArr    = [
 	["center", 	                              _center],
 	["area",                                    _area],
 	["Y to X", 	[_X_Y_Ratio, 1]call SQFM_fnc_decimals],
-	["canFit",                SQFM_fnc_shapeFitsShape]
+	
+						/*{METHODS}*/
+	["canFit",                              SQFM_fnc_shapeFitsShape],
+	["getCorners", {[_self get"area"] call SQFM_fnc_getAreaCorners}]
 ];
 
 private _shape = createHashmapObject[_dataArr];

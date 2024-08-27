@@ -1,6 +1,8 @@
 params[
     ["_groups",nil,[[]]]
 ];
+if(time < 300)exitWith{};
+
 private _positions = [];
 {
     private _data = _x call getData;

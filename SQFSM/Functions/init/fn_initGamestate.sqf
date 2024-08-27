@@ -28,13 +28,13 @@ SQFM_safePosLifeTime    = 60;
 SQFM_lastFireCheck      = 0-300;
 SQFM_defaultBehaviour   = [ 
 	"standard", // Squadtype
-	true,       // defend objectives
-	true,       // Attack objectives 
-	true,       // push near enemies 
-	200,        // push distance 
-	0,          // push knowledge 
-	true,       // reinforce 
-	true,       // call reinforcements 
-	true,       // call CAS 
-	true        // call Arty
+	SQFM_defaultBehaviourDefend,        // defend objectives
+	SQFM_defaultBehaviourAttack,        // Attack objectives 
+	SQFM_defaultBehaviourPush,          // push near enemies 
+	SQFM_defaultBehaviourPushDist,      // push distance 
+	SQFM_defaultBehaviourPushKnowledge, // push knowledge 
+	SQFM_defaultBehaviourReinforce,     // reinforce 
+	SQFM_defaultBehaviourCallReforce,   // call reinforcements 
+	SQFM_defaultBehaviourCallCAS,       // call CAS 
+	SQFM_defaultBehaviourCallArty       // call Arty
 ];

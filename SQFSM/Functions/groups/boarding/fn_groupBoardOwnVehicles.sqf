@@ -4,6 +4,7 @@ private _grpVehInUse    = _vehicles#2;
 private _allOwnVehicles = _vehicles#0;
 private _hasCapacity    = [_menOnFoot, _grpVehInUse] call SQFM_fnc_vehiclesCanTransportMen;
 if(_hasCapacity)exitWith{
+	_menOnFoot allowGetIn true;
 	[_menOnFoot, _grpVehInUse] call SQFM_fnc_menOrderGetInVehicles;
 };
 

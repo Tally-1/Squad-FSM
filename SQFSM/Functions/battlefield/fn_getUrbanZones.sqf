@@ -41,7 +41,8 @@ _buildings = [_buildings, [], _sortAlgo, "DESCEND"] call BIS_fnc_sortBy;
 
 		_zones pushBackUnique _hashMap;
 		_registered append _nearHouses;
-		(_self get "buildings") insert [0, _nearHouses, true];
+		if(!isNil "_self")
+		then{(_self get "buildings")insert[0,_nearHouses,true]};
 	};
 	
 } forEach _buildings;

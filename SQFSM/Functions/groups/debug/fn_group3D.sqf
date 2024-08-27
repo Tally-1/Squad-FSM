@@ -10,7 +10,6 @@ private _iconPos   = [_eyePos, 2] call SQFM_fnc_AddZ;
 private _icon      = [_group] call SQFM_fnc_group3DIcon;//"\A3\ui_f\data\map\groupicons\selector_selectedFriendly_ca.paa";
 private _color     = [_group] call SQFM_fnc_group3DColor;
 private _text      = [_group] call SQFM_fnc_group3DText;
-private _camPos    = (positionCameraToWorld [0,0,0]);
 private _objective = _data get "objective";
 private _strength  = _data get "strengthIndicator";
 

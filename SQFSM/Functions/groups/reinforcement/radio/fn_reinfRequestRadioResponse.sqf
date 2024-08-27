@@ -3,6 +3,8 @@ params[
     ["_approved", nil, [true]],
     ["_side",     nil, [west]]
 ];
+if!(SQFM_showReforChat)exitWith{};
+
 _request params ["_pos", "_group", "_time"];
 private _denied    = _approved isEqualTo false;
 private _groupName = groupId _group;

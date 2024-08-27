@@ -4,7 +4,7 @@ params[
 ];
 
 private _getVeh = {_self get "objects" select {[_x] call SQFM_fnc_validVehicle}};
-private _getMen = {_self get "objects" select {[_x] call SQFM_fnc_functionalMan}};
+private _getMen = {_self get "objects" select {[_x] call SQFM_fnc_validMan}};
 
 private _dataArr = [
 	["position",   _clusterData#0],

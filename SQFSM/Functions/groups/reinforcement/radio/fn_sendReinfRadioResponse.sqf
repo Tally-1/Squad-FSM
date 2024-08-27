@@ -3,6 +3,8 @@ params[
     ["_approved",    nil, [true]],
     ["_side",        nil, [west]]
 ];
+if!(SQFM_showReforChat)exitWith{};
+
 private _count    = count _requestList;
 private _response = "approved.";
 

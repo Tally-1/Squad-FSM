@@ -16,14 +16,19 @@ private _getAvailable    = {
     _self get _category select { 
 
         private _data        = _x call getData;
-        private _available   = _data call ["canRecieveTask"];
+        private _validData   = !isNil "_data";
+        private _available   = _validData &&{_data call ["canRecieveTask"]};
         private _correctSide = isNil "_side" || {side _x isEqualTo _side};
 
-        if(_reforceCheck
-        &&{!(_data call ["ableToReinforce"])})
+        if(_validData
+        &&{_reforceCheck
+        &&{!(_data call ["ableToReinforce"])}})
         then{_available = false};
 
         if!(_correctSide)
+        then{_available = false};
+
+        if!(_validData)
         then{_available = false};
 
         _available;

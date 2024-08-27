@@ -3,6 +3,8 @@ params[
 	["_taskName", nil,    [""]]
 ];
 
+"Boarding then traveling" call dbgm;
+
 //This will have the group attempt to board vehicles 3 times.
 private _onboard = _self call ["boardVehicles", [true]];
 if!(_onboard)
@@ -15,6 +17,10 @@ if!(_onboard)exitWith{
 	"Cannot travel, boarding failed" call dbgm;
 	false;
 };
+
+private _status = _self call ["boardingStatus"];
+
+[["Boarding Status: ", _status]] call dbgm;
 
 _self call ["execTravel", [_movePos, _taskName]]; 
 

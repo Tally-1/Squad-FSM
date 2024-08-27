@@ -36,9 +36,7 @@ then{
     if(_notMoving)
     then{_msg = "reordered move (not Moving)"};
 
-    if(!isNil "SFSM_fnc_flashAction")
-    then{[_man, _msg] spawn SFSM_fnc_flashAction}
-    else{_msg call dbgm};
+    [_man, _msg] spawn SQFM_fnc_flashActionMan;
 
     sleep 0.1;
 };

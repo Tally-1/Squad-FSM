@@ -13,5 +13,6 @@ _group addEventHandler ["CombatModeChanged", {_this call SQFM_fnc_onCombatModeCh
 _data call ["addUnitEH", ["FiredMan",     {_this call SQFM_fnc_onSquadManFired},              "SQFM_squadManFired"]];
 _data call ["addUnitEH", ["Suppressed",   {_this call SQFM_fnc_onSquadManSuppressed},    "SQFM_squadManSuppressed"]];
 _data call ["addUnitEH", ["HandleDamage", {_this call SQFM_fnc_handleNoCrashDamage},  "SQFM_squadManDamageHandler"]];
+_data call ["addUnitEH", ["GetOutMan",    {_this call SQFM_fnc_onSquadManGetOut},            "SQFM_squadManGetOut"]];
 
 true;

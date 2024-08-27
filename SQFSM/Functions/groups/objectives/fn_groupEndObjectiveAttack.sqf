@@ -7,15 +7,19 @@ private _valid        = _self call ["isValid"];
 private _groupPresent = (_self call ["isInsideObjective",[_objModule]]);
 private _description  = _objData get "description";
 private _message      = ["Attack on ", _description, " ended."]joinString"";
+private _vehicle      = vehicle formationLeader leader (_self get "grp");
 
 _self call ["deleteWaypoints"];
 _self call ["unAssignObjective"];
+_self call ["endMechClearing"];
 _self set  ["action", ""];
 _self set  ["state",  ""];
 
 _message call dbgm;
 
 if!(_valid)exitWith{"Squad was eliminated during assault" call dbgm};
+
+_vehicle forceFollowRoad false;
 
 if(_groupPresent)then{_self call ["autoAssignObjective",[]]}
 else{
@@ -37,4 +41,3 @@ else{
 
 true;
 };
-true;

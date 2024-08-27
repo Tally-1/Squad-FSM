@@ -1,7 +1,6 @@
 params[
 	["_floor", nil, [[]]], // BottomCorners
-	["_roof",  nil, [[]]], // TopCorners
-	["_all",   nil, [[]]]
+	["_roof",  nil, [[]]]  // TopCorners
 ];
 private _color = [0.4, 1, 0.9, 1];
 private _j     = 0;

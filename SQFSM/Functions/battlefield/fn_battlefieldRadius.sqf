@@ -37,7 +37,7 @@ exitWith{_objRad};
 private _entities = _pos nearEntities ['land', _checkRad];
 private _filter   = {
 	private _grpData = group _x getVariable "SQFM_grpData";
-	private _valid   = (!isNil "_grpData" 
+	private _valid   = ((!isNil "_grpData") 
                     && {[_x] call SQFM_fnc_validLandEntity 
                     && {!(_grpData call ["inBattle"])}});
 

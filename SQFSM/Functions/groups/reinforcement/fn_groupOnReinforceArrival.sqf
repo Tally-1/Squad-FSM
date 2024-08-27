@@ -24,7 +24,7 @@ exitWith{_taskData call ["endTask", ["replenish caller",_callerGrp]]};
 
 private _enemy = _callerData call ["nearEnemyGrp"];
 if(!isNull _enemy)
-exitWith{_taskData call ["endTask", ["attack callers enemy",_enemy]]};
+exitWith{_taskData call ["endTask", ["attack callers enemy", _enemy]]};
 
 _enemy = _self call ["nearEnemyGrp"];
 if(!isNull _enemy)

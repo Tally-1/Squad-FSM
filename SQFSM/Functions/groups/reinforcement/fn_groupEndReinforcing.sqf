@@ -12,10 +12,11 @@ _self call ["setDataDelayed", ["state",      ""]];
 if(_status isEqualTo "invalid caller")
 exitWith{_self call ["addWaypoint", [_callerPos, 20]]};
 
-private _responder =  _self get "groupType";
-private _grpName   = groupId _callerGrp;
-private _side      = side _callerGrp;
-private _msg       = [_grpName, ": Reinforcments (",_responder,") arrived."]joinString"";
+private _responder  =  _self get "groupType";
+private _grpName    = groupId _callerGrp;
+private _side       = side _callerGrp;
+private _msg        = [_grpName, ": Reinforcments (",_responder,") arrived."]joinString"";
+private _mechanized = _self call ["isMechanized"];
 
 if(_status isEqualTo "replenish caller")
 exitWith{
@@ -27,6 +28,7 @@ exitWith{
 
 if("attack" in _status)
 exitWith{ 
+
     _self call ["setDataDelayed", ["action", _status]];
     _msg = [_msg, " They are engaging the enemy!"]joinString"";
     [[_side, "base"], _msg] remoteExecCall ["sideChat"];
@@ -36,4 +38,14 @@ exitWith{
 _msg = [_msg, " They are moving into position"]joinString"";
 [[_side, "base"], _msg] remoteExecCall ["sideChat"];
 
-_self call ["addWaypoint",[_callerPos, 50]];
+if!(_mechanized)
+exitWith{_self call["addWaypoint",[_callerPos, 50, "SAD"]]};
+
+[_self, _callerPos]spawn{
+params["_self","_pos"];
+
+_self call ["initMechClearing"];
+_self call ["addWaypoint", [_pos, 50, "MOVE", "SQFM_fnc_wpEndMechClearing"]];
+
+true;
+};

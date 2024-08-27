@@ -1,3 +1,5 @@
+if!(SQFM_showReforChat)exitWith{};
+
 private _group           = _self get "grp";
 private _side            = _self get "side";
 private _unit            = _self call ["anyValidMan"];

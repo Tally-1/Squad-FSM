@@ -26,6 +26,4 @@ if!(_gotIn)then{
     _self call ["flashAction",["FAIL","#fb3737"]];
 };
 
-
-
 _gotIn;

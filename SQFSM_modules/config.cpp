@@ -8,3 +8,6 @@
 #include "config\cfgVehicles.cpp"
 #include "config\cfgFunctions.cpp"
 #include "config\rscTitles.cpp"
+#include "config\preinit.cpp"
+
+#include "config\cfgFormations.cpp"

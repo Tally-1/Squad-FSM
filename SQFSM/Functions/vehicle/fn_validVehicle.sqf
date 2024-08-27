@@ -3,6 +3,7 @@ params [
 ];
 if!(_vehicle isKindOf "land")          exitWith{false;};
 if (_vehicle isKindOf "man")           exitWith{false;};
+if (_vehicle isKindOf "logic")         exitWith{false;};
 
 private _validSide = side _vehicle in [east, west, independent];
 

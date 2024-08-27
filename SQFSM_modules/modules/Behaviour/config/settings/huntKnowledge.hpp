@@ -6,5 +6,5 @@ class SQFM_huntKnowledge : Edit
     control      = "Slider";
     typeName     = "NUMBER";
     // defaultValue = "0.55";
-    defaultValue = "missionNamespace getVariable ['SQFM_huntKnowledge', 0]";
+    defaultValue = "missionNamespace getVariable ['SQFM_defaultBehaviourPushKnowledge', 0]";
 };

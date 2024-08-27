@@ -1,4 +1,4 @@
-// "SQFSM\functions
+// "functions
 
 class CfgFunctions
 {
@@ -7,7 +7,7 @@ class CfgFunctions
 		
 		class battlefield
 		{
-			file = "SQFSM\functions\battlefield";
+			file = "\SQFSM\functions\battlefield";
 			class initBattle                    {};
 			class posRadInitBattle              {};
 			class initBattleMap                 {};
@@ -46,7 +46,7 @@ class CfgFunctions
 		};
 
 		class battleHud { 
-			file = "SQFSM\functions\battleHud";
+			file = "\SQFSM\functions\battleHud";
 			class initBattleHud               {};
 			class BattleProgressBars          {};
 			class updateAllBattleProgressBars {};
@@ -60,20 +60,32 @@ class CfgFunctions
 
 		class building
 		{
-			file = "SQFSM\functions\building";
-			class isHouse            {};
-			class nearBuildings      {};
-			class manGetBuilding     {};
-			class menInsideBuilding  {};
-			class buildingPosCount   {};
-			class buildingArrData    {};
-			class getBuildingScore   {};
-			class sortBuildings      {};
+			file = "\SQFSM\functions\building";
+			class isHouse               {};
+			class nearBuildings         {};
+			class manGetBuilding        {};
+			class menInsideBuilding     {};
+			class buildingPosCount      {};
+			class buildingArrData       {};
+			class getBuildingScore      {};
+			class sortBuildings         {};
+			class allBuildingsPositions {};
+			class zoneUrbanCoef         {};
 		};
+
+		class roads 
+		{
+			file = "\SQFSM\functions\roads";
+			class getRoadData      {};
+			class hashifyRoads     {};
+			class roadIsZoneExit   {};
+			class getZoneExitRoads {};
+			class getZoneRoadmap   {};
+		}
 
 		class clusters
 		{
-			file = "SQFSM\functions\clusters";
+			file = "\SQFSM\functions\clusters";
 			class clusterRadius           {};
 			class objArrData              {};
 			class hashifyClusterData      {};
@@ -85,13 +97,14 @@ class CfgFunctions
 		
 		class debug
 		{
-			file =    "SQFSM\functions\debug";
+			file =    "\SQFSM\functions\debug";
 			// class clientLoop             {};
 			class debugMessage              {};
 			class serverDebugMsg            {};
 			class sendDbgMsg                {};
 			class debug3D                   {};
 			class custom3Dmarkers           {};
+			class showPosArr3D              {};
 
 			class objective3D               {};
 			class drawObjectiveModule       {};
@@ -107,13 +120,19 @@ class CfgFunctions
 			class drawTransportModule       {};
 			class drawTransportModuleNoInit {};
 
+			class addPosMarker              {};
+			class addCircleMarker           {};
+			class drawObjectiveMarkers      {};
+			class objectiveUpdateMarkers    {};
+			class addRectangleMarker        {};
+
 		};
 
 		
 
 		class misc
 		{
-			file = "SQFSM\functions\misc";
+			file = "\SQFSM\functions\misc";
 			class copyHashmap            {};
 			class sideToStrSide          {};
 			class removeNull             {};
@@ -131,55 +150,78 @@ class CfgFunctions
 			class formatCtrlPos          {};
 			class newDisplayCtrl         {};
 			class allWaypointPositions   {};
+			class isUrbanArea            {};
 
+			class scriptListDone         {};
+			class waitForScriptList      {};
 		};
 
 		class math
 		{
-			file = "SQFSM\functions\math";
-			class module3dData           {};
-			class getModuleArea          {};
-			class getAreaCorners         {};
-			class areaCornerLines        {};
-			class sinCosPos              {};
-			class AddZ                   {};
-			class roundPos               {};
-			class average                {};
-			class avgPos2D               {};
-			class getMidpoint            {};
-			class straightPosArr         {};
-			class squareGrid             {};
-			class getNearest             {};
-			class pos360                 {};
-			class getCircleLines         {};
-			class clearPos               {};
-			class clearPosSqrArea        {};
-			class clearPosInArea         {};
-			class posHasTerrainCover     {};
-			class posIsHidden            {};
-			class numDiff                {};
-			class decimals               {};
-			class objectShape            {};
-			class shapeFitsShape         {};
+			file = "\SQFSM\functions\math";
+			class module3dData              {};
+			class getModuleArea             {};
+			class getAreaCorners            {};
+			class areaCornerLines           {};
+			class sinCosPos                 {};
+			class AddZ                      {};
+			class roundPos                  {};
+			class average                   {};
+			class avgPos2D                  {};
+			class getMidpoint               {};
+			class straightPosArr            {};
+			class squareGrid                {};
+			class getNearest                {};
+			class pos360                    {};
+			class getCircleLines            {};
+			class clearPos                  {};
+			class clearPosSqrArea           {};
+			class clearPosInArea            {};
+			class posHasTerrainCover        {};
+			class posIsHidden               {};
+			class numDiff                   {};
+			class decimals                  {};
+			class objectShape               {};
+			class shapeFitsShape            {};
 
-			class roadsInArea            {};
-			class findParkingSpot        {};
-			class getAreaParkingPos      {};
-			class formatDir              {};
-			class lineBroken             {};
-			class selectSafePositions    {};
-			class semiCirclePosArr       {};
-			class formatDirRanges        {};
-			class inDirRange             {};
-			class dangerZoneSafePositions{};
-			class describeDistance       {};
-			class describeDir            {};
+			class roadsInArea               {};
+			class findParkingSpot           {};
+			class getAreaParkingPos         {};
+			class formatDir                 {};
+			class lineBroken                {};
+			class selectSafePositions       {};
+			class semiCirclePosArr          {};
+			class formatDirRanges           {};
+			class inDirRange                {};
+			class dangerZoneSafePositions   {};
+			class describeDistance          {};
+			class describeDir               {};
+
+			class posArrToPath              {};
+			class zonePosArr                {};
+			class zoneCone                  {};
+			class validSurfaceIntersections {};
+			class posOnVector               {};
+
+			class getObjectCorners          {};
+
+		};
+
+		class suppression 
+		{
+			file =       "\SQFSM\functions\suppression";
+			class getSuppressionTargetPosition {};
+			class getBuildingSuppressionPos    {};
+			class getSuppressionTarget         {};
+			class suppressionTargetValue       {};
+			class zoneSuppressionTargets       {};
+			class assignSuppressionTargets     {};
 
 		};
 
 		class objectiveModule
 		{
-			file =       "SQFSM\functions\objectiveModule";
+			file =       "\SQFSM\functions\objectiveModule";
 			class initObjective                   {};
 			class setObjectiveData                {};
 			class setObjectiveMethods             {};
@@ -204,11 +246,15 @@ class CfgFunctions
 			class objectiveRemoveSafePosSearches  {};
 			class objectiveOnCapture              {};
 
+			class objectiveSetUrbanStatus         {};
+			class objectiveGetZoneMidPositions    {};
+			class objectiveGetZoneCone            {};
+
 		};
 
 		class transportModule
 		{
-			file = "SQFSM\functions\transportModule";
+			file = "\SQFSM\functions\transportModule";
 			class initTransportSpawner    {};
 			class transportVehicleData    {};
 			class transportSpawnPosClear  {};
@@ -222,7 +268,7 @@ class CfgFunctions
 
 		class transportTask
 		{
-			file = "SQFSM\functions\transportModule\transportTask";
+			file = "\SQFSM\functions\transportModule\transportTask";
 			class sendTransport           {};
 			class transportInitTask       {};
 			class transportAvailability   {};
@@ -245,7 +291,7 @@ class CfgFunctions
 
 		class transportTask_events
 		{
-			file = "SQFSM\functions\transportModule\transportTask\events";
+			file = "\SQFSM\functions\transportModule\transportTask\events";
 			class setTransportEvents    {};
 			class removeTransportEvents {};
 			class onTransportCrewHit    {};
@@ -258,10 +304,11 @@ class CfgFunctions
 
 		class man
 		{
-			file = "SQFSM\functions\man";
+			file = "\SQFSM\functions\man";
 			class unconscious                 {};
 			class isRealMan                   {};
 			class functionalMan               {};
+			class validMan                    {};
 			class hostile                     {};
 			class validEnemy                  {};
 			class firstValidGroupMember       {};
@@ -269,12 +316,21 @@ class CfgFunctions
 			class teleportIntoAssignedVehicle {};
 			class manForceMoveToPos           {};
 			class garrisonMan                 {};
+			class manCurrentBuilding          {};
 			class onManGarrison               {};
+			class flashActionMan              {};
+			class man3dAction                 {};
+			class manInFipo                   {};
+
+			class manEjectThenCover           {};
+			class manEjectFromVehicle         {};
+			class manEjectThenCoverOnArrival  {};
+			class enforceFormation            {};
 		};
 
 		class man_fsmMovement
 		{
-			file = "SQFSM\functions\man\fsmMovement";
+			file = "\SQFSM\functions\man\fsmMovement";
 			class addMoveManFsmCombatEh    {};
 			class removeMoveManFsmCombatEh {};
 			class moveManFsmCondition      {};
@@ -290,7 +346,7 @@ class CfgFunctions
 
 		class vehicle
 		{
-			file = "SQFSM\functions\vehicle";
+			file = "\SQFSM\functions\vehicle";
 			class deadCrew                 {};
 			class crewSize                 {};
 			class validVehicle             {};
@@ -311,22 +367,43 @@ class CfgFunctions
 			class isArmedCar               {};
 			class isLightArmor             {};
 			class isHeavyArmor             {};
+			class deployVehicleSmoke       {};
+			class getVehicleWeapons        {};
+			class vehicleIsUnarmed         {};
+			class vehicleEjectCrew         {};
 
 		};
 
 		class vehicle_crwData
 		{
-			file = "SQFSM\functions\vehicle\crwData";
+			file = "\SQFSM\functions\vehicle\crwData";
 			class crewData                  {};
 			class cargoSeatData             {};
 			class hashifySeatData           {};
 			class clearSeat                 {};
 			class seatStatus                {};
+			class getVehiclePassengers      {};
+		};
+
+		class mechanized
+		{
+			file =    "\SQFSM\functions\mechanized";
+
+			class mechUnload            {};
+			class mechUnloadStart       {};
+			class mechUnloadActivateMen {};
+			class activateMechMan       {};
+			class mechUnloadPositions   {};
+			class mechUnloadEnd         {};
+			class onMechUnloadDanger    {};
+			class keepMechFormationLoop {};
+			class onMechClearingWp      {};
+
 		};
 
 		class groups_global
 		{
-			file =    "SQFSM\functions\groups";
+			file =    "\SQFSM\functions\groups";
 			class validGroup               {};
 			class initGroup                {};
 			class initGroupData            {};
@@ -344,7 +421,7 @@ class CfgFunctions
 
 		class groups_abilities
 		{
-			file = "SQFSM\functions\groups\abilities";
+			file = "\SQFSM\functions\groups\abilities";
 			class getGroupAbilities          {};
 			class groupAttackOnly            {};
 			class groupDefendOnly            {};
@@ -352,7 +429,7 @@ class CfgFunctions
 
 		class groups_combat
 		{
-			file = "SQFSM\functions\groups\combat";
+			file = "\SQFSM\functions\groups\combat";
 			class groupInBattle             {};
 			class groupCanInitBattle        {};
 			class addGroupShots             {};
@@ -367,7 +444,7 @@ class CfgFunctions
 		
 		class groups_suppress
 		{
-			file = "SQFSM\functions\groups\suppress";
+			file = "\SQFSM\functions\groups\suppress";
 			class groupReturnFire     {};
 			class grpIsNotSuppressing {};
 			class endGrpReturnFire    {};
@@ -375,12 +452,13 @@ class CfgFunctions
 
 		class groups_events
 		{
-			file = "SQFSM\functions\groups\events";
+			file = "\SQFSM\functions\groups\events";
 			class grpEvents                   {};
 			class onEnemyDetected             {};
 			class onKnowsAboutChanged         {};
 			class onSquadManFired             {};
 			class onSquadManSuppressed        {};
+			class onSquadManGetOut            {};
 			class onUnitJoined                {};
 			class groupAddUnitEventHandler    {};
 			class groupRemoveUnitEventHandler {};
@@ -392,7 +470,7 @@ class CfgFunctions
 
 		class groups_travel
 		{
-			file = "SQFSM\functions\groups\travel";
+			file = "\SQFSM\functions\groups\travel";
 			class validGroupVehicle          {};
 			class leaveInvalidVehicles       {};
 			class nearGroupVehicles          {};
@@ -408,11 +486,14 @@ class CfgFunctions
 			class groupIsTraveling           {};
 			class groupAddWayPoint           {};
 			class groupWaitForTransportSpawn {};
+			class onWpGroupTravelArrival     {};
+			class wpEndMechClearing          {};
+			class groupCurrentWayPoint       {};
 		};
 
 		class groups_boarding
 		{
-			file = "SQFSM\functions\groups\boarding";
+			file = "\SQFSM\functions\groups\boarding";
 			class groupCanSelfTransport     {};
 			class groupBoardOwnVehicles     {};
 			class groupBoardAllAvailable    {};
@@ -428,17 +509,21 @@ class CfgFunctions
 			class endGroupBoarding          {};
 			class groupBoardThenTravel      {};
 			class groupEjectFromAllVehicles {};
+			class groupLeaveUnarmedVehicles {};
+			class groupMechUnload           {};
+			class isVanillaBoarding         {};
 		};
 
 		class groups_members
 		{
-			file = "SQFSM\functions\groups\members";
+			file = "\SQFSM\functions\groups\members";
 			class getGrpMembers            {};
 			class getGroupUnits            {};
 			class getGroupUnitsOnFoot      {};
 			class getGroupCluster          {};
 			class setGroupCluster          {};
 			class groupAvgPos              {};
+			class groupGetRadius           {};
 			class getGroupVehicles         {};
 			class groupCrew                {};
 			class groupNonCrew             {};
@@ -452,12 +537,13 @@ class CfgFunctions
 			class groupStrengthCoef        {};
 			class groupMergeWithGroup      {};
 			class initSquadMembers         {};
+			class groupIsMechanized        {};
 
 		};
 
 		class groups_tasks
 		{
-			file = "SQFSM\functions\groups\tasks";
+			file = "\SQFSM\functions\groups\tasks";
 			class initTaskData            {};
 			class endTask                 {};
 			class endTaskGroup            {};
@@ -474,7 +560,7 @@ class CfgFunctions
 
 		class groups_debug
 		{
-			file = "SQFSM\functions\groups\debug";
+			file = "\SQFSM\functions\groups\debug";
 			class groups3D                {};
 			class group3D                 {};
 			class group3DNoData           {};
@@ -489,7 +575,7 @@ class CfgFunctions
 
 		class groups_objectives
 		{
-			file = "SQFSM\functions\groups\objectives";
+			file = "\SQFSM\functions\groups\objectives";
 			class group_validObjective            {};
 			class groupObjectiveInRange           {};
 			class groupGetNearObjectives          {};
@@ -520,12 +606,24 @@ class CfgFunctions
 			class groupAttackObjective            {};
 			class groupAssignDefenseObjective     {};
 
+			/*Clearing*/
+			class groupClearObjective             {};
+			class groupInfClearObjective          {};
+			class groupInfClearUrbanObjective     {};
+			class groupGetUrbanObjInfSearchP      {};
+			class groupVehicleClearObjective      {};
+			class groupVehicleClearUrbanObjective {};
+
+			class groupInitMechClearing           {};
+			class groupMechClearObjective         {};
+			class groupMechClearUrbanObjective    {};
+			class groupEndMechClearing            {};
 
 		};
 
 		class groups_tactics
 		{
-			file = "SQFSM\functions\groups\tactics";
+			file = "\SQFSM\functions\groups\tactics";
 			class groupGarrison            {};
 			class groupGetNearUrbanZones   {};
 			class groupCanIdleGarrison     {};
@@ -533,12 +631,13 @@ class CfgFunctions
 			class groupGetInBuilding       {};
 			class groupIdleGarrison        {};
 			class waypointIdleGarrison     {};
+			class searchNearBuildings      {};
 			
 		};
 
 		class groups_misc
 		{
-			file = "SQFSM\functions\groups\misc";
+			file = "\SQFSM\functions\groups\misc";
 			class groupIsIdle              {};
 			class groupUpdate              {};
 			class activeWp                 {};
@@ -554,7 +653,7 @@ class CfgFunctions
 
 		class groups_reinforcement_radio
 		{
-			file = "SQFSM\functions\groups\reinforcement\radio";
+			file = "\SQFSM\functions\groups\reinforcement\radio";
 			class groupCallReinforcementRadio {};
 			class reinfRequestRadioResponse   {};
 			class sendReinfRadioResponse      {};
@@ -562,7 +661,7 @@ class CfgFunctions
 		
 		class groups_reinforcement
 		{
-			file = "SQFSM\functions\groups\reinforcement";
+			file = "\SQFSM\functions\groups\reinforcement";
 			class groupAddToReinfRequests     {};
 			class groupOnReinforceArrival     {};
 			class groupEndReinforcing         {};
@@ -577,7 +676,7 @@ class CfgFunctions
 
 		class groups_replenish
 		{
-			file = "SQFSM\functions\groups\replenish";
+			file = "\SQFSM\functions\groups\replenish";
 			class groupCanReplenish             {};
 			class groupCanBeReplenished         {};
 			class groupCanReplenishGroup        {};
@@ -593,7 +692,7 @@ class CfgFunctions
 
 		class groups_pushNear
 		{
-			file = "SQFSM\functions\groups\pushNear";
+			file = "\SQFSM\functions\groups\pushNear";
 			class groupAbleToHunt             {};
 			class isHuntGroup                 {};
 			class sendHuntGroups              {};
@@ -606,14 +705,14 @@ class CfgFunctions
 
 		class reinforcements
 		{
-			file = "SQFSM\functions\reinforcements";
+			file = "\SQFSM\functions\reinforcements";
 			class initReinforRequestsMap   {};
 			class addReinfReq              {};
 		};
 
 		class init
 		{
-			file = "SQFSM\functions\init";
+			file = "\SQFSM\functions\init";
 			class initSQFSM     {postInit = 1};
 			class serverInit    {};
 			class initSettings  {};
@@ -624,7 +723,7 @@ class CfgFunctions
 
 		class globalEvents
 		{
-			file = "SQFSM\functions\globalEvents";
+			file = "\SQFSM\functions\globalEvents";
 			class groupSpawnedEh             {};
 			class projectileCreated          {};
 			class onProjectileCreated        {};
@@ -633,13 +732,14 @@ class CfgFunctions
 			class ACE_Medical_OnStatusChange {};
 			class curatorEvents              {};
 			class onCuratorGroupSelection    {};
+			class onCuratorGroupDoubleClick  {};
 			class buildingChangedEh          {};
 			class onCuratorWaypoint          {};
 		};
 
 		class taskManager
 		{
-			file = "SQFSM\functions\taskManager";
+			file = "\SQFSM\functions\taskManager";
 			class taskManager     {};
 			class tenSecondTasks  {};
 			class minuteTasks     {};
@@ -648,10 +748,73 @@ class CfgFunctions
 
 		class tasks
 		{
-			file = "SQFSM\functions\taskManager\tasks";
+			file = "\SQFSM\functions\taskManager\tasks";
 			class handleNewGroups  {};
 			class handleDeadGroups {};
 			class updateAllGroups  {};
+		};
+
+		class GUI 
+		{ 
+			file = "\SQFSM\functions\GUI";
+			class RGBtoA3color              {};
+			class initHudDisplay            {};
+			class initDisplayData           {};
+			class imgCtrlSetText            {};
+			class displayCtrlSpawnString    {};
+			class ctrlSpawnText             {};
+			class setCtrlStructuredText     {};
+			class setCtrlStandardText       {};
+			class oopCtrlSetPos             {};
+			class oopCtrlSetPosSafeSquare   {};
+			class oopCtrlGetPosSafe         {};
+			class oopCtrlSetPosSafe         {};
+			class setTextBoxBackgroundColor {};
+			class displayAddTextBox         {};
+			class displayAddCtrl            {};
+			class displayAddImageCtrl       {};
+			class displayAddSlider          {};
+			class displayAddCheckBox        {};
+			class displayAddButton          {};
+			class displayAddFrame           {};
+			class btnCtrlAddFunction        {};
+			class imgCtrlGetAngle           {};
+			class imgCtrlSetAngle           {};
+			class formatPosCenterSquare     {};
+			class textTexture               {};
+			class getCtrlSafePos            {};
+			class setCtrlSafePos            {};
+			class displayCtrlSetFont        {};
+			class displayAddProgressBarV    {};
+			class hideProgressBar           {};
+			class showProgressBar           {};
+			class setProgressOnBar          {};
+			class setProgressBarTitle       {};
+			class setProgressBarFrameColor  {};
+			class setProgressBarFillColor   {};
+			class setProgressBarTitleColor  {};
+
+			class hideDisplay               {};
+			class showDisplay               {};
+			class hideCtrl                  {};
+			class showCtrl                  {};
+		};
+
+		class GUI_curatorMenu 
+		{ 
+			file = "\SQFSM\functions\GUI\curatorMenu";
+			class openCuratorSquadMenu             {};
+			class applySquadMenuSettings           {};
+			class initCuratorSquadMenuDisplay      {};
+			class curatorSquadMenuAddCBS           {};
+			class curatorSquadMenuAddSLS           {};
+			class onCuratorSquadMenuSettingChange  {};
+			class curatorSquadMenuInitSettingEdits {};
+			class addCuratorGroupMenuButton        {};
+			class initCuratorSquadMenuButtons      {};
+			class initCuratorSquadMenuBackground   {};
+			
+		
 		};
 		
 	};

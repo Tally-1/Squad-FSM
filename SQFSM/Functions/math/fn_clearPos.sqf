@@ -20,7 +20,7 @@ private _topPos    = ATLToASL [_pos#0, _pos#1, _safeDistZ];
 private _blocked = [_groundPos, _topPos] call SQFM_fnc_lineBroken;
 if(_blocked)exitWith{false;};
 
-private _nearObj = nearestTerrainObjects [_pos, ["BUILDING", "HOUSE", "ROCK", "ROCKS", "TREE", "ROAD"], _safeDistX]; 
+private _nearObj = nearestTerrainObjects [_pos, ["BUILDING", "HOUSE", "ROCK", "ROCKS", "TREE"], _safeDistX]; 
 if(count _nearObj > 0)exitWith{false;};
 
 _nearObj = _pos nearObjects ["land", _safeDistX];

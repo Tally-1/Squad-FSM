@@ -18,7 +18,7 @@ _linebreaks = _linebreaks select {
     private _object         = _x#3;
     private _isMan          = _object isKindOf "man";// isEqualTo false;
     private _ignored        = _object in _ignoreList;
-    private _validLineBreak = _isMan isEqualTo false && {_ignored isEqualTo false};
+    private _validLineBreak = (_isMan isEqualTo false && {_ignored isEqualTo false})||{isNull _object};
     
     _validLineBreak;
 };

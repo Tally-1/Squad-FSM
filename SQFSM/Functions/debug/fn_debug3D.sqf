@@ -14,7 +14,9 @@ else{
 SQFM_markers3D         = true;
 SQFM_Custom3Dpositions = [];
 
-addMissionEventHandler ["Draw3D", {
+addMissionEventHandler ["Draw3D", { 
+camPos = (positionCameraToWorld [0,0,0]);
+
 if(SQFM_debugMode)
 then{
 		call SQFM_fnc_custom3Dmarkers;

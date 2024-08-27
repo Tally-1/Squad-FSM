@@ -1,6 +1,5 @@
 private _orange = [0.85,0.4,0,1];
 private _green  = [0.3,1,0.3,1];
-private _camPos = (positionCameraToWorld [0,0,0]);
 drawIcon3D [
         "\a3\ui_f\data\igui\cfg\simpletasks\types\attack_ca.paa",            
         _orange,
@@ -18,12 +17,12 @@ drawIcon3D [
 if(!isNull (findDisplay 312))then{ 
 	
     {
-        if(_x distance2D _camPos < 300)
+        if(_x distance2D camPos < 300)
         then{[_x] call SQFM_fnc_drawBuilding}
     } forEach (_self get "buildings");	
 	
     {
-        if(_x get "position" distance2D _campos < 350)
+        if(_x get "position" distance2D campos < 350)
         then{_x call ["drawLines"]};
     }forEach (_self get "urbanZones");
 };

@@ -8,9 +8,3 @@ class CfgPatches
         requiredAddons[] = {"A3_Modules_F"};
     };
 };
-
-class Extended_PreInit_EventHandlers {
-    class CBApreInit_SQFSM {
-        init = "call compile preprocessFileLineNumbers '\SQFSM\CBA_Options\main.sqf'";
-    };
-};

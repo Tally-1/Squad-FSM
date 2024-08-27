@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.60, true];
+missionNamespace setVariable ["SQFSM_Version", 0.62, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 [
@@ -54,3 +54,13 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 	],
 	1
 ] call CBA_fnc_addSetting;
+
+[
+	"SQFM_showReforChat",
+	"CHECKBOX",
+	["Show reinforcement Chat", "Show side chat messages related to reinforcements."],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+#include "defaultSquadSettings.sqf"

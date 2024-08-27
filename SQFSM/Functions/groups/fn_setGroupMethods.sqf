@@ -1,7 +1,7 @@
 params[
     ["_groupData",nil,[createHashmap]]
 ];
-// 
+
 private _methods = [    
     ["3DIcon",                             SQFM_fnc_group3DIcon],
     ["3DColor",                           SQFM_fnc_group3DColor],
@@ -33,6 +33,7 @@ private _methods = [
     ["validVehicle",                 SQFM_fnc_validGroupVehicle],
     ["getPickupPos",                    SQFM_fnc_groupPickupPos],
     ["addWaypoint",                   SQFM_fnc_groupAddWayPoint],
+    ["currentWaypoint",           SQFM_fnc_groupCurrentWayPoint],
 
                       /*{transport}*/
     ["canCallTransport",           SQFM_fnc_groupCanCallTransport],
@@ -58,6 +59,8 @@ private _methods = [
     ["endBoarding",                   SQFM_fnc_endGroupBoarding],
     ["boardThenTravel",           SQFM_fnc_groupBoardThenTravel],
     ["ejectAll",             SQFM_fnc_groupEjectFromAllVehicles],
+    ["leaveUnarmedVehicles", SQFM_fnc_groupLeaveUnarmedVehicles],
+    ["mechUnload",                     SQFM_fnc_groupMechUnload],
 
 	/********************{OBJECTIVES}***************************/
 	["validObjective",                       SQFM_fnc_group_validObjective],
@@ -87,6 +90,19 @@ private _methods = [
     ["objectiveAttackLoop",              SQFM_fnc_groupObjectiveAttackLoop],
     ["objectiveAssignedHostiles",  SQFM_fnc_groupObjectiveAssignedHostiles],
 
+    ["clearObjective",                        SQFM_fnc_groupClearObjective],
+    ["infClearObjective",                  SQFM_fnc_groupInfClearObjective],
+    ["infClearUrbanObjective",        SQFM_fnc_groupInfClearUrbanObjective],
+    ["getUrbanObjInfSearchP",          SQFM_fnc_groupGetUrbanObjInfSearchP],
+
+    ["mechClearObjective",                SQFM_fnc_groupMechClearObjective],
+    ["mechClearUrbanObjective",      SQFM_fnc_groupMechClearUrbanObjective],
+    ["initMechClearing",                    SQFM_fnc_groupInitMechClearing],
+    ["endMechClearing",                      SQFM_fnc_groupEndMechClearing],
+
+    ["vehicleClearObjective",          SQFM_fnc_groupVehicleClearObjective],
+    ["vehicleClearUrbanObjective",SQFM_fnc_groupVehicleClearUrbanObjective],
+
     /**********************{REINFORCEMENTS}**********************/
     ["canGetReinforcements",    SQFM_fnc_groupCanCallReinforcements],
     ["ableToReinforce",               SQFM_fnc_groupAbleToReinforce],
@@ -110,18 +126,21 @@ private _methods = [
     ["actionStatus",                     SQFM_fnc_groupActionStatus],
 
     /**********************{TACTICS}***************************/
-    ["garrison",                         SQFM_fnc_groupGarrison],
-    ["getNearUrbanZones",       SQFM_fnc_groupGetNearUrbanZones],
-    ["getInBuilding",               SQFM_fnc_groupGetInBuilding],
-    ["idleGarrison",                 SQFM_fnc_groupIdleGarrison],
-    ["initIdleGarrison",         SQFM_fnc_groupInitIdleGarrison],
-    ["canIdleGarrison",           SQFM_fnc_groupCanIdleGarrison],
+    ["garrison",                                   SQFM_fnc_groupGarrison],
+    ["getNearUrbanZones",                 SQFM_fnc_groupGetNearUrbanZones],
+    ["getInBuilding",                         SQFM_fnc_groupGetInBuilding],
+    ["idleGarrison",                           SQFM_fnc_groupIdleGarrison],
+    ["initIdleGarrison",                   SQFM_fnc_groupInitIdleGarrison],
+    ["canIdleGarrison",                     SQFM_fnc_groupCanIdleGarrison],
+    // ["InitMechClearingFormation", SQFM_fnc_groupInitMechClearingFormation],
 
     /********************{GROUP MEMBERS}************************/
     ["getUnits",                                    SQFM_fnc_getGroupUnits],
     ["getUnitsOnfoot",                        SQFM_fnc_getGroupUnitsOnFoot],
     ["getVehiclesInUse",               {(_self call ["getOwnVehicles"])#2}],
+    // ["getUnarmedVehicles",                SQFM_fnc_groupGetUnarmedVehicles],
     ["isVehicleGroup",       {count(_self call ["nonCrewMen"])isEqualTo 0}],
+    ["isMechanized",                            SQFM_fnc_groupIsMechanized],
     ["getGrpMembers",                               SQFM_fnc_getGrpMembers],
     ["anyValidMan",{[_self get "grp"] call SQFM_fnc_firstValidGroupMember}],
     ["getStrength",                              SQFM_fnc_getGroupStrength],
@@ -133,6 +152,7 @@ private _methods = [
     ["getGroupCluster",                           SQFM_fnc_getGroupCluster],
     ["setGroupCluster",                           SQFM_fnc_setGroupCluster],
     ["getAvgPos",                                     SQFM_fnc_groupAvgPos],
+    ["getRadius",                                  SQFM_fnc_groupGetRadius],
     ["getStrSide",                                SQFM_fnc_groupGetStrSide],
     ["isPlayerGroup",       {[_self get"grp"] call SQFM_fnc_isPlayerGroup}],
     ["mergeWithGroup",                        SQFM_fnc_groupMergeWithGroup],
@@ -151,10 +171,10 @@ private _methods = [
     
 
 	/**********************{GROUP CLASS}************************/
-	["isUnarmedMotorized",     SQFM_fnc_groupIsUnarmedMotorized],
-	["isInfantrySquad",           SQFM_fnc_groupIsInfantrySquad],
-	["getGroupType",                         SQFM_fnc_groupType],
-	["setGroupType",{_self set["groupType",_self call["getGroupType"]]}],
+	["isUnarmedMotorized",              SQFM_fnc_groupIsUnarmedMotorized],
+	["isInfantrySquad",                    SQFM_fnc_groupIsInfantrySquad],
+	["getGroupType",                                  SQFM_fnc_groupType],
+	["setGroupType", {_self set["groupType",_self call["getGroupType"]]}],
 
     /**********************{COMBAT}****************************/
     ["battleInit",                     SQFM_fnc_groupBattleInit],

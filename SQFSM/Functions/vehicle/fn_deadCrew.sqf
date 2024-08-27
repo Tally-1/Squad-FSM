@@ -12,7 +12,7 @@ if(IsNull _group)               exitWith{true};
 
 
 {
-	if([_x] call SQFM_fnc_functionalMan)
+	if([_x] call SQFM_fnc_validMan)
 	exitWith{_allDead = false};
 
 } forEach (Crew _vehicle);
