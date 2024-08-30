@@ -7,6 +7,7 @@ SQFM_manValue = 1;
 SQFM_carValue = 3;
 SQFM_ApcValue = 5;
 SQFM_MbtValue = 9;
+SQFM_clickDc  = false;
 
 []spawn{
 	waitUntil { time>0;};

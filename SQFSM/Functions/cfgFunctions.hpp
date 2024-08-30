@@ -1,9 +1,23 @@
-// "functions
+// "\SQFSM\functions
 
 class CfgFunctions
 {
 	class SQFM
 	{
+		class direct_control
+		{
+			file = "\SQFSM\functions\direct_control";
+			class endDirectControl              {};
+			class endDirectControlAction        {};
+			class switchUnit_start              {};
+			class switchUnit_exit               {};
+			class initDirectControlOptions      {};
+			class addCuratorControlEntityButton {};
+			class isCuratorEntityMenuDisplay    {};
+			class validSwitchEntity             {};
+			class handleDirectControlDamage     {};
+		};
+		
 		
 		class battlefield
 		{
@@ -724,17 +738,18 @@ class CfgFunctions
 		class globalEvents
 		{
 			file = "\SQFSM\functions\globalEvents";
-			class groupSpawnedEh             {};
-			class projectileCreated          {};
-			class onProjectileCreated        {};
-			class entityKilledEh             {};
-			class ACE_MedicalEvents          {};
-			class ACE_Medical_OnStatusChange {};
-			class curatorEvents              {};
-			class onCuratorGroupSelection    {};
-			class onCuratorGroupDoubleClick  {};
-			class buildingChangedEh          {};
-			class onCuratorWaypoint          {};
+			class groupSpawnedEh               {};
+			class projectileCreated            {};
+			class onProjectileCreated          {};
+			class entityKilledEh               {};
+			class ACE_MedicalEvents            {};
+			class ACE_Medical_OnStatusChange   {};
+			class curatorEvents                {};
+			class onCuratorGroupSelection      {};
+			class onCuratorGroupDoubleClick    {};
+			class buildingChangedEh            {};
+			class onCuratorWaypoint            {};
+			class onCuratorObjectDoubleClicked {};
 		};
 
 		class taskManager
@@ -813,6 +828,7 @@ class CfgFunctions
 			class addCuratorGroupMenuButton        {};
 			class initCuratorSquadMenuButtons      {};
 			class initCuratorSquadMenuBackground   {};
+			class isCuratorGroupMenuDisplay        {};
 			
 		
 		};

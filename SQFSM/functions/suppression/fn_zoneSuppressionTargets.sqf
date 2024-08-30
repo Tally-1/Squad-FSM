@@ -9,7 +9,8 @@ params[
 ];
 if(isNil "_center")then{_center = eyePos _entity};
 private _targets = [];
-private _list    = _center nearEntities['land',_radius];
+private _list    = (_center nearEntities['land',_radius])select{[_entity, _x] call SQFM_fnc_validEnemy};
+
 {
     // Will return position ASL, the target-entity queried or the building occupied by said entity. 
     // If invalid then nil value is returned.

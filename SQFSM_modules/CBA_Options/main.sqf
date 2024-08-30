@@ -1,6 +1,9 @@
 missionNamespace setVariable ["SQFSM_Version", 0.62, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
+#include "DIK_Codes.cpp"
+#include "keybinds.sqf"
+
 [
 	"SQFM_debugMode",
 	"CHECKBOX",
@@ -62,5 +65,6 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 	_versionName,
 	true
 ] call CBA_fnc_addSetting;
+
 
 #include "defaultSquadSettings.sqf"

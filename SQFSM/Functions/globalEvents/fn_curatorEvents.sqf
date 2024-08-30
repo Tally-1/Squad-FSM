@@ -11,8 +11,12 @@
 
 	[_x, [
 		"CuratorGroupDoubleClicked", 
-		{_this call SQFM_fnc_onCuratorGroupDoubleClick}
-		// {_this remoteExecCall ["SQFM_fnc_onCuratorGroupDoubleClick", (_this#0)]}
+		{_this spawn SQFM_fnc_onCuratorGroupDoubleClick}
+	]] remoteExec ["addEventHandler", 0, true];
+
+	[_x, [
+		"CuratorObjectDoubleClicked", 
+		{_this spawn SQFM_fnc_onCuratorObjectDoubleClicked}
 	]] remoteExec ["addEventHandler", 0, true];
 
 } forEach allCurators;

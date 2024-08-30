@@ -2,7 +2,7 @@ params[
 	["_image",   nil,         [""]],
 	["_pos",     nil,         [[]]],
 	["_color",   [1,1,1,1],   [[]]],
-	["_show",    PCA_debug,[false]]
+	["_show",    true,     [false]]
 ];
 private _img = _self call ["addCtrl",["RscPicture",_pos, _show]];
 
