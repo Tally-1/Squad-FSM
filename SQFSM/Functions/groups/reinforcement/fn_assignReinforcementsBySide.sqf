@@ -5,7 +5,7 @@ params[
 
 
 private _available = _groupsMap call ["getAvailable",["reinforcements", _side]];
-if(_available isEqualTo [])exitWith{};
+// if(_available isEqualTo [])exitWith{};
 
 private _requestList      = SQFM_reinforRequests get _side;
 private _sortedRequests   = [_requestList, [], {_x#2}, "ASCEND"] call BIS_fnc_sortBy;
@@ -21,17 +21,24 @@ private _requestResponses = [];
     _available = _available select {
         private _isRequesting    = _x in _requesterGroups;
         private _alreadyAssigned = _x in _assignedGroups;
-        private _valid           = _isRequesting == false && {_alreadyAssigned == false};
+        private _valid           = _isRequesting == false && {_alreadyAssigned == false && {!isNull _x}};
 
         _valid;
     };
 
-    if(_available isEqualTo [])exitWith{};
-    
+    // Use respawn module if needed and available.
     private _callPos   = _x#0;
     private _caller    = _x#1;
     private _callTime  = _x#2;
 
+    if(_available isEqualTo [])then{
+        private _newGroup = [_callPos, _caller] call SQFM_fnc_moduleSpawnOnReforceRequest;
+        _available = if(isNull _newGroup)
+        then{[]}
+        else{[_newGroup]};
+    };
+
+    if(_available isEqualTo [])exitWith{};
     private _responder = [_callPos, _available] call SQFM_fnc_getNearestGroup;
     private _data      = _responder call getData;
     

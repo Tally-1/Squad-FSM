@@ -15,6 +15,9 @@ exitWith{"Could not travel to reinforce squad." call dbgm;};
 private _group       = _self get "grp";
 private _posName     = [_callPos] call SQFM_fnc_areaName;
 private _callerData  = _callerGrp call getData;
+
+if(isNil "_callerData")exitWith{"Nil callerData" call dbgm};
+
 private _battlefield = _callerData call ["getBattle"];
 private _taskName    = ["Reinforce ", (_callerData get "groupType"), " at ", _posName]joinString"";
 private _taskParams  = [_callPos, _callerGrp];

@@ -71,8 +71,6 @@ _data call ["setGroupCluster"];
 _data call ["setGroupType"];
 
 private _veh1     = (_data call ["getVehiclesInUse"])#0;
-private _strength = _data call ["getStrength"];
-
 if((!isNil "_veh1")
 &&{_veh1 getVariable ["SQFM_transport", false]})
 then{
@@ -80,9 +78,14 @@ then{
     _data set ["transportVehicle", _veh1];
 };
 
-_data set  ["initialStrength", _strength];
-_data call ["update"];
 
+_data call ["update"];
 _group setVariable ["SQFM_grpData", _data, true];
+
+_data spawn { 
+    sleep 1;
+    private _strength = _this call ["getStrength"];
+    _this set  ["initialStrength", _strength];
+};
 
 _data;

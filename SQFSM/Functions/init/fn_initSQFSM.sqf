@@ -8,6 +8,7 @@ SQFM_carValue = 3;
 SQFM_ApcValue = 5;
 SQFM_MbtValue = 9;
 SQFM_clickDc  = false;
+SQFM_ZEH      = "@Zeus Enhanced" in (call SQFM_fnc_loadedAddons);
 
 []spawn{
 	waitUntil { time>0;};

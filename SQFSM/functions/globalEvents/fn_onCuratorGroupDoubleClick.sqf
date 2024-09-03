@@ -4,7 +4,10 @@ params [
 ];
 private _timer = time+3;
 waitUntil {dialog || {time > _timer}};
+
 private _display = (allDisplays select {[_x] call SQFM_fnc_isCuratorGroupMenuDisplay})#0;
+if(isNil "_display")exitWith{};
+
 private _button  = [_display] call SQFM_fnc_addCuratorGroupMenuButton;
 
 SQFM_currentEditSquad   = _group;

@@ -12,7 +12,7 @@ private _okText       = ctrlText _okButton;
 if(_cancelText isNotEqualTo "CANCEL") exitWith{false};
 if(_okText     isNotEqualTo "OK")     exitWith{false};
 
-private _fIndex = allControls _display findIf {"Rank:" in ctrlText _x};
+private _fIndex = allControls _display findIf {"Rank" in ctrlText _x};
 if(_fIndex < 0)exitWith{false};
 
 true;

@@ -11,11 +11,18 @@ else{
 	});
 };
 
+SQFM_curatorOn         = false;
 SQFM_markers3D         = true;
 SQFM_Custom3Dpositions = [];
 
 addMissionEventHandler ["Draw3D", { 
-camPos = (positionCameraToWorld [0,0,0]);
+private _curatorOn = !isNull (findDisplay 312);
+if(SQFM_curatorOn isEqualTo false
+&&{_curatorOn})
+then{call SQFM_fnc_onCuratorOpened};
+
+SQFM_curatorOn = _curatorOn;
+camPos         = (positionCameraToWorld [0,0,0]);
 
 if(SQFM_debugMode)
 then{
@@ -24,5 +31,6 @@ then{
 		call SQFM_fnc_groups3D;
 		call SQFM_fnc_battle3D;
 		call SQFM_fnc_transportModules3D;
+		call SQFM_fnc_reforceModules3D;
 		
 }}];

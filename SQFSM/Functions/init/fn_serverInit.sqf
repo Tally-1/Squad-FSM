@@ -8,9 +8,10 @@ call SQFM_fnc_curatorEvents;
 call SQFM_fnc_buildingChangedEh;
 call SQFM_fnc_initReinforRequestsMap;
 
-{[_x] call SQFM_fnc_initGroup;} forEach allGroups;
-{[_x] call SQFM_fnc_initObjective;} forEach entities "SQFSM_Objective";
+{[_x] call SQFM_fnc_initGroup}            forEach allGroups;
+{[_x] call SQFM_fnc_initObjective}        forEach (entities "SQFSM_Objective");
 {[_x] call SQFM_fnc_initTransportSpawner} forEach (entities "SQFSM_TransportSpawner");
+{[_x] call SQFM_fnc_initReforceModule}    forEach (entities "SQFSM_Reforcer");
 
 [] spawn SQFM_fnc_taskManager;
 [] spawn {

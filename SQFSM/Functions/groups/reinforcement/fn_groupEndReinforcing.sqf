@@ -8,6 +8,7 @@ private _callerGrp = (_taskData get"params")#1;
 
 _self call ["setDataDelayed", ["action",     ""]];
 _self call ["setDataDelayed", ["state",      ""]];
+_self call ["leaveUnarmedVehicles"];
 
 if(_status isEqualTo "invalid caller")
 exitWith{_self call ["addWaypoint", [_callerPos, 20]]};

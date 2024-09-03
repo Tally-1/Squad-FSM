@@ -14,8 +14,6 @@
 private _error = "";
 private _unit = effectiveCommander (param [0]);
 
-systemChat str _unit;
-
 if (!(side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
 if (isPlayer _unit)                                         then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
 if (!alive _unit)                                           then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};

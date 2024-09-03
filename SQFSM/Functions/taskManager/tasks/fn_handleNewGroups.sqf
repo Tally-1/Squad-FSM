@@ -13,4 +13,6 @@ for "_i"from 0 to _count do{
 	SQFM_newGroups deleteAt 0;
 }};
 
+[["Squad FSM handled ",_count," new groups"]] call dbgm;
+
 true;

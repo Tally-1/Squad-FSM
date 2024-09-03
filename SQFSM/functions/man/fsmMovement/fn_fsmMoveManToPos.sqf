@@ -12,7 +12,7 @@ private _alreadyMoving = (_man getVariable ["FSM_moveEnded", true])isEqualTo fal
 if(_alreadyMoving)exitWith{"Double move" call dbgm};
 
 private _canRunParams = [_man,nil,nil,nil,true];
-private _canRun = isNil "SFSM_fnc_canRun"or{_canRunParams call SFSM_fnc_canRun};
+private _canRun = isNil "SFSM_fnc_canRun"or{_canRunParams call SFSM_fnc_canRun or {isNil "SFSM_debugger"}};
 if!(_canRun)exitWith{"Move blocked by soldier FSM" call dbgm};
 
 private _useSFSM = (!isNil "SFSM_fnc_canRun")&&{_condition isEqualTo []};

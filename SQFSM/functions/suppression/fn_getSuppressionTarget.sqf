@@ -7,7 +7,7 @@ if(_knownOnly
 &&{_entity knowsAbout _target < 3.5})
 exitWith{};
 
-private _inValid = !([_entity, _target] call SQFM_fnc_validEnemy); //([_entity, _target] call SQFM_fnc_validEnemy);
+private _inValid = !([_entity, _target] call SQFM_fnc_hostile); //([_entity, _target] call SQFM_fnc_validEnemy);
 if(_inValid)exitWith{};
 
 private _startPos   = eyePos _entity;

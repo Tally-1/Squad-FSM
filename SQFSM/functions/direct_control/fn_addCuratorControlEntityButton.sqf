@@ -14,25 +14,32 @@ private _frame        = _display ctrlCreate ["RscFrame",-1];
 private _aqua         = [0.5,1,1,1];
 private _diff         = _height*0.1;
 
-_button ctrlSetPosition [_xPos, _yPos, _width, _height];
-_button ctrlCommit 0;
-_button ctrlSetFont "PuristaLight";
-_button ctrlSetText "D-CONTROL";
+if(SQFM_ZEH)then{
+    _yPos=_yPos+(_height*1.2);
+    _xPos=_xPos+(_width*1.3);
+};
 
 _frame ctrlSetPosition [_xPos-_diff, _yPos-_diff, _width+(_diff*3), _height+(_diff*3)];
 _frame ctrlSetTextColor _aqua;
 _frame ctrlCommit 0;
 _frame ctrlSetPosition [_xPos, _yPos, _width, _height];
 _frame ctrlCommit 1;
-
 _frame  ctrlAddEventHandler ["Committed", {(_this#0)spawn{sleep 0.3; _this ctrlShow false}}];
+
+
+_button ctrlSetPosition [_xPos, _yPos, _width, _height];
+_button ctrlCommit 0;
+_button ctrlSetFont "PuristaLight";
+_button ctrlSetText "D-CONTROL";
+_button ctrlSetBackgroundColor (ctrlBackgroundColor _cancelButton);
+_button ctrlSetActiveColor     [1,1,1,1];
+
 _button ctrlAddEventHandler [
     "ButtonClick", 
     {
         private _display = uiNamespace getVariable "SQFM_currentEditDisplay";
         _display closeDisplay 1;
         [SQFM_currentEditObject] call SQFM_fnc_switchUnit_Start;
-        systemChat str SQFM_currentEditObject;
     }
 ];
 

@@ -8,7 +8,7 @@ if!(_valid)exitWith{};
 
 SQFM_currentEditObject = _entity;
 private _display = (allDisplays select {[_x] call SQFM_fnc_isCuratorEntityMenuDisplay})#0;
-if(isNil "_display")exitWith{};
+if(isNil "_display")exitWith{"display not found" call dbgm};
 
 // CBA keybind is used.
 if((!isNil "SQFM_clickDc")
