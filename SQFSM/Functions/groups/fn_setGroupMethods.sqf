@@ -84,6 +84,7 @@ private _methods = [
     ["objectiveData",                          SQFM_fnc_groupObjectiveData],
     ["typeMatchObjective",                SQFM_fnc_groupTypeMatchObjective],
     ["objectiveHostile",                    SQFM_fnc_groupObjectiveHostile],
+    ["objectiveFriendly",                  SQFM_fnc_groupObjectiveFriendly],
     ["objectiveInsertPos",                SQFM_fnc_groupObjectiveInsertPos],
     ["objectiveInsertPosStandard",SQFM_fnc_groupObjectiveInsertPosStandard],
     ["objectiveInsertPosDanger",    SQFM_fnc_groupObjectiveInsertPosDanger],

@@ -606,6 +606,7 @@ class CfgFunctions
             class groupObjectiveData              {};
             class groupAutoAssignObjective        {};
             class groupTypeMatchObjective         {};
+            class groupObjectiveFriendly          {};
             class groupObjectiveHostile           {};
             class groupObjectiveInsertPosStandard {};
             class groupObjectiveInsertPosDanger   {};
@@ -733,6 +734,16 @@ class CfgFunctions
 			class virtualManGetInVehicle      {};
 			class virtualManGetVehicle        {};
 		};
+
+        class groups_defense 
+        {
+            file = "\SQFSM\functions\groups\defense";
+            class groupCanInitObjectiveDefense {};
+            class groupAssignFipos             {};
+            class groupAssignObjectiveFipos    {};
+            class groupAssignObjectiveTurrets  {};
+            class groupInitObjectiveDefense    {};
+        };
 
         class reforceModule
         {

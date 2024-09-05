@@ -8,8 +8,13 @@ private _squadType = _self get "groupType";
 private _infantry  = _squadType isEqualTo "infantry";
 private _mech      = "(infantry)" in _squadType;
 private _vehicle   = _infantry isEqualTo false && {_mech isEqualTo false};
+private _friendly  = _self call ["objectiveFriendly",[_objective]];
 
-[["mech: ",_mech, " infantry: ", _infantry, " vehicle: ", _vehicle, " urban: ", _urban, " type: ",_squadType]] call dbgm;
+if(_friendly)exitWith{
+    private _endFnc = "SQFM_fnc_endTaskGroup";
+    private _endPos = getPosATL _objective;
+    _self call ["addWaypoint", [_endPos,50,"MOVE",_endFnc, "AWARE", "NORMAL", 20]];
+};
 
 if(_urban isEqualTo false
 &&{_infantry}) exitWith{_self call ["infClearObjective",[_objective]]};

@@ -9,9 +9,7 @@ _self set ["sentCount", _totalCount];
 _self set ["last_spawn", round time];
 
 _squadData set ["canReinforce", true];
-// _squadData spawn {
-// 	sleep 1;
-// 	_this call [""];
-// };
+_squadData set ["exclude",     false];
+_physicalSquad setVariable ["SQFM_Excluded", false, true];
 
 _physicalSquad;

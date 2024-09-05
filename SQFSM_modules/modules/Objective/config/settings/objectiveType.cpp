@@ -21,12 +21,18 @@ class objectiveType : Combo
             value = "dp";
         };
 
+        class recon
+        {
+            name  = "Recon";
+            value = "recon";
+        };
+
         class town
         {
             name  = "Town";
             value = "town";
         };
-
+/*
         class HQ
         {
             name  = "HeadQuarter";
@@ -39,16 +45,11 @@ class objectiveType : Combo
             value = "supplies";
         };
 
-        class recon
-        {
-            name  = "Recon";
-            value = "recon";
-        };
-
         class op
         {
             name  = "Observation Post";
             value = "op";
-        };        
+        };
+*/    
     };
 };

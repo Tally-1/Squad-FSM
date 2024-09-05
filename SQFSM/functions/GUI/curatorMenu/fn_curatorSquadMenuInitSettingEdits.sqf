@@ -5,13 +5,15 @@ private _squad      = SQFM_currentEditSquad;
 private _squadData  = _squad call getData;
 private _onChange   = SQFM_fnc_onCuratorSquadMenuSettingChange;
 private _checkBoxes = [
-    ["Capture Objectives",       "canAttack"],
-    ["Defend Objectives",        "canDefend"],
-    ["Can reinforce",            "canReinforce"],
-    ["Push near enemies",        "canHunt"],
-    ["Can call Artillery",       "canCallArty"],
-    ["Can call CAS",             "canCallAir"],
-    ["Can call reinforcements",  "canCallReinforcements"]
+    ["Exclude from SQFSM",                    "exclude"],
+    ["Capture Objectives",                  "canAttack"],
+    ["Defend Objectives",                   "canDefend"],
+    ["Push near enemies",                     "canHunt"],
+    ["Can reinforce",                    "canReinforce"],
+
+    ["Can call reinforcements", "canCallReinforcements"],
+    ["Can call Artillery",                "canCallArty"],
+    ["Can call CAS",                       "canCallAir"]
 ];
 
 private _sliders = [

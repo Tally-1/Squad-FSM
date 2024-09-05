@@ -36,5 +36,6 @@ SQFM_defaultBehaviour   = [
 	SQFM_defaultBehaviourReinforce,     // reinforce 
 	SQFM_defaultBehaviourCallReforce,   // call reinforcements 
 	SQFM_defaultBehaviourCallCAS,       // call CAS 
-	SQFM_defaultBehaviourCallArty       // call Arty
+	SQFM_defaultBehaviourCallArty,      // call Arty
+	SQFM_defaultBehaviourExcluded
 ];

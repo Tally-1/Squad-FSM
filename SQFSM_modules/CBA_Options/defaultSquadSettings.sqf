@@ -1,6 +1,15 @@
 _versionName = "DCO Squad FSM | Default Squad Behaviour";
 
 [
+	"SQFM_defaultBehaviourExcluded",
+	"CHECKBOX",
+	["Exclude from SQFSM", "If checked all new squads will be excluded from Squad FSM. \n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
+	_versionName,
+	false
+] call CBA_fnc_addSetting;
+
+
+[
 	"SQFM_defaultBehaviourAttack",
 	"CHECKBOX",
 	["Capture Objectives", "Enables all new squads to attack objectives.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],

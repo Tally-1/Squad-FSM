@@ -12,7 +12,8 @@ params[
     ["_reinforce",     nil,  [true]],
     ["_callReinforce", nil,  [true]],
     ["_callAir",       nil,  [true]],
-    ["_callArty",      nil,  [true]]
+    ["_callArty",      nil,  [true]],
+	["_exclude",       nil,  [true]]
 ];
 
 private _3Dtxt    = ["100%", 0.546, "#ffffff", "#00000000", "PuristaBold"]call SQFM_fnc_getTextTexture;
@@ -59,7 +60,8 @@ private _dataArr  = [
     ["canReinforce",              _reinforce],
     ["canCallReinforcements", _callReinforce],
     ["canCallAir",                  _callAir],
-    ["canCallArty",                _callArty]
+    ["canCallArty",                _callArty],
+	["exclude",                     _exclude]
 ];
 
 private _data = createHashmapObject [_dataArr];
@@ -74,18 +76,24 @@ private _veh1     = (_data call ["getVehiclesInUse"])#0;
 if((!isNil "_veh1")
 &&{_veh1 getVariable ["SQFM_transport", false]})
 then{
+    _exclude = false;
     _data set ["transportCrew",    true];
     _data set ["transportVehicle", _veh1];
+    _data set ["exclude",          false];
+
 };
 
 
 _data call ["update"];
-_group setVariable ["SQFM_grpData", _data, true];
+_group setVariable ["SQFM_grpData",  _data,    true];
+_group setVariable ["SQFM_Excluded", _exclude, true];
+
 
 _data spawn { 
     sleep 1;
     private _strength = _this call ["getStrength"];
     _this set  ["initialStrength", _strength];
+	_this call ["update"];
 };
 
 _data;

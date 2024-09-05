@@ -1,3 +1,11 @@
+class exclude : Checkbox
+{
+    property     = "SQFSM_exclude";
+    displayName  = "Exclude from SQFSM";
+    tooltip      = "If checked this squad will be excluded from Squad FSM";
+    defaultValue = "false";
+};
+
 class allowObjectiveCapture : Checkbox
 {
     property     = "SQFSM_allowObjectiveCapture";
