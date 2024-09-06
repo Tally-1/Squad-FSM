@@ -8,8 +8,13 @@ private _totalCount    = (_self get "sentCount")+1;
 _self set ["sentCount", _totalCount];
 _self set ["last_spawn", round time];
 
-_squadData set ["canReinforce", true];
-_squadData set ["exclude",     false];
+_squadData set ["canReinforce",       true];
+_squadData set ["exclude",           false];
+_squadData set ["birth",             0-300];
+_squadData set ["lastTransportCall", 0-300];
+_squadData set ["huntCoolDown",      0-300];
+_squadData set ["lastFireCheck",     0-300];
+
 _physicalSquad setVariable ["SQFM_Excluded", false, true];
 
 _physicalSquad;

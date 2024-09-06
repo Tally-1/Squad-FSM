@@ -1,4 +1,6 @@
 isNil{// Forced unsheduled execution. Can run without, but this is faster.
+private _addons = call SQFM_fnc_loadedAddons;
+
 dbgm    = SQFM_fnc_debugMessage;
 dbgS    = SQFM_fnc_serverDebugMsg;
 getData = SQFM_fnc_getData;
@@ -8,7 +10,8 @@ SQFM_carValue = 3;
 SQFM_ApcValue = 5;
 SQFM_MbtValue = 9;
 SQFM_clickDc  = false;
-SQFM_ZEH      = "@Zeus Enhanced" in (call SQFM_fnc_loadedAddons);
+SQFM_ZEH      = "@Zeus Enhanced" in _addons;
+SQFM_SFSM     = "@soldierFSM" in _addons && {(!isNil "SFSM_disableSoldierFSM") && {SFSM_disableSoldierFSM isEqualTo false}};
 
 []spawn{
 	waitUntil { time>0;};

@@ -1,11 +1,11 @@
 params[
-	["_pos",       nil,[[]]],
+	["_pos",       nil,[[]]], // Waypoint position.
     ["_radius",    nil, [0]], // completion radius
-    ["_type",      nil,[""]],
-    ["_statement", nil,[""]],
+    ["_type",      nil,[""]], // waypoint type 
+    ["_statement", nil,[""]], // Name of function to be executed on completion "SQFM_fnc_exampleFnc"
     ["_behaviour", nil,[""]], // Combatmode
 	["_speed",     nil,[""]], // Group speedMode
-    ["_randomRad", 0,    []]  // placement radius
+    ["_randomRad", 0,   [0]]  // placement radius
 ];
 
 private _group     = _self get "grp";

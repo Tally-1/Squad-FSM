@@ -1,6 +1,8 @@
 params[
     ["_objective", nil,[objNull]]
 ];
+if!(SQFM_SFSM)exitwith{[]};
+
 private _leader  = leader (_self get"grp"); 
 private _objData = _objective call getData;
 private _zone    = _objData get "zone";

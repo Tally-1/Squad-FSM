@@ -1,6 +1,8 @@
 params[
     ["_fipos",nil,[[]]]
 ];
+if!(SQFM_SFSM)exitwith{[]};
+
 private _assigned = [];
 private _leader   = leader (_self get"grp");
 {

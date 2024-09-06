@@ -1,6 +1,12 @@
 _self call ["update"];
 
 private _squadType  = _self get "groupType";
+private _infantry   = _squadType isEqualTo "infantry";
+if(_infantry)exitWith{false};
+
+private _static = "static" in _squadType;
+if(_static)exitWith{false};
+
 private _mixedGroup = "(infantry)" in _squadType;
 if!(_mixedGroup)exitWith{false};
 

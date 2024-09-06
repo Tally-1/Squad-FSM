@@ -3,11 +3,11 @@ params[
 ];
 private _position     = getPosATLVisual _module;
 private _data3d       = [_module] call SQFM_fnc_module3dData;
+private _type         = _module getVariable "objectiveType";
 private _area         = _data3d get "area";
-private _radius       = selectMax [100, _area#1, _area#2];
+private _radius       = if(_type isEqualTo "dp")then{selectMax [_area#1, _area#2]}else{selectMax [100, _area#1, _area#2]};
 private _zone         = [_position, _radius];
 private _zoneLines    = [_position, _radius, 16, [0,1,0,1]] call SQFM_fnc_getCircleLines;
-private _type         = _module getVariable "objectiveType";
 private _description  = [_type] call SQFM_fnc_objectiveDescription;
 private _capStrength  = _module getVariable "capStrength";
 private _distance     = _module getVariable "activationDistance";

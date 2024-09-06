@@ -35,6 +35,9 @@ private _methods = [
     ["addWaypoint",                   SQFM_fnc_groupAddWayPoint],
     ["currentWaypoint",           SQFM_fnc_groupCurrentWayPoint],
 
+    ["forcedMoveStart",           SQFM_fnc_groupForcedMoveStart],
+    ["forcedMoveEnd",               SQFM_fnc_groupForcedMoveEnd],
+
                       /*{transport}*/
     ["canCallTransport",           SQFM_fnc_groupCanCallTransport],
     ["callTransport",                 SQFM_fnc_groupCallTransport],
@@ -81,6 +84,8 @@ private _methods = [
     ["endObjectiveAttack",                SQFM_fnc_groupEndObjectiveAttack],
     ["onObjectiveArrival",                SQFM_fnc_groupOnObjectiveArrival],
     ["guardObjective",                        SQFM_fnc_groupGuardObjective],
+	["canInitObjectiveDefense",      SQFM_fnc_groupCanInitObjectiveDefense],
+	["initObjectiveDefense",            SQFM_fnc_groupInitObjectiveDefense],
     ["objectiveData",                          SQFM_fnc_groupObjectiveData],
     ["typeMatchObjective",                SQFM_fnc_groupTypeMatchObjective],
     ["objectiveHostile",                    SQFM_fnc_groupObjectiveHostile],
@@ -149,6 +154,7 @@ private _methods = [
     ["setStrengthIcon",                      SQFM_fnc_groupSetStrengthIcon],
 	["crewMen",                                         SQFM_fnc_groupCrew],
 	["nonCrewMen",                                   SQFM_fnc_groupNonCrew],
+    ["getFipoMen",                                SQFM_fnc_groupGetFipoMen],
     ["tallyAssets",                              SQFM_fnc_groupTallyAssets],
     ["getGroupCluster",                           SQFM_fnc_getGroupCluster],
     ["setGroupCluster",                           SQFM_fnc_setGroupCluster],
@@ -197,7 +203,13 @@ private _methods = [
     /**********************{Hunting}***************************/
     ["initHunt",                         SQFM_fnc_groupInitHunt],
     ["initHuntTask",                 SQFM_fnc_groupInitHuntTask],
-    ["ableToHunt",                     SQFM_fnc_groupAbleToHunt]
+    ["ableToHunt",                     SQFM_fnc_groupAbleToHunt],
+
+	/**********************{DEFENSE}***************************/
+    ["assignFipos",                       SQFM_fnc_groupAssignFipos],
+    ["leaveFipos",                         SQFM_fnc_groupLeaveFipos],
+	["assignObjectiveFipos",     SQFM_fnc_groupAssignObjectiveFipos],
+	["assignObjectiveTurrets", SQFM_fnc_groupAssignObjectiveTurrets]
 ];
 
 {

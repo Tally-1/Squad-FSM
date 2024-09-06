@@ -10,7 +10,7 @@ private _methods =
     ["getSidesInZone",                  SQFM_fnc_objectiveGetSidesInZone],
     ["getZoneMidPositions",        SQFM_fnc_objectiveGetZoneMidPositions],
     ["getUrbanPositions",                             _getUrbanPositions],
-
+    ["getFipos",                              SQFM_fnc_objectiveGetFipos],
     // ["initRoadmap",                        SQFM_fnc_objectiveInitRoadmap],
 
     ["getAssignedAssets",            SQFM_fnc_objectiveGetAssignedAssets],

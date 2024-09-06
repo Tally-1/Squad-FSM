@@ -1,5 +1,6 @@
 private _classS   = _self get "squadClass"; 
-private _infantry = _self call ["isInfantrySquad"];
+private _vehicles = _self call ["getVehiclesInUse"];
+private _infantry = (_self call ["isInfantrySquad"])||{_vehicles isEqualTo []};
 private _recon    = _classS isEqualTo "recon";
 private _support  = _classS isEqualTo "support";
 private _standard = _classS isEqualTo "standard";
@@ -11,7 +12,6 @@ if(_infantry)exitwith{
 };
 
 private _transport  = alive (_self get "transportVehicle");
-private _vehicles   = _self call ["getVehiclesInUse"];
 private _classes    = _vehicles apply {([_x] call SQFM_fnc_vehicleDescription)#0};
 private _groupClass = selectMax _classes;
 private _classDesc  = [_groupClass] call SQFM_fnc_vehicleClass;

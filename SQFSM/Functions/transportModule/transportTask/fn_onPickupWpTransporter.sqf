@@ -30,6 +30,7 @@ private _dropRad   = 10;
 if(_danger)then{_dropRad = 300};
 
 _psngrData call ["deleteWaypoints"];
+_psngrData call ["unStop"];
 
 private _onDropWp = 'SQFM_fnc_onDropOffWpTransporter';
 private _getInWp  = _psngrData call ["addWaypoint",[_getInPos, 10, "GETIN"]];// _passengerGroup addWaypoint [_getInPos, 0];
