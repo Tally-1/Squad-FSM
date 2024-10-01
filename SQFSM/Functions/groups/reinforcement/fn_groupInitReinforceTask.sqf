@@ -1,31 +1,36 @@
 _this pushBack _self;
 _this spawn{
 params[
-    ["_callPos",   nil,            [[]]], // The position the call was made from.
-    ["_callerGrp", nil,       [grpNull]], // The group who made the request. 
-    ["_time",      nil,             [0]], // Time when the request for reinforcement was made.
-    ["_self",      nil, [createHashmap]]  // the hashmapObject belonging to the responding group (this group)
+    ["_callPos",     nil,              [[]]], // The position the call was made from.
+    ["_callerGrp",   nil, [grpNull,objNull]], // The group/trigger who made the request. 
+    ["_time",        nil,               [0]], // Time when the request for reinforcement was made.
+    ["_self",        nil,   [createHashmap]]  // the hashmapObject belonging to the responding group (this group)
 ];
-private _insertPos = _self call ["reinforceInsertPos",[_callPos]];
-private _canTravel = _self call ["initTravel",[_insertPos]];
+private _isTrigger  = typeName _callerGrp isEqualTo "OBJECT" &&{"EmptyDetector" in typeOf _callerGrp};
+private _notTrigger = _isTrigger isEqualTo false;
+private _insertPos  = _self call ["reinforceInsertPos",[_callPos]];
+private _canTravel  = _self call ["initTravel",[_insertPos]];
 if!(_canTravel)
 exitWith{"Could not travel to reinforce squad." call dbgm;};
-
 
 private _group       = _self get "grp";
 private _posName     = [_callPos] call SQFM_fnc_areaName;
 private _callerData  = _callerGrp call getData;
 
-if(isNil "_callerData")exitWith{"Nil callerData" call dbgm};
+if(isNil "_callerData"
+&&{_notTrigger})
+exitWith{"Nil callerData" call dbgm};
 
-private _battlefield = _callerData call ["getBattle"];
-private _taskName    = ["Reinforce ", (_callerData get "groupType"), " at ", _posName]joinString"";
+private _callerType  = if(_notTrigger)then{_callerData get "groupType"}else{"Trigger"};
+private _battlefield = if(_notTrigger)then{_callerData call ["getBattle"]}else{[_callPos] call SQFM_fnc_getBattleOnPos};
+private _taskName    = ["Reinforce ", (_callerType), " at ", _posName]joinString"";
 private _taskParams  = [_callPos, _callerGrp];
 private _zone        = [_callPos, 300];
 private _arrivalCode = {(_self call ["ownerData"]) call ["onReinforceArrival"]};
 private _endCode     = {(_self call ["ownerData"]) call ["endReinforcing"]};
 
-_callerData set ["awaitingReforce", true];
+if(!isNil "_callerData")
+then{_callerData set["awaitingReforce",true]};
 
 if!(isNil "_battlefield")
 then{

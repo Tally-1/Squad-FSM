@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.64, true];
+missionNamespace setVariable ["SQFSM_Version", 0.65, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 #include "DIK_Codes.cpp"

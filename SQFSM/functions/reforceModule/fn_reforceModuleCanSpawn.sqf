@@ -1,6 +1,6 @@
 params[
-    ["_callPos", nil,        [[]]],
-    ["_caller",    nil, [grpNull]]
+    ["_callPos", nil,              [[]]],
+    ["_caller",  nil, [grpNull,objNull]]
 ];
 _self call ["updateSquads"];
 
@@ -25,9 +25,12 @@ private _distance = if(isNil "_targetPos")then{0}else{_module distance _targetPo
 if(_distance > _range)exitWith{false};
 
 // Check that the caller (if defined) is of the correct side.
+private _nilCaller  = isNil "_caller";
+private _isTrigger  = (_nilCaller isEqualTo false)&&{typeName _caller isEqualTo "OBJECT" &&{"EmptyDetector" in typeOf _caller}}; 
 private _ownSide    = _self get "side";
-private _callerSide = if(isNil "_caller")then{civilian}else{side _caller};
-if(_ownSide != _callerSide)exitWith{false};
+private _callerSide = if(_nilCaller)then{civilian}else{side _caller};
+private _wrongSide  = _isTrigger isEqualTo false && {_ownSide != _callerSide};
+if(_wrongSide)exitWith{false};
 
 // Check that synchronized objectives are not hostile or contested.
 private _hostile = _self call ["hostileObjective"];

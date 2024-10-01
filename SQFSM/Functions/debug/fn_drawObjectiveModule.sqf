@@ -17,6 +17,12 @@ then{
     _color = [0.3,1,0.3,1];
 };
 
+// If the objective is not active due to synched triggers.
+if!(_self get "activated")then{
+    _color = [1,0,0,1];
+    _icon  = "\a3\Modules_f\data\iconSector_ca.paa";
+};
+
 drawIcon3D[
     _icon,
     _color,
@@ -30,5 +36,8 @@ drawIcon3D[
 ];
 
 (_self get "3dData") call ["drawLines"];
+_self call ["triggers3D"];
+
+
 
 true;

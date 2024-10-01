@@ -11,6 +11,8 @@ private _methods =
     ["getZoneMidPositions",        SQFM_fnc_objectiveGetZoneMidPositions],
     ["getUrbanPositions",                             _getUrbanPositions],
     ["getFipos",                              SQFM_fnc_objectiveGetFipos],
+	["getTriggerActivationStatus",SQFM_fnc_objectiveGetTriggerActivation],
+	["setActivationStatus",        SQFM_fnc_objectiveSetActivationStatus],
     // ["initRoadmap",                        SQFM_fnc_objectiveInitRoadmap],
 
     ["getAssignedAssets",            SQFM_fnc_objectiveGetAssignedAssets],
@@ -25,6 +27,7 @@ private _methods =
     ["assignGroup",                        SQFM_fnc_objectiveAssignGroup],
     ["unAssignGroup",                    SQFM_fnc_objectiveUnAssignGroup],
 	["draw3D",                              SQFM_fnc_drawObjectiveModule],
+    ["triggers3D",                      SQFM_fnc_objectiveDrawTriggers3D],
     ["storeSafePosSearch",          SQFM_fnc_objectiveStoreSafePosSearch],
     ["removeSafePosSearches",    SQFM_fnc_objectiveRemoveSafePosSearches],
     ["setUrbanStatus",                  SQFM_fnc_objectiveSetUrbanStatus],
@@ -33,7 +36,7 @@ private _methods =
     // ["setPosgrid"                           SQFM_fnc_objectiveSetPosgrid],
     ["globalize",                                          _globalizeFnc]
 ];
-// 
+
 {
     private _name = _x#0;
     private _code = _x#1;

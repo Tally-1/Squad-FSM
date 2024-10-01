@@ -34,7 +34,7 @@ then{_objective = objNull};
 if(_squadCount isEqualTo -1)
 then{_squadCount = 9999};
 
-copyToClipboard str (_virtualSquads apply {typeName _x});
+// copyToClipboard str (_virtualSquads apply {typeName _x});
 
 private _dataArr       = [
     ["module",                _module],

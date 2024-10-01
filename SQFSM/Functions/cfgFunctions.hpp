@@ -56,6 +56,7 @@ class CfgFunctions
             // class battleHudBroadcast            {};
             class updateBattleHudGlobal         {};
             class battleReplenishGroups         {};
+            class getBattleOnPos                {};
 
         };
 
@@ -141,6 +142,7 @@ class CfgFunctions
             class addRectangleMarker        {};
             class reforceModules3D          {};
             class reforceModule3Ddata       {};
+            class objectiveDrawTriggers3D   {};
         };
 
         
@@ -267,6 +269,11 @@ class CfgFunctions
             class objectiveGetZoneMidPositions    {};
             class objectiveGetZoneCone            {};
             class objectiveGetFipos               {};
+
+            class objectiveGetTriggerActivation   {};
+            class objectiveSetActivationStatus    {};
+            class objectiveOnActiveChange         {};
+            class updateTriggerObjectives         {};
 
         };
 
@@ -483,7 +490,6 @@ class CfgFunctions
             class handleNoCrashDamage         {};
             class noCrashDamage               {};
             class onWaypointComplete          {};
-            
         };
 
         class groups_travel
@@ -763,6 +769,9 @@ class CfgFunctions
             class reforceModuleUpdateSquads   {};
             class reforceModuleSpawnSquad     {};
             class moduleSpawnOnReforceRequest {};
+            class updateMethodsAllReforcers   {};
+            class sendReforceToTrigger        {};
+            class reinforceTrigger            {};
         };
 
         class reinforcements

@@ -6,7 +6,7 @@ params[
 private _grpPos         = _self call ["getAvgPos"];
 private _distance       = _movePos distance2D _grpPos;
 private _boardingStatus = _self call ["boardingStatus"];
-private _travelNow      = _distance < 500 || {_boardingStatus isEqualTo "boarded"};
+private _travelNow      = _distance < SQFM_travelWalkDist || {_boardingStatus isEqualTo "boarded"};
 private _params         = [_movePos, _taskName, _findParking];
 
 // The group moves to its destination as is.

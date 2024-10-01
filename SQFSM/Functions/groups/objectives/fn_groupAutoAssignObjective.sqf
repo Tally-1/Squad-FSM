@@ -15,8 +15,16 @@ exitWith{_self call ["assignDefenseObjective",[_excluded]]};
 
 
 private _group      = _self get "grp";
-private _side       = _self call ["getStrSide"];//side _group;
-private _objectives = _self call ["getNearObjectives",[_excluded]] select {(_x call getData)call ["troopsNeeded",[_side]]};
+private _side       = side _group;
+private _strSide    = _self call ["getStrSide"];//side _group;
+private _objectives = _self call ["getNearObjectives",[_excluded]];
+
+_objectives = _objectives select{
+        private _objData = _x call getData;
+        private _valid = (_objData call ["troopsNeeded",[_strSide]]) &&{_side in (_objData get "allowedSides")};
+        _valid;
+};
+
 if(_objectives isEqualTo [])exitWith{[]};
 
 private _targetObjective = ([_objectives, _group] call SQFM_fnc_objectivesSorted)#0;

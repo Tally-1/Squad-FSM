@@ -2,14 +2,19 @@ private _group    = _self get "grp";
 private _taskData = _self call ["getTaskData"];
 (_taskData get "params")
 params[
-    ["_callPos",     nil,           [[]]],
-    ["_callerGrp",   nil,      [grpNull]],
-	["_battleField", nil,[createHashmap]]
+    ["_callPos",     nil,              [[]]],
+    ["_callerGrp",   nil, [grpNull,objNull]],
+	["_battleField", nil,   [createHashmap]]
 ];
+private _isTrigger  = typeName _callerGrp isEqualTo "OBJECT"&&{"EmptyDetector" in typeOf _callerGrp};
 
 if!(isNil "_battleField")then{ 
     (_battlefield get "activeReinforcements") deleteAt 
     ((_battlefield get "activeReinforcements") find _group);
+};
+
+if(_isTrigger)exitWith{ 
+    _taskData call ["endTask", ["move to callerPos",grpNull]];
 };
 
 if!([_callerGrp]call SQFM_fnc_validGroup)
@@ -21,9 +26,6 @@ exitWith{_taskData call ["endTask", ["invalid caller",grpNull]]};
 
 private _callerStrength = _callerData call ["strengthCoef"];
 _callerData set ["awaitingReforce", false];
-
-// if(_callerStrength <= 0.25)
-// exitWith{_self call ["endTask", ["replenish caller",_callerGrp]]};
 
 private _enemy = _callerData call ["nearEnemyGrp"];
 if(!isNull _enemy)

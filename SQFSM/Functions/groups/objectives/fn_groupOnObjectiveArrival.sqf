@@ -10,12 +10,17 @@ private _defensive = _self call ["canInitObjectiveDefense",[_objective]];
 _self call ["leaveUnarmedVehicles"];
 _self set  ["state", ""];
 
+private _active = _objData get "activated";
+if!(_active)exitWith{
+    _self set  ["action", ""];
+    _self call ["deleteWaypoints"];
+    _self call ["removeTask"];
+};
+
 "Group arrived at objective" call dbgm;
 
 if(_defensive)
-exitWith{
-    _self call ["initObjectiveDefense",[_objective]];
-};
+exitWith{_self call ["initObjectiveDefense",[_objective]]};
 
 _self set  ["action", "Clearing Objective"];
 _self call ["clearObjective",[_objective]];

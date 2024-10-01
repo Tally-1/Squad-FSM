@@ -19,6 +19,7 @@ call SQFM_fnc_initReinforRequestsMap;
 	call SQFM_fnc_assignAllGroupTasks;
 };
 
+["SQFM_ObjectiveActiveChange", {_this call SQFM_fnc_objectiveOnActiveChange}] call CBA_fnc_addEventHandler;
 
 missionNamespace setVariable ["SQFM_Dedicated", isDedicated, true];
 

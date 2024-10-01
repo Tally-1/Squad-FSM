@@ -19,6 +19,8 @@ private _owner        = sideUnknown;
 private _sides        = [];
 private _assetTypes   = [];
 private _markers      = if(SQFM_debugMode)then{[_module] call SQFM_fnc_drawObjectiveMarkers}else{[]};
+private _triggers     = synchronizedObjects _module select {"EmptyDetector" in typeOf _x};
+private _activated    = _triggers isEqualTo [];// Will be updated once methods are decleared.
 
 if (_defaultOwner isNotEqualTo "undefined")
 then{_owner = (call compile _defaultOwner)};
@@ -48,9 +50,10 @@ private _assignedGroups = createHashmapObject [[
 
 private _dataArr = [
     ["module",                                               _module],
+	["triggers",                                           _triggers],
+	["activated",                                         _activated], // Refers to synched triggers.
     ["markers",                                             _markers],
     ["position",                                           _position],
-    // ["posgrid",                                                   []],
 	["area",                                                   _area],
 	["zone",                                                   _zone],
 	["buildings",                                         _buildings],
@@ -79,10 +82,10 @@ private _dataArr = [
     ["3dColor",                           ([_owner] call SQFM_fnc_sideColor)]
 ];
 
-
 private _data = createhashMapObject [_dataArr];
 [_data] call SQFM_fnc_setObjectiveMethods;
 _data   call ["updateMarkers"];
+_data   call ["setActivationStatus"];
 
 // For some reason the urbanStatus function returns a false negative if called too soon.
 _data spawn{sleep 1; _this call ["setUrbanStatus"]};

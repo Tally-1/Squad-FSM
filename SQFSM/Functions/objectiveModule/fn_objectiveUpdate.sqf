@@ -1,3 +1,8 @@
+_self call ["setActivationStatus"];
+
+if!(_self get "activated")
+exitWith{};
+
 _self call ["setContested"];
 _self call ["removeSafePosSearches"];
 
@@ -8,7 +13,7 @@ private _previousSides  = _self get "sidesPresent";
 
 private _currentGroups = _self call ["getGroupsInZone"];
 private _currentSides  = _self call ["getSidesInZone"];
-private _currentOwner  =  _currentSides#0;
+private _currentOwner  = _currentSides#0;
 
 if(isNil "_currentOwner")
 exitWith{};
