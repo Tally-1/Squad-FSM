@@ -1,4 +1,4 @@
-// "\SQFSM\functions
+// "functions
 
 class CfgFunctions
 {
@@ -114,38 +114,50 @@ class CfgFunctions
         {
             file =    "\SQFSM\functions\debug";
             // class clientLoop             {};
-            class debugMessage              {};
-            class serverDebugMsg            {};
-            class sendDbgMsg                {};
-            class debug3D                   {};
-            class custom3Dmarkers           {};
-            class showPosArr3D              {};
+            class debugMessage                  {};
+            class serverDebugMsg                {};
+            class sendDbgMsg                    {};
+            class debug3D                       {};
+            class custom3Dmarkers               {};
+            class showPosArr3D                  {};
 
-            class objective3D               {};
-            class drawObjectiveModule       {};
-            class setModuleLineColor        {};
-            class sideColor                 {};
+            class objective3D                   {};
+            class drawObjectiveModule           {};
+            class setModuleLineColor            {};
+            class sideColor                     {};
 
-            class battle3D                  {};
-            class drawBattle                {};
-            class drawBuilding              {};
-            class draw3dMarker              {};
-            class multi3dMarkers            {};
-            class transportModules3D        {};
-            class drawTransportModule       {};
-            class drawTransportModuleNoInit {};
+            class battle3D                      {};
+            class drawBattle                    {};
+            class drawBuilding                  {};
+            class draw3dMarker                  {};
+            class multi3dMarkers                {};
+            class transportModules3D            {};
+            class drawTransportModule           {};
+            class drawTransportModuleNoInit     {};
 
-            class addPosMarker              {};
-            class addCircleMarker           {};
-            class drawObjectiveMarkers      {};
-            class objectiveUpdateMarkers    {};
-            class addRectangleMarker        {};
-            class reforceModules3D          {};
-            class reforceModule3Ddata       {};
-            class objectiveDrawTriggers3D   {};
+            class addPosMarker                  {};
+            class addCircleMarker               {};
+            class drawObjectiveMarkers          {};
+            class objectiveUpdateMarkers        {};
+            class addRectangleMarker            {};
+            class reforceModules3D              {};
+            class reforceModule3Ddata           {};
+            class objectiveDrawTriggers3D       {};
+            class objectiveGetDebugIconAndColor {};
         };
 
-        
+        class mapDrawing
+        {
+            file = "\SQFSM\functions\mapDrawing";
+            class initMapDrawLoop           {};
+            class drawOnMap                 {};
+            class drawMapIcon               {};
+            class drawObjectivesMap         {};
+            class setFocusedMapObjective    {};
+            class objectiveMapFocusChanged  {};
+            class objectiveDrawMapRectangle {};
+            class thisObjectiveOnMap        {};
+        };
 
         class misc
         {
@@ -274,6 +286,7 @@ class CfgFunctions
             class objectiveSetActivationStatus    {};
             class objectiveOnActiveChange         {};
             class updateTriggerObjectives         {};
+            class drawAdvancedObjectiveMapData    {};
 
         };
 
@@ -450,7 +463,8 @@ class CfgFunctions
             class getGroupAbilities          {};
             class groupAttackOnly            {};
             class groupDefendOnly            {};
-        }
+        };
+
 
         class groups_combat
         {
@@ -784,11 +798,11 @@ class CfgFunctions
         class init
         {
             file = "\SQFSM\functions\init";
-            class initSQFSM     {postInit = 1};
-            class serverInit    {};
-            class initSettings  {};
-            class clientInit    {};
-            class initgameState {};
+            class initSQFSM       {postInit = 1};
+            class serverInit      {};
+            class initSettings    {};
+            class clientInit      {};
+            class initgameState   {};
             // class CBAOptions    {preInit = 1; file = "CBA_Options\main.sqf"};
         };
 
@@ -870,7 +884,11 @@ class CfgFunctions
             class showDisplay               {};
             class hideCtrl                  {};
             class showCtrl                  {};
-        }
+            class deleteCtrl                {};
+            class ctrlGetParentData         {};
+            class normalizeTextCtrlHeight   {};
+            class imgString                 {};
+        };
 
         class GUI_curatorMenu 
         { 
@@ -886,8 +904,29 @@ class CfgFunctions
             class initCuratorSquadMenuButtons      {};
             class initCuratorSquadMenuBackground   {};
             class isCuratorGroupMenuDisplay        {};
-            
+        };
+
         
+        class GUI_objectiveHUD
+        {
+            file = "\SQFSM\functions\GUI\objectiveHUD";
+            class initObjectiveFeedbackHud        {};
+            class initObjectiveHudBackground      {};
+            class objectiveHudShowData            {};
+            class onObjectiveFeedbackHudClosed    {};
+            class objectiveHudCamReady            {};
+            class objectiveHudShowCamera          {};
+            class showObjectiveData               {};
+            class objectiveAssetStrengthTxt       {};
+            class objectiveAssetsText             {};
+            class objectiveStatusText             {};
+        };
+        
+        
+        class GUI_markerFeedback
+        {
+            file = "\SQFSM\functions\GUI\markerFeedback";
+            class initMarkerFeedBackDisplay       {};
         };
         
     };

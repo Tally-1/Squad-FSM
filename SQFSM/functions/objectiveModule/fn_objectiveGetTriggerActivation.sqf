@@ -1,7 +1,7 @@
 private _triggers  = _self get "triggers";
 private _noTrigger = _triggers isEqualTo [];
 if(_noTrigger)exitWith{
-    "No trigger" call dbgm;
+    // "No trigger" call dbgm;
     true;
 };
 

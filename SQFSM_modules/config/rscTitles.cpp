@@ -40,4 +40,21 @@ class RscTitles
 		class Controls{};
 	};
 
+
+	class SQFM_markerFeedBack 
+	{
+		idd              = -1;
+		name             = "SQFM_markerFeedBack";
+		movingEnable     = 0;
+		enableSimulation = 1;
+		enableDisplay    = 1;
+		fadein           = 0;
+		fadeout          = 0;
+		duration         = 10;
+		onLoad           = "with uiNameSpace do { SQFM_markerFeedBack = _this select 0 }";
+		onUnLoad         = "with uiNameSpace do { SQFM_markerFeedBack = displayNull }";
+
+		class Controls{};
+	};
+
 };

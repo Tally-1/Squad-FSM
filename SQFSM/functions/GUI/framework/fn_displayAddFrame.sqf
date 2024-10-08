@@ -20,8 +20,9 @@ private _frame    = _self call ["addCtrl",["RscFrame",_pos, true]];
 private _ctrl     = _frame get "ctrl";
 
 _frame call ["setTextColor", [_color]];
-_ctrl ctrlSetFontHeight _txtSize; 
+_ctrl ctrlSetFontHeight _txtSize;
 
+[_ctrl] call SQFM_fnc_normalizeTextCtrlHeight;
 
 if!(_spawnTxt)
 exitWith{

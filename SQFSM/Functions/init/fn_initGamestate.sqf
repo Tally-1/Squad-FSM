@@ -12,21 +12,22 @@ then{_maxObjRange = worldSize};
 
 missionNamespace setVariable ["SQFM_soldierFsmOn", _SFSM, true];
 
-SQFM_headlessPresent    = (entities "HeadlessClient_F") isNotEqualTo [];
-SQFM_maxObjectiveRange  = _maxObjRange;
-SQFM_validSides         = [east, west, independent];
-SQFM_newGroups          = [];
-SQFM_deadGroups         = [];
-SQFM_taskGroups         = [];
-SQFM_battleList         = [];
-SQFM_battles            = createHashmapObject [[]];
-SQFM_reinforRequests    = createHashmapObject [[]];
-SQFM_maxBattleSize      = 1000;
-SQFM_minBattleSize      = 100;
-SQFM_lastBuildingChange = 0;
-SQFM_safePosLifeTime    = 60;
-SQFM_lastFireCheck      = 0-300;
-SQFM_defaultBehaviour   = [ 
+SQFM_headlessPresent     = (entities "HeadlessClient_F") isNotEqualTo [];
+SQFM_maxObjectiveRange   = _maxObjRange;
+SQFM_validSides          = [east, west, independent];
+SQFM_currentMapObjective = objNull;
+SQFM_newGroups           = [];
+SQFM_deadGroups          = [];
+SQFM_taskGroups          = [];
+SQFM_battleList          = [];
+SQFM_battles             = createHashmapObject [[]];
+SQFM_reinforRequests     = createHashmapObject [[]];
+SQFM_maxBattleSize       = 1000;
+SQFM_minBattleSize       = 100;
+SQFM_lastBuildingChange  = 0;
+SQFM_safePosLifeTime     = 60;
+SQFM_lastFireCheck       = 0-300;
+SQFM_defaultBehaviour    = [ 
 	"standard", // Squadtype
 	SQFM_defaultBehaviourDefend,        // defend objectives
 	SQFM_defaultBehaviourAttack,        // Attack objectives 

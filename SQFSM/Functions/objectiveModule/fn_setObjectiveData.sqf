@@ -18,7 +18,7 @@ private _urbanZones   = [_buildings] call SQFM_fnc_getUrbanZones;
 private _owner        = sideUnknown;
 private _sides        = [];
 private _assetTypes   = [];
-private _markers      = if(SQFM_debugMode)then{[_module] call SQFM_fnc_drawObjectiveMarkers}else{[]};
+private _markers      = [];// if(SQFM_debugMode)then{[_module] call SQFM_fnc_drawObjectiveMarkers}else{[]};
 private _triggers     = synchronizedObjects _module select {"EmptyDetector" in typeOf _x};
 private _activated    = _triggers isEqualTo [];// Will be updated once methods are decleared.
 

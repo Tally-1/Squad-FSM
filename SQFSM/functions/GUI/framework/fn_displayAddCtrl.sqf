@@ -35,6 +35,8 @@ private _dataArr = [
 //                                   {METHODS}
 	["hide",                                               SQFM_fnc_hideCtrl],
 	["show",                                               SQFM_fnc_showCtrl],
+	["delete",                                           SQFM_fnc_deleteCtrl],
+	["getParentData",                             SQFM_fnc_ctrlGetParentData],
 	["setPosGrid",                                    SQFM_fnc_oopCtrlSetPos],
 	["setPos",                                    SQFM_fnc_oopCtrlSetPosSafe],
 	["setPosSqr",                           SQFM_fnc_oopCtrlSetPosSafeSquare],
