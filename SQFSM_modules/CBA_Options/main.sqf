@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.66, true];
+missionNamespace setVariable ["SQFSM_Version", 0.67, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 #include "DIK_Codes.cpp"
@@ -66,5 +66,20 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 	true
 ] call CBA_fnc_addSetting;
 
+
+[
+	"SQFM_idleStateTimeLimit",
+	"SLIDER",
+	["Idle Timer", "How many minutes of inactivity until squads become idle."],
+	_versionName,
+	[
+		1,  //minimum 
+		30,  //max
+		5,  //default
+		0,	//decimals
+		false
+	],
+	1
+] call CBA_fnc_addSetting;
 
 #include "defaultSquadSettings.sqf"

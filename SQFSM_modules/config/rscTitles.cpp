@@ -50,9 +50,25 @@ class RscTitles
 		enableDisplay    = 1;
 		fadein           = 0;
 		fadeout          = 0;
-		duration         = 10;
+		duration         = 20;
 		onLoad           = "with uiNameSpace do { SQFM_markerFeedBack = _this select 0 }";
 		onUnLoad         = "with uiNameSpace do { SQFM_markerFeedBack = displayNull }";
+
+		class Controls{};
+	};
+
+	class SQFM_debugHUD 
+	{
+		idd              = -1;
+		name             = "SQFM_debugHUD";
+		movingEnable     = 0;
+		enableSimulation = 1;
+		enableDisplay    = 1;
+		fadein           = 0;
+		fadeout          = 0;
+		duration         = 36000;
+		onLoad           = "with uiNameSpace do { SQFM_debugHUD = _this select 0 }";
+		onUnLoad         = "with uiNameSpace do { SQFM_debugHUD = displayNull }";
 
 		class Controls{};
 	};

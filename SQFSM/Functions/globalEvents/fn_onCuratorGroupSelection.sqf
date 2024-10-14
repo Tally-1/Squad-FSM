@@ -10,8 +10,10 @@ private _data  = _group call getData;
 if!(SQFM_debugMode) exitWith{};
 if(isNil "_data")   exitWith{};
 
+if(isServer)then{_data call ["update"]};
 
 SQFM_group = _group;
 
 private _debugText = _data call ["debugText"];
+
 hint _debugText;

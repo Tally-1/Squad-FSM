@@ -84,6 +84,7 @@ private _methods = [
     ["endObjectiveAttack",                SQFM_fnc_groupEndObjectiveAttack],
     ["onObjectiveArrival",                SQFM_fnc_groupOnObjectiveArrival],
     ["guardObjective",                        SQFM_fnc_groupGuardObjective],
+    // ["guardObjectiveTakeCover",      SQFM_fnc_groupGuardObjectiveTakeCover],
 	["canInitObjectiveDefense",      SQFM_fnc_groupCanInitObjectiveDefense],
 	["initObjectiveDefense",            SQFM_fnc_groupInitObjectiveDefense],
     ["objectiveData",                          SQFM_fnc_groupObjectiveData],
@@ -100,6 +101,7 @@ private _methods = [
     ["infClearObjective",                  SQFM_fnc_groupInfClearObjective],
     ["infClearUrbanObjective",        SQFM_fnc_groupInfClearUrbanObjective],
     ["getUrbanObjInfSearchP",          SQFM_fnc_groupGetUrbanObjInfSearchP],
+    ["quickObjectiveClearing",        SQFM_fnc_groupQuickClearingObjective],
 
     ["mechClearObjective",                SQFM_fnc_groupMechClearObjective],
     ["mechClearUrbanObjective",      SQFM_fnc_groupMechClearUrbanObjective],
@@ -135,9 +137,17 @@ private _methods = [
     ["garrison",                                   SQFM_fnc_groupGarrison],
     ["getNearUrbanZones",                 SQFM_fnc_groupGetNearUrbanZones],
     ["getInBuilding",                         SQFM_fnc_groupGetInBuilding],
+
+    /************************{Idle-state}***************************/
     ["idleGarrison",                           SQFM_fnc_groupIdleGarrison],
+    ["initIdleState",                         SQFM_fnc_groupInitIdleState],
     ["initIdleGarrison",                   SQFM_fnc_groupInitIdleGarrison],
     ["canIdleGarrison",                     SQFM_fnc_groupCanIdleGarrison],
+    ["setIdleState",                           SQFM_fnc_groupSetIdleState],
+    ["setLastActionTime",                 SQFM_fnc_groupSetLastActionTime],
+    ["getIdleCoverArea",                   SQFM_fnc_groupGetIdleCoverArea],
+    ["idleCover",                   {_self spawn SQFM_fnc_groupIdleCover}],
+    ["debugIdleText",                         SQFM_fnc_groupDebugIdleText],
     // ["InitMechClearingFormation", SQFM_fnc_groupInitMechClearingFormation],
 
     /********************{GROUP MEMBERS}************************/

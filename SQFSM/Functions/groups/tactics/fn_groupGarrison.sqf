@@ -23,7 +23,7 @@ if(!isNil "_postActionTxt")
 then{_self set ["action", _postActionTxt]};
 
 if!(_gotIn)then{
-    _self call ["flashAction",["FAIL","#fb3737"]];
+    _self call ["flashAction",["FAIL"]];
 };
 
 _gotIn;

@@ -49,10 +49,15 @@ if(_validVehicle isEqualTo false)exitWith{
 };
 private _group          = _self get "grp";
 private _transportGroup = group driver _transportVehicle;
-private _wpG            = (waypoints _group)#2;
-private _wpT            = (waypoints _transportGroup)#2;
+private _allWpG         = waypoints _group;
+private _allWpT         = waypoints _transportGroup;
 
+if(count _allWpG < 3)exitWith{};
+private _wpG = _allWpG#2;
 _wpG setWaypointCompletionRadius _joinDistance;
+
+if(count _allWpG < 3)exitWith{};
+private _wpT = _allWpT#2;
 _wpT setWaypointCompletionRadius _joinDistance;
 
 true;

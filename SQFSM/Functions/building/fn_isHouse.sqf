@@ -1,11 +1,12 @@
 params[ 
-	["_building",  nil, [objNull]],
-    ["_ignoreAlt", false, [false]]
+	["_building",    nil, [objNull]],
+    ["_ignoreAlt",   false, [false]],
+	["_minPosCount", 3,         [0]]
 ];
 if!(_building isKindOf "House")exitWith{false;};
 
 private _posCount = count (_building buildingPos -1);
-if(_posCount < 3)exitWith{false;};
+if(_posCount < _minPosCount)exitWith{false;};
 
 if(_ignoreAlt)exitWith{true;};
 

@@ -6,6 +6,16 @@ class exclude : Checkbox
     defaultValue = "false";
 };
 
+
+class idleCover : Checkbox
+{
+    property     = "SQFSM_idleCover";
+    displayName  = "Take cover when Idle";
+    tooltip      = "When a squad is considered Idle it will look for good positions to take cover.";
+    defaultValue = "true";
+};
+
+
 class allowObjectiveCapture : Checkbox
 {
     property     = "SQFSM_allowObjectiveCapture";
@@ -19,6 +29,14 @@ class allowObjectiveDefense : Checkbox
     property     = "SQFSM_allowObjectiveDefense";
     displayName  = "Defend Objectives";
     tooltip      = "If checked this squad will try to defend friendly objectives\nIf it has captured an objective it will stay in it.";
+    defaultValue = "true";
+};
+
+class allowObjectiveClearing : Checkbox
+{
+    property     = "SQFSM_allowObjectiveClearing";
+    displayName  = "Clear Objectives";
+    tooltip      = "If checked this squad will sweep the objective attempting to clear out enemies.";
     defaultValue = "true";
 };
 

@@ -5,16 +5,27 @@ private _data      = _group getVariable "SQFM_grpData";
 if(isNil "_data")
 exitwith{[_group] call SQFM_fnc_group3DNoData;};
 
-private _eyePos    = ASLToATL aimPos vehicle leader _group;
-private _iconPos   = [_eyePos, 2] call SQFM_fnc_AddZ;
-private _icon      = [_group] call SQFM_fnc_group3DIcon;//"\A3\ui_f\data\map\groupicons\selector_selectedFriendly_ca.paa";
-private _color     = [_group] call SQFM_fnc_group3DColor;
-private _text      = [_group] call SQFM_fnc_group3DText;
-private _objective = _data get "objective";
-private _strength  = _data get "strengthIndicator";
+private _eyePos      = ASLToATL aimPos vehicle leader _group;
+private _iconPos     = [_eyePos, 2] call SQFM_fnc_AddZ;
+private _icon        = [_group] call SQFM_fnc_group3DIcon;//"\A3\ui_f\data\map\groupicons\selector_selectedFriendly_ca.paa";
+private _color       = [_group] call SQFM_fnc_group3DColor;
+private _text        = [_group] call SQFM_fnc_group3DText;
+private _objective   = _data get "objective";
+private _strength    = _data get "strengthIndicator";
+private _flashAction = _data get "action-flash";
 
 if(isNil "_icon")then{_icon = ""};
 if(isNil "_text")then{_text = ""};
+
+// If a flashaction is active
+if(time<(_flashAction#0))then{
+    _text  = _flashAction#1;
+    _color = [0.5,1,1,1];
+};
+
+// Only for testing, remove / comment out when releasing.
+// private _txt = str round (_self get "lastActionTime");
+// _strength = [_txt,0.5] call SQFM_fnc_getTextTexture;
 
 //Main 3D Icon.
 drawIcon3D[_icon,_color,_iconPos,2,2,0,_text,2,0.04];

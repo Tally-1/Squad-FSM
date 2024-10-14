@@ -2,6 +2,7 @@ private _title       = [_newLine,_largeTxt, "Abilities:", _end]joinString"";
 private _abilities   = [_title];
 private _i           = 0;
 private _abilityKeys = [
+    "canIdleCover",
     "canDefend",
     "canAttack",
     "canHunt",
@@ -20,7 +21,7 @@ private _abilityKeys = [
     private _number = typeName _value isEqualTo "SCALAR";
     private _huntDistance  = _x isEqualTo "huntDistance";
     private _huntKnowledge = _x isEqualTo "huntKnowledge";
-
+    private _idleCover     = _x isEqualTo "canIdleCover";
     // Set number / bool color to red in the case of false / 0;
     // Except for huntKnowledge.
     if(_number)then{_color = _aqua};
@@ -29,6 +30,7 @@ private _abilityKeys = [
     &&{_huntKnowledge isEqualTo false})
     then{_color = _red};
 
+    if(_idleCover)     then{_name = "Take cover when Idle"};
     if(_huntDistance)  then{_name = "Hunt Distance"};
     if(_huntKnowledge) then{
         _name  = "Hunt Knowledge";

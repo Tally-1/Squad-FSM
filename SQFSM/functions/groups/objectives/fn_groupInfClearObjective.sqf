@@ -5,10 +5,13 @@ params[
 private _objData         = _objective call getData;
 private _center          = (_objData get "zone")#0;
 private _radius          = ((_objData get "zone")#1)*0.8;
-private _posCount        = 6;
+private _posCount        = 3 + (round random 6);
 private _endFunction     = 'SQFM_fnc_endTaskGroup';
-private _startPos        = _self call ["getAvgPos"];
 private _edgePositions   = [_center, _radius, _posCount] call SQFM_fnc_pos360;
+
+_edgePositions pushBackUnique (_self call ["getAvgPos"]);
+
+private _startPos        = selectRandom _edgePositions;
 private _pathPositions   = [_startPos, _edgePositions] call SQFM_fnc_posArrToPath;
 
 

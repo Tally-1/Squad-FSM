@@ -2,18 +2,24 @@ params[
     ["_objective",nil,[objNull]]
 ];
 "group clearing objective" call dbgm;
-private _objData   = _objective call getData;
-private _urban     = _objData get "isUrbanArea";
-private _squadType = _self get "groupType";
-private _infantry  = _squadType isEqualTo "infantry";
-private _mech      = "(infantry)" in _squadType;
-private _vehicle   = _infantry isEqualTo false && {_mech isEqualTo false};
-private _friendly  = _self call ["objectiveFriendly",[_objective]];
+private _objData    = _objective call getData;
+private _urban      = _objData get "isUrbanArea";
+private _squadType  = _self get "groupType";
+private _infantry   = _squadType isEqualTo "infantry";
+private _mech       = "(infantry)" in _squadType;
+private _vehicle    = _infantry isEqualTo false && {_mech isEqualTo false};
+private _friendly   = _self call ["objectiveFriendly",[_objective]];
+private _noClearing = !(_self get "clearObjectives");
 
-if(_friendly)exitWith{
-    private _endFnc = "SQFM_fnc_endTaskGroup";
-    private _endPos = getPosATL _objective;
-    _self call ["addWaypoint", [_endPos,50,"MOVE",_endFnc, "AWARE", "NORMAL", 20]];
+if(_friendly
+or{_noClearing})exitWith{
+    _self call ["quickObjectiveClearing",
+    [
+        _objective,
+        "SQFM_fnc_endTaskGroup",
+        "Quick Objective Clearing"
+    ]
+];
 };
 
 if(_urban isEqualTo false

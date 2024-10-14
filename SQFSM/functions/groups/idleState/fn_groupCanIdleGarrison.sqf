@@ -8,6 +8,9 @@ private _action = _self get "action";
 if("arrison" in _action)
 exitWith{false};
 
+if("idle cover" in _action)
+exitWith{false};
+
 private _fipoMen = _self call ["getFipoMen"];
 if(_fipoMen isNotEqualTo [])
 exitWith{false};

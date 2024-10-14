@@ -13,9 +13,7 @@ _leaderVehicle lockCargo       false;
 _leaderVehicle forceFollowRoad false;
 
 _group setSpeedMode "NORMAL";
-_group setSpeedMode "AUTO";
 _group setCombatMode "RED";
-
 _group setFormation _formation;
 
 if(!isNil "_script")

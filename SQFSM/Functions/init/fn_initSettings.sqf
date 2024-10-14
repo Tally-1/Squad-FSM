@@ -6,12 +6,13 @@ if(isNil "SQFM_debugMode")then{
 	SQFM_travelWalkDist     = 500;
 };
 
-// 0.1 settings
-missionNamespace setVariable ["SQFM_debugMode",          SQFM_debugMode,          true];
-missionNamespace setVariable ["SQFM_boardTeleportDist",  SQFM_boardTeleportDist,  true];
-missionNamespace setVariable ["SQFM_manualBoardingDist", SQFM_manualBoardingDist, true];
-missionNamespace setVariable ["SQFM_travelWalkDist",     SQFM_travelWalkDist,     true];
-missionNamespace setVariable ["SQFSM_Version",           SQFSM_Version,           true];
+
+missionNamespace setVariable ["SQFM_debugMode",                 SQFM_debugMode,             true];
+missionNamespace setVariable ["SQFM_boardTeleportDist",         SQFM_boardTeleportDist,     true];
+missionNamespace setVariable ["SQFM_manualBoardingDist",        SQFM_manualBoardingDist,    true];
+missionNamespace setVariable ["SQFM_idleStateTimeLimitSeconds", SQFM_idleStateTimeLimit*60, true];
+missionNamespace setVariable ["SQFM_travelWalkDist",            SQFM_travelWalkDist,        true];
+missionNamespace setVariable ["SQFSM_Version",                  SQFSM_Version,              true];
 
 
 /*****************/

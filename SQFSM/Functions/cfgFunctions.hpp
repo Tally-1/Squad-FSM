@@ -1,4 +1,4 @@
-// "functions
+// "\SQFSM\
 
 class CfgFunctions
 {
@@ -76,16 +76,18 @@ class CfgFunctions
         class building
         {
             file = "\SQFSM\functions\building";
-            class isHouse               {};
-            class nearBuildings         {};
-            class manGetBuilding        {};
-            class menInsideBuilding     {};
-            class buildingPosCount      {};
-            class buildingArrData       {};
-            class getBuildingScore      {};
-            class sortBuildings         {};
-            class allBuildingsPositions {};
-            class zoneUrbanCoef         {};
+            class isHouse                  {};
+            class nearBuildings            {};
+            class manGetBuilding           {};
+            class menInsideBuilding        {};
+            class buildingPosCount         {};
+            class buildingArrData          {};
+            class getBuildingScore         {};
+            class sortBuildings            {};
+            class allBuildingsPositions    {};
+            class getHouseOnPos            {};
+            class zoneUrbanCoef            {};
+            class getNearBuildingPositions {};
         };
 
         class roads 
@@ -144,6 +146,9 @@ class CfgFunctions
             class reforceModule3Ddata           {};
             class objectiveDrawTriggers3D       {};
             class objectiveGetDebugIconAndColor {};
+            class initDebugHUD                  {};
+            class updateDebugHudOOP             {};
+            class updateDebugHud                {};
         };
 
         class mapDrawing
@@ -185,6 +190,9 @@ class CfgFunctions
             class waitForScriptList      {};
             class loadedAddons           {};
             class onCuratorOpened        {};
+            class getVarNames            {};
+            class terminateCam           {};
+            class killCameras            {};
         };
 
         class math
@@ -235,6 +243,7 @@ class CfgFunctions
             class posOnVector               {};
 
             class getObjectCorners          {};
+            class getNearCoverPositions     {};
 
         };
 
@@ -364,6 +373,9 @@ class CfgFunctions
             class manEjectFromVehicle         {};
             class manEjectThenCoverOnArrival  {};
             class enforceFormation            {};
+
+            class sendManToIdleCover          {};
+            class manOnIdleCoverArrival       {};
         };
 
         class man_fsmMovement
@@ -610,6 +622,7 @@ class CfgFunctions
             class group3DIcon             {};
             class group3DColor            {};
             class group3DText             {};
+            class groupDebugIdleText      {};
             class units3D                 {};
             class groupDebugText          {};
             class groupDebugTextAbilities {};
@@ -628,7 +641,6 @@ class CfgFunctions
             class groupOnObjectiveArrival         {};
             class groupInitObjectiveTask          {};
             class groupTakeObjective              {};
-            class groupGuardObjective             {};
             class groupObjectiveData              {};
             class groupAutoAssignObjective        {};
             class groupTypeMatchObjective         {};
@@ -640,6 +652,8 @@ class CfgFunctions
             class groupObjectiveAssignedHostiles  {};
             class groupCanLeaveObjective          {};
             class groupCanAssignObjective         {};
+            class groupGuardObjective             {};
+            class groupGuardObjectiveTakeCover    {};
 
             /*Attack*/
             class assignGroupObjectivesAllSides   {};
@@ -662,6 +676,7 @@ class CfgFunctions
             class groupMechClearObjective         {};
             class groupMechClearUrbanObjective    {};
             class groupEndMechClearing            {};
+            class groupQuickClearingObjective     {};
 
         };
 
@@ -670,11 +685,7 @@ class CfgFunctions
             file = "\SQFSM\functions\groups\tactics";
             class groupGarrison            {};
             class groupGetNearUrbanZones   {};
-            class groupCanIdleGarrison     {};
-            class groupInitIdleGarrison    {};
             class groupGetInBuilding       {};
-            class groupIdleGarrison        {};
-            class waypointIdleGarrison     {};
             class searchNearBuildings      {};
             
         };
@@ -682,14 +693,10 @@ class CfgFunctions
         class groups_misc
         {
             file = "\SQFSM\functions\groups\misc";
-            class groupIsIdle              {};
             class groupUpdate              {};
             class activeWp                 {};
-            class getIdleGroups            {};
             class getCategorizedGroups     {};
             class assignAllGroupTasks      {};
-            class assignGroupsMapIdleCover {};
-            class assignGroupsIdleCover    {};
             class groupSetDataDelayed      {};
             class groupUnstop              {};
             
@@ -773,6 +780,30 @@ class CfgFunctions
             class onInitObjectiveDefenseWp     {};
         };
 
+        class groups_idleState
+        {
+            file = "\SQFSM\functions\groups\idleState";
+            class getIdleGroups             {};
+            class groupIsIdle               {};
+            class groupSetIdleState         {};
+            class assignGroupsMapIdleCover  {};
+            class groupSetLastActionTime    {};
+            class groupListInitIdleState    {};
+
+            class groupInitIdleState        {};
+            class groupGetIdleCoverArea     {};
+            class groupCanIdleGarrison      {};
+            class groupInitIdleGarrison     {};
+            class groupIdleCover            {};
+            class groupIdleGarrison         {};
+            class waypointIdleGarrison      {};
+            class waypointIdleCover         {};
+            class nearInfantryIdlePositions {};
+            class sortInfantryIdlePositions {};
+            class infantryIdlePosScore      {};
+
+        };
+
         class reforceModule
         {
             file = "\SQFSM\functions\reforceModule";
@@ -803,6 +834,8 @@ class CfgFunctions
             class initSettings    {};
             class clientInit      {};
             class initgameState   {};
+            class getModlist      {};
+            class validModlist    {};
             // class CBAOptions    {preInit = 1; file = "CBA_Options\main.sqf"};
         };
 
@@ -896,6 +929,7 @@ class CfgFunctions
             class openCuratorSquadMenu             {};
             class applySquadMenuSettings           {};
             class initCuratorSquadMenuDisplay      {};
+            class initCuratorSquadMenuSettingList  {};
             class curatorSquadMenuAddCBS           {};
             class curatorSquadMenuAddSLS           {};
             class onCuratorSquadMenuSettingChange  {};

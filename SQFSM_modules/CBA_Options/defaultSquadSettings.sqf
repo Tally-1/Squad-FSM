@@ -10,6 +10,15 @@ _versionName = "DCO Squad FSM | Default Squad Behaviour";
 
 
 [
+	"SQFM_defaultBehaviourCanIdleCover",
+	"CHECKBOX",
+	["Take cover when Idle", "When a squad is considered Idle it will look for good positions to take cover\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+
+[
 	"SQFM_defaultBehaviourAttack",
 	"CHECKBOX",
 	["Capture Objectives", "Enables all new squads to attack objectives.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
@@ -21,6 +30,15 @@ _versionName = "DCO Squad FSM | Default Squad Behaviour";
 	"SQFM_defaultBehaviourDefend",
 	"CHECKBOX",
 	["Defend Objectives", "Enables all new squads to defend objectives.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+
+[
+	"SQFM_defaultBehaviourClear",
+	"CHECKBOX",
+	["Clear Objectives", "Enables all new squads to sweep the objective attempting to clear out enemies.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
 	_versionName,
 	true
 ] call CBA_fnc_addSetting;

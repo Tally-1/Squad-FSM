@@ -5,6 +5,11 @@ params [
 ];
 
 private _data = _group call getData;
+private _idle = _data get "state" isEqualTo "idle";
 _data call ["unStop"];
+_data set  ["lastActionTime",time];
+
+if(_idle)
+then{_data set ["state", ""]};
 
 true;

@@ -27,8 +27,10 @@ SQFM_minBattleSize       = 100;
 SQFM_lastBuildingChange  = 0;
 SQFM_safePosLifeTime     = 60;
 SQFM_lastFireCheck       = 0-300;
+
+/******************{ARRAY ORDER: TIME ADDED}******************/
 SQFM_defaultBehaviour    = [ 
-	"standard", // Squadtype
+	"standard",                         // Squadtype
 	SQFM_defaultBehaviourDefend,        // defend objectives
 	SQFM_defaultBehaviourAttack,        // Attack objectives 
 	SQFM_defaultBehaviourPush,          // push near enemies 
@@ -38,5 +40,7 @@ SQFM_defaultBehaviour    = [
 	SQFM_defaultBehaviourCallReforce,   // call reinforcements 
 	SQFM_defaultBehaviourCallCAS,       // call CAS 
 	SQFM_defaultBehaviourCallArty,      // call Arty
-	SQFM_defaultBehaviourExcluded
+	SQFM_defaultBehaviourExcluded,      // Exclude from Squad FSM
+	SQFM_defaultBehaviourClear,         // clear Objectives 
+	SQFM_defaultBehaviourCanIdleCover   // When a squad is considered Idle it will look for good positions to take cover
 ];

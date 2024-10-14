@@ -32,8 +32,6 @@ if(_firePositions isNotEqualTo [])then{
     _self call ["addWaypoint", [_firePos]];
 };
 
-
-
 _self call ["addWaypoint", [_targetPos,20,"MOVE", _endFunction,nil,nil,_radius]];
 
 true;

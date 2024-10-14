@@ -3,28 +3,31 @@ params [
 ]; 
 [_group] call SQFM_fnc_groupBehaviourSettings
 params[
-    ["_squadClass",    nil,    [""]],
-    ["_defend",        nil,  [true]],
-    ["_attack",        nil,  [true]],
-    ["_hunt",          nil,  [true]],
-    ["_huntDistance",  nil,     [0]],
-    ["_huntKnowledge", nil,     [0]],
-    ["_reinforce",     nil,  [true]],
-    ["_callReinforce", nil,  [true]],
-    ["_callAir",       nil,  [true]],
-    ["_callArty",      nil,  [true]],
-	["_exclude",       nil,  [true]]
+    ["_squadClass",      nil,    [""]],
+    ["_defend",          nil,  [true]],
+    ["_attack",          nil,  [true]],
+    ["_hunt",            nil,  [true]],
+    ["_huntDistance",    nil,     [0]],
+    ["_huntKnowledge",   nil,     [0]],
+    ["_reinforce",       nil,  [true]],
+    ["_callReinforce",   nil,  [true]],
+    ["_callAir",         nil,  [true]],
+    ["_callArty",        nil,  [true]],
+	["_exclude",         nil,  [true]],
+	["_clearObjectives", nil,  [true]],
+    ["_idleCover",       nil,  [true]]
 ];
 
 private _3Dtxt    = ["100%", 0.546, "#ffffff", "#00000000", "PuristaBold"]call SQFM_fnc_getTextTexture;
 private _emptyMap = createHashmapObject[[]];
 private _dataArr  = [ 
-
     ["birth",             round time],
     ["lastTransportCall", round time],
+    ["lastActionTime",    round time],
     ["huntCoolDown",      round time],
     ["lastReinfReq",           0-300],
     ["lastFireCheck",          0-300],
+    ["action-flash",          [0,""]],
     ["grp",                   _group],
     ["owner",      groupOwner _group],
     ["side",             side _group],
@@ -61,7 +64,9 @@ private _dataArr  = [
     ["canCallReinforcements", _callReinforce],
     ["canCallAir",                  _callAir],
     ["canCallArty",                _callArty],
-	["exclude",                     _exclude]
+	["exclude",                     _exclude],
+	["clearObjectives",     _clearObjectives],
+    ["canIdleCover",              _idleCover]
 ];
 
 private _data = createHashmapObject [_dataArr];

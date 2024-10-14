@@ -2,7 +2,7 @@ private _smallTxt    = "<t size='0.75'>";
 private _mediumTxt   = "<t size='1.2'>";
 private _largeTxt    = "<t size='1.5'>";
 private _bigTxt      = "<t size='2'>";
-private _versionName = ["Squad FSM V. ", SQFSM_Version] joinString "";
+private _versionName = ["Squad FSM ", SQFSM_Version] joinString "";
 private _space       = "      ";
 
 private _outLine = "<t shadow='2'>";
