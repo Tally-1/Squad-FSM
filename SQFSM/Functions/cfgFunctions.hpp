@@ -1,4 +1,4 @@
-// "\SQFSM\
+// "
 
 class CfgFunctions
 {
@@ -57,6 +57,7 @@ class CfgFunctions
             class updateBattleHudGlobal         {};
             class battleReplenishGroups         {};
             class getBattleOnPos                {};
+            class shareBattleKnowledge          {};
 
         };
 
@@ -157,11 +158,31 @@ class CfgFunctions
             class initMapDrawLoop           {};
             class drawOnMap                 {};
             class drawMapIcon               {};
+          
+        };
+
+        class mapDrawing_objectives
+        {
+            file = "\SQFSM\functions\mapDrawing\objectives";
             class drawObjectivesMap         {};
             class setFocusedMapObjective    {};
             class objectiveMapFocusChanged  {};
             class objectiveDrawMapRectangle {};
             class thisObjectiveOnMap        {};
+        };
+
+        class mapDrawing_squads
+        {
+            file = "\SQFSM\functions\mapDrawing\squads";
+            class drawSquadsOnMap           {};
+            class validMapDrawSquad         {};
+            class setFocusedMapSquad        {};
+            class squadMapFocusChanged      {};
+            class squadMapColor             {};
+            class groupSetMapIcon           {};
+            class squadOnMap                {};
+            class groupDrawOnMapMouseOver   {};
+
         };
 
         class misc
@@ -193,6 +214,8 @@ class CfgFunctions
             class getVarNames            {};
             class terminateCam           {};
             class killCameras            {};
+            class getCurrentMan          {};
+            class getNearFipoPositions   {};
         };
 
         class math
@@ -296,6 +319,9 @@ class CfgFunctions
             class objectiveOnActiveChange         {};
             class updateTriggerObjectives         {};
             class drawAdvancedObjectiveMapData    {};
+
+            class objectiveCanshowMarker          {};
+            class getObjectiveMarkerData          {};
 
         };
 
@@ -454,19 +480,21 @@ class CfgFunctions
         class groups_global
         {
             file =    "\SQFSM\functions\groups";
-            class validGroup               {};
-            class initGroup                {};
-            class initGroupData            {};
-            class setGroupMethods          {};
-            class addToDataAllGroups       {};
-            class getGroupsZone            {};
-            class groupsInZone             {};
-            class updateMethodsAllGroups   {};
-            class isPlayerGroup            {};
-            class groupBehaviourSettings   {};
-            class groupGetBehaviorModule   {};
-            class getNearestGroup          {};
-            class setGroupOwner            {};
+            class validGroup                        {};
+            class initGroup                         {};
+            class initGroupData                     {};
+            class knowsAboutGroup                   {};
+            class setGroupMethods                   {};
+            class addToDataAllGroups                {};
+            class getGroupsZone                     {};
+            class groupsInZone                      {};
+            class updateMethodsAllGroups            {};
+            class isPlayerGroup                     {};
+            class groupBehaviourSettings            {};
+            class groupGetBehaviorModule            {};
+            class getNearestGroup                   {};
+            class setGroupOwner                     {};
+            class updateGroupSideKnowledgeOnTargets {};
         };
 
         class groups_abilities
@@ -627,6 +655,8 @@ class CfgFunctions
             class groupDebugText          {};
             class groupDebugTextAbilities {};
             class groupFlashAction        {};
+            class groupDrawBattleIntel    {};
+            class drawIntelTarget3D       {};
         };
 
         class groups_objectives

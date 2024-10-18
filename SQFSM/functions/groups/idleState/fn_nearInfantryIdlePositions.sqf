@@ -5,8 +5,9 @@ params[
 ];
 private _positions = [];
 
-_positions insert [0,([_center, _rad] call SQFM_fnc_getNearCoverPositions), true];
-_positions insert [0,([_center, _rad] call SQFM_fnc_getNearBuildingPositions), true];
+_positions insert [0,([_center, _rad] call SQFM_fnc_getNearCoverPositions),   true];
+_positions insert [0,([_center, _rad] call SQFM_fnc_getNearBuildingPositions),true];
+_positions insert [0,([_center, _rad] call SQFM_fnc_getNearFipoPositions),    true];
 
 if!(_sort)exitWith{_positions};
 

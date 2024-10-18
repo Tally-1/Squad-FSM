@@ -16,6 +16,7 @@ SQFM_headlessPresent     = (entities "HeadlessClient_F") isNotEqualTo [];
 SQFM_maxObjectiveRange   = _maxObjRange;
 SQFM_validSides          = [east, west, independent];
 SQFM_currentMapObjective = objNull;
+SQFM_currentMapSquad     = grpNull;
 SQFM_newGroups           = [];
 SQFM_deadGroups          = [];
 SQFM_taskGroups          = [];

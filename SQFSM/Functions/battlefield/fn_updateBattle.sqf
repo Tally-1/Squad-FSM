@@ -14,9 +14,12 @@ _allGroups insert [0, _groups, true];
 _self call ["handleNewGroups",[_groups]];
 _self call ["handleInvalidGrps",[_allGroups]];
 
-_self set  ["sides",   _sides];
-_self set  ["groups", _groups];
+_self set  ["sides",       _sides];
+_self set  ["groups",     _groups];
+_self set  ["entities", _entities];
+
 _self call ["updateBuildings"];
+_self call ["shareKnowledge"];
 
 private _strengthData      = _self call ["updateStrengthData"];
 private _reinforcementData = _self call ["updateReforData"];

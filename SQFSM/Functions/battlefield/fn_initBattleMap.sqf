@@ -21,6 +21,7 @@ private _dataArr = [
     ["startTime",               time],
     ["sides",                 _sides],
     ["groups",               _groups],
+    ["entities",           _entities],
     ["forcedEnd",              false],
     ["buildings",                 []],
     ["grid",                   _grid],
@@ -53,6 +54,7 @@ private _dataArr = [
     ["broadcastBattleHud",        SQFM_fnc_updateBattleHudGlobal],
     ["onFirstShot",                   SQFM_fnc_onBattleFirstShot],
 	["timeSinceShot",           SQFM_fnc_timeSinceLastBattleShot],
+    ["shareKnowledge",             SQFM_fnc_shareBattleKnowledge],
 	["initBuildings", {_self spawn SQFM_fnc_initBattleBuildings}]
 ];
 

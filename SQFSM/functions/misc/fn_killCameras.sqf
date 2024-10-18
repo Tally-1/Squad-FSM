@@ -4,6 +4,8 @@ params[
 if(_forced)then{
     {
         private _cam = SQFM_terminatedCams#0#0;
+        if(isNil "_cam")exitWith{SQFM_terminatedCams deleteAt 0};
+        
         _cam cameraEffect ["terminate","back"];
         camDestroy _cam;
         deleteVehicle _cam;

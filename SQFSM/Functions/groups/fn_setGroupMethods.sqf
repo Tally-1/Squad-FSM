@@ -8,6 +8,8 @@ private _methods = [
     ["setMethods",      {[_self] call SQFM_fnc_setGroupMethods}],
     ["debugText",                       SQFM_fnc_groupDebugText],
     ["flashAction",                   SQFM_fnc_groupFlashAction],
+	["drawBattleIntel",           SQFM_fnc_groupDrawBattleIntel],
+    ["setMapIcon",                     SQFM_fnc_groupSetMapIcon],
 
     /*************************{MISC}***************************/
     ["isIdle",                             SQFM_fnc_groupIsIdle],
@@ -17,6 +19,7 @@ private _methods = [
     ["setDataDelayed",             SQFM_fnc_groupSetDataDelayed],
     ["addUnitEH",             SQFM_fnc_groupAddUnitEventHandler],
     ["removeUnitEH",       SQFM_fnc_groupRemoveUnitEventHandler],
+    ["drawOnMapMouseOver",     SQFM_fnc_groupDrawOnMapMouseOver],
     ["sinceSpawn",                 {time - (_self get "birth")}],
     // ["availableForNewTask",      SQFM_fnc_groupAvailableForTask],
     

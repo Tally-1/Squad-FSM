@@ -22,6 +22,7 @@ private _markers        = [];// if(SQFM_debugMode)then{[_module] call SQFM_fnc_d
 private _triggers       = synchronizedObjects _module select {"EmptyDetector" in typeOf _x};
 private _activated      = _triggers isEqualTo [];// Will be updated once methods are decleared.
 private _coverPositions = [_position, _radius, false] call SQFM_fnc_nearInfantryIdlePositions;
+private _markerData     = [_module] call SQFM_fnc_getObjectiveMarkerData;
 
 if (_defaultOwner isNotEqualTo "undefined")
 then{_owner = (call compile _defaultOwner)};
@@ -81,7 +82,8 @@ private _dataArr = [
     ["contestedIcon",    "\A3\ui_f\data\map\markers\military\warning_CA.paa"],
     ["capturedIcon",     "\A3\ui_f\data\map\markers\handdrawn\pickup_CA.paa"],
     ["3dData",                                                       _data3d],
-    ["3dColor",                           ([_owner] call SQFM_fnc_sideColor)]
+    ["3dColor",                           ([_owner] call SQFM_fnc_sideColor)],
+	["markerData",                                               _markerData]
 ];
 
 private _data = createhashMapObject [_dataArr];

@@ -18,6 +18,8 @@ params[
     ["_idleCover",       nil,  [true]]
 ];
 
+private _mapIcon  = "\A3\ui_f\data\map\markers\nato\b_inf.paa";
+private _mapColor = [_group] call SQFM_fnc_squadMapColor;
 private _3Dtxt    = ["100%", 0.546, "#ffffff", "#00000000", "PuristaBold"]call SQFM_fnc_getTextTexture;
 private _emptyMap = createHashmapObject[[]];
 private _dataArr  = [ 
@@ -50,9 +52,15 @@ private _dataArr  = [
     ["formation",   formation _group],
     ["initialStrength",            0],
     ["strengthIndicator",     _3Dtxt],
+    ["mapIcon",             _mapIcon],
+    ["mapColor",           _mapColor],
     ["objective",            objNull],
     ["taskData",           _emptyMap],
     ["unitEvHandlers",            []],
+
+	// Will be used in debug mode to show when new
+	// hostiles have been revealed through knowledge sharing.
+	["hostilesRevealed",     [0,[]]],
 
     /******Behaviour settings*******/
     ["canDefend",                    _defend],

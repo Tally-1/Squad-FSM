@@ -11,9 +11,12 @@ class SQFSM_Objective : Module_F
         #include "settings\ActivationDistance.cpp"
         #include "settings\strengthCoef.cpp"
         #include "settings\assetTypes.cpp"
+        #include "settings\objectiveMarker.cpp"
         
         class ModuleDescription : ModuleDescription{};
     };
 
     #include "description.hpp"
 };
+
+

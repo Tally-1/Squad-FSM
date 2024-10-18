@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.67, true];
+missionNamespace setVariable ["SQFSM_Version", 0.68, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 #include "DIK_Codes.cpp"
@@ -80,6 +80,27 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 		false
 	],
 	1
+] call CBA_fnc_addSetting;
+
+[
+	"SQFM_showSquadMapMarkers",
+	"CHECKBOX",
+	["Squad Markers", "Show Squad markers on map."],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+
+[
+	"SQFM_showHostileSquadMapMarkers",
+	"LIST",
+	["Show Enemy Squad-markers", "Show hostile Squads on map."],
+	_versionName,
+	[
+		["always", "never", "known_group", "known_side"],
+		["Always", "Never", "Only Squads known to Player GROUP", "Only Squads known to Player SIDE"], 
+		0
+	]
 ] call CBA_fnc_addSetting;
 
 #include "defaultSquadSettings.sqf"

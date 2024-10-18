@@ -5,10 +5,10 @@ params [
 private _onArrival = [[_man], SQFM_fnc_manOnIdleCoverArrival];
 private _condition = [[_man], SQFM_fnc_validMan];
 private _dist      = _man distance2D _pos;
-private _timeLimit = _dist+30;
+private _timeLimit = _dist+60;
 private _high      = (_pos#2)>2;
 
-if(_high)then{_timeLimit=_timeLimit+15};
+if(_high)then{_timeLimit=_timeLimit+30};
 
 _man setVariable ["SFSM_Excluded",true,true];
 [_man, "Moving to idle Cover position"] spawn SQFM_fnc_flashActionMan;

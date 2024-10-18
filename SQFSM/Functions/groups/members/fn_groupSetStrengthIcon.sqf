@@ -7,7 +7,7 @@ if(_prcnt < 75)then{_color = "#ffe96f";};
 if(_prcnt < 26)then{_color = "#ff4f4f";};
 
 private _text    = [_prcnt,"%"]joinString"";
-private _texture = [_text, 0.546, _color, "#00000000", "PuristaBold"]call SQFM_fnc_getTextTexture;
+private _texture = [_text, 0.55, _color, "#00000000", "PuristaBold"]call SQFM_fnc_getTextTexture;
 
 if(_excluded)then{
 	_texture = ["excluded", 0.34, "#ff1d1d", "#00000000", "PuristaBold"]call SQFM_fnc_getTextTexture;

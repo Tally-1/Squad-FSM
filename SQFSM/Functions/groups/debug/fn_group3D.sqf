@@ -46,4 +46,6 @@ if(!isNull _objective)then{
     drawLine3D [_lineEnd, _obPos,   _aqua];
 };
 
+_data call ["drawBattleIntel",[_iconPos]];
+
 [_group] call SQFM_fnc_units3D;

@@ -22,10 +22,10 @@ class squadType : Combo
             value = "recon";
         };
 
-        class isSupport
+        class AtSupport
         {
-            name  = "Support";
-            value = "support";
+            name  = "AT-Support";
+            value = "at_support";
         };
     };
 };
