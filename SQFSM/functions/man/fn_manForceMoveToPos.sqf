@@ -8,6 +8,7 @@ params[
 if(_SFSM
 &&{!isNil "SFSM_fnc_forcedMove"})
 exitWith{[_this#0,_this#1] call SFSM_fnc_forcedMove};
+
 private _startTime  = time;
 private _timeLimit  = time+(_man distance _pos);
 private _ready      = false;
