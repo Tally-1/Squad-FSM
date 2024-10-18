@@ -43,15 +43,14 @@
 --------------------------------------------
 
 --{**0.68**}--
-14.96 hours (898 minutes)
-
 [23m]  Uploading, writing changelog for 0.67, updating spreadsheet.
 [116m] Editing frontend objective-marker options.
+-
 [106m] Implementing new objective-Marker options ingame.
 [142m] Improving cover position algorythm.
 [118m] Battlefield knowledge initial build.
 [21m]  Battlefield knowledge Small test.
+-
 [174m] Squad-markers initial build.
 [76m]  Squad-marker-waypoints & Type-specific Markers
 [92m]  Squad-marker addon option.
-[30m]  Packing, uploading.
