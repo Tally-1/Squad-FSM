@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.68, true];
+missionNamespace setVariable ["SQFSM_Version", 0.69, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 #include "DIK_Codes.cpp"
@@ -101,6 +101,14 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 		["Always", "Never", "Only Squads known to Player GROUP", "Only Squads known to Player SIDE"], 
 		0
 	]
+] call CBA_fnc_addSetting;
+
+[
+	"SQFM_shareBattleKnowledge",
+	"CHECKBOX",
+	["Share Battle Knowledge", "Allow squads to gain intel on enemies during a battle from what their side knows."],
+	_versionName,
+	false
 ] call CBA_fnc_addSetting;
 
 #include "defaultSquadSettings.sqf"

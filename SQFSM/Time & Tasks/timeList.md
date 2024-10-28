@@ -54,3 +54,29 @@
 [174m] Squad-markers initial build.
 [76m]  Squad-marker-waypoints & Type-specific Markers
 [92m]  Squad-marker addon option.
+--------------------------------------------
+
+--{**0.69**}--
+30.6 hours (1837 minutes)
+
+[106m] Cohesion check and video (Needed since Yip refuse to belive what I tell him)
+[18m] Changelog and Upload of Soldier FSM 1.46
+[26m] No squad markers on High-command mode
+[58m] Planning At-Support
+[67m] Building task-init for AT-support.
+[52m] At-support insertion & wp functions. Replanning feature with yip.
+[279m] At-Support, eventhandlers, travel, Target reveal, target engagement
+[96m]  Vehicle AT-support, target disengaging, End AT-support.
+[120m] Infantry AT-support engagement (initial build)
+[48m]  Valid RPG launch position.
+[49m]  Move to launch position.
+[105m] Forced launcher-fire (adapted and upgraded SFSM building-rpg function)
+[53m]  Forced launcher movement and exception handling, improved aim.
+[53m]  RPG missile guidance script (adapted and upgraded SFSM building-rpg function).
+[73m]  Implementing infantry Tank-hunting into overall AT-support task.
+[176m]  Final tweaks (AT-support), testing, refactoring
+[87m]   Initial request build(AT-support).
+[120m]  Automated AT-support request on enemy spotted, AT-respond loop.
+[48m]   Battle-knowledge, bugfixes.
+[128m]  Battle test, bugfixes.
+[75m]   Packing, testing, fixing, tweaking.

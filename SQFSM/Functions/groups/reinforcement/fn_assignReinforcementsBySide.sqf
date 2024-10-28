@@ -41,6 +41,7 @@ private _requestResponses = [];
     if(_available isEqualTo [])exitWith{};
     private _responder = [_callPos, _available] call SQFM_fnc_getNearestGroup;
     private _data      = _responder call getData;
+    if(isNil "_data")exitWith{};
     
     _assignedGroups   pushBackUnique _responder;
     _assignedRequests pushBackUnique _x;

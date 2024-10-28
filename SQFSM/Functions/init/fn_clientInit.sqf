@@ -16,3 +16,8 @@ call SQFM_fnc_validModlist;
 
 if(SQFM_debugMode)
 then{[] spawn SQFM_fnc_initDebugHUD};
+
+addMissionEventHandler [
+  "CommandModeChanged", 
+  {SQFM_highCommandOn = (_this#0)}
+];

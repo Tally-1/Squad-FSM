@@ -6,10 +6,20 @@ params[
 private _safePositions = _posArr select {[_x,false,7,10] call SQFM_fnc_clearPos};
 if(_safePositions isEqualTo []) exitWith{[]};
 if(_enemies isEqualTo [])       exitWith{_safePositions};
-if(_forceAll isEqualTo false)   exitWith{_safePositions select {[_x, _enemyPositions, 3, _enemies] call SQFM_fnc_posIsHidden}};
 
 private _enemyClusters  = [_enemies] call SQFM_fnc_clustersFromObjArr;
-private _enemyPositions = _enemyClusters apply {_x get "position"};
+private _enemyPositions = [];
+
+{
+    private _pos = _x get "position";
+    if(!isNil "_pos")
+    then{_enemyPositions pushBackUnique _pos};
+    
+} forEach _enemyClusters;
+
+if(_forceAll isEqualTo false)
+exitWith{_safePositions select {[_x, _enemyPositions, 3, _enemies] call SQFM_fnc_posIsHidden}};
+
 private _safePositions  = _safePositions select {[_x, _enemyPositions, 2] call SQFM_fnc_posHasTerrainCover};
 
 // Terrain is the best cover so if found only those are returned.

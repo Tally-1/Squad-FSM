@@ -3,6 +3,10 @@ params [
 	["_enemy", nil, [objNull]]
 ];
 
+// AT-support may be called through this function.
+_this call SQFM_fnc_handleArmorSpotted;
+
+// Soldier FSM handles battle-init if activated.
 if(SQFM_soldierFsmOn)                     exitWith{};
 if!(side _group in SQFM_validSides)       exitWith{};
 if!(side _enemy in SQFM_validSides)       exitWith{};

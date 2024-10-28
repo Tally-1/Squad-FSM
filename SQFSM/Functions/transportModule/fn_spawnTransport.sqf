@@ -43,4 +43,6 @@ _vehicle spawn{
 	_this allowDamage true;
 };
 
+(group _vehicle) enableAttack false;
+
 _vehicle;

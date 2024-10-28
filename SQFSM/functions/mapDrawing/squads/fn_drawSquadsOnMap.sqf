@@ -1,7 +1,8 @@
 params[
     ["_map",nil,[controlNull]]
 ];
-if!(SQFM_showSquadMapMarkers)exitWith{};
+if!(SQFM_showSquadMapMarkers) exitWith{};
+if(SQFM_highCommandOn)        exitWith{};
 
 private _squads = allGroups select {[_x] call SQFM_fnc_validMapDrawSquad};
 

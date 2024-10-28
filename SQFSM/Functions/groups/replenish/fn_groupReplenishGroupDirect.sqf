@@ -9,6 +9,8 @@ private _targetPos  = _targetData call ["getAvgPos"];
 if(isNil "_targetPos")exitWith{false};
 
 private _grpPos     = _self call ["getAvgPos"];
+if(isNil "_grpPos")exitWith{false};
+
 private _distance   =  _grpPos distance2D _targetPos;
 if(_distance > _maxDistance)exitWith{false};
 

@@ -135,7 +135,7 @@ private _methods = [
     ["hasTask", {str(_self call ["getTaskData"]) isNotEqualTo "[]"}],
     ["getTaskData",  {[_self get "grp"] call SQFM_fnc_getGroupTask}],
     ["actionStatus",                     SQFM_fnc_groupActionStatus],
-
+    ["updateTask",                         SQFM_fnc_groupUpdateTask],
     /**********************{TACTICS}***************************/
     ["garrison",                                   SQFM_fnc_groupGarrison],
     ["getNearUrbanZones",                 SQFM_fnc_groupGetNearUrbanZones],
@@ -159,6 +159,7 @@ private _methods = [
     ["getVehiclesInUse",               {(_self call ["getOwnVehicles"])#2}],
     // ["getUnarmedVehicles",                SQFM_fnc_groupGetUnarmedVehicles],
     ["isVehicleGroup",       {count(_self call ["nonCrewMen"])isEqualTo 0}],
+    ["isInfantryGroup",                      SQFM_fnc_groupIsInfantryGroup],
     ["isMechanized",                            SQFM_fnc_groupIsMechanized],
     ["getGrpMembers",                               SQFM_fnc_getGrpMembers],
     ["anyValidMan",{[_self get "grp"] call SQFM_fnc_firstValidGroupMember}],
@@ -212,13 +213,37 @@ private _methods = [
     ["attackGroup",                   SQFM_fnc_groupAttackGroup],
     ["updateBattleStrength", SQFM_fnc_groupUpdateBattleStrength],
     ["combatZone",                     SQFM_fnc_groupCombatZone],
+    ["revealTargets",               SQFM_fnc_groupRevealTargets],
+    ["revealAndTarget",           SQFM_fnc_groupRevealAndTarget],
 
     /**********************{Hunting}***************************/
     ["initHunt",                         SQFM_fnc_groupInitHunt],
     ["initHuntTask",                 SQFM_fnc_groupInitHuntTask],
     ["ableToHunt",                     SQFM_fnc_groupAbleToHunt],
 
-	/**********************{DEFENSE}***************************/
+	/**********************{AT-support}*************************/
+    ["initAtSupport",            SQFM_fnc_groupInitAtSupportTask],
+	["atSupportInsertPos",   SQFM_fnc_groupAtSupportInsertionPos],
+	["onAtInsertion",                SQFM_fnc_groupOnAtInsertion],
+	["endAtSupport",                  SQFM_fnc_groupEndAtSupport],
+    ["initAtTarget",                  SQFM_fnc_groupInitAtTarget],
+    ["deInitAtTarget",              SQFM_fnc_groupDeInitAtTarget],
+    ["initAtSupportTravel",    SQFM_fnc_groupInitAtSupportTravel],
+    ["atSupportDirectMove",    SQFM_fnc_groupAtSupportDirectMove],
+    ["atSupportUpdate",            SQFM_fnc_groupAtSupportUpdate],
+    ["canAtReveal",                    SQFM_fnc_groupCanAtReveal],
+    ["targetVisible",                SQFM_fnc_groupTargetVisible],
+    ["infMoveOnAtTarget",        SQFM_fnc_groupInfMoveOnAtTarget],
+    ["infEngageAtTarget",        SQFM_fnc_groupInfEngageAtTarget],
+    ["attackArmorOnSight",      SQFM_fnc_groupAttackArmorOnSight],
+    ["getAtMen",                          SQFM_fnc_groupGetAtMen],
+    ["isATsquad",                            SQFM_fnc_groupHasAT],
+
+    ["callAtSupport",                SQFM_fnc_groupCallAtSupport],
+    ["canCallAtSupport",          SQFM_fnc_groupCanCallAtSupport],
+    ["sendAtSupportRequest",  SQFM_fnc_groupSendAtSupportRequest],
+	
+    /**********************{DEFENSE}***************************/
     ["assignFipos",                       SQFM_fnc_groupAssignFipos],
     ["leaveFipos",                         SQFM_fnc_groupLeaveFipos],
 	["assignObjectiveFipos",     SQFM_fnc_groupAssignObjectiveFipos],

@@ -216,6 +216,28 @@ class CfgFunctions
             class killCameras            {};
             class getCurrentMan          {};
             class getNearFipoPositions   {};
+            
+        };
+
+        class forcedRpg
+        {
+            file = "\SQFSM\functions\forcedRpg";
+            class setMissileTarget           {};
+            class missileAimed               {};
+            class handleForcedRPG            {};
+            class onForcedRpgFire            {};
+            class forcedLauncherEh           {};
+            class forceLauncherFire          {};
+            class rpgLaunchZoneCone          {};
+            class isValidRpgFirePos          {};
+            class getRpgLaunchPos            {};
+            class onForcedRpgAnim            {};
+            class initRpgOnTarget            {};
+            class deInitRpgOnTarget          {};
+            class endRpgOnTarget             {};
+            class manFireRpgAtTarget         {};
+            class manEngageAtTargetCondition {};
+            class manEngageAtTarget          {};
         };
 
         class math
@@ -267,6 +289,7 @@ class CfgFunctions
 
             class getObjectCorners          {};
             class getNearCoverPositions     {};
+            class setDirAndPitchToPos       {};
 
         };
 
@@ -402,6 +425,10 @@ class CfgFunctions
 
             class sendManToIdleCover          {};
             class manOnIdleCoverArrival       {};
+
+            class hasAmmoForWeapon            {};
+            class isAtMan                     {};
+            class forceLookAtPos              {};
         };
 
         class man_fsmMovement
@@ -447,6 +474,8 @@ class CfgFunctions
             class getVehicleWeapons        {};
             class vehicleIsUnarmed         {};
             class vehicleEjectCrew         {};
+            class vehicleEngageTarget      {};
+            class isAtVehicle              {};
 
         };
 
@@ -519,6 +548,39 @@ class CfgFunctions
             class groupAttackGroup          {};
             class groupCombatZone           {};
             class groupUpdateBattleStrength {};
+            class groupRevealAndTarget      {};
+        };
+
+        class groups_atSupport 
+        {
+            file = "\SQFSM\functions\groups\atSupport";
+            class groupInitAtSupportTask     {};
+            class groupInfEngageAtTarget     {};
+            class groupAtSupportInsertionPos {};
+            class groupOnAtInsertion         {};
+            class groupAtSupportUpdate       {};
+            class groupEndAtSupport          {};
+            class atSupportDestroyWp         {};
+            class groupCanAtReveal           {};
+            class atSupportTargetEh          {};
+            class validAtTarget              {};
+            class groupInfMoveOnAtTarget     {};
+            class groupAtSupportDirectMove   {};
+            class groupInitAtSupportTravel   {};
+            class groupInitAtTarget          {};
+            class groupDeInitAtTarget        {};
+
+            class addAtSupportRequest        {};
+            class initAtSupportRequestsMap   {};
+            class getAtSupportGroups         {};
+            class groupHasAT                 {};
+            class groupCanCallAtSupport      {};
+            class groupCallAtSupport         {};
+            class groupSendAtSupportRequest  {};
+            class respondAtSupportRequest    {};
+            class respondAllAtSupportRequests {};
+            class handleArmorSpotted          {};
+            class groupAttackArmorOnSight     {};
         };
         
         class groups_suppress
@@ -621,6 +683,8 @@ class CfgFunctions
             class initSquadMembers         {};
             class groupIsMechanized        {};
             class groupGetFipoMen          {};
+            class groupGetAtMen            {};
+            class groupIsInfantryGroup     {};
 
         };
 
@@ -638,6 +702,7 @@ class CfgFunctions
             class getGroupTask            {};
             class groupCanRecieveNewTask  {};
             class groupActionStatus       {};
+            class groupUpdateTask         {};
             
         };
 
@@ -729,7 +794,8 @@ class CfgFunctions
             class assignAllGroupTasks      {};
             class groupSetDataDelayed      {};
             class groupUnstop              {};
-            
+            class groupTargetVisible       {};
+            class groupRevealTargets       {};
         };
 
         class groups_reinforcement_radio

@@ -17,11 +17,11 @@ private _finalRad   = _radius+_bufferRad;
 if(_finalRad > _maxDist)then{_finalRad = _maxDist};
 
 private _enemies   = [_ownSide, [_center, _finalRad]] call SQFM_fnc_enemiesInZone;
-private _zeroDir   = [_center getDir _startPos] call SQFM_fnc_formatDir;
-private _zeroPos   = [_center, _zeroDir, _finalRad] call SQFM_fnc_sinCosPos;
+private _zeroDir   = [_center getDir _startPos]       call SQFM_fnc_formatDir;
+private _zeroPos   = [_center, _zeroDir, _finalRad]   call SQFM_fnc_sinCosPos;
 private _positions = [];
 private _line1     = [[_center, _finalRad-_posDist], _zeroDir, _dirRange, _posDist] call SQFM_fnc_semiCirclePosArr;
-private _line2     = [[_center, _finalRad], _zeroDir, _dirRange, _posDist] call SQFM_fnc_semiCirclePosArr;
+private _line2     = [[_center, _finalRad], _zeroDir, _dirRange, _posDist]          call SQFM_fnc_semiCirclePosArr;
 private _line3     = [[_center, _finalRad+_posDist], _zeroDir, _dirRange, _posDist] call SQFM_fnc_semiCirclePosArr;
 
 _positions append _line1;

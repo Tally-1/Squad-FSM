@@ -6,6 +6,7 @@ call SQFM_fnc_updateAllGroups;
 [] spawn {
 	sleep round random 20;
  	[(call SQFM_fnc_getCategorizedGroups)] call SQFM_fnc_assignAllReinforcements;
+	call SQFM_fnc_respondAllAtSupportRequests;
 	sleep round random 20;
 	[(call SQFM_fnc_getCategorizedGroups)] call SQFM_fnc_assignAllReinforcements;
-}
+};

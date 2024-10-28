@@ -24,6 +24,6 @@ private _safePositions =
     _posDist
 ] call SQFM_fnc_dangerZoneSafePositions;
 
-private _safePos   = [_callPos, _safePositions] call SQFM_fnc_getNearest;
+private _safePos = [_callPos, _safePositions] call SQFM_fnc_getNearest;
 
 _safePos;

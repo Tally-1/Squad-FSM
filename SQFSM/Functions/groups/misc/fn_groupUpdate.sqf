@@ -1,9 +1,14 @@
+private _since = time - (_self get "lastUpdate");
+if(_since<1)exitWith{};
+_self set ["lastUpdate", time];
+
 _self call ["setGroupCluster"];
 _self call ["setGroupType"];
 _self call ["setStrengthIcon"];
 _self call ["updateBattleStrength"];
 _self call ["setIdleState"];
 _self call ["setMapIcon"];
+_self call ["updateTask"];
 
 private _group        = _self get "grp";
 private _ownerActual  = groupOwner _group;
