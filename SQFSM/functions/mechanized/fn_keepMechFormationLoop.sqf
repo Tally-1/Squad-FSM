@@ -44,7 +44,6 @@ while {[_leaderVehicle] call SQFM_fnc_validVehicle} do {
 
         {
             _x setUnitPos "UP";
-            // _x setVariable ["SFSM_excluded", true, true];
         } forEach units group _leaderVehicle;
 
         sleep 5;

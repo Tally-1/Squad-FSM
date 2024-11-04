@@ -99,7 +99,8 @@ then{
     _data set ["exclude",          false];
 
 };
-
+// _data set  ["transportVehicle", _vehicle];
+// _data call ["globalize"];
 
 _data call ["update"];
 _group setVariable ["SQFM_grpData",  _data,    true];

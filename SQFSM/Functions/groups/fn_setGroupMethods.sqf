@@ -10,6 +10,8 @@ private _methods = [
     ["flashAction",                   SQFM_fnc_groupFlashAction],
 	["drawBattleIntel",           SQFM_fnc_groupDrawBattleIntel],
     ["setMapIcon",                     SQFM_fnc_groupSetMapIcon],
+	["toggleExternalAi",         SQFM_fnc_groupToggleExternalAi],
+    ["globalize",                   SQFM_fnc_groupGlobalizeData],
 
     /*************************{MISC}***************************/
     ["isIdle",                             SQFM_fnc_groupIsIdle],
@@ -22,7 +24,7 @@ private _methods = [
     ["drawOnMapMouseOver",     SQFM_fnc_groupDrawOnMapMouseOver],
     ["sinceSpawn",                 {time - (_self get "birth")}],
     // ["availableForNewTask",      SQFM_fnc_groupAvailableForTask],
-    
+    // endPlayerTransport
     /**********************{TRAVEL}*****************************/
     ["initTravel",                     SQFM_fnc_initGroupTravel],
     ["execTravel",                     SQFM_fnc_execGroupTravel],
@@ -44,6 +46,7 @@ private _methods = [
                       /*{transport}*/
     ["canCallTransport",           SQFM_fnc_groupCanCallTransport],
     ["callTransport",                 SQFM_fnc_groupCallTransport],
+    ["endPlayerTransport",       SQFM_fnc_groupEndPlayerTransport],
     ["getTransportSpawner",     SQFM_fnc_groupGetTransportSpawner],
     ["sinceTransportCall", {time-(_self get "lastTransportCall")}],
     ["waitForTransportSpawn", SQFM_fnc_groupWaitForTransportSpawn],

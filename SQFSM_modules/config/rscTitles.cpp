@@ -40,7 +40,6 @@ class RscTitles
 		class Controls{};
 	};
 
-
 	class SQFM_markerFeedBack 
 	{
 		idd              = -1;
@@ -53,6 +52,38 @@ class RscTitles
 		duration         = 20;
 		onLoad           = "with uiNameSpace do { SQFM_markerFeedBack = _this select 0 }";
 		onUnLoad         = "with uiNameSpace do { SQFM_markerFeedBack = displayNull }";
+
+		class Controls{};
+	};
+
+	class SQFM_mapInfo 
+	{
+		idd              = -1;
+		name             = "SQFM_mapInfo";
+		movingEnable     = 0;
+		enableSimulation = 1;
+		enableDisplay    = 1;
+		fadein           = 0;
+		fadeout          = 0;
+		duration         = 20;
+		onLoad           = "with uiNameSpace do { SQFM_mapInfo = _this select 0 }";
+		onUnLoad         = "with uiNameSpace do { SQFM_mapInfo = displayNull }";
+
+		class Controls{};
+	};
+
+	class SQFM_transportInfo 
+	{
+		idd              = -1;
+		name             = "SQFM_transportInfo";
+		movingEnable     = 0;
+		enableSimulation = 1;
+		enableDisplay    = 1;
+		fadein           = 0;
+		fadeout          = 0;
+		duration         = 10000;
+		onLoad           = "with uiNameSpace do { SQFM_transportInfo = _this select 0 }";
+		onUnLoad         = "with uiNameSpace do { SQFM_transportInfo = displayNull }";
 
 		class Controls{};
 	};

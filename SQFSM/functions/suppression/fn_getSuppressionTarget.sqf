@@ -11,7 +11,7 @@ exitWith{};
 private _inValid = !([_entity, _target] call SQFM_fnc_hostile); //([_entity, _target] call SQFM_fnc_validEnemy);
 if(_inValid)exitWith{};
 
-private _action   = if(!isNil "SFSM_fnc_getAction")then{[_man] call SFSM_fnc_getAction}else{""};
+private _action   = if(!isNil "SFSM_fnc_getAction")then{[_entity] call SFSM_fnc_getAction}else{""};
 private _startPos = eyePos _entity;
 private _adjust   = (!isNil "_fipo")&&{!("peeking" in _action)};
 if(_adjust)

@@ -4,7 +4,7 @@ addMissionEventHandler ["GroupCreated", {
 	];
 
 	SQFM_newGroups pushBackUnique _group;
-	[_group] spawn SQFM_fnc_initGroup;
+	[_group, true] spawn SQFM_fnc_initGroup;
 
 	true;
 }];

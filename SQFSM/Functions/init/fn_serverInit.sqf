@@ -8,6 +8,7 @@ call SQFM_fnc_curatorEvents;
 call SQFM_fnc_buildingChangedEh;
 call SQFM_fnc_initReinforRequestsMap;
 call SQFM_fnc_initAtSupportRequestsMap;
+call SQFM_fnc_playerConnectedEh;
 
 {[_x] call SQFM_fnc_initGroup}            forEach allGroups;
 {[_x] call SQFM_fnc_initObjective}        forEach (entities "SQFSM_Objective");
@@ -22,6 +23,8 @@ call SQFM_fnc_initAtSupportRequestsMap;
 
 ["SQFM_ObjectiveActiveChange", {_this call SQFM_fnc_objectiveOnActiveChange}] call CBA_fnc_addEventHandler;
 
-missionNamespace setVariable ["SQFM_Dedicated", isDedicated, true];
+missionNamespace setVariable ["SQFM_Dedicated",    isDedicated, true];
+missionNamespace setVariable ["SQFSM_serverReady", true,        true];
+
 
 true;

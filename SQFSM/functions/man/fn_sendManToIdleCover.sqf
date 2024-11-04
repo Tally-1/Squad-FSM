@@ -10,7 +10,7 @@ private _high      = (_pos#2)>2;
 
 if(_high)then{_timeLimit=_timeLimit+30};
 
-_man setVariable ["SFSM_Excluded",true,true];
+[_man, false] call SQFM_fnc_manToggleExternalAi;
 [_man, "Moving to idle Cover position"] spawn SQFM_fnc_flashActionMan;
 
 [

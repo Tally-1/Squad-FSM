@@ -20,7 +20,7 @@ if(_self call ["timeSinceSpawn"] < 10)then{
 
 private ["_transportersData"];
 private _callerData       = _passengerGroup getVariable "SQFM_grpData";
-        _dropPos       = [_dropPos] call SQFM_fnc_findParkingSpot;
+        _dropPos          = [_dropPos] call SQFM_fnc_findParkingSpot;
 private _pickupPos        = _callerData call ["getPickupPos"];
 private _capacityNeeded   = count(_callerData call ["getUnitsOnfoot"]);
 private _transportVehicle = _self call ["spawnTransport", [_capacityNeeded]];

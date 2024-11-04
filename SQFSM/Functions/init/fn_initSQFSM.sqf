@@ -1,9 +1,10 @@
-isNil{// Forced unsheduled execution. Can run without, but this is faster.
+isNil{
 private _addons = call SQFM_fnc_loadedAddons;
 
-dbgm    = SQFM_fnc_debugMessage;
-dbgS    = SQFM_fnc_serverDebugMsg;
-getData = SQFM_fnc_getData;
+dbgm         = SQFM_fnc_debugMessage;
+dbgS         = SQFM_fnc_serverDebugMsg;
+getData      = SQFM_fnc_getData;
+setGlobalVar = SQFM_fnc_setGlobalVar;
 
 SQFM_maxRpgRange           = 500;
 SQFM_atSupportCallCooldown = 300;
@@ -15,6 +16,7 @@ SQFM_clickDc               = false;
 SQFM_highCommandOn         = false;
 SQFM_ZEH                   = "@Zeus Enhanced" in _addons;
 SQFM_SFSM                  = "@soldierFSM" in _addons && {(!isNil "SFSM_disableSoldierFSM") && {SFSM_disableSoldierFSM isEqualTo false}};
+SQFM_ACE                   = "@ace" in _addons;
 SQFM_addonCount            = count _addons;
 SQFM_headlessCount         = count ((entities "HeadlessClient_F") select {_x in allPlayers});
 SQFM_validMods     = [
@@ -26,14 +28,12 @@ SQFM_validMods     = [
   "@{ALPHA} DCO Squad FSM",
   "@ace",
   "@DCO UnitScanner",
-  "@CBA_A3"
+  "@CBA_A3",
+  "@GOLD_AK"
 ];
 
-[]spawn{
-	waitUntil { time>0;};
-	isNil{
-    if(hasInterface) then{[] call SQFM_fnc_clientInit;};
-    if(isServer)     then{[] call SQFM_fnc_serverInit;};
-}}};
+};
+
+[]spawn SQFM_fnc_servClientInit;
 
 true;

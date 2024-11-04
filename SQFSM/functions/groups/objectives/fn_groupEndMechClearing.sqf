@@ -23,7 +23,6 @@ then{terminate _script};
 	_x enableAI "AUTOCOMBAT";
 	_x enableAI "TARGET";
 	_x setUnitPos "AUTO";
-	// _x setVariable ["SFSM_excluded", false, true];
 	if(!isNil "SFSM_fnc_unitData") 
 	then{
 		[_x, "forcedMovement", false] call SFSM_fnc_unitData;

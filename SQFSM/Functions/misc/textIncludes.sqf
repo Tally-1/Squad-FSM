@@ -7,6 +7,7 @@ private _space       = "      ";
 
 private _outLine = "<t shadow='2'>";
 private _white   = "<t color='#f5f5f5'>";
+private _smoke   = "<t color='#bebebeb3'>";
 private _grey    = "<t color='#a1a1a1df'>";
 private _aqua    = "<t color='#00ffff'>";
 private _khaki   = "<t color='#acffa4'>";

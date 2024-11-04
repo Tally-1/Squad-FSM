@@ -21,7 +21,7 @@ if(_noLOS && {_retry})exitWith{
 
 // No LOS after 2 attempts aborts the operation.
 if(_noLOS)exitWith{
-    _man setVariable ["SFSM_excluded",   nil];
+    [_man, true] call SQFM_fnc_manToggleExternalAi;
     [_man, "No LOS on target"] spawn SQFM_fnc_flashActionMan;
 };
 

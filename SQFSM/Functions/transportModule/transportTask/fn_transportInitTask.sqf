@@ -36,6 +36,7 @@ _transportTask set  ["state",           "Picking up passengers"];
 _callerData    set  ["action",          "Waiting for transport"];
 _callerData    set  ["transportVehicle", _transportVehicle];
 _self          call ["globalize"];
+_callerData    call ["globalize"];
 
 [["[",_transportGroup,"]"," is moving to pick up ", "[",_passengerGroup,"]"]] call dbgm;
 

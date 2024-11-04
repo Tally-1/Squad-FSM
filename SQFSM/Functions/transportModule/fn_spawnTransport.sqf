@@ -13,14 +13,8 @@ if(_count < 1)exitWith{};
 private _vehicleType = _vehicleData  get "type";
 private _spawnPos    = _spawnPosData get "pos";
 private _spawnDir    = _spawnPosData get "dir";
-
-private _vehicle = createVehicle [
-	_vehicleType, 
-	_spawnPos, 
-	[], 
-	0, 
-	"CAN_COLLIDE"
-];
+private _vehicle     = createVehicle [_vehicleType,_spawnPos,[],0,"CAN_COLLIDE"];
+private _turrets     = allTurrets [_vehicle,false];
 
 _self set ["assetCount",_count-1];
 _self set ["lastSpawnTime", time];
@@ -44,5 +38,8 @@ _vehicle spawn{
 };
 
 (group _vehicle) enableAttack false;
+
+_vehicle lockDriver true;
+{_vehicle lockTurret [_x,true]} forEach _turrets;
 
 _vehicle;

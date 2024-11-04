@@ -40,6 +40,10 @@ _self call ["unStop"];
 _self call ["globalize"];
 
 SQFM_taskGroups pushBackUnique [_owner,_taskData];
-publicVariable "SQFM_taskGroups";
+[
+    missionNamespace, 
+    "SQFM_taskGroups", 
+    SQFM_taskGroups
+] call setGlobalVar;
 
 _taskData;

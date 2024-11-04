@@ -1,12 +1,15 @@
 #include "..\misc\textIncludes.sqf";
-private _textBox      = _data get "textBox";
+private _textBox      = _self get "textBox";
 private _fps          = round diag_fps;
 private _dedicated    = missionNamespace getVariable "SQFM_Dedicated";
+if(isNil "_dedicated")exitWith{};
+
 private _environment  = if(isMultiplayer)then{if(_dedicated)then{"Multiplayer (dedicated)"}else{"Multiplayer"}}else{"Singleplayer"};
 private _population   = count allUnits;
 private _hcCount      = count ((entities "HeadlessClient_F") select {_x in allPlayers});
 
-if(_hcCount != SQFM_headlessCount)exitWith{
+if(isNil "_environment")           exitWith{};
+if(_hcCount != SQFM_headlessCount) exitWith{
     SQFM_headlessCount = _hcCount;
     call SQFM_fnc_initDebugHUD;
 };

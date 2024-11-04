@@ -21,7 +21,7 @@ private _onArrival = [[_man, _target, _retry], SQFM_fnc_manFireRpgAtTarget];
 private _condition = [[_man, _target], SQFM_fnc_manEngageAtTargetCondition];
 
 _man setVariable ["SQFM_launchPos", _launchPos];
-_man setVariable ["SFSM_excluded",        true];
+[_man, false] call SQFM_fnc_manToggleExternalAi;
 
 [
     _man, 

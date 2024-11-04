@@ -9,4 +9,8 @@ exitWith{[["Could not find task registered to ",_group],nil,false,true] call dbg
 SQFM_taskGroups deleteAt _index;
 [["Task removed for: ",_group],nil,false,true] call dbgS;
 
-publicVariable "SQFM_taskGroups";
+[
+    missionNamespace, 
+    "SQFM_taskGroups", 
+    SQFM_taskGroups
+] call setGlobalVar;

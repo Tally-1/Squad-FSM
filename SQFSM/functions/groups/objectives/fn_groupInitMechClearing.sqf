@@ -29,7 +29,6 @@ _leaderVehicle setVariable ["SQFM_formationLoop", _formLoop];
 	_x disableAI  "AUTOCOMBAT";
 	_x disableAI  "TARGET";
 	_x setUnitPos "UP";
-	// _x setVariable ["SFSM_excluded", true, true];
 	if(!isNil "SFSM_fnc_unitData") 
 	then{
 		[_x, "forcedMovement", true]          call SFSM_fnc_unitData;

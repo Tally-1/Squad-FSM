@@ -8,7 +8,11 @@ for "_i"from 0 to _count do{
 
 	if (isNil "_data"
 	&& {!isNull _grp})
-	then{[_grp] call SQFM_fnc_initGroup;};
+	then{[_grp] call SQFM_fnc_initGroup}
+	else{
+		private _unitCount  = count units _grp;
+		_data set ["initialStrength", _unitCount];
+	};
 
 	SQFM_newGroups deleteAt 0;
 }};

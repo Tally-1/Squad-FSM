@@ -8,6 +8,7 @@ private _valid = [
     true,
     true,
     _includeExcluded
+    
 ] call SQFM_fnc_functionalMan;
 
 _valid;

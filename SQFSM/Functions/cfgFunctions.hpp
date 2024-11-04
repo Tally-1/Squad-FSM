@@ -4,6 +4,15 @@ class CfgFunctions
 {
     class SQFM
     {
+        class actionMenu
+        {
+            file = "\SQFSM\functions\actionMenu";
+            class simpleSelfAction      {};
+            class simpleSelfActionAce   {};
+            class selfActionCategoryACE {};
+
+        }
+        
         class direct_control
         {
             file = "\SQFSM\functions\direct_control";
@@ -216,6 +225,9 @@ class CfgFunctions
             class killCameras            {};
             class getCurrentMan          {};
             class getNearFipoPositions   {};
+            class setGlobalVar           {};
+            class objectName             {};
+            class playableUnit           {};
             
         };
 
@@ -429,6 +441,7 @@ class CfgFunctions
             class hasAmmoForWeapon            {};
             class isAtMan                     {};
             class forceLookAtPos              {};
+            class manToggleExternalAi         {};
         };
 
         class man_fsmMovement
@@ -524,6 +537,7 @@ class CfgFunctions
             class getNearestGroup                   {};
             class setGroupOwner                     {};
             class updateGroupSideKnowledgeOnTargets {};
+            class groupGlobalizeData                {};
         };
 
         class groups_abilities
@@ -796,6 +810,7 @@ class CfgFunctions
             class groupUnstop              {};
             class groupTargetVisible       {};
             class groupRevealTargets       {};
+            class groupToggleExternalAi    {};
         };
 
         class groups_reinforcement_radio
@@ -926,9 +941,10 @@ class CfgFunctions
         {
             file = "\SQFSM\functions\init";
             class initSQFSM       {postInit = 1};
+            class servClientInit  {};
             class serverInit      {};
-            class initSettings    {};
             class clientInit      {};
+            class initSettings    {};
             class initgameState   {};
             class getModlist      {};
             class validModlist    {};
@@ -950,6 +966,9 @@ class CfgFunctions
             class buildingChangedEh            {};
             class onCuratorWaypoint            {};
             class onCuratorObjectDoubleClicked {};
+            class playerAbortTransportKeyEh    {};
+            class playerConnectedEh            {};
+            class onPlayerConnectedRemote      {};
         };
 
         class taskManager
@@ -1057,6 +1076,30 @@ class CfgFunctions
         {
             file = "\SQFSM\functions\GUI\markerFeedback";
             class initMarkerFeedBackDisplay       {};
+        };
+
+        class playerTransport 
+        {
+            file = "\SQFSM\functions\playerTransport";
+            class playerCallTransport              {};
+            class updateTransportInfo              {};
+            class getTransportInfoText             {};
+            class showTransportData                {};
+            class selectDestinationTip             {};
+            class groupEndPlayerTransport          {};
+            class endPlayerTransport               {};
+            class abortPlayerTransport             {};
+            class rejectTransportCall              {};
+            class playerCanCallTransport           {};
+            class endTransportDestinationSelection {};
+            class drawNearestTransport             {};
+            class nearestTransport                 {};
+            class selectTransportDestination       {};
+            class canGetTransportAction            {};
+            class callTransportAction              {};
+            class callTransportActionCondition     {};
+            class waitforPlayerBoarding            {};
+            class onGetinWpPassenger               {};
         };
         
     };

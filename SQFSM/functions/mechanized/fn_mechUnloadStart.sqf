@@ -17,7 +17,7 @@ _vehicle setVariable ["SQFM_mechUnloading",true,true];
 
     private _pos = _positions#_foreachIndex;
     [_x, _vehicle, _pos, _timeLimit] spawn SQFM_fnc_manEjectThenCover;
-    _x setVariable ["SFSM_Excluded",true,true];
+    [_x, false] call SQFM_fnc_manToggleExternalAi;
     _x setAnimSpeedCoef 1.2;
     
 } forEach _men;

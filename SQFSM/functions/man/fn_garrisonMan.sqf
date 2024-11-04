@@ -15,7 +15,7 @@ if(_SFSMflash)
 then{[_man, "Moving to garrison"] spawn SFSM_fnc_flashAction};
 
 
-_man setVariable ["SFSM_Excluded",true,true];
+[_man, false] call SQFM_fnc_manToggleExternalAi;
 
 [
     _man, 
@@ -30,6 +30,6 @@ then{[_man, "Garrison-move ended"] spawn SFSM_fnc_flashAction};
 // if(_man distance _pos > 3)
 // then{[_man, _pos, true] call SQFM_fnc_manForceMoveToPos};
 
-_man setVariable ["SFSM_Excluded",false,true];
+[_man, true] call SQFM_fnc_manToggleExternalAi;
 
 true;

@@ -19,7 +19,7 @@ _self set  ["action", "Moving to cover"];
 _self set  ["state",  "Guarding Objective"];
 _self call ["flashAction",["Moving men to cover"]];
 
-{_x setVariable["SFSM_Excluded",true,true]}forEach _men;
+_self call ["toggleExternalAi",[false]];
 
 for "_i" from 0 to _menIndexCount do
 {
@@ -43,8 +43,8 @@ for "_i" from 0 to _menIndexCount do
 sleep 3;
 
 {waitUntil {scriptDone _x}}                 forEach _scripts;
-{_x setVariable["SFSM_Excluded",false,true]} forEach _men;
 
+_self call ["toggleExternalAi",[true]];
 _self set  ["action", "In cover -Guarding Objective-"];
 _self set  ["lastActionTime", ceil time];
 _self call ["flashAction",["Move complete"]];

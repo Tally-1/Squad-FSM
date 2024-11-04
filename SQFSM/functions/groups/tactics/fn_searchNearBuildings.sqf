@@ -19,10 +19,10 @@ private _scripts   = [];
     private _targetPos = _x;
     private _man       = _men#_foreachIndex;
     private _time      = round(_man distance _targetPos)+15;
-    private _onMoveEnd = [_man, {_this setVariable ["SFSM_Excluded",false,true]}];
+    private _onMoveEnd = [_man, {[_this, true] call SQFM_fnc_manToggleExternalAi}];
     private _condition = [_man, {currentCommand _this isEqualTo "SCRIPTED"}];
 
-    _man setVariable ["SFSM_Excluded",true,true];
+    [_man, false] call SQFM_fnc_manToggleExternalAi;
     _scripts pushBackUnique 
     ([_man, _targetPos, _time,3,_onMoveEnd,_condition] spawn SQFM_fnc_fsmMoveManToPos);
     

@@ -4,11 +4,12 @@ _group enableAttack true;
 _group setBehaviour "AWARE";
 
 {
-    _x setVariable ["SFSM_Excluded",false,true];
     _x setUnitPos "AUTO";
     _x enableAI "AUTOCOMBAT";
     _x enableAI "TARGET";
 
 }foreach units _group;
+
+_self call ["toggleExternalAi",[true]];
 
 true;

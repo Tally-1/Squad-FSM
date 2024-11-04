@@ -80,3 +80,22 @@
 [48m]   Battle-knowledge, bugfixes.
 [128m]  Battle test, bugfixes.
 [75m]   Packing, testing, fixing, tweaking.
+--------------------------------------------
+
+--{**0.7**}--
+20.53 hours (1232 minutes)
+
+[91m] External AI-toggle, initial map selection-build (transport)
+[84m] Map selection final, Selection HUD, Transport marker.
+[21m] Fixing pickup waypoints for playerGroups.
+[80m] Call conditions, reject Call feedback.
+[28m] Reinforcements Test (Ready Squads)
+[219m] Player transport final build, (GUI, Cancel, Call, Abort)
+[30m]  Refactoring, small test.
+[54m]  Actions framework initial build (ACE and Vanilla)
+[143m] Dynamic self action framework, Call transport Action, refactoring
+[275m] Dedicated server compatibility (missing JIP action).
+[39m]  JIP action
+[17m]  Dedicated test.
+[75m]  Various Dedicated tests and bugfixes.
+[76m]  Various battle tests and bugfixes.

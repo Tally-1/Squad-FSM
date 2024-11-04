@@ -7,6 +7,9 @@ if(_men isEqualTo [])exitWith{false};
 private _group = group (_men#0);
 if(isNil "_group")exitWith{false};
 
+private _data = _group call getData;
+if(isNil "_data")exitWith{false};
+
 private _leaderVehicle = vehicle formationLeader leader _group;
 private _scripts = [];
 
@@ -33,13 +36,11 @@ _group setFormDir getDir _leaderVehicle;
 
 if(_scripts isEqualTo [])exitWith{false};
 
-{_x setVariable ["SFSM_Excluded",true,true]} forEach _men;
+_data call ["toggleExternalAi",[false]];
 
 [_scripts, 30] call SQFM_fnc_waitForScriptList;
 
-{
-    _x setVariable ["SFSM_Excluded",false,true];
-    _x setUnitPos "AUTO";
-} forEach _men;
+{_x setUnitPos "AUTO"} forEach _men;
+_data call ["toggleExternalAi",[true]];
 
 true;

@@ -35,7 +35,11 @@ _taskData  set  ["state", "Returning to base"];
 _psngrData set  ["transportVehicle",objNull];
 _psngrData call ["deleteWaypoints"];
 _psngrData call ["onArrival"];
+_psngrData call ["endPlayerTransport",[_vehicle]];
 _grpData   call ["addWaypoint", [_returnPos, 30, "MOVE", _onReturnWp]];
+
+_psngrData call ["globalize"];
+_grpData   call ["globalize"];
 
 true
 };

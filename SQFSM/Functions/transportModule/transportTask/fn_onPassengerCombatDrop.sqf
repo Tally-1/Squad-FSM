@@ -6,7 +6,8 @@ private _passengerData  = _passengerGrp call getData;
 private _vehicle        = _passengerData get "transportVehicle";
 private _driver         = driver _vehicle;
 private _transportGroup = group _driver;
-private _timer          = time + count units _passengerGrp;
+private _men            = units _passengerGrp;
+private _timer          = time + count _men;
 private _enemyGroup     = _passengerData call ["nearEnemyGrp"];
 
 

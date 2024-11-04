@@ -37,7 +37,6 @@ sleep 3;
 {waitUntil {scriptDone _x}} forEach _scripts;
 
 _self call ["flashAction",["Idle cover move ended"]];
-
-{_x setVariable ["SFSM_Excluded",false,true]} forEach _men;
+_self call ["toggleExternalAi",[true]];
 
 true;
