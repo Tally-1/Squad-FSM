@@ -9,7 +9,7 @@ private _trnData        = _transportGroup call getData;
 private _men            = _psnData call ["getUnitsOnfoot"];
 private _vehicle        = (_trnData call ["getVehiclesInUse"])#0;
 private _wpPos          = waypointPosition [_transportGroup, currentWaypoint _transportGroup];
-private _correctWp      = _wpPos distance2D _dropPos < 50;
+private _correctWp      = true;// _wpPos distance2D _dropPos < 50;
 private _boarded        = _psnData call ["isBoarded"];
 if(_correctWp && {_boarded})exitWith{
     sleep 3;

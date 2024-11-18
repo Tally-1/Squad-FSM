@@ -1,5 +1,5 @@
 params[
-	["_pos",    nil,       [[]]],
+	["_pos",    nil,       [[]]], // x y w h
 	["_text",   nil,       [""]],
 	["_bColor", nil,       [[]]],
 	["_color",  [1,1,1,1], [[]]]

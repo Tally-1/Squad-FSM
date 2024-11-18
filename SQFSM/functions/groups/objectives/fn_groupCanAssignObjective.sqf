@@ -7,4 +7,6 @@ if!(_available) exitWith{false};
 private _canLeave = _self call["canLeaveObjective"];
 if!(_canLeave)exitWith{false};
 
+if(_self call["isPlayerGroup"])exitWith{false};
+
 true;

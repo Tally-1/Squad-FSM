@@ -25,7 +25,12 @@ if(isNil "_callerData")
 exitWith{_taskData call ["endTask", ["invalid caller",grpNull]]};
 
 private _callerStrength = _callerData call ["strengthCoef"];
-_callerData set ["awaitingReforce", false];
+_callerData set ["awaitingReforce",   false];
+_callerData set ["lastReforceArrival", time];
+_callerData spawn{
+    sleep 3;
+    _this set ["lastReforceArrival", -1];
+};
 
 private _enemy = _callerData call ["nearEnemyGrp"];
 if(!isNull _enemy)

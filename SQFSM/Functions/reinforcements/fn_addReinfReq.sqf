@@ -14,3 +14,9 @@ if(_group in _reqGroups)exitWith{
 };
 
 _requestList pushBackUnique _request;
+
+[
+    missionNamespace, 
+    "SQFM_reinforRequests", 
+    SQFM_reinforRequests
+] call setGlobalVar;

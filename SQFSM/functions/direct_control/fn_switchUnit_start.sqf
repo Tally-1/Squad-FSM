@@ -14,6 +14,8 @@
 private _error = "";
 private _unit = effectiveCommander (param [0]);
 
+if(!isServer)exitWith{[_unit] spawn SQFM_fnc_curatorRemoteControl};
+
 if (!(side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
 if (isPlayer _unit)                                         then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
 if (!alive _unit)                                           then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
@@ -39,6 +41,8 @@ bis_fnc_moduleRemoteControl_unit = _unit;
 // fix teleportation bug: for some unkown reason the unit may get teleported to the camera position
 curatorCamera setDir getDir _unit;
 curatorCamera setPosWorld getPosWorld _unit;
+
+_playerUnit setVariable ["SQFM_isPlayer",true,true];
 
 selectPlayer _unit;
 SQFM_dcUnit = _unit;

@@ -2,6 +2,8 @@ params [
 	["_group", nil, [grpNull]],
 	["_enemy", nil, [objNull]]
 ];
+private _excluded = _group getVariable "SQFM_Excluded";
+if(_excluded)exitWith{};
 
 // AT-support may be called through this function.
 _this call SQFM_fnc_handleArmorSpotted;

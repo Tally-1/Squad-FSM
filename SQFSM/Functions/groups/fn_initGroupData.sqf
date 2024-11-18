@@ -44,6 +44,8 @@ private _dataArr  = [
     ["travelData",               nil],
     ["available",               true],
     ["awaitingReforce",        false],
+    ["incomingReforce",           []],
+    ["lastReforceArrival",        -1],
     ["awaitingReplenish",      false],
     ["battlefield",       [-1,-1,-1]],
     ["battleTimes",               []],
@@ -108,7 +110,7 @@ _group setVariable ["SQFM_Excluded", _exclude, true];
 
 
 _data spawn { 
-    sleep 1;
+    sleep 3;
     private _strength = _this call ["getStrength"];
     _this set  ["initialStrength", _strength];
 	_this call ["update"];

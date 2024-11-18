@@ -22,9 +22,13 @@ call SQFM_fnc_playerConnectedEh;
 };
 
 ["SQFM_ObjectiveActiveChange", {_this call SQFM_fnc_objectiveOnActiveChange}] call CBA_fnc_addEventHandler;
+["SQFM_playerCallReforce",     {_this call SQFM_fnc_playerCallReforceServer}] call CBA_fnc_addEventHandler;
+["SQFM_playerAbortReforce",   {_this call SQFM_fnc_playerAbortReforceServer}] call CBA_fnc_addEventHandler;
 
 missionNamespace setVariable ["SQFM_Dedicated",    isDedicated, true];
 missionNamespace setVariable ["SQFSM_serverReady", true,        true];
 
+if(isDedicated)
+then{enableEnvironment false};
 
 true;

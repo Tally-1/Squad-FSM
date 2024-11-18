@@ -19,4 +19,7 @@ private _men = _self call ["getUnitsOnfoot"];
 if(_men isEqualTo [])
 exitWith{false};
 
+if(_self call["isPlayerGroup"])
+exitWith{false};
+
 true;

@@ -24,6 +24,9 @@ if (isNull _playerUnit) exitWith {_unit setVariable ["Achilles_var_switchUnit_da
 // reset camera positions
 private _unitPos = getposatl _unit;
 private _camPos = [_unitPos,10,direction _unit + 180] call bis_fnc_relpos;
+
+_playerUnit setVariable ["SQFM_isPlayer",false,true];
+
 _camPos set [2,(_unitPos select 2) + (getterrainheightasl _unitPos) - (getterrainheightasl _camPos) + 10];
 (getassignedcuratorlogic _playerUnit) setvariable ["bis_fnc_modulecuratorsetcamera_params",[_camPos,_unit]];
 _unit removeEventHandler ["HandleDamage", _unit getVariable "Achilles_var_switchUnit_damageEHID"];

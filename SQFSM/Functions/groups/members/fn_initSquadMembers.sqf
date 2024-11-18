@@ -5,8 +5,10 @@ private _side         = side _group;
 private _hasTransport = _side in SQFM_transportSides;
 
 {
-    private _addTrAction = _hasTransport && {[_x] call SQFM_fnc_canGetTransportAction};
-    if(_addTrAction)
-    then{[_x] remoteExec["SQFM_fnc_callTransportAction"]};
+    private _playable    = [_x] call SQFM_fnc_playableUnit;
+    private _addTrAction = _hasTransport && {_playable};
+
+    if(_addTrAction) then{[_x] remoteExec["SQFM_fnc_callTransportAction"]};
+    if(_playable)    then{[_x] remoteExec["SQFM_fnc_callReinforcementsAction"]};
     
 } forEach (units _group);

@@ -1,5 +1,3 @@
-// "
-
 class CfgFunctions
 {
     class SQFM
@@ -25,6 +23,7 @@ class CfgFunctions
             class isCuratorEntityMenuDisplay    {};
             class validSwitchEntity             {};
             class handleDirectControlDamage     {};
+            class curatorRemoteControl          {};
         };
         
         
@@ -442,6 +441,7 @@ class CfgFunctions
             class isAtMan                     {};
             class forceLookAtPos              {};
             class manToggleExternalAi         {};
+            class isPlayer                    {};
         };
 
         class man_fsmMovement
@@ -834,6 +834,7 @@ class CfgFunctions
             class groupCanCallReinforcements  {};
             class groupRequestReinforcements  {};
             class groupAbleToReinforce        {};
+            class groupAbortReinforcing       {};
         };
 
         class groups_replenish
@@ -967,6 +968,7 @@ class CfgFunctions
             class onCuratorWaypoint            {};
             class onCuratorObjectDoubleClicked {};
             class playerAbortTransportKeyEh    {};
+            class playerAbortReforceKeyEh      {};
             class playerConnectedEh            {};
             class onPlayerConnectedRemote      {};
         };
@@ -1100,6 +1102,24 @@ class CfgFunctions
             class callTransportActionCondition     {};
             class waitforPlayerBoarding            {};
             class onGetinWpPassenger               {};
+        };
+
+        class playerReinforcements
+        {
+            file = "\SQFSM\functions\playerReinforcements";
+            class callReinforcementsAction          {};
+            class callReinforcementsActionCondition {};
+            class playerCallReinforcements          {};
+            class playerCanCallReinforcement        {};
+            class rejectReinforcementCall           {};
+            class playerReforceStatus               {};
+            class initReforceDisplay                {};
+            class playerReforceType                 {};
+            class getReforceInfoText                {};
+            class showReforceData                   {};
+            class playerAbortReforceLocal           {};
+            class playerAbortReforceServer          {};
+            class playerCallReforceServer           {};
         };
         
     };

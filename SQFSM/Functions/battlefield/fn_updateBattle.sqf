@@ -28,7 +28,8 @@ _self call ["reinforcements"];
 _self call ["replenishGroups"];
 
 // The updated data needs to be global before the battleHUD can be broadcasted
-publicVariable "SQFM_battles";
+[missionNamespace,"SQFM_battles",SQFM_battles] call setGlobalVar;
+
 _self call ["broadcastBattleHud"]; 
 
 true;

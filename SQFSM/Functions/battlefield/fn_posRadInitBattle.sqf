@@ -14,8 +14,8 @@ SQFM_battles set [_pos, _battleMap];
 
 _battleMap call ["initGroups"];
 
-publicVariable "SQFM_battles";
-publicVariable "SQFM_battleList";
+[missionNamespace,"SQFM_battles",SQFM_battles]       call setGlobalVar;
+[missionNamespace,"SQFM_battleList",SQFM_battleList] call setGlobalVar;
 
 _battleMap call ["postInit"];
 

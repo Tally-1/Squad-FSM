@@ -2,9 +2,6 @@ params [
 	["_group", nil, [grpNull]],
 	["_enemy", nil, [objNull]]
 ];
-private _excluded = _group getVariable "SQFM_Excluded";
-if(_excluded)exitWith{};
-
 private _self      = _group call getData;
 private _sinceLast = time - (_self get "lastAtCheck");
 if(_sinceLast < 10)exitWith{};

@@ -54,6 +54,7 @@ SQFM_defaultBehaviour    = [
 	SQFM_defaultBehaviourCanIdleCover   // When a squad is considered Idle it will look for good positions to take cover
 ];
 
-[missionNamespace, "SQFM_taskGroups",                 []] call setGlobalVar;
-[missionNamespace, "SQFM_transportSides",_transportSides] call setGlobalVar;
-[missionNamespace, "SQFM_battles",          SQFM_battles] call setGlobalVar;
+[missionNamespace, "SQFM_taskGroups",                        [], true] call setGlobalVar;
+[missionNamespace, "SQFM_transportSides",       _transportSides, true] call setGlobalVar;
+[missionNamespace, "SQFM_battles",                 SQFM_battles, true] call setGlobalVar;
+[missionNamespace, "SQFM_reinforRequests", SQFM_reinforRequests, true] call setGlobalVar;

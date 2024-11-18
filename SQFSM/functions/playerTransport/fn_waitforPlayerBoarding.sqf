@@ -1,11 +1,14 @@
 params[
-    ["_psngrData", nil, [createHashMap]],
-    ["_driver",    nil,       [objNull]],
-    ["_vehicle",   nil,       [objNull]],
-    ["_dropPos",   nil,            [[]]]
+    ["_group",   nil, [grpNull]],
+    ["_driver",  nil, [objNull]],
+    ["_vehicle", nil, [objNull]],
+    ["_dropPos", nil,      [[]]],
+    ["_getInWp", nil,      [[]]],
+    ["_loadWp",  nil,      [[]]],
+    ["_dropPos", nil,      [[]]]
 ];
+private _psngrData = _group call getData;
 private _timeLimit = round(time+120);
-private _group     = _psngrData get "grp";
 private _caller    = owner (_vehicle getVariable "SQFM_transportCaller");
 [_driver, "path"]  remoteExecCall ["disableAI"];
 [_vehicle,"SQFM_transportWait",_timeLimit] call setGlobalVar;
@@ -24,6 +27,17 @@ waitUntil{
 [_driver, "path"]  remoteExecCall ["enableAI"];
 _driver doMove _dropPos;
 
-if(_psngrData call["isBoarded"])
-then{[_group] remoteExecCall ["SQFM_fnc_onGetinWpPassenger",2]}
-else{call SQFM_fnc_abortPlayerTransport};
+
+if(_psngrData call["isBoarded"])then{
+    "Player Transport ordered to move" call dbgS;
+    [_group] call SQFM_fnc_onGetinWpPassenger;
+    [_group] remoteExecCall ["SQFM_fnc_onGetinWpPassenger",[2]];
+    _getInWp synchronizeWaypoint [];
+    _loadWp  synchronizeWaypoint [];
+    [_driver, "path"]   remoteExecCall ["enableAI"];
+    [_driver, _dropPos] remoteExec     ["doMove"];
+}
+else{
+    "Player Transport failed" call dbgS;
+    call SQFM_fnc_abortPlayerTransport;
+};

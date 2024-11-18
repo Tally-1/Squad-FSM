@@ -3,8 +3,8 @@ params[
 ];
 private _playerGroup = false;
 {
-	if(_x in allPlayers)
-	exitWith{_playerGroup = true;};
+	if([_x] call SQFM_fnc_isPlayer)
+	exitWith{_playerGroup = true};
 	
 } forEach (units _group);
 

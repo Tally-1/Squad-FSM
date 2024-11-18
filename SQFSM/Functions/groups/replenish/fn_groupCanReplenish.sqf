@@ -5,4 +5,6 @@ if!(_valid)exitWith{false};
 private _waiting = _self get "awaitingReplenish";
 if(_waiting)exitWith{false};
 
+if(_self call["isPlayerGroup"])exitWith{false};
+
 true;

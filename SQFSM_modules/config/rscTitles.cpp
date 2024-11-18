@@ -88,6 +88,24 @@ class RscTitles
 		class Controls{};
 	};
 
+
+	class SQFM_reinforcementInfo 
+	{
+		idd              = -1;
+		name             = "SQFM_reinforcementInfo";
+		movingEnable     = 0;
+		enableSimulation = 1;
+		enableDisplay    = 1;
+		fadein           = 0;
+		fadeout          = 0;
+		duration         = 10000;
+		onLoad           = "with uiNameSpace do { SQFM_reinforcementInfo = _this select 0 }";
+		onUnLoad         = "with uiNameSpace do { SQFM_reinforcementInfo = displayNull }";
+
+		class Controls{};
+	};
+
+
 	class SQFM_debugHUD 
 	{
 		idd              = -1;

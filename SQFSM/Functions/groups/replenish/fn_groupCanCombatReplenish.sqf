@@ -16,4 +16,6 @@ if(_strTask isNotEqualTo "[]")exitWith{false};
 private _battle = _self call ["getBattle"];
 if(isNil "_battle")exitWith{false};
 
+if(_self call["isPlayerGroup"])exitWith{false};
+
 true;

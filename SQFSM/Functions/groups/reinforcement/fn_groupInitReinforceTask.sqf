@@ -29,8 +29,19 @@ private _zone        = [_callPos, 300];
 private _arrivalCode = {(_self call ["ownerData"]) call ["onReinforceArrival"]};
 private _endCode     = {(_self call ["ownerData"]) call ["endReinforcing"]};
 
-if(!isNil "_callerData")
-then{_callerData set["awaitingReforce",true]};
+if(!isNil "_callerData")then{ 
+    private _caller     = leader _callerGrp;
+    private _playerCall = _caller in allPlayers;
+    (_callerData get "incomingReforce")pushBackUnique _group;
+    _callerData set["awaitingReforce",true];
+    _callerData call ["globalize"];
+
+    // Make sure GUI is working remotely.
+    if(_playerCall)then{_caller spawn{
+        sleep 1;
+        [] remoteExec ["SQFM_fnc_showReforceData",_this];
+    }};
+};
 
 if!(isNil "_battlefield")
 then{

@@ -13,11 +13,16 @@ private _list    = _center nearEntities['land',_radius];
 {
     // Will return position ASL, the target-entity queried or the building occupied by said entity. 
     // If invalid then nil value is returned.
+	private _valid  = [_entity, _x] call SQFM_fnc_validEnemy;
+	if(_valid)then{
     private _target = [_entity, _x, _knownOnly] call SQFM_fnc_getSuppressionTarget;
     if(!isNil "_target")
     then{_targets pushBackUnique _target};
     
-} forEach _list;
+}} forEach _list;
+
+if(isNil "_targets")      exitWith{[]};
+if(_targets isEqualTo []) exitWith{[]};
 
 _targets = [_targets, [], {[_x] call SQFM_fnc_suppressionTargetValue}, "DESCEND"] call BIS_fnc_sortBy;
 

@@ -120,13 +120,14 @@ private _methods = [
     /**********************{REINFORCEMENTS}**********************/
     ["canGetReinforcements",    SQFM_fnc_groupCanCallReinforcements],
     ["ableToReinforce",               SQFM_fnc_groupAbleToReinforce],
-    // ["needsReinforcments",         SQFM_fnc_groupNeedsReinforcments],
-    ["callReinforcements",      SQFM_fnc_groupRequestReinforcements],
+// ["needsReinforcments",          SQFM_fnc_groupNeedsReinforcments],
+    ["requestReinforcements",   SQFM_fnc_groupRequestReinforcements],
     ["callReinforcementRadio", SQFM_fnc_groupCallReinforcementRadio],
     ["addToReinfRequests",         SQFM_fnc_groupAddToReinfRequests],
     ["reinforce",                   SQFM_fnc_groupInitReinforceTask],
     ["onReinforceArrival",         SQFM_fnc_groupOnReinforceArrival],
     ["endReinforcing",                 SQFM_fnc_groupEndReinforcing],
+    ["abortReinforcing",             SQFM_fnc_groupAbortReinforcing],
     ["reinforceInsertPos",         SQFM_fnc_groupReinforceInsertPos],
 
     /************************{TASKS}****************************/
@@ -162,6 +163,7 @@ private _methods = [
     ["getVehiclesInUse",               {(_self call ["getOwnVehicles"])#2}],
     // ["getUnarmedVehicles",                SQFM_fnc_groupGetUnarmedVehicles],
     ["isVehicleGroup",       {count(_self call ["nonCrewMen"])isEqualTo 0}],
+    ["isPlayerGroup",        {[_self get"grp"]call SQFM_fnc_isPlayerGroup}],
     ["isInfantryGroup",                      SQFM_fnc_groupIsInfantryGroup],
     ["isMechanized",                            SQFM_fnc_groupIsMechanized],
     ["getGrpMembers",                               SQFM_fnc_getGrpMembers],

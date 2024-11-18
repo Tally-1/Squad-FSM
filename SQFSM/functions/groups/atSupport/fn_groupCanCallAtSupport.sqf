@@ -25,4 +25,6 @@ if(_hunterGrps >= 2)exitWith{false};
 private _availGrps = count ([true] call SQFM_fnc_getAtSupportGroups);
 if(_availGrps < 1)exitWith{false};
 
+if(_self call["isPlayerGroup"])exitWith{false};
+
 true;

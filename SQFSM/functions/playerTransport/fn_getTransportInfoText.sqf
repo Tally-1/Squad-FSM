@@ -32,7 +32,6 @@ private _text = [
     _title,
     _newLine, _distText,
     _newLine, _cancelText
-
 ] joinString"";
 
 _text;

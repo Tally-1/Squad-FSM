@@ -8,7 +8,7 @@ _self call ["endGroups"];
 
 [["Battle ended | ", round time]] call dbgm;
 
-publicVariable "SQFM_battles";
-publicVariable "SQFM_battleList";
+[missionNamespace,"SQFM_battles",SQFM_battles]       call setGlobalVar;
+[missionNamespace,"SQFM_battleList",SQFM_battleList] call setGlobalVar;
 
 true;

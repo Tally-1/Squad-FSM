@@ -33,8 +33,10 @@ private _dropRad   = 10;
 
 if(_danger)then{_dropRad = 300};
 
+_psngrData call ["globalize"];
 _psngrData call ["deleteWaypoints"];
 _psngrData call ["unStop"];
+
 _passengerGroup setVariable ["SQFM_transportGroup", _transportGroup, true];
 _transportGroup setVariable ["SQFM_transportPos",   _dropPos,        true];
 
@@ -58,18 +60,24 @@ doStop _driver;
 [_men, _vehicle] call SQFM_fnc_menGetInSingleVehicle;
 if(_playerGrp)then{
     [
-		_psngrData,
+		_passengerGroup,
 		_driver,
 		_vehicle,
-		_dropPos
+		_dropPos,
+        _getInWp,
+        _loadWp,
+        _dropPos
 	] spawn SQFM_fnc_waitforPlayerBoarding;
 }
 else{
 	"Transport moving now" call dbgS;
+    _getInWp synchronizeWaypoint [];
+    _loadWp  synchronizeWaypoint [];
 	[_driver, "path"]   remoteExecCall ["enableAI"];
     [_driver, "path"]   remoteExecCall ["enableAI"];
     [_driver, _dropPos] remoteExec     ["doMove"];
 };
+
 
 _psngrData set ["state", "Being dropped off"];
 _psngrData set ["action", _taskName];

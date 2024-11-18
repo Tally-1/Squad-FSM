@@ -3,6 +3,8 @@ params [
 	["_checkDistance", false,  [true]],
 	["_ignoreData",    false,  [true]]
 ];
+if(isNil "_man")exitWith{false};
+
 (_man getVariable "FSM_moveParams")
 params [
     ["_position",  nil, [[]]],
@@ -17,6 +19,8 @@ if(_noData)exitWith{
 	if(_ignoreData)exitWith{true};
 	false
 };
+
+if(isNil "_position")exitWith{false};
 
 private _aborted  = _man getVariable ["FSM_moveAborted", false];
 if(_aborted)exitWith{false};

@@ -8,4 +8,6 @@ if(_waiting)exitWith{false};
 private _groupType = _self get "groupType";
 if("transport" in _groupType)exitWith{false};
 
+if(_self call["isPlayerGroup"])exitWith{false};
+
 true;

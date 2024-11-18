@@ -6,7 +6,9 @@ if!(_self call ["sideNeedReforce",[_side]])exitWith{};
 private _battlePos = _self get "position";
 private _groups    = (_self get "groups")select{
     private _data  = _x call getData;
-    private _valid = side _x isEqualTo _side &&{_data call ["canGetReinforcements"]};
+    private _valid = side _x isEqualTo _side 
+                    &&{_data call ["canGetReinforcements"]
+                    &&{!(_data call ["isPlayerGroup"])}};
     _valid;
 };
 
@@ -26,6 +28,6 @@ private _sortAlgo  = {
 private _caller = ([_groups, [], _sortAlgo, "ASCEND"] call BIS_fnc_sortBy)#0;
 private _data = _caller call getData;
 
-_data call ["callReinforcements"];
+_data call ["requestReinforcements"];
 
 true;

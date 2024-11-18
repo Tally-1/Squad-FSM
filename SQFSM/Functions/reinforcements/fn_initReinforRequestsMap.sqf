@@ -10,3 +10,9 @@ private _dataArr = [
 SQFM_reinforRequests = createHashMapObject [_dataArr];
 
 SQFM_reinforRequests;
+
+[
+    missionNamespace, 
+    "SQFM_reinforRequests", 
+    SQFM_reinforRequests
+] call setGlobalVar;
