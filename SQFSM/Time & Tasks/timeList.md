@@ -117,3 +117,8 @@
 [109m] Dedicated server test & fix (Player reforce)
 [50m]  Dedicated server test & fix (Player transport)
 [42m]  Packing mod, testing packed version, minor fixes.
+--------------------------------------------
+
+--{**0.72**}--
+[10m]  Changelog and Upload of Squad FSM 0.71
+[206m] Quick-fix of global battles public-var fix, CBA param for publicVar

@@ -6,11 +6,12 @@ params[
 ];
 
 if(isNil "_value")exitWith{
-	_nameSpace setVariable [_varName,nil, _jip];
 	[_nameSpace,[_varName,nil]] remoteExec ["setVariable"];
+	_nameSpace setVariable [_varName,nil, _jip];
 };
 
-_nameSpace setVariable [_varName,_value, _jip];
 [_nameSpace,[_varName,_value]] remoteExec ["setVariable"];
+_nameSpace setVariable [_varName,_value, _jip];
+
 
 true;

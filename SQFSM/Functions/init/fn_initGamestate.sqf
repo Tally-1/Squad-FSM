@@ -58,3 +58,5 @@ SQFM_defaultBehaviour    = [
 [missionNamespace, "SQFM_transportSides",       _transportSides, true] call setGlobalVar;
 [missionNamespace, "SQFM_battles",                 SQFM_battles, true] call setGlobalVar;
 [missionNamespace, "SQFM_reinforRequests", SQFM_reinforRequests, true] call setGlobalVar;
+
+call SQFM_fnc_globalizeBattles;

@@ -26,9 +26,21 @@ private _reinforcementData = _self call ["updateReforData"];
 
 _self call ["reinforcements"]; 
 _self call ["replenishGroups"];
+_self set  ["updateTime", time];
 
 // The updated data needs to be global before the battleHUD can be broadcasted
-[missionNamespace,"SQFM_battles",SQFM_battles] call setGlobalVar;
+// [missionNamespace,"SQFM_battles",SQFM_battles] call setGlobalVar;
+if(SQFM_battlePublicVar)
+then{publicVariable "SQFM_battles"}
+else{
+	private _battles = missionNamespace getVariable "SQFM_battles";
+	private _pos     = _self get "position";
+	
+	_battles set [_pos, _self];
+	missionNamespace setVariable ["SQFM_battles", _battles];
+
+	call SQFM_fnc_globalizeBattles;
+};
 
 _self call ["broadcastBattleHud"]; 
 

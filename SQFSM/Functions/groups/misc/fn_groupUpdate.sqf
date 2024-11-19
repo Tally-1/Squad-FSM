@@ -3,6 +3,9 @@ if(_since<1)exitWith{};
 _self set ["lastUpdate", time];
 
 private _group        = _self get "grp";
+private _playerGroup  = [_group] call SQFM_fnc_isPlayerGroup;
+if(_playerGroup)exitWith{};
+
 private _ownerActual  = groupOwner _group;
 private _ownerVirtual = _self get "owner";
 private _birth        = _self get "birth";

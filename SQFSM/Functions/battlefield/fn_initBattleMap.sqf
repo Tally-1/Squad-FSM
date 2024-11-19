@@ -32,6 +32,7 @@ private _dataArr = [
     ["strengthData",   _strengthData],
     ["reinforData",     _reinforData],
     ["reinForTime",             time],
+    ["updateTime",           time-30],
     ["activeReinforcements",      []],
 
     /******************Methods*************************/

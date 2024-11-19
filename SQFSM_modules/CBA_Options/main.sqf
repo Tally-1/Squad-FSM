@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.71, true];
+missionNamespace setVariable ["SQFSM_Version", 0.72, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 #include "DIK_Codes.cpp"
@@ -102,6 +102,16 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 		0
 	]
 ] call CBA_fnc_addSetting;
+
+
+[
+	"SQFM_battlePublicVar",
+	"CHECKBOX",
+	["Battlefield Public Broadcast", "The publicVariable command will be used to broadcast battlefield data (disable if you have low bandwith). The most precise is to leave it on, but it may cause dedicated servers to lag."],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
 
 [
 	"SQFM_shareBattleKnowledge",

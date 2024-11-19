@@ -10,9 +10,9 @@ if!(isServer)             exitWith{};
 private _isPlayerGroup = [_group] call SQFM_fnc_isPlayerGroup;
 private _prevOwner     = groupOwner _group;
 if(_isPlayerGroup)exitWith{};
-
+if(_prevOwner isEqualTo 2)exitWith{};
 
 _group setGroupOwner 2;
 
 
-2;
+true;
