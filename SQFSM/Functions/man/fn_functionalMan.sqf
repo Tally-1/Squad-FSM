@@ -25,7 +25,11 @@ if(_inVehicle)exitWith{false};
 private _unconscious = [_man] call SQFM_fnc_unconscious;
 if(_unconscious)exitWith{false};
 
-private _pathOff = _notPlayer && {_checkPath && {_man checkAIFeature "MOVE" &&{_man checkAIFeature "ANIM" && {_man checkAIFeature "PATH"}}}};
+private _moveEnabled = _man checkAIFeature "MOVE";
+private _animEnabled = _man checkAIFeature "ANIM";
+private _pathEnabled = _man checkAIFeature "PATH";
+
+private _pathOff = _checkPath && {_notPlayer && {!(_moveEnabled &&{_animEnabled && {_pathEnabled}})}};
 if(_pathOff)exitWith{false};
 
 private _excluded = _checkExcluded && {_man getVariable ["SQFM_Excluded", false] || {(group _man) getVariable ["SQFM_Excluded", false]}};

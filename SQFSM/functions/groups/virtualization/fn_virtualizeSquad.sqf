@@ -13,10 +13,15 @@ private _settings        = createHashmapObject [[
     ["canHunt",                             _data get "canHunt"],
     ["huntDistance",                   _data get "huntDistance"],
     ["huntKnowledge",                 _data get "huntKnowledge"],
-    ["canReinforce",                   _data get "canReinforce"],
+    ["canReinforce",                                       true],
     ["canCallReinforcements", _data get "canCallReinforcements"],
-    ["canCallAir",                       _data get "canCallAir"],
-    ["canCallArty",                     _data get "canCallArty"]
+    ["canCallArty",                     _data get "canCallArty"],
+	["exclude",                                           false],
+	["clearObjectives",             _data get "clearObjectives"],
+    ["canIdleCover",                   _data get "canIdleCover"],
+    ["canGetTransport",             _data get "canGetTransport"],
+    ["canUseNearVehicles",       _data get "canUseNearVehicles"],
+    ["forceTravelOnFoot",         _data get "forceTravelOnFoot"]
 ]];
 
 private _dataArr = [

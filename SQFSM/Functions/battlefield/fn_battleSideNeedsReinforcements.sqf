@@ -7,7 +7,6 @@ private _reinforcementData = _self get "reinforData";
 private _baseCoef          = _strengthData call ["strengthCoef", [_side]];
 
 if(_baseCoef > 0.4)        exitWith{
-    // [[_side," does not need reinforcements at battle"]] call dbgm;
     false;
 };
 

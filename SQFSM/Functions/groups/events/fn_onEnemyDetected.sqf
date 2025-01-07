@@ -15,12 +15,17 @@ if!(side _enemy in SQFM_validSides)       exitWith{};
 if!(side group _enemy in SQFM_validSides) exitWith{};
 if (group _enemy isEqualTo _group)        exitWith{};
 
-private _enemyGroup  = group _enemy;
-private _spotterData = _group      call getData;
-private _enemyData   = _enemyGroup call getData;
+private _enemyGroup   = group _enemy;
+private _spotterData  = _group      call getData;
+private _enemyData    = _enemyGroup call getData;
 
 if (isNil "_spotterData")                  exitWith{};
 if (isNil "_enemyData")                    exitWith{};
+
+private _spotterClass = _spotterData get "squadClass";
+private _recon        = _spotterClass isEqualTo "recon";
+if(_recon)exitWith{};
+
 if!(_spotterData call ["canInitBattle"])   exitWith{};
 if!(_enemyData   call ["canInitBattle"])   exitWith{};
 

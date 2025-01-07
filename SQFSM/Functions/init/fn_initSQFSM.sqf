@@ -5,6 +5,7 @@ dbgm         = SQFM_fnc_debugMessage;
 dbgS         = SQFM_fnc_serverDebugMsg;
 getData      = SQFM_fnc_getData;
 setGlobalVar = SQFM_fnc_setGlobalVar;
+getVarNames  = SQFM_fnc_getVarNames;
 
 SQFM_maxRpgRange           = 500;
 SQFM_atSupportCallCooldown = 300;

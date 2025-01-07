@@ -62,25 +62,15 @@ class CfgFunctions
             class battleSideNeedsReinforcements {};
 
             // class battleHudBroadcast            {};
-            class updateBattleHudGlobal         {};
             class battleReplenishGroups         {};
             class getBattleOnPos                {};
             class shareBattleKnowledge          {};
+            class battlePosInZone               {};
+            class battleStrengthBySide          {};
 
         };
 
-        class battleHud { 
-            file = "\SQFSM\functions\battleHud";
-            class initBattleHud               {};
-            class BattleProgressBars          {};
-            class updateAllBattleProgressBars {};
-            class setBattleBarProgress        {};
-            class setBattleHudStrengthBar     {};
-            class toggleBattleHud             {};
-            class updateBattleHud             {};
-
-            
-        };
+        
 
         class building
         {
@@ -158,6 +148,8 @@ class CfgFunctions
             class initDebugHUD                  {};
             class updateDebugHudOOP             {};
             class updateDebugHud                {};
+            class selectedMan3D                 {};
+            class showDestinations3D            {};
         };
 
         class mapDrawing
@@ -192,6 +184,14 @@ class CfgFunctions
             class groupDrawOnMapMouseOver   {};
 
         };
+
+        class mapDrawing_battles
+        {
+            file = "\SQFSM\functions\mapDrawing\battles";
+            class drawBattlesOnMap {};
+            class battleDrawOnMap  {};
+
+        }
 
         class misc
         {
@@ -301,6 +301,8 @@ class CfgFunctions
             class getObjectCorners          {};
             class getNearCoverPositions     {};
             class setDirAndPitchToPos       {};
+            class sortByDist                {};
+            class calculateFlank            {};
 
         };
 
@@ -356,6 +358,7 @@ class CfgFunctions
 
             class objectiveCanshowMarker          {};
             class getObjectiveMarkerData          {};
+            class objectiveSimpeInsertPos         {};
 
         };
 
@@ -414,6 +417,8 @@ class CfgFunctions
             file = "\SQFSM\functions\man";
             class unconscious                 {};
             class isRealMan                   {};
+            class isAtMan                     {};
+            class isPlayer                    {};
             class functionalMan               {};
             class validMan                    {};
             class hostile                     {};
@@ -438,26 +443,31 @@ class CfgFunctions
             class manOnIdleCoverArrival       {};
 
             class hasAmmoForWeapon            {};
-            class isAtMan                     {};
+            
             class forceLookAtPos              {};
             class manToggleExternalAi         {};
-            class isPlayer                    {};
+            class manRegroupOnLeaderPos       {};
+            class menEndedRegroup             {};
+            class manWaitUntilAvailable       {};
+            class manIsAvailableOrInvalid     {};
+            
         };
 
         class man_fsmMovement
         {
             file = "\SQFSM\functions\man\fsmMovement";
-            class addMoveManFsmCombatEh    {};
-            class removeMoveManFsmCombatEh {};
-            class moveManFsmCondition      {};
-            class validFsmMoveTarget       {};
-            class fsmMoveHandleTarget      {};
-            class whileManFsmMoving        {};
-            class fsmMoveHandleAutoTarget  {};
-            class initFsmMoveMan           {};
-            class execFsmMoveMan           {};
-            class endFsmMoveMan            {};
-            class fsmMoveManToPos          {};
+            class addMoveManFsmCombatEh      {};
+            class removeMoveManFsmCombatEh   {};
+            class moveManFsmCondition        {};
+            class validFsmMoveTarget         {};
+            class fsmMoveHandleTarget        {};
+            class whileManFsmMoving          {};
+            class fsmMoveHandleAutoTarget    {};
+            class initFsmMoveMan             {};
+            class execFsmMoveMan             {};
+            class endFsmMoveMan              {};
+            class fsmMoveManToPos            {};
+            class manWaitThenMoveIfAvailable {};
         };
 
         class vehicle
@@ -548,6 +558,42 @@ class CfgFunctions
             class groupDefendOnly            {};
         };
 
+        class groups_battleTask
+        {
+            file = "\SQFSM\functions\groups\battleTask";
+            class battleTaskGroups            {};
+            class groupHandleBattleTask       {};
+            class groupCanGetBattleTask       {};
+            class groupInitBattleTask         {};
+            class battleTaskInit              {};
+            class battleTaskBattleTime        {};
+            class battleTaskNewFlankTarget    {};
+            class battleTaskCanSwitch         {};
+            class battleTaskCanGarrison       {};
+            class battleTaskGarrisonNow       {};
+            class battleTaskAvgHostilePos     {};
+            class battleTaskSafeDirection     {};
+            class battleTaskSafeUrbanZones    {};
+            class battleTaskInitHold          {};
+            class battleTaskUpdateHold        {};
+            class battleTaskGarrisonWp        {};
+            class battleTaskMoveToSafePos     {};
+            class battleTaskGetHoldFormDir    {};
+            class battleTaskHoldInTheOpen     {};
+            class battleTaskUpdateHoldInPlace {};
+            class groupEndBattleTask          {};
+            class battleTaskNewTarget         {};
+            class battleTaskInitPush          {};
+            class battleTaskUpdate            {};
+            class battleTaskUpdatePush        {};
+            class groupFlankWp                {};
+            class battleTaskInitFlank         {};
+            class battleTaskUpdateFlank       {};
+            class battleTaskEndFlanking       {};
+            class battleTaskEnd               {};
+            
+        };
+
 
         class groups_combat
         {
@@ -563,6 +609,11 @@ class CfgFunctions
             class groupCombatZone           {};
             class groupUpdateBattleStrength {};
             class groupRevealAndTarget      {};
+            class groupNearKnownEnemies     {};
+            class groupGetHostileBattleGroups {};
+            class groupGetBattleStatus      {};
+            class groupDisableAttack        {};
+            class groupEnableAttack         {};
         };
 
         class groups_atSupport 
@@ -631,6 +682,7 @@ class CfgFunctions
             class allAvailableGroupVehicles  {};
             class onArrival                  {};
             class deleteWps                  {};
+            class groupCanTravelOnFoot       {};
             class initGroupTravel            {};
             class execGroupTravel            {};
             class groupPickupPos             {};
@@ -646,6 +698,7 @@ class CfgFunctions
 
             class groupForcedMoveStart       {};
             class groupForcedMoveEnd         {};
+            class groupAbortTransport        {};
         };
 
         class groups_boarding
@@ -699,6 +752,7 @@ class CfgFunctions
             class groupGetFipoMen          {};
             class groupGetAtMen            {};
             class groupIsInfantryGroup     {};
+            class groupGetFunctionalMen    {};
 
         };
 
@@ -763,6 +817,9 @@ class CfgFunctions
             class groupCanAssignObjective         {};
             class groupGuardObjective             {};
             class groupGuardObjectiveTakeCover    {};
+            class objectiveTaskAbort              {};
+            class groupBattleAbortObjectiveTask   {};
+            
 
             /*Attack*/
             class assignGroupObjectivesAllSides   {};
@@ -811,6 +868,7 @@ class CfgFunctions
             class groupTargetVisible       {};
             class groupRevealTargets       {};
             class groupToggleExternalAi    {};
+            class groupReconUpdate         {};
         };
 
         class groups_reinforcement_radio
@@ -864,6 +922,14 @@ class CfgFunctions
             class groupInitHuntTask           {};
             class onGroupHuntWp               {};
             class onGroupHuntEnd              {};
+        };
+
+        class groups_regroup
+        {
+            file = "\SQFSM\functions\groups\regroup";
+            class groupCanRegroup             {};
+            class groupRegroup                {};
+            class endRegroup                  {};
         };
 
 		class groups_virtualization
@@ -1073,6 +1139,25 @@ class CfgFunctions
             class objectiveStatusText             {};
         };
         
+        class GUI_battleHud { 
+            file = "\SQFSM\functions\GUI\battleHud";
+            class initBattleDisplay            {};
+            class initBattleHud                {};
+            class initBattleDisplayLegacyCtrls {};
+            class initBattleStatText           {};
+            class BattleProgressBars           {};
+            class updateAllBattleProgressBars  {};
+            class setBattleBarProgress         {};
+            class setBattleHudStrengthBar      {};
+            class setBattleHudStatTextValues   {};
+            class toggleBattleHud              {};
+            class updateBattleHud              {};
+            class updateBattleHudGlobal        {};
+            class updateBattleHudStatText      {};
+            class updateBattleStrBar           {};
+            class getBattleStrength            {};
+        };
+
         
         class GUI_markerFeedback
         {

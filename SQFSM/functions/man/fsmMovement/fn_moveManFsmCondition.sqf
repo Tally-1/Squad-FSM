@@ -21,6 +21,7 @@ if(_noData)exitWith{
 };
 
 if(isNil "_position")exitWith{false};
+if(isNil "_timeLimit")exitWith{false};
 
 private _aborted  = _man getVariable ["FSM_moveAborted", false];
 if(_aborted)exitWith{false};

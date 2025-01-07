@@ -10,6 +10,7 @@ _img set  ["setText",   SQFM_fnc_imgCtrlSetText];
 _img set  ["rotate",   SQFM_fnc_imgCtrlSetAngle];
 _img set  ["getAngle", SQFM_fnc_imgCtrlGetAngle];
 _img set  ["defaultColor",               _color];
+
 _img call ["setImage",                 [_image]];
 _img call ["setColor",                 [_color]];
 

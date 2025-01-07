@@ -5,7 +5,7 @@ params[
 private _targetPos      = eyePos _target;
 private _targetAltitude = _targetPos#2;
 private _velocityMS     = velocityModelSpace _missile;
-private _maxSpeed       = 400;
+private _maxSpeed       = 1000;
 private _startSpeed     = round((_velocityMS#1)*0.9);
 
 [_missile, _targetPos] call SQFM_fnc_setDirAndPitchToPos;

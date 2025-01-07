@@ -1,11 +1,12 @@
 private _frameColor = [1,1,1,0.5];
-private _ctrlHeight = 0.027;
-private _pos        = [0.35, 0.3, 0.3, _ctrlHeight];
 private _squad      = SQFM_currentEditSquad;
 private _squadData  = _squad call getData;
 private _onChange   = SQFM_fnc_onCuratorSquadMenuSettingChange;
 private _checkBoxes = _self get "checkBoxes";
 private _sliders    = _self get "sliders";
+private _ctrlCount  = count _checkBoxes + count _sliders;
+private _ctrlHeight = 0.0017*_ctrlCount;
+private _pos        = [0.35, 0.31-_ctrlHeight, 0.3, _ctrlHeight];
 
 {
     private _title     = _x#0;

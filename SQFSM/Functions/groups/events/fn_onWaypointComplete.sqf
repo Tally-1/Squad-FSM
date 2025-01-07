@@ -16,4 +16,6 @@ if(_owner isEqualTo 0)then{_owner = 2};
 private _callString = ["[_group] remoteExecCall [", _function,", ",_owner,"];"]joinString"";
 call compile _callString;
 
+_data call ["reconUpdate",[true]];
+
 true;

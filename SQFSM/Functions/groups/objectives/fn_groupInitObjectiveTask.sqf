@@ -11,6 +11,7 @@ params[
 private _objctvData = _objectiveModule getVariable "SQFM_objectiveData";
 private _zone       = _objctvData get "zone";
 private _pos        = _objctvData get "position";
+private _abortCode  = SQFM_fnc_objectiveTaskAbort;
 private _task       = _self call ["initTask",
 [
     _taskName,          // Taskname     ["name"]
@@ -18,7 +19,10 @@ private _task       = _self call ["initTask",
     [_pos],             // Positions    ["positions"]
     [_objectiveModule], // TaskParams   ["params"]
     _onArrival,         // Arrival-code ["arrivalCode"]
-    _onTaskEnd          // End-code     ["endCode"]
+    _onTaskEnd ,        // End-code     ["endCode"]
+    nil,                // UpdateCode   ["update"]
+    nil,                // Condition    (not implemented)
+    _abortCode          // _abortCode   ["abortCode"]
 ]];
 
 _task;

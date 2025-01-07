@@ -62,13 +62,13 @@ _versionName = "DCO Squad FSM | Default Squad Behaviour";
 ] call CBA_fnc_addSetting;
 
 
-[
-	"SQFM_defaultBehaviourCallCAS",
-	"CHECKBOX",
-	["Can call CAS", "Enables all new squads to call for Close Air Support.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
-	_versionName,
-	true
-] call CBA_fnc_addSetting;
+// [
+// 	"SQFM_defaultBehaviourCallCAS",
+// 	"CHECKBOX",
+// 	["Can call CAS", "Enables all new squads to call for Close Air Support.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
+// 	_versionName,
+// 	true
+// ] call CBA_fnc_addSetting;
 
 [
 	"SQFM_defaultBehaviourCallArty",
@@ -118,4 +118,42 @@ then{_defaultPushDistance = SQFM_travelWalkDist};
 		false
 	],
 	1
+] call CBA_fnc_addSetting;
+
+/*
+- Squad travel options:
+    * Can call
+    * Can Use
+    * Travel on foot
+*/
+
+[
+	"SQFM_defaultBehaviourCallTransport",
+	"CHECKBOX",
+	["Can call Transport", "Enables the squad to call for transport.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+[
+	"SQFM_defaultBehaviourUseNearVehiclesTransport",
+	"CHECKBOX",
+	["Can use near vehicles", "Enables the squad to use nearby empty vehicles for transport.\n Setting will be ignored if a Squad Behaviour module is synced to the new squad"],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+private _mainSettingName = ["DCO Squad FSM | ", SQFSM_Version]joinString"";
+private _toolTip         = [
+	"When vehicle transport is not available this option forces the squad to travel on foot. ",
+	'\nEven if the distance is higher than the "Travel on foot distance" set in the "',_mainSettingName,'" options. ',
+	"\nSetting will be ignored if a Squad Behaviour module is synced to the new squad"
+]joinString"";
+
+[
+	"SQFM_defaultBehaviourForceTravelOnFoot",
+	"CHECKBOX",
+	["Force Travel On Foot", _toolTip],
+	_versionName,
+	false
 ] call CBA_fnc_addSetting;

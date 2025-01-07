@@ -11,16 +11,24 @@ private _grid         = [_pos, _rad]   call SQFM_fnc_getBattleGrid;
 private _edgeLines    = [_pos, _rad]   call SQFM_fnc_getCircleLines;
 private _strengthData = createHashmap;//[_zone, _groups] call SQFM_fnc_zoneStrengthBySide;
 private _reinforData  = createHashmap;
+private _southPos     = _pos getPos [_rad+25, 180];
 
 private _dataArr = [
     /******************Data*************************/
     ["position",                _pos],
+    ["southPos",           _southPos],
     ["machine",          clientOwner],
     ["radius",                  _rad],
     ["zone",                   _zone],
     ["startTime",               time],
     ["sides",                 _sides],
     ["groups",               _groups],
+    ["groupsHostileToEast",       []],
+    ["groupsHostileToGuer",       []],
+    ["groupsHostileToWest",       []],
+    ["strengthEast",               0],
+    ["strengthGuer",               0],
+    ["strengthWest",               0],
     ["entities",           _entities],
     ["forcedEnd",              false],
     ["buildings",                 []],
@@ -47,6 +55,7 @@ private _dataArr = [
     ["endBattle",                             SQFM_fnc_endBattle],
     ["drawBattle",                           SQFM_fnc_drawBattle],
     ["reinforcements",             SQFM_fnc_battleReinforcements],
+    ["battleTaskGroups",               SQFM_fnc_battleTaskGroups],
     ["replenishGroups",           SQFM_fnc_battleReplenishGroups],
     ["sideNeedReforce",   SQFM_fnc_battleSideNeedsReinforcements],
     ["reinforceSide",               SQFM_fnc_battleReinforceSide],
@@ -56,6 +65,9 @@ private _dataArr = [
     ["onFirstShot",                   SQFM_fnc_onBattleFirstShot],
 	["timeSinceShot",           SQFM_fnc_timeSinceLastBattleShot],
     ["shareKnowledge",             SQFM_fnc_shareBattleKnowledge],
+    ["drawOnMap",                       SQFM_fnc_battleDrawOnMap],
+    ["strengthSide",               SQFM_fnc_battleStrengthBySide],
+    ["posInZone",                       SQFM_fnc_battlePosInZone],
 	["initBuildings", {_self spawn SQFM_fnc_initBattleBuildings}]
 ];
 

@@ -73,6 +73,8 @@ else{
 	"Transport moving now" call dbgS;
     _getInWp synchronizeWaypoint [];
     _loadWp  synchronizeWaypoint [];
+    deleteWaypoint _loadWp;
+    deleteWaypoint _getInWp;
 	[_driver, "path"]   remoteExecCall ["enableAI"];
     [_driver, "path"]   remoteExecCall ["enableAI"];
     [_driver, _dropPos] remoteExec     ["doMove"];

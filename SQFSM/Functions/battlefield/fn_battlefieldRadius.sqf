@@ -24,6 +24,10 @@ then{
         _checkRad  = selectMax[_objRad*2, _minRad, _baseRad*2];
 };
 
+// Add a little padding, since sometimes there are units just outside the battlefield.
+// Making them an influencing element, but not a part of the overall calculation.
+_checkRad = _checkRad + 300;
+
 // Make sure battlefield is within params defined above and in the initGamestate file.
 if(_nearBattleRad < _maxRad) then{_maxRad   = _nearBattleRad;};
 if(_checkRad      < _minRad) then{_checkRad = _minRad};

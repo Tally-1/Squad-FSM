@@ -79,3 +79,27 @@ class allowReinforcementCall : Checkbox
     tooltip      = "If checked this squad will be able to call for reinforcements.";
     defaultValue = "true";
 };
+
+class allowTransportCall : Checkbox
+{
+    property     = "SQFSM_allowTransportCall";
+    displayName  = "Can call Transport";
+    tooltip      = "Enables the squad to call for transport.";
+    defaultValue = "true";
+};
+
+class useNearVehiclesTransport : Checkbox
+{
+    property     = "SQFSM_useNearVehiclesTransport";
+    displayName  = "Can use near vehicles";
+    tooltip      = "Enables the squad to use nearby vehicles for transport.";
+    defaultValue = "true";
+};
+
+class forceTravelOnFoot : Checkbox
+{
+    property     = "SQFSM_ForceTravelOnFoot";
+    displayName  = "Force Travel On Foot";
+    tooltip      = "Force the squad to travel on foot when transport is not available.";
+    defaultValue = "false";
+};

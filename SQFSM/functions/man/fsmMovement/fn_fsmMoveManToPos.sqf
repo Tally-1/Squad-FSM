@@ -8,8 +8,19 @@ params [
     ["_cndFreq",   0.1,       [0]] //      How often the custom condition is checked 
 ];
 
-private _alreadyMoving = (_man getVariable ["FSM_moveEnded", true])isEqualTo false;
-if(_alreadyMoving)exitWith{"Double move" call dbgm};
+private _moving = (_man getVariable ["FSM_moveEnded", true])isEqualTo false;
+if(_moving 
+&&{canSuspend})
+then{
+    private _timer = time+5;
+    waitUntil { 
+        _moving = (_man getVariable ["FSM_moveEnded", true])isEqualTo false;
+        if(!_moving)      exitWith{true};
+        if(_timer < time) exitWith{true};
+        false;
+    };
+};
+if(_moving)exitWith{"Double move" call dbgm};
 
 private _canRunParams = [_man,nil,nil,nil,true];
 private _canRun = isNil "SFSM_fnc_canRun"or{_canRunParams call SFSM_fnc_canRun or {isNil "SFSM_debugger"}};

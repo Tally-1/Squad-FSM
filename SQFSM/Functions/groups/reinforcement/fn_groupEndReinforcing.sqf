@@ -4,6 +4,8 @@ params[
 ];
 private _taskData  = _self call ["getTaskData"];
 private _callerPos = (_taskData get"params")#0;
+if(isNil "_callerPos")exitWith{};
+
 private _callerGrp = (_taskData get"params")#1;
 
 _self call ["setDataDelayed", ["action",     ""]];

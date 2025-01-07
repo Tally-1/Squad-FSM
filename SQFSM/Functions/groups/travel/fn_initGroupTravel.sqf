@@ -21,18 +21,42 @@ if(_self call ["canBoardNow"]
 &&{_self call ["boardThenTravel", _params]})
 exitWith{true;};
 
+
 // The group cannot call for transport, the move is aborted.
-if!(_self call ["canCallTransport"])
+private _canCallTransport = _self call ["canCallTransport"];
+private _canWalk          = _self call ["canTravelOnFoot",[_movePos]];
+if(!_canCallTransport)
 exitWith{
-    "Cannot call transport" call dbgm;
+
+    // If forced walk is enabled for the squad the move is executed.
+    if(_canWalk)exitWith{
+        private _message = ["Cannot call transport, forced walk to ", _taskName]joinString"";
+        _message call dbgm;
+        _self call ["execTravel", [_movePos, _taskName, false]];
+        true;
+    };
+
+    private _message = ["Cannot call transport, ",_taskName," aborted."]joinString"";
+    _message call dbgm;
     false;
 };
+
 
 // Transport is called, if denied the move is aborted.
 private _transport = _self call ["callTransport", [_movePos]];
 if(isNull _transport)
 exitWith{
-    "Transport denied" call dbgm;
+
+    // If forced walk is enabled for the squad the move is executed.
+    if(_canWalk)exitWith{
+        private _message = ["Transport denied, forced walk to ", _taskName]joinString"";
+        _message call dbgm;
+        _self call ["execTravel", [_movePos, _taskName, false]];
+        true;
+    };
+
+    private _message = ["Transport denied, ",_taskName," aborted."]joinString"";
+    _message call dbgm;
     false;
 };
 

@@ -32,26 +32,29 @@ SQFM_battleList          = [];
 SQFM_battles             = createHashmapObject [[]];
 SQFM_reinforRequests     = createHashmapObject [[]];
 SQFM_maxBattleSize       = 1000;
-SQFM_minBattleSize       = 100;
+SQFM_minBattleSize       = 150;
 SQFM_lastBuildingChange  = 0;
 SQFM_safePosLifeTime     = 60;
+SQFM_spawnCooldown       = 30;
 SQFM_lastFireCheck       = 0-300;
 
 /******************{ARRAY ORDER: TIME ADDED}******************/
 SQFM_defaultBehaviour    = [ 
-	"standard",                         // Squadtype
-	SQFM_defaultBehaviourDefend,        // defend objectives
-	SQFM_defaultBehaviourAttack,        // Attack objectives 
-	SQFM_defaultBehaviourPush,          // push near enemies 
-	SQFM_defaultBehaviourPushDist,      // push distance 
-	SQFM_defaultBehaviourPushKnowledge, // push knowledge 
-	SQFM_defaultBehaviourReinforce,     // reinforce 
-	SQFM_defaultBehaviourCallReforce,   // call reinforcements 
-	SQFM_defaultBehaviourCallCAS,       // call CAS 
-	SQFM_defaultBehaviourCallArty,      // call Arty
-	SQFM_defaultBehaviourExcluded,      // Exclude from Squad FSM
-	SQFM_defaultBehaviourClear,         // clear Objectives 
-	SQFM_defaultBehaviourCanIdleCover   // When a squad is considered Idle it will look for good positions to take cover
+	"standard",                                    // Squadtype
+	SQFM_defaultBehaviourDefend,                   // defend objectives
+	SQFM_defaultBehaviourAttack,                   // Attack objectives 
+	SQFM_defaultBehaviourPush,                     // push near enemies 
+	SQFM_defaultBehaviourPushDist,                 // push distance 
+	SQFM_defaultBehaviourPushKnowledge,            // push knowledge 
+	SQFM_defaultBehaviourReinforce,                // reinforce 
+	SQFM_defaultBehaviourCallReforce,              // call reinforcements 
+	SQFM_defaultBehaviourCallArty,                 // call Arty
+	SQFM_defaultBehaviourExcluded,                 // Exclude from Squad FSM
+	SQFM_defaultBehaviourClear,                    // clear Objectives 
+	SQFM_defaultBehaviourCanIdleCover,             // When a squad is considered Idle it will look for good positions to take cover
+	SQFM_defaultBehaviourCallTransport,            // Can call transport
+	SQFM_defaultBehaviourUseNearVehiclesTransport, // Can use near vehicles for transport
+	SQFM_defaultBehaviourForceTravelOnFoot         // Force Travel on foot when no transport is available
 ];
 
 [missionNamespace, "SQFM_taskGroups",                        [], true] call setGlobalVar;

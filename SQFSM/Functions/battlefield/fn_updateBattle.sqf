@@ -5,6 +5,9 @@ private _entities    = (_pos nearEntities ["land", _rad])select {[_x] call SQFM_
 private _objDataArr  = [_entities] call SQFM_fnc_objArrData;
 private _sides       = _objDataArr#3;
 private _groups      = _objDataArr#4;
+private _hostileToEast = _groups select {[east, _x] call SQFM_fnc_hostile};
+private _hostileToGuer = _groups select {[independent, _x] call SQFM_fnc_hostile};
+private _hostileToWest = _groups select {[west, _x] call SQFM_fnc_hostile};
 private _reinforGrps = _self get "activeReinforcements";
 private _allGroups   = [];
 
@@ -14,19 +17,30 @@ _allGroups insert [0, _groups, true];
 _self call ["handleNewGroups",[_groups]];
 _self call ["handleInvalidGrps",[_allGroups]];
 
-_self set  ["sides",       _sides];
-_self set  ["groups",     _groups];
-_self set  ["entities", _entities];
+_self set  ["sides",                       _sides];
+_self set  ["groups",                     _groups];
+_self set  ["groupsHostileToEast", _hostileToEast];
+_self set  ["groupsHostileToGuer", _hostileToGuer];
+_self set  ["groupsHostileToWest", _hostileToWest];
+_self set  ["entities",                 _entities];
 
 _self call ["updateBuildings"];
 _self call ["shareKnowledge"];
 
 private _strengthData      = _self call ["updateStrengthData"];
 private _reinforcementData = _self call ["updateReforData"];
+private _stengthEast       = _self call ["strengthSide", east];
+private _stengthGuer       = _self call ["strengthSide", independent];
+private _stengthWest       = _self call ["strengthSide", west];
 
 _self call ["reinforcements"]; 
 _self call ["replenishGroups"];
-_self set  ["updateTime", time];
+_self call ["battleTaskGroups"];
+
+_self set  ["strengthEast",  _stengthEast];
+_self set  ["strengthGuer",  _stengthGuer];
+_self set  ["strengthWest",  _stengthWest];
+_self set  ["updateTime",            time];
 
 // The updated data needs to be global before the battleHUD can be broadcasted
 // [missionNamespace,"SQFM_battles",SQFM_battles] call setGlobalVar;

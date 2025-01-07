@@ -24,8 +24,7 @@ _ctrl ctrlSetFontHeight _txtSize;
 
 [_ctrl] call SQFM_fnc_normalizeTextCtrlHeight;
 
-if!(_spawnTxt)
-exitWith{
+if!(_spawnTxt)exitWith{
     _frame call ["setText",[_text]];
     _frame;
 };

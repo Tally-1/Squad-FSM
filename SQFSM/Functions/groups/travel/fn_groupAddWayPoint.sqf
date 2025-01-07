@@ -11,10 +11,12 @@ params[
 private _group     = _self get "grp";
 private _groupData = _group getVariable "SQFM_grpData";
 private _wayPoint  = _group addWaypoint [_pos, _randomRad];
+private _recon     = (_groupData get "squadClass") isEqualTo "recon";
+private _setBehaviour = (!isNil "_behaviour") && {!_recon};
 
 if(!isNil "_radius")    then {_wayPoint setWaypointCompletionRadius _radius};
 if(!isNil "_type")      then {_wayPoint setWaypointType _type;};
-if(!isNil "_behaviour") then {_wayPoint setWaypointBehaviour _behaviour;};
+if(_setBehaviour)       then {_wayPoint setWaypointBehaviour _behaviour;};
 if(!isNil "_speed")     then {_wayPoint setWaypointSpeed _speed;};
 if(!isNil "_statement") then {
     _statement = ['comment "SQFM"; comment "',_statement,'"']joinString"";
@@ -22,5 +24,6 @@ if(!isNil "_statement") then {
 };
 
 _self call ["unStop"];
+_self call ["reconUpdate",[true]];
 
 _wayPoint;

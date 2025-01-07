@@ -36,6 +36,7 @@ private _dataArr = [
 	["hide",                                               SQFM_fnc_hideCtrl],
 	["show",                                               SQFM_fnc_showCtrl],
 	["delete",                                           SQFM_fnc_deleteCtrl],
+	["enable",                        {(_self get"ctrl")ctrlEnable(_this#0)}],
 	["getParentData",                             SQFM_fnc_ctrlGetParentData],
 	["setPosGrid",                                    SQFM_fnc_oopCtrlSetPos],
 	["setPos",                                    SQFM_fnc_oopCtrlSetPosSafe],

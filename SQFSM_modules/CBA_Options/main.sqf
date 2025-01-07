@@ -1,4 +1,4 @@
-missionNamespace setVariable ["SQFSM_Version", 0.72, true];
+missionNamespace setVariable ["SQFSM_Version", 0.73, true];
 private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 
 #include "DIK_Codes.cpp"
@@ -57,6 +57,65 @@ private _versionName = ["DCO Squad FSM | ", SQFSM_Version] joinString "";
 	],
 	1
 ] call CBA_fnc_addSetting;
+
+
+
+[
+	"SQFM_replenishDistance",
+	"SLIDER",
+	["Replenish Distance", "How far one infantry squad may replenish another."],
+	_versionName,
+	[
+		50,   // minimum 
+		500,  // max
+		250,  // default
+		0,	  // decimals
+		false 
+	],
+	1
+] call CBA_fnc_addSetting;
+
+
+[
+	"SQFM_allowRegroup",
+	"CHECKBOX",
+	["Allow Regrouping", "Enable squads to regroup if they are spread out."],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
+
+
+[
+	"SQFM_regroupDistance",
+	"SLIDER",
+	["Regroup Distance", "If a squad is spread out further than this it will attempt to regroup, aborting other actions."],
+	_versionName,
+	[
+		50,   // minimum 
+		300,  // max
+		100,  // default
+		0,	  // decimals
+		false 
+	],
+	1
+] call CBA_fnc_addSetting;
+
+
+[
+	"SQFM_regroupInterval",
+	"SLIDER",
+	["Regroup Interval", "How often a squad will check if it needs to regroup(seconds)."],
+	_versionName,
+	[
+		30,      // minimum 
+		1200,   // max
+		180,   // default
+		0,	  // decimals
+		false 
+	],
+	1
+] call CBA_fnc_addSetting;
+
 
 [
 	"SQFM_showReforChat",

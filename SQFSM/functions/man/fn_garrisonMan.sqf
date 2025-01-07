@@ -1,7 +1,7 @@
 params [ 
-    ["_man",      nil, [objNull]],  // The man that will garrison.
-    ["_building", nil, [objNull]], //  House
-    ["_pos",      nil,      [[]]] //   House position (ATL)
+    ["_man",     nil,    [objNull]],  // The man that will garrison.
+    ["_building",objNull,[objNull]], //  House
+    ["_pos",     nil,         [[]]] //   House position (ATL)
 ];
 private _high      = (_pos#2)>2;
 private _dist      = _man distance _pos;

@@ -7,9 +7,11 @@ _self set["checkBoxes",[
     ["Push near enemies",                     "canHunt"],
     ["Can reinforce",                    "canReinforce"],
 
-    ["Can call reinforcements", "canCallReinforcements"],
     ["Can call Artillery",                "canCallArty"],
-    ["Can call CAS",                       "canCallAir"]
+    ["Can call reinforcements", "canCallReinforcements"],
+    ["Call Transport",                "canGetTransport"],
+    ["Use near transport vehicles","canUseNearVehicles"],
+    ["Force Travel On Foot",        "forceTravelOnFoot"]
 ]];
 
 _self set["sliders",[

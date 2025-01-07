@@ -122,3 +122,33 @@
 --{**0.72**}--
 [10m]  Changelog and Upload of Squad FSM 0.71
 [206m] Quick-fix of global battles public-var fix, CBA param for publicVar
+--------------------------------------------
+
+--{**0.73**}--
+38.93 hours (2336 minutes)
+
+[274m] Squad regroup, functional build.
+[55m]  Bugfixing, testing automated regrouping.
+[144m] Replesnishment limiters, regrouping params
+[87m]  Path debug markers (3D)
+[134m] Simple Squad insertion (Direct attack);
+[148m] Transport options, Front end (CBA, Curator, module) plug.
+[81m]  Transport options, Backend implementation (The mechanic/Logic), small test.
+[114m] Recon Danger behaviour.
+[53m]  Recon danger mode bugfixing, multi-test.
+[44m]  Battle tactics Planning.
+[183m] Battle strength coef, Battle HUD update.
+[175m] Battle-tasks initial framework, Battle-draw on map.
+[114m] Battle-task: PUSH
+[127m] Battle-task: FLANK
+[132m] Battle-task: Hold/Garrison.
+[33m]  Battletest+minor tweaks
+[85m]  Battletest, bugfixes
+[58m]  Mech clearing text, regroup speed, BT exclude, Reforce setting fix.
+[177m] Objective abort task, Transport abortion, Flanking tweak.
+[62m]  Soldier FSM compatibility (SQFSM side)
+[93m]  Hold in place (For squads when loosing and no near buildings)
+[38m]  Minor battletest and bugfixes.
+[39m]  Second battletest, some refactoring.
+[61m]  Final refactoring before packing.
+[103m] Final pre-release test/fixes & packing.

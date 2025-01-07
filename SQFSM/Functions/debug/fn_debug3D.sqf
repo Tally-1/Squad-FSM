@@ -32,5 +32,5 @@ then{
 		call SQFM_fnc_battle3D;
 		call SQFM_fnc_transportModules3D;
 		call SQFM_fnc_reforceModules3D;
-		
+		call SQFM_fnc_selectedMan3D;		
 }}];

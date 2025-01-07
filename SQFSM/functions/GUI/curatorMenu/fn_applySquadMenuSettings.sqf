@@ -16,3 +16,6 @@ _squad setVariable ["SQFM_Excluded", _exclude, true];
 _squadData call ["update"];
 
 _display closeDisplay 1;
+
+if(SQFM_debugMode)
+then{_squadData spawn{hint (_this call ["debugText"])}};

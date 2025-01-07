@@ -1,6 +1,7 @@
 _this spawn {
 params[
-    ["_passengerGrp",nil,[grpNull]]
+    ["_passengerGrp",nil,[grpNull]],
+    ["_attackEnemy", true,  [true]]
 ];
 private _passengerData  = _passengerGrp call getData;
 private _vehicle        = _passengerData get "transportVehicle";
@@ -11,7 +12,7 @@ private _timer          = time + count _men;
 private _enemyGroup     = _passengerData call ["nearEnemyGrp"];
 
 
-// _driver disableAI "move";
+_driver disableAI "move";
 _passengerData call ["ejectAll"];
 
 waitUntil { 
@@ -30,12 +31,12 @@ if(!isNull _transportGroup
 
 "Transport has unloaded passengers" call dbgm;
 
-// _driver enableAI "move";
+_driver enableAI "move";
 if(isNull _enemyGroup)exitWith{};
+if(!_attackEnemy)     exitWith{};
 
 _passengerData call ["attackGroup",[_enemyGroup]];
 _passengerData set  ["action", "Attacking enemy"];
 
 true;
 };
-true;

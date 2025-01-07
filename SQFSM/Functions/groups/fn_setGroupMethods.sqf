@@ -15,7 +15,7 @@ private _methods = [
 
     /*************************{MISC}***************************/
     ["isIdle",                             SQFM_fnc_groupIsIdle],
-    ["isValid", {[(_self get "grp")] call SQFM_fnc_validGroup;}],
+    ["isValid",  {[(_self get "grp")] call SQFM_fnc_validGroup}],
     ["activeWp",                              SQFM_fnc_activeWp],
     ["update",                             SQFM_fnc_groupUpdate],
     ["setDataDelayed",             SQFM_fnc_groupSetDataDelayed],
@@ -23,9 +23,12 @@ private _methods = [
     ["removeUnitEH",       SQFM_fnc_groupRemoveUnitEventHandler],
     ["drawOnMapMouseOver",     SQFM_fnc_groupDrawOnMapMouseOver],
     ["sinceSpawn",                 {time - (_self get "birth")}],
+    ["reconUpdate",                   SQFM_fnc_groupReconUpdate],
     // ["availableForNewTask",      SQFM_fnc_groupAvailableForTask],
     // endPlayerTransport
     /**********************{TRAVEL}*****************************/
+
+    ["canTravelOnFoot",           SQFM_fnc_groupCanTravelOnFoot],
     ["initTravel",                     SQFM_fnc_initGroupTravel],
     ["execTravel",                     SQFM_fnc_execGroupTravel],
     ["onArrival",                            SQFM_fnc_onArrival],
@@ -50,6 +53,7 @@ private _methods = [
     ["getTransportSpawner",     SQFM_fnc_groupGetTransportSpawner],
     ["sinceTransportCall", {time-(_self get "lastTransportCall")}],
     ["waitForTransportSpawn", SQFM_fnc_groupWaitForTransportSpawn],
+    ["abortTransport",               SQFM_fnc_groupAbortTransport],
 
                       /*{boarding}*/
     ["canSelfTransport",         SQFM_fnc_groupCanSelfTransport],
@@ -140,10 +144,25 @@ private _methods = [
     ["getTaskData",  {[_self get "grp"] call SQFM_fnc_getGroupTask}],
     ["actionStatus",                     SQFM_fnc_groupActionStatus],
     ["updateTask",                         SQFM_fnc_groupUpdateTask],
+
+    /************************{Battle-tasks}*************************/
+    ["handleBattleTask",             SQFM_fnc_groupHandleBattleTask],
+    ["canGetBattleTask",             SQFM_fnc_groupCanGetBattleTask],
+    ["initBattleTask",                 SQFM_fnc_groupInitBattleTask],
+    ["endBattleTask",          {[(_self get "grp")] call SQFM_fnc_groupEndBattleTask}],
+    ["getHostileBattleGroups", SQFM_fnc_groupGetHostileBattleGroups],
+    ["getBattleStatus",               SQFM_fnc_groupGetBattleStatus],
+    ["battleAbortObjective", SQFM_fnc_groupBattleAbortObjectiveTask],
+
     /**********************{TACTICS}***************************/
     ["garrison",                                   SQFM_fnc_groupGarrison],
     ["getNearUrbanZones",                 SQFM_fnc_groupGetNearUrbanZones],
     ["getInBuilding",                         SQFM_fnc_groupGetInBuilding],
+    ["timeSinceRegroup",               {time - (_self get "lastRegroup")}],
+    ["canRegroup",                               SQFM_fnc_groupCanRegroup],
+    ["regroup",                                     SQFM_fnc_groupRegroup],
+    ["disableAttack",                         SQFM_fnc_groupDisableAttack],
+    ["enableAttack",                           SQFM_fnc_groupEnableAttack],
 
     /************************{Idle-state}***************************/
     ["idleGarrison",                           SQFM_fnc_groupIdleGarrison],
@@ -183,6 +202,7 @@ private _methods = [
     ["isPlayerGroup",       {[_self get"grp"] call SQFM_fnc_isPlayerGroup}],
     ["mergeWithGroup",                        SQFM_fnc_groupMergeWithGroup],
     ["unStop",                                        SQFM_fnc_groupUnstop],
+    ["getFunctionalMen",                    SQFM_fnc_groupGetFunctionalMen],
 
 
     /**********************{REPLENISH}************************/
@@ -215,6 +235,7 @@ private _methods = [
     ["endReturnFire",   {_self spawn SQFM_fnc_endGrpReturnFire}],
 
     ["nearEnemyGrp",                 SQFM_fnc_groupNearEnemyGrp],
+    ["nearKnownEnemies",         SQFM_fnc_groupNearKnownEnemies],
     ["attackGroup",                   SQFM_fnc_groupAttackGroup],
     ["updateBattleStrength", SQFM_fnc_groupUpdateBattleStrength],
     ["combatZone",                     SQFM_fnc_groupCombatZone],

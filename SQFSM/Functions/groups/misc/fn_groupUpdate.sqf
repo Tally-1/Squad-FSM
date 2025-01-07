@@ -4,7 +4,8 @@ _self set ["lastUpdate", time];
 
 private _group        = _self get "grp";
 private _playerGroup  = [_group] call SQFM_fnc_isPlayerGroup;
-if(_playerGroup)exitWith{};
+if(_playerGroup)  exitWith{};
+if(isNull _group) exitWith{};
 
 private _ownerActual  = groupOwner _group;
 private _ownerVirtual = _self get "owner";
@@ -25,6 +26,7 @@ _self call ["updateBattleStrength"];
 _self call ["setIdleState"];
 _self call ["setMapIcon"];
 _self call ["updateTask"];
+_self call ["reconUpdate",[false]];
 _self call ["globalize"];
 
 if(_ownerActual isNotEqualTo _ownerVirtual)then{ 
@@ -32,5 +34,9 @@ if(_ownerActual isNotEqualTo _ownerVirtual)then{
 	_self set ["owner", _ownerActual];
 	[_group] call SQFM_fnc_setGroupOwner;
 };
+
+// Timelimit set in canRegroup function.
+if(_self call ["canRegroup",[false,nil]])
+then{_self call  ["regroup",[false]]};
 
 true;

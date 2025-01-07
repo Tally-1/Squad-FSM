@@ -1,9 +1,10 @@
-private _orange    = [0.85,0.4,0,1];
-private _green     = [0.3,1,0.3,1];
-private _text      = "Battle";
-private _icon      = "\a3\ui_f\data\igui\cfg\simpletasks\types\attack_ca.paa";
-private _iconColor = _orange;
-private _updtTime  = time - (_self get "updateTime");
+private _orange     = [0.85,0.4,0,1];
+private _green      = [0.3,1,0.3,1];
+private _icon       = "\a3\ui_f\data\igui\cfg\simpletasks\types\attack_ca.paa";
+private _iconColor  = _orange;
+private _updtTime   = time - (_self get "updateTime");
+private _battleTime = round(time - (_self get "startTime"));
+private _text       = ["Battle (",_battleTime,"s)"]joinString"";
 
 if(_updtTime < 2)then{
     _text      = "Updated";

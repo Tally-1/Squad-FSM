@@ -1,3 +1,8 @@
+// Used in the activation field of a trigger to send reinforcements from a synched
+// Reforce module to the position of said trigger.
+// Example: 
+// call SQFM_fnc_sendReforceToTrigger;
+
 private _triggerPos = getPosATLVisual thisTrigger;
 private _modules    = synchronizedObjects thisTrigger select {typeOf _x isEqualTo "SQFSM_Reforcer"};
 private _available  = _modules select{
