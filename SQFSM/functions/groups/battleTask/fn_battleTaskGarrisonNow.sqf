@@ -21,7 +21,7 @@ if(_countDiff < (0-2)) exitWith{false};
 _grpData call ["deleteWaypoints"];
 _grpData call ["disableAttack"];
 
-private _wp = _grpData call ["addWaypoint",[_grpPos,75,"WAIT"]];
+private _wp = _grpData call ["addWaypoint",[_grpPos,75,"HOLD"]];
 
 _positions = [_positions, [], {_hostilePos distance _x}, "DESCEND"] call BIS_fnc_sortBy;
 

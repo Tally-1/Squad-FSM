@@ -34,6 +34,7 @@ private _died = !alive _man;
 if(_died)exitWith{false};
 
 private _timedOut = time > _timeLimit;
+if(isNil "_timedOut")exitWith{false};
 if(_timedOut)exitWith{false};
 
 private _repeats = _man getVariable ["FSM_movesRepeated", 0];

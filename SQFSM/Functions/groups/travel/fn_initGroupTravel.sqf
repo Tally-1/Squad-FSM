@@ -9,6 +9,8 @@ private _boardingStatus = _self call ["boardingStatus"];
 private _travelNow      = _distance < SQFM_travelWalkDist || {_boardingStatus isEqualTo "boarded"};
 private _params         = [_movePos, _taskName, _findParking];
 
+// canUnloadInCombat  
+
 // The group moves to its destination as is.
 if(_travelNow)
 exitWith{ 

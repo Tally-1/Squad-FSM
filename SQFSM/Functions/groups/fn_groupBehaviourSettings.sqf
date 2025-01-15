@@ -19,6 +19,8 @@ private _idleCover       = _module getVariable "idlecover";
 private _callTransport   = _module getVariable "allowtransportcall";
 private _useNearVehicles = _module getVariable "usenearvehiclestransport";
 private _forceTravelFoot = _module getVariable "forcetravelonfoot";
+private _allowBattleTask = _module getVariable "allowBattleTask";
+
 
 
 if(_squadType isEqualTo "support")then{
@@ -48,5 +50,6 @@ _huntDistance = selectMin [_huntDistance, SQFM_travelWalkDist];
     _idleCover,
     _callTransport,
     _useNearVehicles,
-    _forceTravelFoot
+    _forceTravelFoot,
+    _allowBattleTask
 ];

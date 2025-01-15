@@ -26,7 +26,8 @@ drawIcon3D [
 
 {drawLine3D _x}forEach(_self get "edgeLines");
 
-if(!isNull (findDisplay 312))then{ 
+if(!isNull (findDisplay 312)
+&&{SQFM_BattleDebugHouses})then{ 
 	
     {
         if(_x distance2D camPos < 300)

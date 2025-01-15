@@ -4,6 +4,9 @@ private _excludedTypes = ["transport","recon"];
 if(_type  in _excludedTypes)exitWith{false};
 if(_class in _excludedTypes)exitWith{false};
 
+private _hasAbility = _self get "allowBattleTask";
+if(!_hasAbility)exitWith{false};
+
 private _isPlayer = _self call ["isPlayerGroup"];
 if(_isPlayer)exitWith{false};
 

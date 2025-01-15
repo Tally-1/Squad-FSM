@@ -6,6 +6,7 @@ _self set["checkBoxes",[
     ["Clear Objectives",              "clearObjectives"],
     ["Push near enemies",                     "canHunt"],
     ["Can reinforce",                    "canReinforce"],
+    ["Allow Battle Tasks",            "allowBattleTask"],
 
     ["Can call Artillery",                "canCallArty"],
     ["Can call reinforcements", "canCallReinforcements"],

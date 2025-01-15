@@ -31,12 +31,15 @@ SQFM_deadGroups          = [];
 SQFM_battleList          = [];
 SQFM_battles             = createHashmapObject [[]];
 SQFM_reinforRequests     = createHashmapObject [[]];
+SQFM_artilleryRequests   = createHashmapObject [[]];
+SQFM_activeArtyRequests  = createHashmapObject [[]];
 SQFM_maxBattleSize       = 1000;
 SQFM_minBattleSize       = 150;
 SQFM_lastBuildingChange  = 0;
 SQFM_safePosLifeTime     = 60;
-SQFM_spawnCooldown       = 30;
+SQFM_spawnCooldown       = 10;
 SQFM_lastFireCheck       = 0-300;
+SQFM_BattleDebugHouses   = false;
 
 /******************{ARRAY ORDER: TIME ADDED}******************/
 SQFM_defaultBehaviour    = [ 
@@ -54,12 +57,15 @@ SQFM_defaultBehaviour    = [
 	SQFM_defaultBehaviourCanIdleCover,             // When a squad is considered Idle it will look for good positions to take cover
 	SQFM_defaultBehaviourCallTransport,            // Can call transport
 	SQFM_defaultBehaviourUseNearVehiclesTransport, // Can use near vehicles for transport
-	SQFM_defaultBehaviourForceTravelOnFoot         // Force Travel on foot when no transport is available
+	SQFM_defaultBehaviourForceTravelOnFoot,        // Force Travel on foot when no transport is available
+	SQFM_defaultBehaviourAllowBattleTask           // Allow squads to Push, flank or Hold during battle (may interfere with FIPOs)
 ];
 
-[missionNamespace, "SQFM_taskGroups",                        [], true] call setGlobalVar;
-[missionNamespace, "SQFM_transportSides",       _transportSides, true] call setGlobalVar;
-[missionNamespace, "SQFM_battles",                 SQFM_battles, true] call setGlobalVar;
-[missionNamespace, "SQFM_reinforRequests", SQFM_reinforRequests, true] call setGlobalVar;
+[missionNamespace, "SQFM_taskGroups",         [],                      true] call setGlobalVar;
+[missionNamespace, "SQFM_transportSides",     _transportSides,         true] call setGlobalVar;
+[missionNamespace, "SQFM_battles",            SQFM_battles,            true] call setGlobalVar;
+[missionNamespace, "SQFM_reinforRequests",    SQFM_reinforRequests,    true] call setGlobalVar;
+[missionNamespace, "SQFM_reinforRequests",    SQFM_artilleryRequests,  true] call setGlobalVar;
+[missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests, true] call setGlobalVar;
 
 call SQFM_fnc_globalizeBattles;

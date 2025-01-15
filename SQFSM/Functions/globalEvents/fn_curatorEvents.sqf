@@ -19,4 +19,14 @@
 		{_this spawn SQFM_fnc_onCuratorObjectDoubleClicked}
 	]] remoteExec ["addEventHandler", 0, true];
 
+	[_x, [
+		"CuratorObjectSelectionChanged", 
+		{_this spawn SQFM_fnc_onCuratorObjectSelection}
+	]] remoteExec ["addEventHandler", 0, true];
+
 } forEach allCurators;
+
+
+// this addEventHandler ["", {
+// 	params ["_curator", "_entity"];
+// }];

@@ -18,11 +18,13 @@ private _strengthText   = [_subCategoryTitle, "Strength: ", _end, _subCategoryTe
 private _abilityString  = call SQFM_fnc_groupDebugTextAbilities;
 private _taskName       = _self get "taskData" get "name";
 private _mechClearing   = _self getOrDefault ["mechClearing", false];
+private _waitingForArty = _self call ["isWaitingForArtillery"];
 private _taskText       = "";
 private _fleeText       = "";
 private _reconText      = "";
 private _battleTaskText = "";
 private _mechText       = "";
+private _artyText       = "";
 
 if(!isNil "_taskName")then{ 
     _taskText = [_newLine,_green,_center,_mediumTxt,"(",_taskName,")",_enddd] joinString"";
@@ -47,6 +49,10 @@ if(fleeing _man)then{
     _fleeText = [_newLine,_red,_center,_mediumTxt,"(FLEEING)",_enddd] joinString"";
 };
 
+if(_waitingForArty)then{
+    _artyText = [_newLine,_orange,_center,_mediumTxt,"(Artillery Request Active)",_enddd] joinString"";
+};
+
 private _text = parseText 
 ([
     _outLine,
@@ -56,6 +62,7 @@ private _text = parseText
     _mechText,
     _battleTaskText,
     _fleeText,
+    _artyText,
     _newLine, _actionText,
     _newLine, _stateText,
     _newLine, _idleText,

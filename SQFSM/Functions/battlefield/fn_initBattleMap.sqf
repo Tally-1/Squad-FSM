@@ -29,6 +29,9 @@ private _dataArr = [
     ["strengthEast",               0],
     ["strengthGuer",               0],
     ["strengthWest",               0],
+    ["eastLastArtyCall",       0-300],
+    ["guerLastArtyCall",       0-300],
+    ["westLastArtyCall",       0-300],
     ["entities",           _entities],
     ["forcedEnd",              false],
     ["buildings",                 []],
@@ -68,6 +71,11 @@ private _dataArr = [
     ["drawOnMap",                       SQFM_fnc_battleDrawOnMap],
     ["strengthSide",               SQFM_fnc_battleStrengthBySide],
     ["posInZone",                       SQFM_fnc_battlePosInZone],
+    ["callArtillery",               SQFM_fnc_battleCallArtillery],
+    ["callArtillerySide",       SQFM_fnc_battleCallArtillerySide],
+    ["setArtyCallTime",           SQFM_fnc_battleSetArtyCallTime],
+    ["getArtyCallTime",           SQFM_fnc_battleGetArtyCallTime],
+    ["battleTime",       {round(time - (_self get "startTime"))}],
 	["initBuildings", {_self spawn SQFM_fnc_initBattleBuildings}]
 ];
 

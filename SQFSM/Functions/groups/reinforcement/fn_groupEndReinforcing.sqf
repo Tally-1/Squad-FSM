@@ -13,7 +13,10 @@ _self call ["setDataDelayed", ["state",      ""]];
 _self call ["leaveUnarmedVehicles"];
 _self deleteAt "travelData";
 
-if(_status isEqualTo "invalid caller")
+if(
+    isNil "_status" ||
+    {_status isEqualTo "invalid caller"}
+)
 exitWith{_self call ["addWaypoint", [_callerPos, 20]]};
 
 private _responder  =  _self get "groupType";

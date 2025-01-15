@@ -143,7 +143,7 @@
 [127m] Battle-task: FLANK
 [132m] Battle-task: Hold/Garrison.
 [33m]  Battletest+minor tweaks
-[85m]  Battletest, bugfixes
+[85m]  Battletest, bugfixes.
 [58m]  Mech clearing text, regroup speed, BT exclude, Reforce setting fix.
 [177m] Objective abort task, Transport abortion, Flanking tweak.
 [62m]  Soldier FSM compatibility (SQFSM side)
@@ -152,3 +152,22 @@
 [39m]  Second battletest, some refactoring.
 [61m]  Final refactoring before packing.
 [103m] Final pre-release test/fixes & packing.
+
+--{**0.74**}--
+24.81 hours (1489 minutes)
+
+[15m]  Changelog and Upload of Squad FSM 0.73.
+[196m] Basic Fire functionality, ammo data, group classing, Arty status.
+[113m] Firemission framework, exception handling.
+[145m] Arty select hint, refactoring, CBA (initial).
+[139m] Artillery request-respond initial framework.
+[80m]  Artillery group-request, Radio chatter.
+[164m] Recon-Loop Artillery call, Strike position algorythm.
+[105m] Tweaks, tests, bugfixes, Radio chatter.
+[53m]  Allow Battle tasks behaviour option, first shot.
+[125m] Battle artillery calls.
+[54m]  Battle test, minor fixes.
+[83m]  Artillery strike debug (map & 3D).
+[98m]  CBA options(complete), Refactorng all new functions.
+[62m]  Battle test & minor fixes.
+[57m]  Packing, Local test, Bugfixes.

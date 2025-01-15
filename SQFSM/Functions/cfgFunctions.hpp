@@ -9,7 +9,46 @@ class CfgFunctions
             class simpleSelfActionAce   {};
             class selfActionCategoryACE {};
 
-        }
+        };
+
+        class artillery
+        {
+            file = "\SQFSM\functions\artillery";
+            class initArtilleryRequestMap              {};
+            class addArtilleryRequest                  {};
+            class isLethalArtyAmmo                     {};
+            class artilleryHasLethalAmmo               {};
+            class isArtillery                          {};
+            class artilleryStatus                      {};
+            class artilleryAmmoData                    {};
+            class artilleryFireMissionComplete         {};
+            class artilleryInitFireMission             {};
+            class artilleryEndFireMission              {};
+            class onArtyFired                          {};
+            class artilleryHasActiveFireMission        {};
+            class artilleryFireEh                      {};
+            class artilleryDebugHint                   {};
+            class artilleryCanFireOnPos                {};
+            class artilleryGetRoundCount               {};
+            class artilleryTargetPosArr                {};
+            class isAvailArtySquad                     {};
+            class getArtillerySquads                   {};
+            class artilleryDenyAllRequests             {};
+            class artilleryHandleSideRequests          {};
+            class artilleryHandleAllRequests           {};
+            class artilleryRequestRadioResponse        {};
+            class artilleryRespondRequest              {};
+            class artilleryValidStrikePos              {};
+            class artilleryFireMissionRadioPrepare     {};
+            class artilleryFireMissionRadioFirst       {};
+            class artilleryFireMissionRadioLast        {};
+            class artilleryFireMissionUpdate           {};
+            class artilleryFireOnPos                   {};
+            class artilleryFirstShot                   {};
+            class artilleryFireMissionVerifyFirstRound {};
+            class updateActiveArtyRequests             {};
+
+        };
         
         class direct_control
         {
@@ -46,7 +85,6 @@ class CfgFunctions
             class battlefieldDimensions         {};
             class battlefieldCenter             {};
             class getBattleGrid                 {};
-
             class posInBattleZone               {};
             class nearestBattlePosRad           {};
             class distanceToNearestBattle       {};
@@ -54,19 +92,22 @@ class CfgFunctions
             class endBattleGroups               {};
             class onBattleFirstShot             {};
             class timeSinceLastBattleShot       {};
-            
             class endBattle                     {};
             class globalizeBattles              {};
             class battleReinforcements          {};
             class battleReinforceSide           {};
             class battleSideNeedsReinforcements {};
-
-            // class battleHudBroadcast            {};
             class battleReplenishGroups         {};
             class getBattleOnPos                {};
             class shareBattleKnowledge          {};
             class battlePosInZone               {};
             class battleStrengthBySide          {};
+
+            class battleSetArtyCallTime         {};
+            class battleGetArtyCallTime         {};
+            class battleCallArtillery           {};
+            class battleCallArtillerySide       {};
+
 
         };
 
@@ -150,6 +191,8 @@ class CfgFunctions
             class updateDebugHud                {};
             class selectedMan3D                 {};
             class showDestinations3D            {};
+            class drawArtyRequests3D            {};
+            class artyRequest3D                 {};
         };
 
         class mapDrawing
@@ -161,6 +204,14 @@ class CfgFunctions
           
         };
 
+        class mapDrawing_artillery
+        {
+            file = "\SQFSM\functions\mapDrawing\artillery";
+            class drawArtyRequestsMap {};
+            class artyRequestMap      {};
+
+        };
+        
         class mapDrawing_objectives
         {
             file = "\SQFSM\functions\mapDrawing\objectives";
@@ -227,6 +278,7 @@ class CfgFunctions
             class setGlobalVar           {};
             class objectName             {};
             class playableUnit           {};
+            class magazineData           {};
             
         };
 
@@ -558,6 +610,25 @@ class CfgFunctions
             class groupDefendOnly            {};
         };
 
+        class groups_artillery
+        {
+            file = "\SQFSM\functions\groups\artillery";
+            class groupArtilleryPieces               {};
+            class groupArtilleryAvailable            {};
+            class groupArtilleryOnDelay              {};
+            class groupArtilleryCanFireAtPos         {};
+            class groupArtilleryFireMission          {};
+            class groupArtilleryGetSquads            {};
+            class groupArtilleryTimeSinceRequest     {};
+            class groupArtilleryRequestRadio         {};
+            class groupArtilleryValidStrikePositions {};
+            class groupArtilleryHasRequest           {};
+            class groupArtilleryCanRequest           {};
+            class groupReconCallArty                 {};
+            class groupArtilleryRequest              {};
+            class groupBattleCallArty                {};
+        };
+
         class groups_battleTask
         {
             file = "\SQFSM\functions\groups\battleTask";
@@ -859,16 +930,17 @@ class CfgFunctions
         class groups_misc
         {
             file = "\SQFSM\functions\groups\misc";
-            class groupUpdate              {};
-            class activeWp                 {};
-            class getCategorizedGroups     {};
-            class assignAllGroupTasks      {};
-            class groupSetDataDelayed      {};
-            class groupUnstop              {};
-            class groupTargetVisible       {};
-            class groupRevealTargets       {};
-            class groupToggleExternalAi    {};
-            class groupReconUpdate         {};
+            class groupUpdate                {};
+            class activeWp                   {};
+            class getCategorizedGroups       {};
+            class assignAllGroupTasks        {};
+            class groupSetDataDelayed        {};
+            class groupUnstop                {};
+            class groupTargetVisible         {};
+            class groupRevealTargets         {};
+            class groupToggleExternalAi      {};
+            class groupReconUpdate           {};
+            class groupReconUpdateDangerMode {};
         };
 
         class groups_reinforcement_radio
@@ -1030,6 +1102,7 @@ class CfgFunctions
             class curatorEvents                {};
             class onCuratorGroupSelection      {};
             class onCuratorGroupDoubleClick    {};
+            class onCuratorObjectSelection     {};
             class buildingChangedEh            {};
             class onCuratorWaypoint            {};
             class onCuratorObjectDoubleClicked {};

@@ -120,12 +120,13 @@ then{_defaultPushDistance = SQFM_travelWalkDist};
 	1
 ] call CBA_fnc_addSetting;
 
-/*
-- Squad travel options:
-    * Can call
-    * Can Use
-    * Travel on foot
-*/
+[
+	"SQFM_defaultBehaviourAllowBattleTask",
+	"CHECKBOX",
+	["Allow Battle Tasks", "Allow squads to Push, flank or Hold during battle (may interfere with FIPOs)"],
+	_versionName,
+	true
+] call CBA_fnc_addSetting;
 
 [
 	"SQFM_defaultBehaviourCallTransport",

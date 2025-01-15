@@ -7,7 +7,7 @@ params[
 private _guerSide  = _center;
 private _getStatus = {
     params[["_coef",nil,[0]]];
-    if(_coef<40)exitWith{"Loosing"};
+    if(_coef<40)exitWith{"Losing"};
     if(_coef>60)exitWith{"Winning"};
     "Even force";
 };

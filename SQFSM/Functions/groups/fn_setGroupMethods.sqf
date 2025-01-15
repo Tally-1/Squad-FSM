@@ -24,6 +24,8 @@ private _methods = [
     ["drawOnMapMouseOver",     SQFM_fnc_groupDrawOnMapMouseOver],
     ["sinceSpawn",                 {time - (_self get "birth")}],
     ["reconUpdate",                   SQFM_fnc_groupReconUpdate],
+    ["reconDangerMode",     SQFM_fnc_groupReconUpdateDangerMode],
+    ["reconCallArty",               SQFM_fnc_groupReconCallArty],
     // ["availableForNewTask",      SQFM_fnc_groupAvailableForTask],
     // endPlayerTransport
     /**********************{TRAVEL}*****************************/
@@ -153,6 +155,21 @@ private _methods = [
     ["getHostileBattleGroups", SQFM_fnc_groupGetHostileBattleGroups],
     ["getBattleStatus",               SQFM_fnc_groupGetBattleStatus],
     ["battleAbortObjective", SQFM_fnc_groupBattleAbortObjectiveTask],
+
+	/************************{Artillery}*************************/
+	["artilleryAvailable",                 SQFM_fnc_groupArtilleryAvailable],
+    ["artilleryFireMission",             SQFM_fnc_groupArtilleryFireMission],
+	["artilleryPieces",                       SQFM_fnc_groupArtilleryPieces],
+    ["isWaitingForArtillery",             SQFM_fnc_groupArtilleryHasRequest],
+    ["artilleryOnDelay",                     SQFM_fnc_groupArtilleryOnDelay],
+    ["artilleryCanFireAtPos",           SQFM_fnc_groupArtilleryCanFireAtPos],
+    ["canRequestArtillery",               SQFM_fnc_groupArtilleryCanRequest],
+    ["requestArtillery",                     SQFM_fnc_groupArtilleryRequest],
+    ["artilleryStrikePositions", SQFM_fnc_groupArtilleryValidStrikePositions],
+    ["radioRequestArtillery",           SQFM_fnc_groupArtilleryRequestRadio],
+    ["artilleryTimeSinceRequest",   SQFM_fnc_groupArtilleryTimeSinceRequest],
+    ["getArtySquads",                      SQFM_fnc_groupArtilleryGetSquads],
+    ["battleCallArty",                         SQFM_fnc_groupBattleCallArty],
 
     /**********************{TACTICS}***************************/
     ["garrison",                                   SQFM_fnc_groupGarrison],

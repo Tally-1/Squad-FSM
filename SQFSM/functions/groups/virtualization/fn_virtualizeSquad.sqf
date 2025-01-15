@@ -3,6 +3,8 @@ params[
     ["_deleteAll", nil,   [true]]
 ];
 private _data            = _group call getData;
+if(isNil "_data")exitWith{if(_deleteAll)then{{deleteVehicle _x}foreach units _group}};
+
 private _vehicles        = _data call ["getVehiclesInUse"];
 private _men             = _data call ["getUnits"];
 private _virtualMen      = _men apply {[_x] call SQFM_fnc_virtualizeMan};

@@ -8,6 +8,8 @@ private _available = _groupsMap call ["getAvailable",["reinforcements", _side]];
 // if(_available isEqualTo [])exitWith{};
 
 private _requestList      = SQFM_reinforRequests get _side;
+if(isNil "_requestList")exitWith{};
+
 private _sortedRequests   = [_requestList, [], {_x#2}, "ASCEND"] call BIS_fnc_sortBy;
 private _requesterGroups  = _requestList apply {_x#1};
 private _assignedGroups   = [];

@@ -64,13 +64,15 @@ class allowArtySupportCall : Checkbox
     defaultValue = "true";
 };
 
-class allowAirSupportCall : Checkbox
+
+class allowBattleTask : Checkbox
 {
-    property     = "SQFSM_allowAirSupportCall";
-    displayName  = "Can call CAS";
-    tooltip      = "If checked this squad will be able to call for Close Air Support.";
+    property     = "SQFSM_allowBattleTask";
+    displayName  = "Allow Battle Tasks";
+    tooltip      = "Allow squads to Push, Flank or Hold during battle (may interfere with FIPOs)";
     defaultValue = "true";
 };
+
 
 class allowReinforcementCall : Checkbox
 {

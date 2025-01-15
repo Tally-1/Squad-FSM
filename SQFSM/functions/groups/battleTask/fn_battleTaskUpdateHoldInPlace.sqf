@@ -16,7 +16,7 @@ _group setCombatBehaviour "STEALTH";
     if(_setCombatMode) then{_x setUnitCombatMode "GREEN"};
     if(_setBehaviour)  then{_x setCombatBehaviour "STEALTH"};
     if(_canTarget)     then{_x disableAI "TARGET"};
-    if(_allowExtAi)    then{[_x] call SQFM_fnc_manToggleExternalAi};
+    if(_allowExtAi)    then{[_x, true] call SQFM_fnc_manToggleExternalAi};
     
 } forEach _men;
 

@@ -3,7 +3,10 @@ _self call ["deleteWaypoints"];
 
 private _group         = _self get "grp";
 private _leaderVehicle = vehicle formationLeader leader _group;
-private _formLoop      = [_leaderVehicle] spawn SQFM_fnc_keepMechFormationLoop;
+private _isMan         = _leaderVehicle isKindOf "caManBase";
+if(_isMan)exitWith{};
+
+private _formLoop      = [_leaderVehicle, _group] spawn SQFM_fnc_keepMechFormationLoop;
 private _formation     = formation _group;
 private _men           = _self call ["getUnitsOnfoot"];
 

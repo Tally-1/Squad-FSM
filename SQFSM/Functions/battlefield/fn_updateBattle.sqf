@@ -35,6 +35,7 @@ private _stengthWest       = _self call ["strengthSide", west];
 
 _self call ["reinforcements"]; 
 _self call ["replenishGroups"];
+_self call ["callArtillery"];
 _self call ["battleTaskGroups"];
 
 _self set  ["strengthEast",  _stengthEast];

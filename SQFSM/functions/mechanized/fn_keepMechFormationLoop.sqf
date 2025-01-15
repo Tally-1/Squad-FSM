@@ -1,9 +1,14 @@
 params[
-    ["_leaderVehicle", nil, [objNull]]
+    ["_leaderVehicle", nil,[objNull]],
+    ["_group",         nil,[grpNull]]
 ];
+private _ldrVeh      = vehicle formationLeader leader _group;
+private _validLeader = _ldrVeh isEqualTo _leaderVehicle &&{[_leaderVehicle] call SQFM_fnc_validVehicle};
 
-while {[_leaderVehicle] call SQFM_fnc_validVehicle} do {
-        private _group    = group _leaderVehicle;
+while {_validLeader} do {
+        _ldrVeh      = vehicle formationLeader leader _group;
+        _validLeader = _ldrVeh isEqualTo _leaderVehicle &&{[_leaderVehicle] call SQFM_fnc_validVehicle};
+
         private _data     = _group call getData;
         if(isNil "_data") exitWith{};
         
@@ -32,6 +37,7 @@ while {[_leaderVehicle] call SQFM_fnc_validVehicle} do {
                 _wp = _data call ["currentWaypoint"];
                 _driver disableAI "path";
                 [_men] call SQFM_fnc_enforceFormation;
+                _data call ["regroup",[false]];
                 _driver enableAI "path";
 
                 if(!isNil "_wp")

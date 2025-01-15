@@ -6,10 +6,12 @@ private _hasTransport     = _self call    ["canSelfTransport"];
 private _hasTransportNear = _self call ["enoughTransportNear"];
 private _canTransport     = _hasTransport || _hasTransportNear;
 private _boardingMehtod   = "boardOwnVehicles";
+private _men              = _self call ["getUnitsOnfoot"];
 
 if!(_canTransport)exitWith{false;};
 if!(_hasTransport)then{_boardingMehtod = "boardAllAvailable";};
 
+_men allowGetIn true;
 _self set  ["action", "boarding"];
 _self set  ["state", "boarding"];
 _self call [_boardingMehtod];

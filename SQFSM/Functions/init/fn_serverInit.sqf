@@ -8,6 +8,7 @@ call SQFM_fnc_curatorEvents;
 call SQFM_fnc_buildingChangedEh;
 call SQFM_fnc_initReinforRequestsMap;
 call SQFM_fnc_initAtSupportRequestsMap;
+call SQFM_fnc_initArtilleryRequestMap;
 call SQFM_fnc_playerConnectedEh;
 
 {[_x] call SQFM_fnc_initGroup}            forEach allGroups;

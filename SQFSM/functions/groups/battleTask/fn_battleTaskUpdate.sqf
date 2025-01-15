@@ -13,6 +13,12 @@ private _target       = _self get "target";
 private _valid        = [_target] call SQFM_fnc_validGroup;
 if(!_valid)exitWith{_self call ["end",[true]]};
 
+private _grpData  = _group call getData;
+if(isNil "_grpData")exitWith{_self call ["end",[true]]};
+
+private _activeWp = _grpData call ["activeWp"];
+if(isNil "_activeWp") exitWith {_self call ["end",[true]]};
+if(!_activeWp)        exitWith {["end",[true]]};
 
 private _taskType = _self get "type";
 if(_taskType isEqualTo "push")  exitWith{_self call ["updatePush"]};

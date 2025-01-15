@@ -17,7 +17,8 @@ params[
     ["_idleCover",       nil,  [true]],
     ["_callTransport",   nil,  [true]],
     ["_useNearVehicles", nil,  [true]],
-    ["_forceTravelFoot", nil,  [true]]
+    ["_forceTravelFoot", nil,  [true]],
+    ["_allowBattleTask", nil,  [true]]
 ];
 
 private _recon    = _squadClass isEqualTo "recon";
@@ -30,6 +31,11 @@ if(_recon)then{
     _hunt         = false;
     _idleCover    = false;
     _huntDistance = 0;
+    {
+        _x setSkill ["spotTime",     1];
+        _x setSkill ["spotDistance", 1];
+        _x setSkill ["commanding",   1];
+    } forEach units _group;
 };
 
 private _dataArr  = [ 
@@ -45,6 +51,8 @@ private _dataArr  = [
     ["lastFireCheck",          0-300],
     ["lastUpdate",             0-300],
     ["lastReconUpdate",        0-300],
+    ["lastArtyCall",           0-300],
+    ["artyRequestEnd",         0-300],
     ["action-flash",          [0,""]],
     ["grp",                   _group],
     ["owner",      groupOwner _group],
@@ -75,6 +83,7 @@ private _dataArr  = [
     ["mapIcon",             _mapIcon],
     ["mapColor",           _mapColor],
     ["objective",            objNull],
+    ["activeArty",           objNull],
     ["taskData",           _emptyMap],
     ["unitEvHandlers",            []],
 
@@ -96,7 +105,8 @@ private _dataArr  = [
     ["canIdleCover",              _idleCover],
     ["canGetTransport",       _callTransport],
     ["canUseNearVehicles",  _useNearVehicles],
-    ["forceTravelOnFoot",   _forceTravelFoot]
+    ["forceTravelOnFoot",   _forceTravelFoot],
+    ["allowBattleTask",     _allowBattleTask]
 ];
 
 private _data = createHashmapObject [_dataArr];
