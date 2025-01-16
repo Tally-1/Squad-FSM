@@ -26,4 +26,6 @@ if(_reloadNow)then{
 private _completed   = _self call ["isCompleted"];
 if(_completed)exitWith{_self call ["end"]};
 
+_self call ["globalize"];
+
 false;

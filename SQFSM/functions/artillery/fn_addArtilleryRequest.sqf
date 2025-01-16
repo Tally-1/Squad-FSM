@@ -15,8 +15,4 @@ exitWith{"Artillery request ignored, caller is already in list" call dbgm};
 _requestList pushBackUnique _request;
 "Request for artillery registered" call dbgm;
 
-[
-    missionNamespace, 
-    "SQFM_artilleryRequests", 
-    SQFM_artilleryRequests
-] call setGlobalVar;
+[missionNamespace, "SQFM_artilleryRequests", SQFM_artilleryRequests] call setGlobalVar;

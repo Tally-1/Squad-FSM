@@ -22,5 +22,6 @@ SQFM_artilleryRequests;
 [
     missionNamespace, 
     "SQFM_artilleryRequests", 
-    SQFM_artilleryRequests
+    SQFM_artilleryRequests,
+    true
 ] call setGlobalVar;

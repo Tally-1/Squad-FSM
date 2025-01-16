@@ -3,6 +3,14 @@ private _self         = _this;
 private _group        = _self get "grp";
 private _objModule    = _self get "objective";
 private _objData      = _objModule call getData;
+if(isNil "_objData")exitWith{ 
+    _self call ["deleteWaypoints"];
+    _self call ["unAssignObjective"];
+    _self call ["endMechClearing"];
+    _self set  ["action", ""];
+    _self set  ["state",  ""];
+};
+
 private _valid        = _self call ["isValid"];
 private _groupPresent = (_self call ["isInsideObjective",[_objModule]]);
 private _description  = _objData get "description";

@@ -14,5 +14,6 @@ private _toDelete = [];
     
 } forEach _toDelete;
 
+[missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests, true] call setGlobalVar;
 
 true;

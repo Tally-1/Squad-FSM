@@ -11,7 +11,7 @@ for"_i"from 1 to 3 do {
     _hasFired = _self call ["hasFired"];
     if(_hasFired)exitWith{};
 
-    private _eta = _vehicle getArtilleryETA [_targetPos, _magazine];
+    private _eta = ceil (_vehicle getArtilleryETA [_targetPos, _magazine]);
     [["Firing artillery failed, trying again. ETA: ", _eta]] call dbgm;
 
     _firePos = selectRandom _positions;

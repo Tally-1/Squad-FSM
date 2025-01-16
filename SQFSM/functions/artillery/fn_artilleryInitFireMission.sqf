@@ -16,6 +16,8 @@ private _color      = [side _caller]call SQFM_fnc_sideColor;
 private _timeLimit  = (time + (_rounds*10))+20;
 private _missionId  = str [_targetPos,_caller,_vehicle,time,round random 1000000];
 private _gunner     = gunner _vehicle;
+private _globalize  = {[(_self get "vehicle"), "SQFM_fireMission", _fireMission] call setGlobalVar};
+
 private _dataArr = [
     ["vehicle",           _vehicle],
     ["missionId",       _missionId],
@@ -38,14 +40,16 @@ private _dataArr = [
     ["radioFirst",                         SQFM_fnc_artilleryFireMissionRadioFirst],
     ["radioLast",                           SQFM_fnc_artilleryFireMissionRadioLast],
     ["update",                                 SQFM_fnc_artilleryFireMissionUpdate],
+    ["globalize",                              SQFM_fnc_artilleryFireMissionUpdate],
     ["verifyFirstRound",             SQFM_fnc_artilleryFireMissionVerifyFirstRound],
     ["hasFired",         {(_self get "count")isNotEqualTo(_self get "countTotal")}],
     ["end",                                       SQFM_fnc_artilleryEndFireMission]
 ];
 
 private _fireMission = createHashmapObject [_dataArr];
+[_vehicle, "SQFM_fireMission", _fireMission] call setGlobalVar;
 
-_vehicle setVariable ["SQFM_fireMission", _fireMission, true];
+
 _color      set [3,0.5];
 if(!isNil "_callerData")then{ 
     _callerData set  ["activeArty", _vehicle];

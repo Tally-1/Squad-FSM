@@ -171,3 +171,8 @@
 [98m]  CBA options(complete), Refactorng all new functions.
 [62m]  Battle test & minor fixes.
 [57m]  Packing, Local test, Bugfixes.
+
+
+--{**0.75**}--
+[11m]  Uploading + changelog of SQFSM 0.74
+[115m] Dedicated tests and quickfixes

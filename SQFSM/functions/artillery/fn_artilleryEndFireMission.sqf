@@ -8,6 +8,7 @@ if(!isNull _caller)then{
     _data call ["globalize"];
 };
 
-_self set ["complete", true];
+_self set  ["complete", true];
+_self call ["globalize"];
 
 true;

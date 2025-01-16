@@ -67,5 +67,7 @@ SQFM_defaultBehaviour    = [
 [missionNamespace, "SQFM_reinforRequests",    SQFM_reinforRequests,    true] call setGlobalVar;
 [missionNamespace, "SQFM_reinforRequests",    SQFM_artilleryRequests,  true] call setGlobalVar;
 [missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests, true] call setGlobalVar;
+[missionNamespace, "SQFM_spawnCooldown",      SQFM_spawnCooldown,      true] call setGlobalVar;
+[missionNamespace, "SQFM_maxObjectiveRange",  SQFM_maxObjectiveRange,  true] call setGlobalVar;
 
 call SQFM_fnc_globalizeBattles;
