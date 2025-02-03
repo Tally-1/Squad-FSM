@@ -47,6 +47,11 @@ class CfgFunctions
             class artilleryFirstShot                   {};
             class artilleryFireMissionVerifyFirstRound {};
             class updateActiveArtyRequests             {};
+            class playerRequestArtyAction              {};
+            class playerRequestArty                    {};
+            class playerRequestArtyServer              {};
+            class artySelectPosTip                     {};
+            class selectArtyStrikePos                  {};
 
         };
         
@@ -248,6 +253,8 @@ class CfgFunctions
         {
             file = "\SQFSM\functions\misc";
             class copyHashmap            {};
+            class hashToNoCodeArr        {};
+            class applyKeyValArrToHash   {};
             class sideToStrSide          {};
             class removeNull             {};
             class getData                {};
@@ -279,6 +286,7 @@ class CfgFunctions
             class objectName             {};
             class playableUnit           {};
             class magazineData           {};
+            class currentMan             {};
             
         };
 
@@ -600,6 +608,7 @@ class CfgFunctions
             class setGroupOwner                     {};
             class updateGroupSideKnowledgeOnTargets {};
             class groupGlobalizeData                {};
+            class applyGroupKeyValArr               {};
         };
 
         class groups_abilities

@@ -20,8 +20,10 @@ _group setFormDir getDir _leaderVehicle;
     private _distance  = if(!isNil "_position")then{_x distance _position}else{0};
     private _timeLimit = selectMin [30, round _distance+10];
     _x setUnitPos "UP";
-    if(_timeLimit >= 10
-    &&{_distance > 5})then{ 
+    if(!isNil "_position"
+	&&{_timeLimit >= 10
+    &&{_distance > 5
+	}})then{ 
         _scripts pushBack 
         ([
             _x, 
@@ -41,6 +43,7 @@ _data call ["toggleExternalAi",[false]];
 [_scripts, 30] call SQFM_fnc_waitForScriptList;
 
 {_x setUnitPos "AUTO"} forEach _men;
+
 _data call ["toggleExternalAi",[true]];
 
 true;

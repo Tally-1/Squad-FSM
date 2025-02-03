@@ -1,3 +1,11 @@
+params[
+	["_ignorePlayers",nil,[true]]
+];
+
+private _isPlayer = _self call ["isPlayerGroup"];
+private _denyPlayer = (!_ignorePlayers)&&{_isPlayer};
+if(_denyPlayer)exitWith{false};
+
 private _hasAbility = _self get "canCallArty";
 if(!_hasAbility)exitWith{false};
 

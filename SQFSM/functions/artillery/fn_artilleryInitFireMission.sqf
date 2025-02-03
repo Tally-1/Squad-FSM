@@ -40,7 +40,7 @@ private _dataArr = [
     ["radioFirst",                         SQFM_fnc_artilleryFireMissionRadioFirst],
     ["radioLast",                           SQFM_fnc_artilleryFireMissionRadioLast],
     ["update",                                 SQFM_fnc_artilleryFireMissionUpdate],
-    ["globalize",                              SQFM_fnc_artilleryFireMissionUpdate],
+    ["globalize",                                                       _globalize],
     ["verifyFirstRound",             SQFM_fnc_artilleryFireMissionVerifyFirstRound],
     ["hasFired",         {(_self get "count")isNotEqualTo(_self get "countTotal")}],
     ["end",                                       SQFM_fnc_artilleryEndFireMission]
@@ -66,6 +66,7 @@ SQFM_activeArtyRequests set [
     ]
 ];
 
-[missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests, true] call setGlobalVar;
+["SQFM_newArtyStrike", [_caller, _vehicle, _targetPos]] call CBA_fnc_localEvent;
+[missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests] call setGlobalVar;
 
 _fireMission;

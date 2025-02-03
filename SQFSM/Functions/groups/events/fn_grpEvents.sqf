@@ -1,5 +1,9 @@
 params [["_group", nil, [grpNull]]];
+if(isNil "_group") exitWith{};
+if(isNull _group)  exitWith{};
+
 private _data = _group call getData;
+if(isNil "_data") exitWith{};
 
 _group addEventHandler ["Empty",            {SQFM_deadGroups pushBackUnique (_this#0)}];
 _group addEventHandler ["EnemyDetected",         {_this call SQFM_fnc_onEnemyDetected}];

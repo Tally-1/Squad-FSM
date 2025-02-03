@@ -5,6 +5,8 @@ params [
     ["_combatMode", nil,      [""]],
     ["_speedMode", nil,      [""]]
 ];
+if(isNull _group)exitWith{};
+
 private _timer    = time+120;
 private _grpData  = _group call getData;
 private _taskData = _grpData call ["getTaskData"];
@@ -40,3 +42,5 @@ _leader setUnitPos   "AUTO";
     _x setAnimSpeedCoef 1;
 
 } forEach _men;
+
+true;

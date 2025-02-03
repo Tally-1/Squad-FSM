@@ -10,6 +10,9 @@ waitUntil {isTouchingGround player};
 	private _addTrAction  = _hasTransport &&{_playable&&{[_x] call SQFM_fnc_isRealMan}};
 	
 	if(_addTrAction) then {[_x] call SQFM_fnc_callTransportAction};
-	if(_playable)    then {[_x] call SQFM_fnc_callReinforcementsAction};
+	if(_playable)    then {
+		[_x] call SQFM_fnc_playerRequestArtyAction;
+		[_x] call SQFM_fnc_callReinforcementsAction;
+	};
 	
 } forEach allUnits;

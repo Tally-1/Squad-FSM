@@ -9,7 +9,7 @@ if(_time < _minTime)exitWith{false};
 private _callers = (_self get"groups")select{
     private _rightSide = side _x isEqualTo _side;
     private _data      = _x call getData;
-    private _canCall   = _rightSide &&{_data call ["canRequestArtillery"]};
+    private _canCall   = _rightSide &&{_data call ["canRequestArtillery",[false]]};
     
     _canCall;
 };

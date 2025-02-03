@@ -20,7 +20,7 @@ _fireMission set ["count", _remaining];
 _strikeDebug set [3, _arrival];
 _vehicle setVariable ["SQFM_lastArtyFire", round time, true];
 
-[missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests, true] call setGlobalVar;
+[missionNamespace, "SQFM_activeArtyRequests", SQFM_activeArtyRequests] call setGlobalVar;
 
 private _completed = _fireMission call ["update"];
 if(_first)     then{_fireMission call ["radioFirst"]};
@@ -36,6 +36,6 @@ private _positions = _fireMission get "positions";
 private _magazine  = _fireMission get "magazine";
 private _targetPos = selectRandom _positions;
 
-_vehicle commandArtilleryFire [_targetPos, _magazine, 1];
+[_vehicle, [_targetPos, _magazine, 1]]remoteExec["doArtilleryFire"];
 
 true;

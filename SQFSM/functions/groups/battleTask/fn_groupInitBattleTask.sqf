@@ -1,6 +1,8 @@
 params[
     ["_battle",nil,[createHashmap]]
 ];
+if!(_self call ["isValid"])exitWith{};
+
 private _status    = _self call ["getBattleStatus",        [_battle]];
 private _hostiles  = _self call ["getHostileBattleGroups", [_battle]];
 if(_hostiles isEqualTo [])exitWith{};

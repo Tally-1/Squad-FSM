@@ -15,7 +15,7 @@ sleep SQFM_artyDelay;
 
 _vehicle setVariable ["SQFM_preparingArtyFire",false,true];
 
-_vehicle commandArtilleryFire [_firePos, _magazine, 1];
+[_vehicle, [_firePos, _magazine, 1]]remoteExec["doArtilleryFire"];
 
 _fireMission call ["verifyFirstRound"];
 

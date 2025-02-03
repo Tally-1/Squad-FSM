@@ -50,6 +50,7 @@ private _dataArr  = [
     ["lastAtCheck",            0-300],
     ["lastFireCheck",          0-300],
     ["lastUpdate",             0-300],
+    ["lastGlobal",             0-300],
     ["lastReconUpdate",        0-300],
     ["lastArtyCall",           0-300],
     ["artyRequestEnd",         0-300],

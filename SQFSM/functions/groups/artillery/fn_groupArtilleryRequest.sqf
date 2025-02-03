@@ -1,7 +1,7 @@
 params[
     ["_position",nil,[[]]]
 ];
-private _canRequest = _self call ["canRequestArtillery"];
+private _canRequest = _self call ["canRequestArtillery",[false]];
 if(!_canRequest)exitWith{
     "Artillery cannot be called by this group" call dbgm;
     false;

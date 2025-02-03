@@ -14,9 +14,9 @@ params [
 ];
 
 
-if(_canTARGET)     then{_man enableAI "TARGET"};
-if(_canAUTOCOMBAT) then{_man enableAI "AUTOCOMBAT"};
-if(_canAUTOTARGET) then{
+if(isNil "_canTARGET"     || {_canTARGET})     then{_man enableAI "TARGET"};
+if(isNil "_canAUTOCOMBAT" || {_canAUTOCOMBAT}) then{_man enableAI "AUTOCOMBAT"};
+if(isNil "_canAUTOTARGET" || {_canAUTOTARGET}) then{
 	_man enableAI "AUTOTARGET";
 	[_man] call SQFM_fnc_removeMoveManFsmCombatEh
 };

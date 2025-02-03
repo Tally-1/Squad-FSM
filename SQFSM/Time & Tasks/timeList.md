@@ -174,5 +174,10 @@
 
 
 --{**0.75**}--
+7.56 hours (454 minutes)
+
 [11m]  Uploading + changelog of SQFSM 0.74
-[115m] Dedicated tests and quickfixes
+[115m] Dedicated tests and quickfixes.
+[153m] More tests and debugging on dedicated server.
+[95m]  Player Artillery call, minor tests/bugfixes.
+[80m]  Post packing tests & bugfixes.

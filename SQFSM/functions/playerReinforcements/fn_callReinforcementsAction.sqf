@@ -9,7 +9,7 @@ private _title     = "<t color='#95f8de'>Call Reinforcements</t>";
 private _code      = {[] spawn SQFM_fnc_playerCallReinforcements};
 private _condition = "
     _this isEqualTo _target
-    &&{[_this] call SQFM_fnc_callTransportActionCondition};
+    &&{[_this] call SQFM_fnc_callReinforcementsActionCondition};
 ";
 
 private _actionId = 

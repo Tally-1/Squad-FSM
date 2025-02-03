@@ -10,6 +10,18 @@ params[
 
 private _group     = _self get "grp";
 private _groupData = _group getVariable "SQFM_grpData";
+if(isNil "_groupData"&&{!canSuspend})exitWith{};
+if(isNil "_groupData")then{
+    private _timer = time+10;
+    waitUntil{
+        sleep 1;
+        _groupData = _group getVariable "SQFM_grpData";
+        if(!isNil "_groupData")exitWith{true};
+        if(_timer<time)exitWith{true};
+        false;
+    };
+};
+
 private _wayPoint  = _group addWaypoint [_pos, _randomRad];
 private _recon     = (_groupData get "squadClass") isEqualTo "recon";
 private _setBehaviour = (!isNil "_behaviour") && {!_recon};

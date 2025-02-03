@@ -9,6 +9,8 @@ private _hostile = [_man, _enemy] call SQFM_fnc_hostile;
 if!(_hostile)exitWith{};
 
 private _transportGroup = group _man;
+if(isNull _transportGroup)  exitWith{};
+
 private _taskData = (_transportGroup call getData) call ["getTaskData"];
 if(!isNil "_taskData")then{ 
     _taskData set  ["enemy",     _enemy];

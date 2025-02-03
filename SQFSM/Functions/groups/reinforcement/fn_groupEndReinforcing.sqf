@@ -1,6 +1,6 @@
 params[
-    ["_status",      nil,      [""]],
-    ["_targetGroup", nil, [grpNull]]  // Can be either a hostile group, or the group that called for reinforcments
+    "_status",
+    "_target"  // Can be either a hostile group, or the group that called for reinforcments
 ];
 private _taskData  = _self call ["getTaskData"];
 private _callerPos = (_taskData get"params")#0;
@@ -14,9 +14,12 @@ _self call ["leaveUnarmedVehicles"];
 _self deleteAt "travelData";
 
 if(
-    isNil "_status" ||
-    {_status isEqualTo "invalid caller"}
-)
+    isNil "_status"
+    ||{isNil "_target"
+    ||{_status isEqualTo "invalid caller"
+    ||{typeName _target isNotEqualTo "GROUP"
+    ||{typeName _status isNotEqualTo "STRING"
+}}}})
 exitWith{_self call ["addWaypoint", [_callerPos, 20]]};
 
 private _responder  =  _self get "groupType";
@@ -48,7 +51,7 @@ exitWith{
     _self call ["setDataDelayed", ["action", _status]];
     _msg = [_msg, " They are engaging the enemy!"]joinString"";
     [[_side, "base"], _msg] remoteExecCall ["sideChat"];
-    _self call ["attackGroup",[_targetGroup]];
+    _self call ["attackGroup",[_target]];
 };
 
 _msg = [_msg, " They are moving into position"]joinString"";
